@@ -1,6 +1,3 @@
-It looks like you have provided JavaScript code that defines properties and methods for a mobile bottom bar component. If you want to generate Markdown documentation for this code, you can follow a format similar to the one below:
-
-```markdown
 # Mobile Bottom Bar Component Documentation
 
 ## Overview
@@ -23,7 +20,6 @@ This JavaScript code defines a mobile bottom bar component with customizable act
   ```javascript
   $action_btm(element);
   ```
-
 ## Methods
 
 ### `onclose(caller)`
