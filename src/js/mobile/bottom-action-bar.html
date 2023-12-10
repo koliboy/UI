@@ -1,0 +1,51 @@
+<mobile  style="display:none" class="b"  from="bottom-bar">
+   
+     <div class="container">
+    <h1>Beautiful UI List</h1>
+    <ul>
+      <li><a href="#">Item 1</a></li>
+      <li><a href="#">Item 2</a></li>
+      <li><a href="#">Item 3</a></li>
+      <li><a href="#">Item 4</a></li>
+      <li><a href="#">Item 5</a></li>
+       <li><a href="#">Item 1</a></li>
+      <li><a href="#">Item 2</a></li>
+      <li><a href="#">Item 3</a></li>
+      <li><a href="#">Item 4</a></li>
+      <li><a href="#">Item 5</a></li>
+    </ul>
+  </div>
+       
+           
+    </mobile>
+
+    <script>
+
+ 
+ var mobile_action = $action_btm(ss(".b"))
+        
+
+         mobile_action.show()    
+               
+           ss('button').onclick = function(){   
+              
+                mobile_action.show()  
+            
+             
+                  
+           } 
+                
+          mobile_action.onclose(function(){
+                this.close(function(){
+                   /* or persent element display none*/
+                 this.style.display ="none"
+                });
+                
+               
+           
+                 
+          });
+          
+        
+    
+    </script>
