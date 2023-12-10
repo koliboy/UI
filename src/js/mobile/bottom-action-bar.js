@@ -76,11 +76,12 @@ setInterval(function () {
             e.setAttribute("setup-setup1", true);
             e.setAttribute("none-scroll", null)
             var Content_agent = e.innerHTML;
-            var setup_cnt = `<div mobile-view-none></div> <div mobile-view-none> <div mobile-hidden></div>
-                    <div  mobile-view-cnt none-scroll>
-                       ${Content_agent}
-                    </div></div> 
-                    `
+            var setup_cnt = `<div mobile-view-none mobile-hidden></div> 
+                  <div mobile-view-none last> 
+                 <div  mobile-view-cnt none-scroll>
+                      ${Content_agent}
+                   </div></div> 
+                   `
             e.innerHTML = setup_cnt;
             e.setAttribute("ui-setup", true);
         }
@@ -97,10 +98,11 @@ setInterval(function () {
                 Ponclose: {
                     value: function (caller) {
                         let self = this, ch_s = this.scrollTop
-                        let close_bar = this.querySelector("[mobile-hidden]");
+                        let close_bar = this.querySelector("[mobile-view-none][mobile-hidden]");
                         if (caller instanceof Function) {
                             close_bar.onclick = function (event) {
                                 caller.call(self, event)
+                                self.setAttribute("close-event", "click-hide")
                                 event.preventDefault();
 
                             };
@@ -108,7 +110,8 @@ setInterval(function () {
                             self.onscroll = function (event) {
                                 if (this.getAttribute('show-event-onshide') == "true") {
                                     var scrollUp = (this.scrollTop / (this.scrollHeight - this.clientHeight)) * 100;
-                                    if (scrollUp < 90) {
+                                    if (scrollUp < 50) {
+                                        self.setAttribute("close-event", null)
                                         caller.call(self, event)
 
                                     }
@@ -126,9 +129,8 @@ setInterval(function () {
                     value: function (caller) {
                         let cnt_el = this.querySelector("[mobile-view-cnt]");
                         var self = this;
-                        cnt_el.setAttribute("show-event", null);
+                        cnt_el.setAttribute("show-event", self.getAttribute("close-event"));
                         this.removeAttribute("show-event-onshide", null);
-
                         setTimeout(function () {
                             caller.call(self)
                         }, 290);
@@ -139,8 +141,10 @@ setInterval(function () {
                 Pshow: {
                     value: function () {
                         this.style.display = "block"
+
                         this.scrollTop = this.scrollHeight;
                         var self = this;
+
 
                         let cnt_el = this.querySelector("[mobile-view-cnt]");
                         cnt_el.setAttribute("show-event", true);
@@ -161,4 +165,4 @@ setInterval(function () {
 
     });
 
-})  
+})   
