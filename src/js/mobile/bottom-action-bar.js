@@ -1,5 +1,6 @@
 /*mobile-bottom-action-bar*/
 
+/*options max-height="60%",overflow=false*/
 
 /*public Properties*/
 
@@ -74,15 +75,24 @@ setInterval(function () {
     action_steup1.forEach(function (e) {
         if (e.getAttribute("setup-setup1") == null) {
             e.setAttribute("setup-setup1", true);
-            e.setAttribute("none-scroll", null)
+            e.setAttribute("none-scroll", null);
+
+
             var Content_agent = e.innerHTML;
             var setup_cnt = `<div mobile-view-none mobile-hidden></div> 
                   <div mobile-view-none last> 
-                 <div  mobile-view-cnt none-scroll>
+                 <div  mobile-view-cnt none-scroll overflow="${e.getAttribute("overflow")}"> 
                       ${Content_agent}
                    </div></div> 
                    `
             e.innerHTML = setup_cnt;
+
+            var optn_hight = e.getAttribute("max-height");
+
+            if (optn_hight && new String(optn_hight).includes("%")) {
+                e.querySelector('[mobile-view-none][last]').style.cssText += `max-height:${optn_hight}`
+
+            }
             e.setAttribute("ui-setup", true);
         }
     });
