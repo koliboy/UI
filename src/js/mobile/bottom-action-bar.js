@@ -7,7 +7,7 @@
 Object.defineProperties(this, {
     $action_btm: {
         value: function (element) {
-            var mbs = document.querySelectorAll('mobile[from="bottom-bar"]');
+            var mbs = document.querySelectorAll('mobile[form="bottom-bar"]');
             mbs.forEach(function (e) {
                 if (e.getAttribute("setup-properties-public") == null) {
                     Object.defineProperties(e, {
@@ -71,7 +71,7 @@ Object.defineProperties(this, {
 setInterval(function () {
 
     /*setup 1*/
-    var action_steup1 = document.querySelectorAll('mobile[from="bottom-bar"]');
+    var action_steup1 = document.querySelectorAll('mobile[form="bottom-bar"]');
     action_steup1.forEach(function (e) {
         if (e.getAttribute("setup-setup1") == null) {
             e.setAttribute("setup-setup1", true);
@@ -99,7 +99,7 @@ setInterval(function () {
 
     /*Setup 2*/
 
-    var action_steup2 = document.querySelectorAll('mobile[from="bottom-bar"][ui-setup="true"]');
+    var action_steup2 = document.querySelectorAll('mobile[form="bottom-bar"][ui-setup="true"]');
     /*Properties setup Privtes*/
     action_steup2.forEach(function (e) {
         if (e.getAttribute("setup-properties") == null) {
@@ -175,4 +175,4 @@ setInterval(function () {
 
     });
 
-})   
+})
