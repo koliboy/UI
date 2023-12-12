@@ -1,123 +1,213 @@
-It appears that you have implemented a mobile bottom bar component using the `$action_btm` function and have a button that triggers the display of this bottom bar. Below is a documentation template for your code:
+# mobile-action-bottom-bar
 
-```markdown
-# Mobile Bottom Bar Component Documentation
+It appears that you have implemented a mobile bottom bar component using the **$action_btm**{.w-right}  function and have a button that triggers the display of this bottom bar. Below is a documentation template for your code:
 
-## Overview
 
-This code implements a mobile bottom bar component that can be triggered by a button click. The bottom bar contains a list of items and can be closed by interacting with the close button or by clicking outside the bottom bar.
+<style markdown="1">
 
-## Usage
+       iframe.mobile {      
+           border-radius: 40px;     
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);   
+            border: 8px solid #000; 
+             height: 500px;  
+             width:250px ;
+             
+       } 
+       iframe.dekstop {      
+           border-radius: 5px;     
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);   
+            border: 4px solid #000; 
+             height: 300px; 
+             width:100%; 
+             border-bottom: 10px solid #000; 
+       }
+       
+    </style>
+    
+<div   markdown="1" style="margin-bottom:30px;display:flex; border:none; justify-content: center;">
+<iframe
+  class="mobile"  
+  src="https://docs.gilob.in/test/formui/index.html">
+</iframe>  
+</div>
 
-To use this mobile bottom bar component, follow these steps:
+**desktop view default**
 
-1. Include the required HTML structure in your document:
+<div   markdown="1" style="margin-bottom:30px;display:flex;flex-direction: column; border:none; justify-content: center;">
+<iframe  
+  class="dekstop"
+  src="https://docs.gilob.in/test/formui/desktop.html">
+</iframe>  
+
+</div>
+
+
+### formate
 
 ```html
-<button> <h3>Filter</h3></button>
-
-<mobile class="b" from="bottom-bar">
-  <div class="container">
-    <h1>Beautiful UI List</h1>
-    <ul>
-      <!-- List items go here -->
-    </ul>
-  </div>
-</mobile>
+<mobile  form="bottom-bar"> Content </mobile>
 ```
+**! Show the mobile component for screens <= 768px**{.w-right}  
+ 
+**Options**{.w-btn}
 
-2. Include the provided JavaScript code in your document:
+
+>overflow
+
+- **Type**: Boolean
+
+- **Default**: **true**
+
+Specifies whether overflow is allowed or not. If not explicitly set, the default value is **true**{.w-btn}.
+
+>max-height
+
+- **Type**: Percentage
+- **Default**: **50%**
+
+Specifies the maximum height for the mobile component, represented as a percentage. If not explicitly set, the default value is **50%**{.w-btn}.
+
 
 ```html
-<script>
-  var mobile_action = $action_btm(ss(".b"));
-
-  // Trigger the bottom bar on button click
-  ss('button').onclick = function() {
-    ss("menu").style.display = "block";
-    mobile_action.show();
-  };
-
-  // Close the bottom bar when onclose event is triggered
-  mobile_action.onclose(function() {
-    this.close(function() {
-      // Additional code to run on close
-      this.style.display = "none"; // or hide the element in another way
-    });
-  });
-</script>
+<mobile  form="bottom-bar" max-height="80%"> Content </mobile>
 ```
 
-## `$action_btm(element)`
 
-- **Type:** Function
-- **Description:** Initializes properties and methods for a mobile bottom bar element.
 
-### Methods
+### Example
 
-#### `show()`
+**html**
+```html
+<button>Filter</button>
 
-- **Description:** Displays the mobile bottom bar.
+<div class='filter' style="display:none">
 
-  #### Usage
+  <mobile from="bottom-bar">
+      <h1>Beautiful UI List</h1>
+      <ul>
+        <!-- List items go here -->
+      </ul>
+    
+  </mobile>
 
-  ```javascript
-  mobile_action.show();
-  ```
+</div>
+```
 
-#### `onclose(caller)`
-
-- **Description:** Sets up a callback function to be executed when the mobile bottom bar is closed.
-
-  #### Parameters
-
-  - `caller`: The callback function to be executed on close.
-
-  #### Usage
-
-  ```javascript
-  mobile_action.onclose(function() {
-    // Your code here
-  });
-  ```
-
-#### `close(caller)`
-
-- **Description:** Closes the mobile bottom bar and executes a callback function.
-
-  #### Parameters
-
-  - `caller`: The callback function to be executed on close.
-
-  #### Usage
-
-  ```javascript
-  mobile_action.close(function() {
-    // Your code here
-  });
-  ```
-
-## Example Usage
+**js**
 
 ```javascript
-// Create a mobile bottom bar element
-const mobileBottomBarElement = ss(".b");
 
-// Set up properties and methods
-$action_btm(mobileBottomBarElement);
+var elment = document.querySelector("mobile")
 
-// Trigger the bottom bar on button click
-ss('button').onclick = function() {
-  ss("menu").style.display = "block";
-  mobileBottomBarElement.show();
+var mobile_action = $action_btm(elment);
+
+//Trigger the bottom bar on button click
+
+document.querySelector('button').onclick = function () {
+  document.querySelector(".filter").style.display = "block";
+  mobile_action.show();
 };
 
 // Close the bottom bar when onclose event is triggered
-mobileBottomBarElement.onclose(function() {
-  this.close(function() {
+mobile_action.onclose(function () {
+  this.close(function () {
     // Additional code to run on close
-    this.style.display = "none"; // or hide the element in another way
+     document.querySelector(".filter").style.display = "none";
+    // or hide the element in another way
   });
+  
+  //or this.close()
 });
+
 ```
+
+class
+{.c-frmt}
+```php
+$action_btm(element)
+```
+
+
+- **Type:** Function
+- **Description:** Initializes properties and methods for a mobile bottom bar element.
+- **Return:**  Element. 
+
+### properties
+class
+{.c-frmt}
+```
+action_btm.show
+action_btm.onclose
+action_btm.close
+```
+
+
+### show
+class
+{.c-frmt}
+```php
+show() 
+```
+
+- **Description:** Displays the mobile bottom bar.
+- **Return:** null.
+
+```javascript
+  mobile_action.show()
+```
+
+
+### onclose
+class
+{.c-frmt}
+
+```
+onclose(caller)
+```
+
+- **Description:** Sets up a callback function to be executed when the mobile bottom bar is closed.
+- **Return:** null.
+
+  **Parameters** 
+
+  - **caller**: The callback function to be executed on close.
+
+ 
+```javascript
+  mobile_action.onclose(function() {
+    // Your code here
+  });
+```
+
+### close
+
+class
+{.c-frmt}
+```
+close(caller=optional)
+```
+
+
+- **Description:** Closes the mobile bottom bar and executes a callback function.
+- **Return:** null.
+- 
+  **Parameters**
+
+- **caller**: The callback function to be executed on close.
+
+ 
+
+```javascript
+  mobile_action.close(function() {
+    // Your code here
+  });
+  
+  //or 
+   mobile_action.close()
+```
+
+
+
 
