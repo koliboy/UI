@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <title>smaple</title>  <!-- defulat  scropts-->
+<script src="https://data.js.gilob.in/console.js"></script>
+<script src="https://data.js.gilob.in/ssall.js"></script>        
+        <script src="https://data.js.gilob.in/http3.js"></script>     
+        <script src="https://data.js.gilob.in/theme.js"></script>  
+        <script src="https://data.js.gilob.in/userAgent.js"></script>          
+                
+            
+ <style>
+      .test {
+          height:100%; background:rgba(247, 247, 247, 1);
+           padding:30px;
+      }
+ </style>       
+ <!--mobile viewBox-->   
+ <style>
+
+ @media (max-width: 768px){
+     [mobile-view-box] {
+         position: fixed !important; top:0 !important; bottom: 0 !important; right: 0 !important; left: 0;
+         background: none;
+     }
+     [mobile-view-none]{
+          position: fixed !important; top:0; bottom: 0; right: 0; left: 0;
+           background: rgba(0, 0, 0, 0.20);
+     }
+     
+     [mobile-view-cnt]{
+          position: fixed !important;  bottom: 0; right: 0; left: 0;
+          background: white; padding-top: 15px !important; padding-left: 0 !important;
+          padding-right: 0 !important;
+          padding-bottom: 15px !important;
+          display: block;
+         min-height: 20%; max-height: 70% !important; overflow-y:auto;
+          
+     }
+     
+     [mobile-view-border]{
+          border-top:solid 1px black;
+          border-radius: 7px;
+     }
+     
+     
+}
+     
+ </style> 
+ <!--UIweb-->
+ <style>
+      
+     
+      
+      [form] [scroll-br] {
+    scrollbar-width: thin;
+}  
+
+@media (min-width: 768px){
+   
+   
+ [form] [scroll-br]::-webkit-scrollbar {
+  width: 8px; 
+}
+[form] [scroll-br]::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+[form] [scroll-br]::-webkit-scrollbar-thumb:active {
+  background: #777; 
+}
+
+ [form] [scroll-br]::-webkit-scrollbar-thumb {
+  background: rgba(209, 209, 209, 0.94); 
+  border-radius: 6px; 
+}
+
+}
+
+[none-scroll] {
+      scrollbar-width: none;
+ }
+  
+ [none-scroll]::-webkit-scrollbar {
+  width: 0px;
+  display: none; 
+   background-color:none;
+}
+ [none-scroll]::-webkit-scrollbar-thumb{
+     background: rgba(0, 0, 0, 0);
+ } 
+ 
+
+@keyframes form-input-right-checking {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    
+
+      [form]{
+       
+        background: none;
+       /* min-height: 40px; */
+       
+         --brand-color:rgba(88, 0, 240, 1);
+         --brand-second-color:black;
+        
+         --border-color:rgba(133, 133, 133, 0.30);
+         --border-color-active:var(--brand-second-color); /* you can chnage forced */
+         --border-width:1px;
+         --border-style:solid;
+         --border-radius:5px;
+         --font-size:18px;
+         --min-height:40px;
+        
+         
+         
+         --color:hsla(0, 0%, 24%, 1);
+         --color-active:white;
+         --background-color:white;
+         --disabled-bacground:rgba(250, 250, 250, 0.08);
+          --disabled-opacity:0.50;
+         --left-background:rgba(240, 240, 240, 0.50);
+         --placeholder-color:hsla(0, 0%, 24%, 1);
+         --ul-hover:rgba(148, 148, 148, 0.10); 
+         
+         --right-icon-fill:rgba(133, 133, 133, 0.70);
+         
+         --checkmark-fill:black;
+         --checking-fill:black;
+         --redio-height:20px;
+         --icon-size:calc(var(--font-size) + 5px);   /* you can chnage forced */
+         --transition-time: 200ms;
+         
+        
+         
+          
+      }
+      
+      
+      
+      [form] input {
+          border:none;
+      }
+      
+      [form-font-size] {
+          font-size: var(--font-size);
+      }
+      
+      
+      [form-input-color]{
+            color:var(--color);
+     }
+        
+      [form] {
+          display: grid;    
+        }
+      
+      [form] [form-label]{
+        font-size: 19px;
+          width: 95%;
+           margin-bottom: 15px;
+         white-space: normal;   word-break: break-all;
+        }
+        
+        
+        
+        [form-user-select] {
+            user-select: none; /*selction not allowd*/
+        }
+        [form-cursor] {
+            cursor: pointer;
+        }
+        [form-cursor-not-allowed] {
+           cursor: not-allowed;
+        }
+        
+      
+      [area=input] label {
+            margin-bottom:13px;
+        }  
+      
+      [form] [padding]{
+           padding:5px 10px 5px 10px;
+      }
+        
+      
+      
+      
+     
+      /*[form] [hover]:hover{ 
+          background:  black; color:white; 
+      }*/
+     
+      [form-input-right-icon]{
+             height:var(--icon-size); width:var(--icon-size);   fill:var(--right-icon-fill); 
+           position: absolute;
+           padding:0;
+            right: 10px;
+            border-radius: var(--border-radius);
+            background: var(--background-color);
+           
+         }
+         
+      [form-input-left-icon]{
+            display: flex;
+             position: absolute;
+              padding-left:10px;
+               padding-right:10px;
+          height:var(--icon-size); width:var(--icon-size);   
+          fill:rgba(133, 133, 133, 0.70);
+            
+            
+             
+         }
+       
+      [form-input-placeholder]::placeholder {
+           color:var(--placeholder-color);
+           opacity: 0.5;
+      }  
+      
+     [form-text-width] {
+           position: relative !important;
+           padding-right: 10px;
+           width: 100% !important;
+           margin-right:50px;
+            box-sizing: content-box;
+           }
+           
+    
+    
+    [form-input-left-text] {
+             /*  padding-left:10px !important;*/
+              width: auto;
+             /* padding-right: 10px !important;*/
+             height: 100%;
+             display: grid;
+            align-items: center !important; 
+             /*border-right: solid 1px;*/
+              width: 100%;
+             justify-content: center;
+             word-break: break-all !important;
+           color:hsla(0, 0%, 24%, 0.90);
+           box-sizing: border-box;
+          
+             
+         }
+    
+      
+      [form-border] {
+          border:var(--border-style) var(--border-width) var(--border-color);
+          border-radius:var(--border-radius);
+      }
+      
+     
+      [form-border-left-text] {
+          border-right:var(--border-style) var(--border-width) var(--border-color);
+          
+      }
+      
+      [form-border]:hover {
+          border-color:var(--border-color-active);
+      }
+       
+      
+    
+      
+      
+      div[form=input] [form-input-right-icon] {
+           display: none;
+        }
+        
+      
+      
+        
+        
+</style>  
+ 
+<style>
+      div[form=select] { 
+           width: auto;  display: grid; 
+          padding:0; 
+          min-height: var(--min-height);
+          background-color:var(--background-color);
+          
+      }
+        
+       div[form=select] [input] {
+           display: flex; 
+          /* justify-content: center;*/
+           align-items: center;
+            position: relative;
+            box-sizing: border-box;
+            background: none;
+            
+       }
+      
+      div[form=select] [options] {
+        width:auto; display: grid; 
+          margin-top:10px;box-shadow: 1px 10px 10px 5px rgba(0, 0, 0, 0.1);
+          max-height: 200px; overflow-x:auto;
+         display: none;
+      }
+       div[form=select] [options][active] {
+           display: grid;
+       }
+       div[form=select] [options] [select-ul] {
+           display: flex;
+           position: relative;align-items: center;
+           padding-top:6px; padding-bottom:6px; margin-top:5px;  margin-bottom:5px;
+           transition: background 50ms ease-in;
+          
+       }
+        
+        div[form=select] [options] [select-ul][selected] {
+           
+            fill:white
+       }
+       [select-selected-ul]{
+            background: black; fill:white; color:white;
+       }
+       
+        div[form=select] [options] [select-ul][selected] [form-input-right-icon]{
+            display: block; background: none;
+        }
+        
+      
+        div[form=select] [options] [select-ul] svg {
+             fill:white
+        }
+         @media (max-width: 768px){
+            
+            div[form=select] [options] [select-ul] {
+                 margin-bottom:15px;
+            }
+        
+        
+         }
+  </style> 
+  
+ <style>
+  div[form=input] {
+     display: flex;
+     height: auto;
+     /*justify-content: center;*/
+     align-items: center;
+     position: relative;
+     min-height: var(--min-height);
+     background-color: var(--background-color);
+
+ }
+
+ div[form=input] input {
+     outline: none;
+     /*border-radius: 5px;*/
+     height: 90%;
+     padding-left: 10px;
+     background: none;
+
+ }
+ div[form=input]  textarea { 
+     outline: none;
+     /*border-radius: 5px;*/
+    /* height: 90%;*/
+     padding-left: 10px;
+     background: none;
+     border:none;
+
+ }
+
+ [form] [erro-text-hide] {
+     display: none;
+ }
+
+ [form] [form-input-error-text] {
+     color: rgba(219, 0, 0, 1);
+     display: block;
+     font-size: calc(var(--font-size) + 5px);
+ }
+
+
+ div[form=input][formtype=left-icon] input {
+     margin-left: 40px;
+
+ }
+
+ div[form=input][formtype=left-text] [form-input-left-text] {
+     background: var(--left-background);
+    
+
+ }
+
+
+ div[form=input][form-input-error] {
+     border: solid var(--border-width) rgba(250, 0, 0, 0.39);
+
+ }
+
+ div[form=input][form-input-error] input {
+     color: red;
+ }
+
+ div[form=input][form-input-error]:hover {
+     border-color: red;
+ }
+
+
+
+
+
+ div[form=input] [form-input-right-checkmark] {
+     display: none;
+     fill: var(--checkmark-fill);
+ }
+
+ div[form=input] [form-input-right-checking] {
+     fill: var(--checking-fill);
+     animation: form-input-right-checking 2s linear infinite;
+     display: none;
+     
+ }
+
+ div[form=input][form-input-checking] [form-input-right-checking] {
+     display: flex;
+
+ }
+
+ div[form=input][checkmark=true] [form-input-right-checkmark] {
+     /*User defult Conf optional*/
+     /*<div form="input" checkmark="true"  defult set*/
+     display: block;
+
+ }
+
+
+ div[form=input][form-input-error] [form-input-right-error] {
+     display: block;
+     fill: red;
+ }
+
+ div[form=input] input:disabled  {
+     cursor: not-allowed;
+    
+ }
+
+ div[form=input][form-input-disabled]  {
+     cursor: not-allowed; 
+     background: var(--disabled-bacground);
+     opacity: var(--disabled-opacity);
+ }
+ div[form=input][form-input-disabled]:hover {
+     border-color:var(--border-color);
+ }
+ div[form=input][type="password"][visibleType="icon"] [pass-icons] {
+     background:red;  width: auto !important;
+     position: absolute;
+      right: 0;
+      display: flex;align-items: center;
+    
+ }
+ 
+ div[form=input][type="password"][visibleType="icon"] [pass-icon]:first-child{
+     display: block;
+     
+   
+}
+
+ div[form=input]  input[type="date"] {
+     margin-right: 2px;
+ }
+
+
+ div[form=input]  textarea {
+     margin-right: 0;
+ }
+ 
+[form=redio][type="radio"] {
+     appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: var(--redio-height);
+  height:var(--redio-height);
+  border:solid var(--border-width) var(--border-color);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;  
+  background: var(--background-color);
+  transition: var(--transition-time) ease-in-out;
+  
+    
+ }
+
+[form=redio][type="radio"]:disabled{
+   background: var(--disabled-bacground);
+     opacity: var(--disabled-opacity);
+     cursor: not-allowed; 
+}
+
+
+ 
+[form=redio][type="radio"]:checked {
+    border: 6px solid  var(--brand-color);
+
+}
+
+@media (max-width: 768px){
+    div[form=input]  input[type="date"] {
+     margin-right: 10px;
+ } 
+} 
+
+
+
+
+   </style>
+ 
+   </head>
+    <body>
+
+<div class="test">
+  
+    
+    
+    <div  form style="margin-top:30px">
+       <label form-label>Select</label>
+    <div form="select"  form-border   form-font-size form-input-color value="">
+       <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
+     <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
+</svg>
+</div>
+ 
+    <!--options-->
+       <div options scroll-br> 
+       
+        <mobile mobile-view-box><div mobile-view-none></div><div  mobile-view-cnt mobile-view-border>
+       
+               <div select-ul select-selected-ul select-selected-ul-mb padding hover form-font-size form-cursor value="dog" selected>
+               <text form-text-width>Comments</text><svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>
+               </div>
+             <div  select-ul form-cursor form-font-size padding hover value="dog">
+               <text form-text-width>Dogshhhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhr</text>
+               </div>
+               
+               
+           
+      </div></mobile>
+      
+       
+       </div> <!--options-->
+    </div>
+     </div> 
+     
+  
+ <div style="margin-top:30px;display:grid;border:solid 1px rgba(133, 133, 133, 0.30);padding:10px">
+         <h3> radio</h3>
+        <div style="margin:4px;display:flex; align-items:center;column-gap:7px;flex-wrap: wrap;">
+             <h4>sample</h4>  <input form="redio" type="radio" id="radio1" name="radioGroup">
+             <h4>sample2</h4>  <input form="redio" type="radio" id="radio1" name="radioGroup">
+            <h4>disabled</h4>  <input disabled form="redio" type="radio" vlaue="a" id="radio1" name="radioGroup">
+            
+        </div>
+        
+ </div>
+    
+    
+    
+     
+      <!--simple input-->
+    <div  form  style="margin-top:30px">
+       <label form-label>Samiple Input</label>
+       
+        <div form="input"  form-border      form-font-size> 
+       <input  form-text-width form-font-size form-input-placeholder  form-input-color placeholder="hello world">
+      
+      
+       <svg form-input-right-icon  form-input-right-error xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+        
+    </div>
+    
+      <!--disabled--> <!--attribute form-input-disabled-->
+      
+    <div  form  style="margin-top:30px">
+       <label form-label>Input with disabled state</label>
+       
+        <div form="input" checkmark="true" form-input-disabled  form-border     form-font-size> 
+       <input  disabled form-text-width form-font-size form-input-placeholder  form-input-color placeholder="hello world" value=" input disabled">
+       <svg form-input-right-icon  form-input-right-error xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+    </div>
+    
+        <!--with left text-->
+    <div form  style="margin-top:30px"> 
+       <label form-label>Input with add-on</label>
+       
+        <div form="input"  form-border   formtype="left-text"   form-font-size>
+            <text form-border-left-text padding form-font-size form-input-color form-input-left-text form-border-color> koli httpsfffffffdfdgrgrgrgrg://</text>
+       <input    form-text-width form-font-size  form-input-placeholder form-input-color form-placeholder placeholder="addsite">
+       <svg form-input-right-icon  form-input-right-error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg>
+       <svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+       
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+    </div>
+    
+   
+    <!--checkmark-->
+    <div  form  style="margin-top:30px">
+       <label form-label>Input with validation Checkmark</label>
+       
+        <div form="input" checkmark="true"  form-border   formtype="left-text"   form-font-size>
+            <text  form-border-left-text form-font-size form-input-color form-input-left-text form-border-color>4+4</text>
+       <input  form-text-width form-font-size  form-input-placeholder form-input-color form-placeholder placeholder="addsite" value="8">
+       <svg form-input-right-icon form-input-right-error   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg>
+       <svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+
+       </div>
+       
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+    </div>
+    
+    
+    
+    <!--checkmark cheking-->  <!--Attr:form-input-checking-->
+     
+    <div  form  style="margin-top:30px">
+       <label form-label>Pikup Username</label>
+       
+        <div form="input" form-input-checking  form-border     form-font-size> 
+       <input form-text-width form-font-size form-input-placeholder  form-input-color placeholder="username" value="deno">
+       <svg form-input-right-icon  form-input-right-error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+    </div>
+    
+    
+    
+   
+    
+    
+     <!--with left icon-->
+    <div  form  style="margin-top:30px">
+       <label form-label>Input with leading icon</label>
+       
+        <div form="input" form-border   formtype="left-icon"   form-font-size>
+             <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96">
+  <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2 z M 12 4C16.418 4 20 7.582 20 12C20 13.597292 19.525404 15.081108 18.71875 16.330078L17.949219 15.734375C16.397219 14.537375 13.537 14 12 14C10.463 14 7.6017813 14.537375 6.0507812 15.734375L5.28125 16.332031C4.4740429 15.082774 4 13.597888 4 12C4 7.582 7.582 4 12 4 z M 12 5.75C10.208 5.75 8.75 7.208 8.75 9C8.75 10.792 10.208 12.25 12 12.25C13.792 12.25 15.25 10.792 15.25 9C15.25 7.208 13.792 5.75 12 5.75 z M 12 7.75C12.689 7.75 13.25 8.311 13.25 9C13.25 9.689 12.689 10.25 12 10.25C11.311 10.25 10.75 9.689 10.75 9C10.75 8.311 11.311 7.75 12 7.75 z M 16.001953 10.001953C16.001953 10.001953 15.924953 11.420047 16.751953 12.248047C17.579953 13.075047 18.998047 12.998047 18.998047 12.998047C18.998047 12.998047 19.078 11.578 18.25 10.75C17.422 9.923 16.001953 10.001953 16.001953 10.001953 z M 12 16C15.100714 16 16.768095 17.168477 17.548828 17.753906C16.109984 19.141834 14.156852 20 12 20C9.843148 20 7.8900164 19.141834 6.4511719 17.753906C7.231905 17.168477 8.899286 16 12 16 z M 6.0546875 17.339844C6.1756559 17.473131 6.297271 17.605851 6.4257812 17.730469C6.2971141 17.605286 6.1747276 17.473381 6.0546875 17.339844 z M 17.912109 17.375C17.802435 17.495543 17.692936 17.616825 17.576172 17.730469C17.692621 17.617521 17.801457 17.494978 17.912109 17.375 z"/>
+</svg>
+       <input form-text-width form-font-size form-input-placeholder  form-input-color placeholder="Username">
+       <svg form-input-right-icon form-input-right-error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+    </div>
+    
+    
+    
+       <!--Password whti icon-->
+    <div  form  style="margin-top:30px">
+       <label form-label>Password hide or show</label>
+       
+        <div form="input" type="password"  visibleType="icon" form-border      form-font-size> 
+       <input type="password"  form-text-width form-font-size form-input-placeholder  form-input-color placeholder="Password">
+       <div pass-icons>
+           <svg form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 4C4 4 1 12 1 12C1 12 4 20 12 20C20 20 23 12 23 12C23 12 20 4 12 4 z M 12 6C17.276 6 19.944594 10.267094 20.808594 11.996094C19.943594 13.713094 17.255 18 12 18C6.724 18 4.0554062 13.732906 3.1914062 12.003906C4.0574062 10.286906 6.745 6 12 6 z M 12 8C9.791 8 8 9.791 8 12C8 14.209 9.791 16 12 16C14.209 16 16 14.209 16 12C16 9.791 14.209 8 12 8 z M 12 10C13.105 10 14 10.895 14 12C14 13.105 13.105 14 12 14C10.895 14 10 13.105 10 12C10 10.895 10.895 10 12 10 z"/>
+</svg>
+       <svg  form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M4.2070312 2.7929688L2.7929688 4.2070312L5.0820312 6.4960938C2.4151866 8.6404109 1.1608367 11.416191 1.0800781 11.605469L0.91210938 12L1.0800781 12.394531C1.2130781 12.705531 4.428 20 12 20C14.066349 20 15.797205 19.449537 17.238281 18.652344L19.792969 21.207031L21.207031 19.792969L4.2070312 2.7929688 z M 12 4C10.789 4 9.7000313 4.200625 8.7070312 4.515625L10.353516 6.1621094C10.874516 6.0631094 11.419 6 12 6C17.396 6 20.167625 10.588094 20.890625 11.996094C20.596625 12.559094 19.952359 13.651953 18.943359 14.751953L20.369141 16.177734C22.049141 14.359734 22.854922 12.545531 22.919922 12.394531L23.087891 12L22.919922 11.605469C22.786922 11.294469 19.572 4 12 4 z M 6.5117188 7.9257812L8.5625 9.9765625C8.2079471 10.569059 8 11.258899 8 12C8 14.206 9.794 16 12 16C12.741101 16 13.430941 15.792053 14.023438 15.4375L15.748047 17.162109C14.674347 17.671227 13.428307 18 12 18C6.604 18 3.832375 13.411906 3.109375 12.003906C3.5249986 11.207948 4.6402378 9.3628241 6.5117188 7.9257812 z M 12.212891 8.0214844L15.978516 11.787109C15.869516 9.7541094 14.245891 8.1304844 12.212891 8.0214844 z M 10.074219 11.488281L12.511719 13.925781C12.347951 13.969804 12.177911 14 12 14C10.897 14 10 13.103 10 12C10 11.822089 10.030196 11.652049 10.074219 11.488281 z"/>
+</svg>
+       </div>
+      
+       <svg form-input-right-icon  form-input-right-error xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+        
+    </div>
+     <!--Password not icon-->
+     <div  form  style="margin-top:30px">
+       <label form-label>Password Whiout hide and show</label>
+       
+        <div form="input" type="password"   form-border      form-font-size> 
+       <input type="password"  form-text-width form-font-size form-input-placeholder  form-input-color placeholder="Password">
+       <div pass-icons>
+           <svg form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 4C4 4 1 12 1 12C1 12 4 20 12 20C20 20 23 12 23 12C23 12 20 4 12 4 z M 12 6C17.276 6 19.944594 10.267094 20.808594 11.996094C19.943594 13.713094 17.255 18 12 18C6.724 18 4.0554062 13.732906 3.1914062 12.003906C4.0574062 10.286906 6.745 6 12 6 z M 12 8C9.791 8 8 9.791 8 12C8 14.209 9.791 16 12 16C14.209 16 16 14.209 16 12C16 9.791 14.209 8 12 8 z M 12 10C13.105 10 14 10.895 14 12C14 13.105 13.105 14 12 14C10.895 14 10 13.105 10 12C10 10.895 10.895 10 12 10 z"/>
+</svg>
+       <svg  form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M4.2070312 2.7929688L2.7929688 4.2070312L5.0820312 6.4960938C2.4151866 8.6404109 1.1608367 11.416191 1.0800781 11.605469L0.91210938 12L1.0800781 12.394531C1.2130781 12.705531 4.428 20 12 20C14.066349 20 15.797205 19.449537 17.238281 18.652344L19.792969 21.207031L21.207031 19.792969L4.2070312 2.7929688 z M 12 4C10.789 4 9.7000313 4.200625 8.7070312 4.515625L10.353516 6.1621094C10.874516 6.0631094 11.419 6 12 6C17.396 6 20.167625 10.588094 20.890625 11.996094C20.596625 12.559094 19.952359 13.651953 18.943359 14.751953L20.369141 16.177734C22.049141 14.359734 22.854922 12.545531 22.919922 12.394531L23.087891 12L22.919922 11.605469C22.786922 11.294469 19.572 4 12 4 z M 6.5117188 7.9257812L8.5625 9.9765625C8.2079471 10.569059 8 11.258899 8 12C8 14.206 9.794 16 12 16C12.741101 16 13.430941 15.792053 14.023438 15.4375L15.748047 17.162109C14.674347 17.671227 13.428307 18 12 18C6.604 18 3.832375 13.411906 3.109375 12.003906C3.5249986 11.207948 4.6402378 9.3628241 6.5117188 7.9257812 z M 12.212891 8.0214844L15.978516 11.787109C15.869516 9.7541094 14.245891 8.1304844 12.212891 8.0214844 z M 10.074219 11.488281L12.511719 13.925781C12.347951 13.969804 12.177911 14 12 14C10.897 14 10 13.103 10 12C10 11.822089 10.030196 11.652049 10.074219 11.488281 z"/>
+</svg>
+       </div>
+      
+       <svg form-input-right-icon  form-input-right-error xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text  erro-text-hide  form-text-width padding form-font-size-error>
+            ge somting error
+        </text>
+        
+    </div>
+    
+    
+    <!--erro show input-->
+    
+    <div  form  style="margin-top:30px">
+       <label form-label>Input with validation error = form-input-error</label>
+       
+        <div form="input"  form-border  form-input-error   form-font-size> 
+       <input form-text-width form-font-size form-input-placeholder form-input-color value="fefewffe">
+       <svg form-input-right-icon  form-input-right-error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
+</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
+</svg>
+<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
+</svg>
+       </div>
+        <text form-text-width padding form-font-size-error form-input-error-text>
+            ge somting error
+        </text>
+    </div>  
+ 
+  <!--simple textarea-->
+    <div  form  style="margin-top:30px">
+       <label form-label>Samiple textarea</label>
+       
+        <div form="input"  form-border      form-font-size> 
+         <textarea scroll-br form-text-width form-font-size   form-input-color></textarea>
+       </div>
+        
+        
+    </div>
+ 
+ 
+ 
+ 
+  
+</div>
+
+         
+       
+
+
+
+<script>
+
+/*select*/
+ 
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
