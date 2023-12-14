@@ -274,14 +274,12 @@
           display: none; 
         }
       
-      div[form=select][open]{
-          
-        
-      }
+     
       div[form=select][open] [contents]{ 
           display: block;
           
      } 
+      
        
       div[form=select][open] [input] [form-input-right-icon]{
           transform: rotate(180deg);
@@ -321,8 +319,13 @@
             position: relative;
             box-sizing: border-box;
             background: none;
+           
             
        }
+       
+       div[form=select][selectType="left-icon"]  [input] [form-text-width] {
+          margin-left:calc(var(--icon-size) + calc(var(--icon-size) * 0.90));
+      }
         
       
        div[form=select]  [select-ul-search] {
@@ -344,7 +347,7 @@
           background:none;
           color:var(--placeholder-color);
           opacity: 0.50;
-           margin-left: 25px;
+           margin-left: var(--icon-size);
            font-size: calc(var(--font-size) * 0.90 );
        }
        
@@ -440,10 +443,10 @@
                div[form=select] [contents]{
                    position:absolute; height: auto; width:100% ;
           top:calc(var(--font-size) + 25px); background-color:var(--background-color);
-          box-shadow: 1px 10px 10px 5px var(--box-shadow-color);
+          box-shadow: 0 0 5px 6px var(--box-shadow-color); 
           border:var(--border-style) var(--border-width) var(--border-color);
           border-radius:var(--border-radius); 
-          z-index: 1;
+          z-index: 1000;
                }
                
            }
@@ -643,7 +646,12 @@
     <div  form style="margin-top:30px">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
     <div  form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
-       <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
+       
+       <div input form-cursor  form-font-size> 
+       <svg  opacity="0.30"  defult form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" />
+</svg>
+       <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
 </svg>
@@ -705,9 +713,9 @@
      </div> 
    
     
-     <div  form style="margin-top:100px;">
+     <div  form style="margin-top:100px;display:noned">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
+    <div form="select"  ui-setup="true" search="true"   form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
@@ -715,7 +723,7 @@
 </div>
 
 <div contents>
- <mobile c max-height="90%" form="bottom-bar" >
+ <mobile  max-height="90%" form="bottom-bar" >
                
         <div select-ul-search>
             <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -732,94 +740,21 @@
        
                
                <div select-ul    form-font-size form-cursor value="dog" selected>
-                <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M9.6660156 2L9.1757812 4.5234375C8.3516137 4.8342536 7.5947862 5.2699307 6.9316406 5.8144531L4.5078125 4.9785156L2.171875 9.0214844L4.1132812 10.708984C4.0386488 11.16721 4 11.591845 4 12C4 12.408768 4.0398071 12.832626 4.1132812 13.291016L4.1132812 13.292969L2.171875 14.980469L4.5078125 19.021484L6.9296875 18.1875C7.5928951 18.732319 8.3514346 19.165567 9.1757812 19.476562L9.6660156 22L14.333984 22L14.824219 19.476562C15.648925 19.165543 16.404903 18.73057 17.068359 18.185547L19.492188 19.021484L21.826172 14.980469L19.886719 13.291016C19.961351 12.83279 20 12.408155 20 12C20 11.592457 19.96113 11.168374 19.886719 10.710938L19.886719 10.708984L21.828125 9.0195312L19.492188 4.9785156L17.070312 5.8125C16.407106 5.2676813 15.648565 4.8344327 14.824219 4.5234375L14.333984 2L9.6660156 2 z M 11.314453 4L12.685547 4L13.074219 6L14.117188 6.3945312C14.745852 6.63147 15.310672 6.9567546 15.800781 7.359375L16.664062 8.0664062L18.585938 7.40625L19.271484 8.5917969L17.736328 9.9277344L17.912109 11.027344L17.912109 11.029297C17.973258 11.404235 18 11.718768 18 12C18 12.281232 17.973259 12.595718 17.912109 12.970703L17.734375 14.070312L19.269531 15.40625L18.583984 16.59375L16.664062 15.931641L15.798828 16.640625C15.308719 17.043245 14.745852 17.36853 14.117188 17.605469L14.115234 17.605469L13.072266 18L12.683594 20L11.314453 20L10.925781 18L9.8828125 17.605469C9.2541467 17.36853 8.6893282 17.043245 8.1992188 16.640625L7.3359375 15.933594L5.4140625 16.59375L4.7285156 15.408203L6.265625 14.070312L6.0878906 12.974609L6.0878906 12.972656C6.0276183 12.596088 6 12.280673 6 12C6 11.718768 6.026742 11.404282 6.0878906 11.029297L6.265625 9.9296875L4.7285156 8.59375L5.4140625 7.40625L7.3359375 8.0683594L8.1992188 7.359375C8.6893282 6.9567546 9.2541467 6.6314701 9.8828125 6.3945312L10.925781 6L11.314453 4 z M 12 8C9.8034768 8 8 9.8034768 8 12C8 14.196523 9.8034768 16 12 16C14.196523 16 16 14.196523 16 12C16 9.8034768 14.196523 8 12 8 z M 12 10C13.111477 10 14 10.888523 14 12C14 13.111477 13.111477 14 12 14C10.888523 14 10 13.111477 10 12C10 10.888523 10.888523 10 12 10 z" />
-              </svg>
+                
                <text form-text-width>Commentsyhtythhthththrthrhrthrthrthrthrhrthrthrthrt</text>
                <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
 </svg>
                </div>
               <div select-ul form-font-size  disabled  value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
+                 
                <text form-text-width>disabled</text>
                
 <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
 </svg>
                </div>
-               <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-                <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-                <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-                <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-                <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-               <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-               <div select-ul form-font-size    value="dog">
-                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
+              
               
        </div> <!--options-->
        </mobile>
