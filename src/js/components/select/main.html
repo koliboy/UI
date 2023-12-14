@@ -13,7 +13,7 @@
             
  <style> 
       .test {
-          height:100%; background:rgba(247, 247, 247, 1);
+          height:100vh; background:rgba(247, 247, 247, 1);
            padding:30px;
       }
  </style>       
@@ -87,6 +87,7 @@
          --border-width:1px;
          --border-style:solid;
          --border-radius:5px;
+         --box-shadow-color:rgba(0, 0, 0, 0.1);
          --font-size:18px;
          --min-height:40px;
         
@@ -94,17 +95,18 @@
          
          --color:hsla(0, 0%, 24%, 1);
          --color-active:white;
+         --checkmark-fill:black;
+         --checking-fill:black;
          --background-color:white;
          --disabled-bacground:rgba(250, 250, 250, 0.08);
-          --disabled-opacity:0.50;
+         --disabled-opacity:0.50;
          --left-background:rgba(240, 240, 240, 0.50);
          --placeholder-color:hsla(0, 0%, 24%, 1);
          --ul-hover:rgba(148, 148, 148, 0.10); 
          
          --right-icon-fill:rgba(133, 133, 133, 0.70);
          
-         --checkmark-fill:black;
-         --checking-fill:black;
+         
          --redio-height:20px;
          --icon-size:calc(var(--font-size) + 5px);   /* you can chnage forced */
          --transition-time: 200ms;
@@ -260,21 +262,21 @@
           min-height: var(--min-height);
           background-color:var(--background-color);
            position: relative;
-          
            user-select: none; 
          
       }
       
       div[form=select][focus] {
           border-color:var(--border-color-active);
-      }
+      } 
+      
       div[form=select] [contents]{
           display: none; 
         }
       
       div[form=select][open]{
           
-        box-shadow: 1px 10px 10px 5px rgba(0, 0, 0, 0.1);
+        
       }
       div[form=select][open] [contents]{ 
           display: block;
@@ -321,6 +323,7 @@
             background: none;
             
        }
+        
       
        div[form=select]  [select-ul-search] {
            min-height: var(--min-height);
@@ -331,7 +334,7 @@
           height: auto !important;
            align-items: center;
             box-sizing: content-box;
-            border-bottom: var(--border-style) var(--border-width) var(--border-color-active);
+            border-bottom: var(--border-style) var(--border-width) var(--border-color);
             
       }
        div[form=select] [select-ul-search] input {
@@ -411,7 +414,7 @@
       div[form=select] [multiple-remain] [remain]{
             opacity: 0.60;
       }
-       
+        
          @media (max-width: 768px){
             
             div[form=select] [options]  {
@@ -431,8 +434,21 @@
         
         
          }
-         
-       
+          /*dekstop*/
+           @media (min-width: 768px){
+               
+               div[form=select] [contents]{
+                   position:absolute; height: auto; width:100% ;
+          top:calc(var(--font-size) + 25px); background-color:var(--background-color);
+          box-shadow: 1px 10px 10px 5px var(--box-shadow-color);
+          border:var(--border-style) var(--border-width) var(--border-color);
+          border-radius:var(--border-radius); 
+          z-index: 1;
+               }
+               
+           }
+          
+               
      
   </style> 
   
@@ -626,7 +642,7 @@
 <div class="test">
     <div  form style="margin-top:30px">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
+    <div  form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
@@ -687,8 +703,9 @@
     </div>
     
      </div> 
+   
     
-     <div  form style="margin-top:30px">
+     <div  form style="margin-top:100px;">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
     <div form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
@@ -743,6 +760,66 @@
   <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
 </svg>
                </div>
+                <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
+                <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
+                <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
+                <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
+               <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
+               <div select-ul form-font-size    value="dog">
+                 <svg  form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>    
+               <text form-text-width>India</text>
+               
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
+</svg>
+               </div>
               
        </div> <!--options-->
        </mobile>
@@ -765,38 +842,53 @@
 var selectOpen =function(self){
       self.setAttribute("focus",true);
       self.setAttribute("open",true);
+      var topDefult = self.querySelector("[input]").getBoundingClientRect().height
+       self.querySelector("[contents]").style.top =`${topDefult+3}px`
       
 }
 
 var selectClose =function(self){
       self.removeAttribute("focus");
-      self.removeAttribute("open");
+      self.removeAttribute("open"); 
       var mobile_view = $action_btm(self.querySelector("mobile"));
       mobile_view.close(); //agin close up when click to close desktop
+     
 }
  
 select_steup2.forEach(function(e){
      
+     /*opend*/
      e.querySelector("[input]").onclick = function (event) {
   var self = this.parentElement;
-  if (!self.getAttribute("disabled")) {
-
+  
+       
+  if (!self.getAttribute("disabled")) {   
+   
     if (self.getAttribute("open")) { /*is aredy opend*/
-         selectClose(self);
+         selectClose(self);  
 
     } else {
       selectOpen(self)
       var mobile_view = $action_btm(self.querySelector("mobile"));
       mobile_view.show();
-
+ 
       mobile_view.onclose(function () {
         this.close(function () {
-          selectClose(self);
-        });
-      });
-
-
-    }
+          selectClose(self);  
+        });     
+      });   
+      
+      var window_over = self.querySelector("[contents]").getBoundingClientRect();
+      var contents = self.querySelector("[contents]") 
+      var currnt_top = window.getComputedStyle(contents).getPropertyValue('top');
+      
+      if((window_over.bottom > window.innerHeight ) && (contents.getBoundingClientRect().height+10 < self.getBoundingClientRect().top)){
+          contents.style.top =`-${contents.getBoundingClientRect().height+2}px`
+        }
+      
+      
+        
+    } 
 
 
 
@@ -809,6 +901,7 @@ select_steup2.forEach(function(e){
   });
 }  
      
+     /*select*/ 
       
  
 })  
