@@ -276,10 +276,14 @@
           
         box-shadow: 1px 10px 10px 5px rgba(0, 0, 0, 0.1);
       }
-      div[form=select][open] [contents]{
+      div[form=select][open] [contents]{ 
           display: block;
           
-           
+     } 
+       
+      div[form=select][open] [input] [form-input-right-icon]{
+          transform: rotate(180deg);
+          transition: transform var(--transition-time) ease-in-out;
       }
       
         div[form=select][disabled]{
@@ -300,7 +304,11 @@
             background: none;
         }
         
-        
+        div[form=select] [options] [select-ul][disabled]{
+             cursor: not-allowed; 
+        background: var(--disabled-bacground);
+         opacity: var(--disabled-opacity);
+        }
       
       
         
@@ -368,14 +376,6 @@
            
           
        }
-       div[form=select] [options] [select-ul][disabled]{
-             cursor: not-allowed; 
-        background: var(--disabled-bacground);
-         opacity: var(--disabled-opacity);
-        }
-         div[form=select] [options] [select-ul][disabled]:hover {
-             background: none;
-         }
         div[form=select][selectType="left-icon"] [options] [form-text-width] {
             margin-left:calc(var(--icon-size) + calc(var(--icon-size) * 0.90)); 
             
@@ -772,29 +772,42 @@ var selectClose =function(self){
       self.removeAttribute("focus");
       self.removeAttribute("open");
       var mobile_view = $action_btm(self.querySelector("mobile"));
-      mobile_view.close(); //agin close up when click to close desktop 
+      mobile_view.close(); //agin close up when click to close desktop
 }
  
 select_steup2.forEach(function(e){
-     e.querySelector("[input]").onclick = function(event){
-             var self = this.parentElement;
-             if(!self.getAttribute("disabled")){
-                  selectOpen(self)
-                 var mobile_view = $action_btm(self.querySelector("mobile"));
-                   mobile_view.show(); 
-                  
-                   mobile_view.onclose(function(){
-                       this.close(function(){
-                           selectClose(self);
-                       });
-                   });
-             } 
-             document.addEventListener('click', function(event){
-               if(event.target.closest('div[form="select"]') != self){
-                   selectClose(self);
-               }
-            });   
-     }   
+     
+     e.querySelector("[input]").onclick = function (event) {
+  var self = this.parentElement;
+  if (!self.getAttribute("disabled")) {
+
+    if (self.getAttribute("open")) { /*is aredy opend*/
+         selectClose(self);
+
+    } else {
+      selectOpen(self)
+      var mobile_view = $action_btm(self.querySelector("mobile"));
+      mobile_view.show();
+
+      mobile_view.onclose(function () {
+        this.close(function () {
+          selectClose(self);
+        });
+      });
+
+
+    }
+
+
+
+
+  }
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('div[form="select"]') != self) {
+      selectClose(self);
+    }
+  });
+}  
      
       
  
