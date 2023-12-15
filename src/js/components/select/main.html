@@ -468,7 +468,7 @@
           
                
      
-  </style> 
+  </style>     
   
  <style>
   div[form=input] {
@@ -643,24 +643,25 @@
 
 
 
-
+                   
    </style> 
-
+ 
 <!--mobile bottom-action-bar-->   
- <script src="https://data.js.gilob.in/formui/main.js"></script>    
+ <script  src="https://data.js.gilob.in/formui/main1.js"></script>    
  <link href="https://data.js.gilob.in/formui/main.css" rel="stylesheet" type="text/css"> 
    </head>
     <body>
-
-    
+ 
+        
     
 
 
  
 <div class="test">
+   
     <div  form style="margin-top:30px">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div  form="select"  ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
+    <div  class="sitaram" form="select" vlaue="" ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
        
        <div input form-cursor  form-font-size>
          <div form-input-left-icon>   
@@ -673,6 +674,7 @@
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
 </svg>
 </div>
+
 
 <div contents>
  <mobile  max-height="90%" form="bottom-bar" >
@@ -687,11 +689,11 @@
                </div>
         <div  multiple-remain padding form-font-size><span done>0</span>/<span remain>0</span></div>
     <!--options-->
-   
+     
        <div options scroll-br>  
        
                
-               <div select-ul    form-font-size form-cursor value="dog" selected>
+               <div  select-ul  selected   form-font-size form-cursor value="dog" >
                 
               <div form-input-left-icon>
                   <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtmvJ6J8QQ2pZzsNdRFLpfKw6TQKpa40fi5v-ULWl7Q&s">
@@ -728,17 +730,19 @@
                </div>
               
        </div> <!--options-->
-       </mobile>
-        </div> 
+       
+       </mobile> 
+        </div>  
+       
           <div sel-disabled></div> 
     </div>
     
      </div> 
    
     
-     <div  form style="margin-top:100px;display:noned">
+     <div  form style="margin-top:100px;display:none">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div form="select"  ui-setup="true" search="true"   form-border   form-font-size form-input-color>
+    <div form="select" value=""  ui-setup="true" search="true"   form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
@@ -792,6 +796,16 @@
 </div> 
 
 <script>
+/*seupt1*/
+Object.defineProperties(this, {
+  $select: {
+    value: function (element) {
+      
+    },
+    writable: false
+  }
+});
+
  
 /*setup 2*/
 
@@ -813,7 +827,7 @@ var selectClose =function(self){
      
 }
  
-select_steup2.forEach(function(e){
+select_steup2.forEach(function(e){  
      
      /*opend*/
      e.querySelector("[input]").onclick = function (event) {
@@ -848,7 +862,7 @@ select_steup2.forEach(function(e){
         
     } 
 
-
+ 
 
 
   }
@@ -859,13 +873,53 @@ select_steup2.forEach(function(e){
   });
 }  
      
-     /*select*/ 
       
- 
+     
+     
+     
+     
+     /*select*/ 
+    
+    
+    if(e.getAttribute("multiple") == null){
+         e.querySelectorAll("[options] [select-ul]").forEach(function(e2){
+               if(e2.getAttribute("disabled") == null){
+                   e2.addEventListener("click",function(){
+                       document.console = "HAA"
+                   });
+               }
+         })
+    }else{
+        
+    }
+    
+      
+  /*private properties*/
+  
+  Object.defineProperties(e,{
+      Poninput:{
+          value:function(caller){
+              var self = this;
+              e.querySelectorAll("[options] [select-ul]").forEach(function(e2){
+               if(e2.getAttribute("disabled") == null){
+                   e2.addEventListener("click",function(event){
+                        caller.call(self,self,event)
+                   });
+               }
+         });
+          }
+          
+      }
+  });
+  
+  
 })  
 
 
 
+/*ss('.sitaram').Poninput(function(e,event){
+    document.console = event
+})*/
 
 
 
