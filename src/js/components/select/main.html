@@ -213,6 +213,7 @@
            width: 100% !important;
            margin-right:50px;
             box-sizing: content-box;
+             white-space: normal;   word-break: break-all;
            }
            
     
@@ -660,9 +661,9 @@
 <div class="test">
    
     <div  form style="margin-top:30px">
-       <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div  class="sitaram" form="select" vlaue="" ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
-       
+       <label form-label>Select</label> <!-- or multiple size="6",disabled required-->
+    <div   form="select" value=""  required multiple placeholder="select pets" ui-setup="true" search="true"  selectType="left-icon"  form-border   form-font-size form-input-color>
+        
        <div input form-cursor  form-font-size>
          <div form-input-left-icon>   
        <svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -699,7 +700,7 @@
                   <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtmvJ6J8QQ2pZzsNdRFLpfKw6TQKpa40fi5v-ULWl7Q&s">
              
               </div>
-                <text form-text-width>Commentsyhtythhthththrthrhrthrthrthrthrhrthrthrthrt</text>
+                <text form-text-width>kota</text>
                <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
 </svg>
@@ -740,9 +741,9 @@
      </div> 
    
     
-     <div  form style="margin-top:100px;display:none">
+     <div  form style="margin-top:100px;display:noned">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div form="select" value=""  ui-setup="true" search="true"   form-border   form-font-size form-input-color>
+    <div form="select" value="" placeholder="select pets"  ui-setup="true" search="true"   form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
@@ -830,12 +831,13 @@ var selectClose =function(self){
 select_steup2.forEach(function(e){  
      
      /*opend*/
+     var maltipals = []
      e.querySelector("[input]").onclick = function (event) {
   var self = this.parentElement;
   
        
   if (!self.getAttribute("disabled")) {   
-   
+    
     if (self.getAttribute("open")) { /*is aredy opend*/
          selectClose(self);  
 
@@ -858,7 +860,9 @@ select_steup2.forEach(function(e){
           contents.style.top =`-${contents.getBoundingClientRect().height+2}px`
         }
       
-      
+       /*e.querySelectorAll("[options] [select-ul]").forEach(function(us){
+           
+       }*/
         
     } 
 
@@ -877,21 +881,118 @@ select_steup2.forEach(function(e){
      
      
      
-     
+      
      /*select*/ 
-    
-    
-    if(e.getAttribute("multiple") == null){
+     
+      var path_selected = `<path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>`
+      var path_selecte = ` <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>`
+      var input_icon_def = `<svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" />
+</svg>`
+
+
+       function unsCheckAll(elment){
+           var a = Array.from(elment.querySelectorAll("[options] [select-ul]")).filter(function(f){if( f.getAttribute("selected")  !=null){return f}})
+           if(a.length == 0){ /*no selected*/
+               elment.setAttribute("value","") 
+               elment.querySelector('[input] [form-text-width]').textContent = elment.getAttribute('placeholder') 
+              if(elment.getAttribute("selectType") == "left-icon"){
+                               elment.querySelector('[input] [form-input-left-icon]').innerHTML = input_icon_def;
+                           } 
+             
+           }
+           return a.length
+       } 
+       
+       function newselected(element,e){ 
+                           var self =element;
+                           var set_value = self.getAttribute('value')
+                           var options = e.querySelectorAll("[options] [select-ul]");
+                           
+                           e.querySelector('[input] [form-text-width]').textContent = self.textContent
+                           self.querySelector("[form-input-right-icon]").innerHTML = path_selected
+                            if(self.getAttribute('value')){
+                                e.setAttribute('value',set_value)
+                            }else{ 
+                                 e.setAttribute('value',"")
+                            }
+                            self.setAttribute("selected",true)
+                            if(e.getAttribute("multiple") == null){
+                                 options.forEach(function(us){
+                                if(self !=us ){
+                                    us.querySelector("[form-input-right-icon]").innerHTML = path_selecte
+                                    us.removeAttribute("selected");
+                                    
+                                } 
+                            });
+                            }
+                           
+                           
+                           if(e.getAttribute("selectType") == "left-icon"){
+                               e.querySelector('[input] [form-input-left-icon]').innerHTML = self.querySelector('[form-input-left-icon]').innerHTML
+                           } 
+       }
+       
+       function unselected(self,e) {
+                 self.removeAttribute("selected")
+                 self.querySelector("[form-input-right-icon]").innerHTML = path_selecte
+                
+       }
+       
          e.querySelectorAll("[options] [select-ul]").forEach(function(e2){
                if(e2.getAttribute("disabled") == null){
                    e2.addEventListener("click",function(){
-                       document.console = "HAA"
+                       var options =  e.querySelectorAll("[options] [select-ul]");
+                        if(e.getAttribute("multiple") == null){
+                            
+                       
+                        
+                        if(this.getAttribute('selected') == null || e.getAttribute('required') != null ){
+                              newselected(this,e)
+                             
+                            
+                        }else{
+                              unselected(this,e)
+                              unsCheckAll(e)
+                            
+                        }
+                            
+                           
+                            
+                        }else{
+                           
+                            if(this.getAttribute('selected') == null){
+                                 newselected(this,e);
+                            }else if(unsCheckAll(e) != 1 || e.getAttribute('required') == null){
+                                unselected(this,e)
+                               }
+                          
+                            var v = [] ,t= [],o_ob = [] ;
+                           
+                            options.forEach(function(al){
+                                if(al.getAttribute('selected') !=null){
+                                     v.push(al.getAttribute("value"))
+                                     t.push(al.textContent)
+                                     o_ob.push(al)
+                                }
+                                      
+                             });
+                             
+                          e.querySelector('[input] [form-text-width]').textContent = t.toString()
+                          e.setAttribute("vlaue",v.toString())  
+                          if(o_ob.length > 0 && e.getAttribute("selectType") == "left-icon"){
+                              e.querySelector('[input] [form-input-left-icon]').innerHTML  = o_ob[o_ob.length-1].querySelector('[form-input-left-icon]').innerHTML
+                          }
+                          unsCheckAll(e)    
+                  
+                       }
+                       
+                       
                    });
                }
-         })
-    }else{
-        
-    }
+         });
+    
+    
     
       
   /*private properties*/
