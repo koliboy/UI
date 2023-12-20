@@ -709,11 +709,10 @@ div[form=select][ scrollbar-hide] [options]::-webkit-scrollbar-thumb{
     </datalist>
     
     
-    <div  class="sitaram"  name="names"   form="select"   selectType="left-icon"  required multiple placeholder="select pets"  search >
-     
-     <option value="cat">Sen</option>
-      <option value="cat" selected>Pow</option>
+    <div  class="sitaram"  name="names"     form="select"   selectType="left-icon"    placeholder="select pets"  search >
       <option value="dog" selected>Dog</option>
+     <option value="cat">Sen</option> 
+     
     </div>
      
      
@@ -856,6 +855,21 @@ div[form=select][ scrollbar-hide] [options]::-webkit-scrollbar-thumb{
 </div> 
 
 <script>
+function adjustVisibility(contents, self) {  
+      /*position:absolute or right: 0; in css*/
+      contents.style.top = `${self.getBoundingClientRect().height+3}px`
+      contents.style.left =0;
+    var window_over = contents.getBoundingClientRect();
+if (window_over.bottom > window.innerHeight && (contents.getBoundingClientRect().height + 10 < self.getBoundingClientRect().top)) {
+     contents.style.top = `-${contents.getBoundingClientRect().height + 3}px`;
+       
+    }  
+   
+   if(window_over.right >  window.innerWidth ){
+      contents.style.left = `-${(window_over.right - window.innerWidth)+30}px`
+      
+   }
+}
 
 function iconSet(self,option){
      if(self.getAttribute("selectType") == "left-icon"){
@@ -978,21 +992,7 @@ Object.defineProperties(this, {
 
 //document.console = ss(".sitaram").options[0].disabled
 
-function adjustVisibility(contents, self) {  
-      /*position:absolute or right: 0; in css*/
-      contents.style.top = `${self.getBoundingClientRect().height+3}px`
-      contents.style.left =0;
-    var window_over = contents.getBoundingClientRect();
-if (window_over.bottom > window.innerHeight && (contents.getBoundingClientRect().height + 10 < self.getBoundingClientRect().top)) {
-     contents.style.top = `-${contents.getBoundingClientRect().height + 3}px`;
-       
-    }  
-   
-   if(window_over.right >  window.innerWidth ){
-      contents.style.left = `-${(window_over.right - window.innerWidth)+30}px`
-      
-   }
-}
+
 
 var path_selected = `<path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>`
 var path_selecte = ` <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>`
@@ -1056,7 +1056,7 @@ function unselected(self,e) {
                 
        } 
 
-
+ 
 var step1 = document.querySelectorAll('div[form="select"]');
 
 step1.forEach(function(e){
@@ -1083,7 +1083,7 @@ step1.forEach(function(e){
           
            /*option sets*/
           var contents = document.createElement("div") ; contents.setAttribute('contents',null);
-          contents.style.display = "block"
+          //contents.style.display = "block"
           contents.innerHTML = `
           <mobile max-height="90%" form="bottom-bar">
   <div select-ul-search>
@@ -1131,19 +1131,37 @@ if(e.getAttribute("multiple") !=null){
         });
         
          
+    }else {
+           var size = e.getAttribute("size")-1;
+           e.querySelector("[multiple-remain] [remain]").textContent = e.getAttribute("size");
+           now_selected.forEach(function(sl,ind){
+             
+             if(size >= ind){
+                 newselected(sl,e);
+             v.push(sl.getAttribute('value'))
+             t.push(sl.querySelector('text').textContent);
+             e.querySelector("[multiple-remain] [done]").textContent = ind+1
+             }else{
+                 sl.removeAttribute('selected');
+             }
+        });
     }
-}else{
-    now_selected.length>0?newselected(now_selected[0],e):true
-}
 e.setAttribute("value",v.toString());
 
 if(e.getAttribute("filter") == null){
       e.querySelector('[input] [form-text-width]').textContent = t.toString()
 } 
 
+}else{
+    now_selected.length>0?newselected(now_selected[0],e):true
+}
 
 
-          
+
+
+     
+     e.setAttribute("step1",true);
+      e.setAttribute("ui-setup",true);
       }
 })
 
