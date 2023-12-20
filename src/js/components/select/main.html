@@ -94,7 +94,7 @@
          --checking-fill:black;
          --disabled-bacground:rgba(250, 250, 250, 0.08);
          --disabled-opacity:0.50;
-         --font-size:18px;
+         --font-size:17px;
          --icon-size:calc(var(--font-size) + 5px);   /* you can chnage forced */
          --left-background:rgba(240, 240, 240, 0.50);
          --min-height:35px;
@@ -160,7 +160,7 @@
         }  
       
       [form] [padding]{
-           padding:10px 5px 10px 10px;
+           padding:5px 5px 5px 10px;
       }
         
       
@@ -211,11 +211,12 @@
            position: relative !important;
            padding-right: 10px;
            width: 100% !important;
-           
+           display: flex;
            margin-right:50px;
             box-sizing: content-box;
-             white-space: normal;   word-break: break-all;
-           }
+             white-space: normal;  word-break: break-word;
+             
+        }
            
     
     
@@ -274,8 +275,13 @@
           background-color:var(--background-color);
            position: relative;
            user-select: none; 
+           
          
       }
+      
+       div[form=select] option {
+           display: none;
+       }
       
       div[form=select][focus] {
           border-color:var(--border-color-active);
@@ -335,6 +341,12 @@
            
             
        }
+        div[form=select]  [form-input-left-icon]{
+            display: none;
+        }
+        div[form=select][selectType="left-icon"]  [form-input-left-icon]{
+            display:flex;
+        }
        div[form=select][placeholder_view] [input] [form-text-width]{
            opacity:var(--disabled-opacity);
        }
@@ -378,7 +390,10 @@
             height:calc(var(--icon-size) * 0.80); width:calc(var(--icon-size) * 0.80); fill:var(--right-icon-fill);
         }
        
-       div[form=select][search="true"]  [select-ul-search]{
+       div[form=select][search]  [select-ul-search]{
+           display: flex;
+       }
+       div[form=select][search]  [select-ul-search]  [form-input-left-icon]{
            display: flex;
        }
        
@@ -393,6 +408,17 @@
          /*display: noned;*/
       }
       
+      div[form=select][ scrollbar-hide] [options]{
+           scrollbar-width: none;
+      }
+ div[form=select][scrollbar-hide] [options]::-webkit-scrollbar {
+  width: 0px;
+  display: none; 
+   background-color:none;
+}
+div[form=select][ scrollbar-hide] [options]::-webkit-scrollbar-thumb{
+     background: rgba(0, 0, 0, 0);
+ } 
      
        
        div[form=select] [options] [select-ul] {
@@ -420,6 +446,10 @@
        div[form=select] [options] [select-ul] [form-text-width]{
            padding-left:10px;
        }
+       
+      /* div[form=select] [options] [select-ul] [form-input-right-icon]{
+           width: var(--font-size); height: var(--font-size);
+       }*/
        
         div[form=select] [options] [select-ul][selected] [form-input-right-icon]{
             display: block; background: none; fill:var(--brand-second-color);
@@ -466,11 +496,12 @@
                 
                div[form=select] [contents]{
                    position:absolute; height: auto; width:100% ;
+                   left: 0;
           top:calc(var(--font-size) + 25px); background-color:var(--background-color);
           box-shadow: 0 0 5px 6px var(--box-shadow-color); 
           border:var(--border-style) var(--border-width) var(--border-color);
           border-radius:var(--border-radius); 
-          z-index: 1000;
+          z-index: 1;
            
            
            
@@ -670,15 +701,31 @@
 
  
 <div class="test">
+    <datalist name="names">
+       <data value="dog"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png?20151118161041"></data>
+        <data value="cat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
+</svg>  </data>
+    </datalist>
+    
+    
+    <div  class="sitaram"  name="names"   form="select"   selectType="left-icon"  required multiple placeholder="select pets"  search >
+     
+     <option value="cat">Sen</option>
+      <option value="cat" selected>Pow</option>
+      <option value="dog" selected>Dog</option>
+    </div>
+     
+     
    
     <div  form style="margin-top:30px">
-       <label form-label>Select</label> <!-- or filter, multiple ,disabled required placeholder, placeholder-search -->
+       <label form-label>Select</label> <!-- options-width="300px", scrollbar-hide or filter, multiple ,disabled required placeholder, placeholder-search -->
        <!-- multiple :size="6",--> 
-    <div   form="select" value="" size="3" filter  required multiple placeholder="select pets" ui-setup="true" search="true" placeholder_view  selectType="left-icon"  form-border   form-font-size form-input-color>
+    <div  style="width:200px;"  options-width="300px"   form="select" value="" step1="true" ui-setup="true"   required multiple placeholder="select pets"  search placeholder_view  selectType="left-icon"  form-border   form-font-size form-input-color>
         
        <div input form-cursor  form-font-size padding>
          <div form-input-left-icon>   
-       <svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+       <svg  opacity="0.30"  defult  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" />
 </svg>
    </div>
@@ -696,30 +743,29 @@
             <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M9 2C5.1458514 2 2 5.1458514 2 9C2 12.854149 5.1458514 16 9 16C10.747998 16 12.345009 15.348024 13.574219 14.28125L14 14.707031L14 16L20 22L22 20L16 14L14.707031 14L14.28125 13.574219C15.348024 12.345009 16 10.747998 16 9C16 5.1458514 12.854149 2 9 2 z M 9 4C11.773268 4 14 6.2267316 14 9C14 11.773268 11.773268 14 9 14C6.2267316 14 4 11.773268 4 9C4 6.2267316 6.2267316 4 9 4 z"/>
 </svg>
-                    <input  type="text" form-text-width  form-input-placeholder placeholder="find"> 
-                   
-                    
-               </div>
+            <input  type="text" form-text-width  form-input-placeholder placeholder="search"> 
+                 </div>
         <div  multiple-remain padding form-font-size><span done>0</span>/<span remain>0</span></div>
     <!--options-->
      
        <div options scroll-br>  
        
                
-               <div  select-ul  selected   form-font-size form-cursor value="dog" >
+               <option selected  select-ul    form-font-size form-cursor value="dog" >
                 
               <div form-input-left-icon>
                   <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtmvJ6J8QQ2pZzsNdRFLpfKw6TQKpa40fi5v-ULWl7Q&s">
              
               </div>
-                <text form-text-width>kotahrthrhrthrthrthrthtrhtrhrthhrththththththrththththththrtht</text>
+                <text form-text-width>kotahrthrhrthrthrthrthtrhtrhrthhrththththththrththththththrth
+                rggrgrggrgergergreggrgegC kOli</text>
                <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
 </svg>
-               </div>
-              <div select-ul form-font-size  disabled  value="dog">
+               </option>
+              <option select-ul form-font-size  disabled  value="dog">
                   <div form-input-left-icon>
-                 <svg  f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                 <svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
 </svg>  
                 </div>
@@ -728,43 +774,20 @@
 <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
 </svg>
-               </div>
-               <div select-ul form-font-size    value="dog">
-                  <div form-input-left-icon> 
-                 <svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+               </option> 
+                <option select-ul form-font-size   value="dog">
+                  <div form-input-left-icon>
+                 <svg  f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-    </div>
+</svg>  
+                </div>
                <text form-text-width>India</text>
                
 <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
 </svg>
-               </div>
-                <div select-ul form-font-size    value="dog">
-                  <div form-input-left-icon> 
-                 <svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-    </div>
-               <text form-text-width>India</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
-                 <div select-ul form-font-size    value="dog">
-                  <div form-input-left-icon> 
-                 <svg   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M20.292969 5.2929688L9 16.585938L4.7070312 12.292969L3.2929688 13.707031L9 19.414062L21.707031 6.7070312L20.292969 5.2929688 z"/>
-</svg>    
-    </div>
-               <text form-text-width>USA</text>
-               
-<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
-</svg>
-               </div>
+               </option>  
+                
               
        </div> <!--options-->
        
@@ -779,7 +802,7 @@
     
      <div  form style="margin-top:100px;display:noned">
        <label form-label>Select</label> <!-- or multiple size="6",disabled-->
-    <div form="select" value="" placeholder="select pets"  ui-setup="true" search="true"  placeholder_view form-border   form-font-size form-input-color>
+    <div form="select" value=""  placeholder="select pets" step1="true" ui-setup="true" search  placeholder_view form-border   form-font-size form-input-color>
        <div input form-cursor padding form-font-size> <text form-text-width>Please choos</text>
      <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
@@ -802,22 +825,22 @@
    
        <div options scroll-br>  
        
-               
-               <div select-ul    form-font-size form-cursor value="dog" selected>
+                
+               <option select-ul    form-font-size form-cursor value="dog" selected>
                 
                <text form-text-width>Commentsyhtythhthththrthrhrthrthrthrthrhrthrthrthrt</text>
                <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
 </svg>
-               </div>
-              <div select-ul form-font-size  disabled  value="dog">
+               </option>
+              <option select-ul form-font-size  disabled  value="dog">
                  
                <text form-text-width>disabled</text>
                
 <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>
 </svg>
-               </div>
+               </option>
               
               
        </div> <!--options-->
@@ -833,101 +856,151 @@
 </div> 
 
 <script>
-/*seupt1*/
+
+function iconSet(self,option){
+     if(self.getAttribute("selectType") == "left-icon"){
+         try{
+          var name = self.getAttribute("name");
+          var datalist = document.querySelector(`datalist[name="${name}"]`);
+          var imgORsvg = datalist.querySelector(`data[value="${option.getAttribute("value")}"]`);
+          option.querySelector('[form-input-left-icon]').innerHTML = imgORsvg.innerHTML
+         }catch(e){
+            /**/ 
+         }
+          
+     }
+}
+
+/*properties*/ 
+ var properties = document.querySelectorAll('div[form="select"]'); 
+ 
+properties.forEach(function(p){
+     /*self*/
+    Object.defineProperties(p,{
+    
+    value:{
+        get:function(){
+            if(this.getAttribute("ui-setup") == null){
+                var value_re = ""
+                if(this.getAttribute("multiple") == null){
+                    value_re = this.querySelector("option[selected]").value
+                } else{
+                    value_re =  Array.from(this.querySelectorAll("option[selected]")).map(function(e){
+                        return  e.value
+                    }).toString();
+                }
+                
+                return value_re
+            }else {
+                return this.getAttribute('value')
+            } 
+        },
+        
+    },
+    disabled:{
+        get:function(){
+           return this.getAttribute("disabled") !=null?true:false;
+        },
+        set:function(bool){
+            if(bool){
+              this.setAttribute("disabled",null)
+            }else{
+                this.removeAttribute("disabled")
+            }
+        }
+    },
+    add:{
+        
+    },
+    options:{
+        value:p.querySelectorAll('option')
+    },
+    required:{
+        
+    },
+    multiple:{
+        
+    },
+    search:{
+        
+    },
+    filter:{
+        
+    },
+    scrollbar:{
+        
+    },
+    placeholder:{
+        
+    },
+    s_placeholder:{
+        
+    },
+    options_width:{
+         
+     }
+    
+    });
+    
+    /*options*/
+    p.querySelectorAll('option').forEach(function(po){
+       Object.defineProperties(po,{
+           edit:{
+             value:function(text,value,defaultSelected=false,disabled=false){
+                 return "HAAA"
+             },
+            disabled:{
+               get:function(){
+                   return this.getAttribute("disabled") !=null?true:false;
+                },
+              set:function(bool){
+                 if(bool){
+                 this.setAttribute("disabled",null)
+                 }else{
+                  this.removeAttribute("disabled")
+               }
+              } 
+            } 
+            
+           }
+       });
+    })
+});
+
 Object.defineProperties(this, {
-  $select: {
+  $select: { 
     value: function (element) {
-      
+       
     },
     writable: false
   }
-}); 
- 
- 
-/*setup 2*/
+});    
 
- var select_steup2 = document.querySelectorAll('div[form="select"][ui-setup="true"]'); 
+//document.console = ss(".sitaram").options[0].disabled
 
-var selectOpen =function(self){
-      self.setAttribute("focus",true);
-      self.setAttribute("open",true);
-      var topDefult = self.querySelector("[input]").getBoundingClientRect().height
-       self.querySelector("[contents]").style.top =`${topDefult+3}px`
-      
-}
-
-var selectClose =function(self){
-      self.removeAttribute("focus");
-      self.removeAttribute("open"); 
-      var mobile_view = $action_btm(self.querySelector("mobile"));
-      mobile_view.close(); //agin close up when click to close desktop
-     
-}
- 
-select_steup2.forEach(function(e){  
-     
-     /*opend*/
-   
-     e.querySelector("[input]").onclick = function (event) {
-  var self = this.parentElement;
-  
+function adjustVisibility(contents, self) {  
+      /*position:absolute or right: 0; in css*/
+      contents.style.top = `${self.getBoundingClientRect().height+3}px`
+      contents.style.left =0;
+    var window_over = contents.getBoundingClientRect();
+if (window_over.bottom > window.innerHeight && (contents.getBoundingClientRect().height + 10 < self.getBoundingClientRect().top)) {
+     contents.style.top = `-${contents.getBoundingClientRect().height + 3}px`;
        
-  if (!self.getAttribute("disabled")) {   
-    
-    if (self.getAttribute("open")) { /*is aredy opend*/
-         selectClose(self);  
+    }  
+   
+   if(window_over.right >  window.innerWidth ){
+      contents.style.left = `-${(window_over.right - window.innerWidth)+30}px`
+      
+   }
+}
 
-    } else {
-      selectOpen(self)
-      var mobile_view = $action_btm(self.querySelector("mobile"));
-      mobile_view.show();
- 
-      mobile_view.onclose(function () {
-        this.close(function () {
-          selectClose(self);  
-        });     
-      });   
-      
-      var window_over = self.querySelector("[contents]").getBoundingClientRect();
-      var contents = self.querySelector("[contents]") 
-      var currnt_top = window.getComputedStyle(contents).getPropertyValue('top');
-      
-      if((window_over.bottom > window.innerHeight ) && (contents.getBoundingClientRect().height+10 < self.getBoundingClientRect().top)){
-          contents.style.top =`-${contents.getBoundingClientRect().height+2}px`
-        }
-      
-       /*e.querySelectorAll("[options] [select-ul]").forEach(function(us){
-           
-       }*/
-        
-    } 
-
- 
-
-
-  }
-  document.addEventListener('click', function (event) {
-    if (event.target.closest('div[form="select"]') != self) {
-      selectClose(self);
-    }
-  });
-}  
-     
-      
-     
-     
-     
-      
-     
-     
-      var path_selected = `<path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>`
-      var path_selecte = ` <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>`
-      var input_icon_def = `<svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+var path_selected = `<path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>`
+var path_selecte = ` <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>`
+var input_icon_def = `<svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" />
 </svg>`
 
-
-       function unsCheckAll(elment){
+function unsCheckAll(elment){
            var a = Array.from(elment.querySelectorAll("[options] [select-ul]")).filter(function(f){if( f.getAttribute("selected")  !=null){return f}})
            if(a.length == 0){ /*no selected*/
                
@@ -941,8 +1014,8 @@ select_steup2.forEach(function(e){
            }
            return a.length
        } 
-       
-       function newselected(element,e){ 
+
+function newselected(element,e){ 
                            var self =element;
                            var set_value = self.getAttribute('value')
                            var options = e.querySelectorAll("[options] [select-ul]");
@@ -977,11 +1050,198 @@ select_steup2.forEach(function(e){
                            e.removeAttribute("placeholder_view");
        }
        
-       function unselected(self,e) {
+function unselected(self,e) {
                  self.removeAttribute("selected")
                  self.querySelector("[form-input-right-icon]").innerHTML = path_selecte
                 
+       } 
+
+
+var step1 = document.querySelectorAll('div[form="select"]');
+
+step1.forEach(function(e){
+      if(e.getAttribute("step1") == null){
+           e.setAttribute("placeholder_view",null);e.setAttribute("form-border",null); e.setAttribute("form-font-size",null);e.setAttribute("form-input-color",null);   
+           e.setAttribute("value","")
+           
+           var input_box = document.createElement("div");
+           var placeholder = e.getAttribute('placeholder') !=null?e.getAttribute('placeholder'):""
+            input_box.setAttribute("input",null); input_box.setAttribute("form-cursor",null);input_box.setAttribute("padding",null)
+          var input_boxInner = `<div form-input-left-icon> <svg  opacity="0.30"  defult  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" /</svg></div>
+         <text form-text-width>${placeholder}</text>
+     <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
+ </svg>
+`
+          input_box.innerHTML = input_boxInner;
+          if(e.querySelector("option")){
+             e.querySelector("option").before(input_box)
+          }else{
+              e.append(input_box)
+          }
+          
+          
+           /*option sets*/
+          var contents = document.createElement("div") ; contents.setAttribute('contents',null);
+          contents.style.display = "block"
+          contents.innerHTML = `
+          <mobile max-height="90%" form="bottom-bar">
+  <div select-ul-search>
+    <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M9 2C5.1458514 2 2 5.1458514 2 9C2 12.854149 5.1458514 16 9 16C10.747998 16 12.345009 15.348024 13.574219 14.28125L14 14.707031L14 16L20 22L22 20L16 14L14.707031 14L14.28125 13.574219C15.348024 12.345009 16 10.747998 16 9C16 5.1458514 12.854149 2 9 2 z M 9 4C11.773268 4 14 6.2267316 14 9C14 11.773268 11.773268 14 9 14C6.2267316 14 4 11.773268 4 9C4 6.2267316 6.2267316 4 9 4 z" />
+    </svg>
+    <input type="text" form-text-width form-input-placeholder placeholder="search">
+  </div>
+  <div multiple-remain padding form-font-size><span done>0</span>/<span remain>0</span></div>
+  <div options scroll-br>
+  </div>
+</mobile>
+`
+          
+ e.querySelectorAll('option').forEach(function(o){
+                o.setAttribute("select-ul",null); o.setAttribute("form-font-size",null);o.setAttribute("form-cursor",null);
+                 o.getAttribute("value") == null?o.setAttribute("value",""):true;
+                 var text = o.textContent
+                 o.innerHTML = `
+                 <div form-input-left-icon></div> 
+<text form-text-width>${text}</text>
+ 
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path
+    d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z" />
+</svg>
+`               
+                 iconSet(e,o)
+                 contents.querySelector("[options]").append(o);
+                 
+          });
+
+var now_selected =  contents.querySelector("[options]").querySelectorAll('option[selected]');
+
+input_box.after(contents)
+ var v = [] ,t= []
+if(e.getAttribute("multiple") !=null){
+     
+    if(e.getAttribute("size") ==null){
+         now_selected.forEach(function(sl){
+             newselected(sl,e);
+             v.push(sl.getAttribute('value'))
+             t.push(sl.querySelector('text').textContent)
+        });
+        
+         
+    }
+}else{
+    now_selected.length>0?newselected(now_selected[0],e):true
+}
+e.setAttribute("value",v.toString());
+
+if(e.getAttribute("filter") == null){
+      e.querySelector('[input] [form-text-width]').textContent = t.toString()
+} 
+
+
+
+          
+      }
+})
+
+//document.console = ss(".sitaram").value  
+
+
+
+ 
+ 
+/*setup 2*/
+
+ var select_steup2 = document.querySelectorAll('div[form="select"][ui-setup="true"]'); 
+
+function adjustSizeDesktop(self){
+    
+     if(self.getAttribute("options-width") && (768 <= window.innerWidth)){  /*dekstop only*/
+       
+         self.querySelector("[contents]").style.width = `${self.getAttribute("options-width")}`
+       }else{
+            self.querySelector("[contents]").style.width = "100%"
        }
+} 
+ 
+var selectOpen =function(self){
+      self.setAttribute("focus",true);
+      self.setAttribute("open",true);
+     /* var topDefult = self.querySelector("[input]").getBoundingClientRect().height
+       self.querySelector("[contents]").style.top =`${topDefult+3}px`*/
+       adjustVisibility(self.querySelector("[contents]"),self);
+        adjustSizeDesktop(self)
+       window.addEventListener('resize',function(){
+        adjustVisibility(self.querySelector("[contents]"),self);
+         adjustSizeDesktop(self);
+   });
+   
+       
+}
+
+var selectClose =function(self){
+      self.removeAttribute("focus");
+      self.removeAttribute("open"); 
+      var mobile_view = $action_btm(self.querySelector("mobile"));
+      mobile_view.close(); //agin close up when click to close desktop
+     
+}
+ 
+select_steup2.forEach(function(e){  
+     
+     /*opend*/
+   
+     e.querySelector("[input]").onclick = function (event) {
+  var self = this.parentElement;
+  
+       
+  if (!self.getAttribute("disabled")) {   
+    
+    if (self.getAttribute("open")) { /*is aredy opend*/
+         selectClose(self);  
+ 
+    } else {
+         
+      selectOpen(self) 
+      var mobile_view = $action_btm(self.querySelector("mobile"));
+      mobile_view.show();
+ 
+      mobile_view.onclose(function () {
+        this.close(function () {
+          selectClose(self);  
+        });     
+      });   
+      
+      
+        
+      
+       
+        
+    } 
+
+ 
+
+
+  }
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('div[form="select"]') != self) {
+      selectClose(self);
+    }
+  });
+}  
+     
+      
+      
+   
+     
+      
+     
+     
+      
+       
        
 var FreamgentLoad = function (){ /*you sould load function after chnage any content in Element fragment*/
      
@@ -990,12 +1250,14 @@ var FreamgentLoad = function (){ /*you sould load function after chnage any cont
                if(e2.getAttribute("disabled") == null){
                    e2.addEventListener("click",function(){
                        var options =  e.querySelectorAll("[options] [select-ul]");
+                       var mobile_close = $action_btm(e.querySelector("mobile"));
                         if(e.getAttribute("multiple") == null){
                             
                        
                         
                         if(this.getAttribute('selected') == null || e.getAttribute('required') != null ){
                               newselected(this,e)
+                              
                             
                              
                         }else{ 
@@ -1003,8 +1265,8 @@ var FreamgentLoad = function (){ /*you sould load function after chnage any cont
                               unsCheckAll(e)
                             
                         }
-                            
-                           
+                           //selectClose(e);    
+                            e.querySelector("[input]").onclick()
                             
                         }else{
                            
@@ -1015,10 +1277,8 @@ var FreamgentLoad = function (){ /*you sould load function after chnage any cont
                                }
                             
                            if(e.getAttribute("size") != null){
-                                if(unsCheckAll(e) == e.getAttribute("size")){
-                                  document.console = "close function" 
-                                }
-                                else if(unsCheckAll(e) > e.getAttribute("size")) { //max 
+                                
+                               if(unsCheckAll(e) > e.getAttribute("size")) { //max 
                                    for(let max =0; options.length > max;max++){
                                          if(options[max] !=this && options[max].getAttribute('selected') !==null){
                                               unselected(options[max],e);
@@ -1026,7 +1286,9 @@ var FreamgentLoad = function (){ /*you sould load function after chnage any cont
                                          } 
                                    }
                               }
-                               
+                               if(unsCheckAll(e) == e.getAttribute("size")){
+                                    e.querySelector("[input]").onclick() 
+                                }
                                e.querySelector("[multiple-remain] [remain]").textContent = e.getAttribute("size");
                                e.querySelector("[multiple-remain] [done]").textContent = unsCheckAll(e)
                                
@@ -1057,7 +1319,8 @@ var FreamgentLoad = function (){ /*you sould load function after chnage any cont
                           unsCheckAll(e)    
                   
                        }
-                       
+                        /*var topDefult = e.querySelector("[input]").getBoundingClientRect().height
+                         e.querySelector("[contents]").style.top =`${topDefult+3}px`*/
                        
                    });
                }
