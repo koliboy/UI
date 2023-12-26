@@ -160,11 +160,11 @@ const mySelect = $select(document.querySelector('.custom-select'));
      - `caller` (Type: `function`, Default: `function(){}`): The function to be called during content loading.
 
    **Example:**
-   ```javascript
-   mySelect.cntload(function(event){  //append new optiond  enable loding status in option bar
+```javascript
+  mySelect.cntload(function(event){  //append new optiond  enable loding status in option bar
   event.label(true,"loding>") //show lable in showe bar
   
-  fetch('/products-options.html')
+  fetch("/products-options.html")
   .then(response => {
     // Check if the request was successful (status code 200)
     if (!response.ok) {
