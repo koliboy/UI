@@ -50,57 +50,57 @@ Feel free to customize the values, text, and images based on your requirements. 
 1. **Options Width:**
    - **Attribute:** `options-width`
    - **Description:** Set the width of the select select.
-   - **Example:** `<select custom-select options-width="300px">`
+   - **Example:** `<select options-width="300px">`
 
 2. **Scrollbar Hide:**
    - **Attribute:** `scrollbar-hide`
    - **Description:** Hide the scrollbar in the select.
-   - **Example:** `<select custom-select scrollbar-hide>`
+   - **Example:** `<select  scrollbar-hide>`
 
 3. **Search:**
    - **Attribute:** `search`
    - **Description:** Enable searching/filtering options.
-   - **Example:** `<select custom-select search>`
+   - **Example:** `<select search>`
 
 4. **Filter:**
    - **Attribute:** `filter`
    - **Description:** Enable option filtering.
-   - **Example:** `<select custom-select filter>`
+   - **Example:** `<select filter>`
 
 5. **Multiple Selection:**
    - **Attribute:** `multiple`
    - **Description:** Allow multiple selection.
-   - **Example:** `<select custom-select multiple>`
+   - **Example:** `<select multiple>`
 
 6. **Size (Multiple Selection):**
    - **Attribute:** `size`
    - **Description:** Specify the number of visible options when multiple selection is enabled.
-   - **Example:** `<select custom-select size="6">`
+   - **Example:** `<select multiple size="6">`
 
 7. **Disabled:**
    - **Attribute:** `disabled`
    - **Description:** Disable the select select.
-   - **Example:** `<select custom-select disabled>`
+   - **Example:** `<select disabled>`
 
 8. **Required:**
    - **Attribute:** `required`
    - **Description:** Mark the select as required.
-   - **Example:** `<select custom-select required>`
+   - **Example:** `<select required>`
 
 9. **Placeholder:**
    - **Attribute:** `placeholder`
    - **Description:** Provide a placeholder text.
-   - **Example:** `<select custom-select placeholder="Select an option">`
+   - **Example:** `<select placeholder="Select an option">`
 
 10. **Search Holder:**
     - **Attribute:** `search-holder`
     - **Description:** Customize the search placeholder.
-    - **Example:** `<select custom-select search-holder="Search...">`
+    - **Example:** `<select search-holder="Search...">`
 
 11. **Select Type:**
     - **Attribute:** `selectType`
     - **Description:** Use the value `left-icon` to enable left-aligned icons.
-    - **Example:** `<select custom-select selectType="left-icon">`
+    - **Example:** `<select selectType="left-icon">`
 
 These attributes provide flexibility in customizing the appearance and functionality of your custom select element.
 
