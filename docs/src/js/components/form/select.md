@@ -296,7 +296,33 @@ These methods provide flexibility in managing loading status, errors, and conten
 
 
 
+### `<o>` Element Attributes:
 
+The `<o>` element represents an option in a select dropdown. It can have the following attributes:
+
+1. **`value` Attribute:**
+   - **Type:** String
+   - **Description:** Specifies the value associated with the option. This is the value that will be submitted to the server when the form is submitted.
+
+   ```html
+   <o value="dog">Dog</o>
+   ```
+
+2. **`selected` Attribute:**
+   - **Type:** Boolean
+   - **Description:** Indicates that the option should be pre-selected when the page loads.
+
+   ```html
+   <o value="cat" selected>Cat</o>
+   ```
+
+3. **`disabled` Attribute:**
+   - **Type:** Boolean
+   - **Description:** Disables the option, making it unselectable and often visually indicating that it's not an available choice.
+
+   ```html
+   <o value="bird" disabled>Bird</o>
+   ```
 
 ### `options` Properties:
 
