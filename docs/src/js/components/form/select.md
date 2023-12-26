@@ -10,7 +10,7 @@ The following HTML code represents a dropdown menu inside a `<div>` element:
     <o value="cat">Cat</o>
     <o value="hamster">Hamster</o>
 </div>
-
+```
 
 
 ## Options
@@ -57,3 +57,4 @@ The following HTML code represents a dropdown menu inside a `<div>` element:
     <o value="hamster">Hamster</o>
     <!-- Add more options as needed -->
 </div>
+```
