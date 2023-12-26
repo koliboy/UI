@@ -15,7 +15,31 @@ In this example, the `<div>` element has the attribute `form="select"`, indicati
 
 Feel free to customize the options and their attributes based on your specific use case. The `form="select"` attribute triggers the custom styling and behavior associated with the custom select component.
 
+To use the custom select component with the `selectType="left-icon"` attribute, you can follow the example below:
 
+```html
+<datalist name="names">
+  <data value="dog"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png?20151118161041"></data>
+  <data value="cat"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png?20151118161041"></data>
+</datalist>
+
+<div name="names" selectType="left-icon" required search-holder="check" form="select" placeholder="Select pets" search>
+  <o value="dog" selected>Dog</o>
+  <o value="cat">Cat</o>
+</div>
+```
+
+In this example:
+
+- The `datalist` contains data values with associated images.
+- The `<div>` element has the attribute `form="select"` to enable the custom select component.
+- `selectType="left-icon"` is used to enable left-aligned icons.
+- The `required` attribute indicates that the selection is mandatory.
+- `search-holder="check"` specifies the search placeholder text.
+- The `search` attribute enables the search functionality.
+- `<o>` (option) elements represent selectable options with associated values and text content.
+
+Feel free to customize the values, text, and images based on your requirements. The `selectType="left-icon"` attribute will style the options with left-aligned icons.
 
 ### Custom Select Attributes:
 
