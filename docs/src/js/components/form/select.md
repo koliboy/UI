@@ -29,6 +29,10 @@
 - **Search Holder:**
   - Customize the search placeholder with the `search-holder` attribute.
 
+- **Select Type:** `left-icon`
+  - Use the `selectType` attribute with the value `left-icon` to enable left-aligned icons.
+
+
 ## Example Usage
 
 ```html
