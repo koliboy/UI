@@ -183,6 +183,7 @@ const mySelect = $select(document.querySelector('.custom-select'));
   });
    
 });
+   
 ```
 
 6. **`html` Property:**
@@ -257,6 +258,7 @@ const mySelect = $select(document.querySelector('.custom-select'));
     ```javascript
     mySelect.options_width("200px"); // Set options width to 200px
     ```
+
 
 
 
