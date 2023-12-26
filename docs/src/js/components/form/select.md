@@ -5,7 +5,7 @@ To enable the custom select component using the `form="select"` attribute, follo
 ```html
 <div form="select">
   <!-- Options go here -->
-  <o value="option1">Option 1</o>
+  <o value="option1" selected>Option 1</o>
   <o value="option2">Option 2</o>
   <!-- Add more options as needed -->
 </div>
