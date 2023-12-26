@@ -151,8 +151,7 @@ mySelect.multiple(true);
 // Setting the width of options
 mySelect.options_width('150px');
 ```
-
-#### $select Properties :
+### `$select` Properties:
 
 1. **`loadend` Property:**
    - **Type:** Method
