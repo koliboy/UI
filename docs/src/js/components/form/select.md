@@ -103,53 +103,6 @@ The `$select` method is a versatile utility for creating and manipulating custom
 ```javascript
 // Creating a new $select instance
 const mySelect = $select(document.querySelector('.custom-select'));
-
-// Setting up loadend event
-mySelect.loadend(function(caller) {
-    console.log('Custom select has finished loading.');
-});
-
-// Setting up change event
-mySelect.change(function(caller) {
-    console.log('Value changed in custom select:', this.value);
-});
-
-// Getting the selected value
-const selectedValue = mySelect.value;
-console.log('Selected Value:', selectedValue);
-
-// Disabling the custom select
-mySelect.disabled = true;
-
-// Setting up content loading event
-mySelect.cntload(function(caller) {
-    console.log('Content is being loaded in the custom select.');
-});
-
-// Setting HTML content for the custom select
-const optionsHTML = `
-    <o value="option1">Option 1</o>
-    <o value="option2">Option 2</o>
-    <o value="option3">Option 3</o>
-`;
-mySelect.html(optionsHTML);
-
-// Adding a new option to the custom select
-mySelect.add('newOption', 'New Option');
-
-// Iterating over options
-mySelect.options(function(option, index) {
-    console.log(`Option ${index}: ${option.value}`);
-});
-
-// Setting the custom select as required
-mySelect.required = true;
-
-// Enabling multiple selection mode
-mySelect.multiple(true);
-
-// Setting the width of options
-mySelect.options_width('150px');
 ```
 ### `$select` Properties:
 
@@ -159,21 +112,46 @@ mySelect.options_width('150px');
    - **Parameters:**
      - `caller` (Type: `function`, Default: `function(){}`): The function to be called when loading is complete.
 
+   **Example:**
+   ```javascript
+   mySelect.loadend(function(caller){
+       // Your code to be executed after loading
+   });
+   ```
+
 2. **`change` Property:**
    - **Type:** Method
    - **Description:** Executes a provided function when the value of the `$select` changes.
    - **Parameters:**
      - `caller` (Type: `function`, Default: `function(){}`): The function to be called on value change.
 
+   **Example:**
+   ```javascript
+   mySelect.change(function(caller){
+       // Your code to be executed on value change
+   });
+   ```
+
 3. **`value` Property:**
    - **Type:** Getter/Accessor
    - **Description:** Gets the selected value(s) of the `$select`. If in multiple mode, returns a comma-separated string of values.
    - **Returns:** `string` or `undefined` (if not selected)
 
+   **Example:**
+   ```javascript
+   var selectedValue = mySelect.value;
+   ```
+
 4. **`disabled` Property:**
    - **Type:** Getter/Setter
    - **Description:** Gets or sets the disabled state of the `$select`.
    - **Returns:** `boolean` (`true` if disabled, `false` if not)
+
+   **Example:**
+   ```javascript
+   mySelect.disabled = true; // Set disabled
+   var isDisabled = mySelect.disabled; // Get disabled state
+   ```
 
 5. **`cntload` Property:**
    - **Type:** Method
@@ -181,12 +159,43 @@ mySelect.options_width('150px');
    - **Parameters:**
      - `caller` (Type: `function`, Default: `function(){}`): The function to be called during content loading.
 
+   **Example:**
+   ```javascript
+   mySelect.cntload(function(event){  //append new optiond  enable loding status in option bar
+  event.label(true,"loding>") //show lable in showe bar
+  
+  fetch('/products-options.html')
+  .then(response => {
+    // Check if the request was successful (status code 200)
+    if (!response.ok) {
+      event.error() ;  //error  show 
+      event.label(true,"Opps!!")
+    }
+    return response.text();
+  })
+  .then(data => {
+   
+    event.clear(data); //append new options
+  })
+  .catch(error => {
+    event.error() ;  //error  show 
+    event.label(true,"Opps!!")
+  });
+   
+});
+```
+
 6. **`html` Property:**
    - **Type:** Method
    - **Description:** Sets the HTML content of the `$select` with the provided options HTML.
    - **Parameters:**
      - `optionsHTML` (Type: `string`): The HTML string representing the options to be set for the `$select`.
    - **Returns:** `undefined`
+
+   **Example:**
+   ```javascript
+   mySelect.html("<o value='1'>Option 1</o><o value='2'>Option 2</o>");
+   ```
 
 7. **`add` Property:**
    - **Type:** Method
@@ -196,6 +205,11 @@ mySelect.options_width('150px');
      - `text` (Type: `string`): The text content of the new option.
    - **Returns:** `undefined`
 
+   **Example:**
+   ```javascript
+   mySelect.add("3", "Option 3");
+   ```
+
 8. **`options` Property:**
    - **Type:** Method
    - **Description:** A method to iterate over options and execute a provided function.
@@ -203,10 +217,23 @@ mySelect.options_width('150px');
      - `caller` (Type: `function`, Default: `function(){}`): The function to be called for each option.
      - `index` (Type: `string` or `number`, Default: `"all"`): The index of the option to target or `"all"` for all options.
 
+   **Example:**
+   ```javascript
+   mySelect.options(function(option, index){
+       // Your code to be executed for each option
+   }, 2); // Execute for the option at index 2
+   ```
+
 9. **`required` Property:**
    - **Type:** Getter/Setter
    - **Description:** Gets or sets the required attribute of the `$select`.
    - **Returns:** `boolean` (`true` if required, `false` if not)
+
+   **Example:**
+   ```javascript
+   mySelect.required = true; // Set required
+   var isRequired = mySelect.required; // Get required state
+   ```
 
 10. **`multiple` Property:**
     - **Type:** Method
@@ -215,11 +242,21 @@ mySelect.options_width('150px');
       - `m` (Type: `boolean`, Default: `false`): Set to `true` to enable multiple mode.
       - `size` (Type: `number`, Default: `false`): If provided, sets the size attribute.
 
+    **Example:**
+    ```javascript
+    mySelect.multiple(true, 3); // Enable multiple mode with a visible size of 3
+    ```
+
 11. **`options_width` Property:**
     - **Type:** Method
     - **Description:** Sets the width of the options in the `$select`.
     - **Parameters:**
       - `width` (Type: `string`): The CSS width value for the options.
+
+    **Example:**
+    ```javascript
+    mySelect.options_width("200px"); // Set options width to 200px
+    ```
 
 
 
