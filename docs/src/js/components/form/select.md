@@ -23,11 +23,13 @@ To use the custom select component with the `selectType="left-icon"` attribute, 
   <data value="cat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <path d="M7 2C4.2233691 2 2 4.2233691 2 7C2 9.0633125 3.229833 10.816997 5 11.583984L5 22L7 22L7 16C7 16 7.7262856 15.357163 9 15.105469L9 22L11 22L11 15.144531C12.064862 15.420104 13 16 13 16L13 22L15 22L15 16L17 16L17 22L19 22L19 13.917969C18.674 13.968969 18.341 14 18 14C14.692 14 12 11.533 12 8.5L12 7L10 7C7.3867614 7 6.1127578 8.4737779 5.5078125 9.6328125C4.5850311 9.1433862 4 8.1968408 4 7C4 5.2426309 5.2426309 4 7 4L7 2 z M 14 3.5L14 8.5C14 10.4 15.8 12 18 12C20.2 12 22 10.4 22 8.5L22 3.5L20 5.4003906C19.4 5.1003906 18.7 5 18 5C17.3 5 16.6 5.1003906 16 5.4003906L14 3.5 z M 16 7C16.6 7 17 7.4 17 8C17 8.6 16.6 9 16 9C15.4 9 15 8.6 15 8C15 7.4 15.4 7 16 7 z M 20 7C20.6 7 21 7.4 21 8C21 8.6 20.6 9 20 9C19.4 9 19 8.6 19 8C19 7.4 19.4 7 20 7 z" />
 </svg></data>
+<data value="elephant">🐘</data>
 </datalist>
 
 <div name="names" selectType="left-icon" required search-holder="check" form="select" placeholder="Select pets" search>
   <o value="dog" selected>Dog</o>
   <o value="cat">Cat</o>
+  <o value="elephant">Elephant</o>
 </div>
 ```
 
