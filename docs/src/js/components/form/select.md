@@ -1,60 +1,40 @@
-# Dropdown Menu Documentation
+# Select Component Documentation
 
-## HTML Structure
+## Attributes
 
-The following HTML code represents a dropdown menu inside a `<div>` element:
+- **Options Width:** `300px`
+  - Set the width of the select dropdown using the `options-width` attribute.
 
-```html
-<div class="sitaram" required search-holder="check" form="select" placeholder="select pets" search>
-    <o value="dog" selected>Dog</o>
-    <o value="cat">Cat</o>
-    <o value="hamster">Hamster</o>
-</div>
-```
-
-
-## Options
-
-- **Width:** `300px`
-  - Specify the width of the dropdown using the `options-width` attribute.
-
-- **Scrollbar:**
-  - `scrollbar-hide`: Enable this option to hide the scrollbar in the dropdown.
+- **Scrollbar Hide:**
+  - Use the `scrollbar-hide` attribute to hide the scrollbar in the dropdown.
 
 - **Filter:**
-  - Use the `filter` attribute to enable filtering of options in the dropdown.
-
-## Additional Features
+  - Enable option filtering with the `filter` attribute.
 
 - **Multiple Selection:**
-  - Enable multiple selection using the `multiple` attribute.
+  - Allow multiple selection using the `multiple` attribute.
+
+- **Size (Multiple Selection):**
+  - Specify the number of visible options when multiple selection is enabled. Example: `size="6"`.
 
 - **Disabled:**
-  - Use the `disabled` attribute to disable the dropdown.
+  - Disable the select dropdown using the `disabled` attribute.
 
 - **Required:**
-  - Mark the dropdown as required with the `required` attribute.
+  - Mark the select as required with the `required` attribute.
 
 - **Placeholder:**
-  - Add a placeholder text using the `placeholder` attribute.
+  - Provide a placeholder text using the `placeholder` attribute.
 
 - **Search Holder:**
-  - Customize the search placeholder using the `search-holder` attribute.
+  - Customize the search placeholder with the `search-holder` attribute.
 
-## Multiple Selection Configuration
-
-- **Size:**
-  - Customize the number of visible options in the dropdown when multiple selection is enabled using the `size` attribute. Example: `size="6"`.
-
----
-
-**Usage Example:**
+## Example Usage
 
 ```html
-<div options-width="300px" scrollbar-hide filter multiple size="6" disabled required placeholder="Select an option" search-holder="Type to search">
-    <o value="dog" selected>Dog</o>
-    <o value="cat">Cat</o>
-    <o value="hamster">Hamster</o>
+<select options-width="300px" scrollbar-hide filter multiple size="6" disabled required placeholder="Select an option" search-holder="Type to search">
+    <option value="dog" selected>Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
     <!-- Add more options as needed -->
-</div>
-```
+</select>
