@@ -44,87 +44,134 @@
 </select>
 ```
 
-Certainly! Let's document all the properties you provided:
 
-#### `$select` Properties:
 
-### 1. `loadend` Property:
+### `$select` Method:
 
-- **Type:** Method
-- **Description:** A method that executes a provided function once the `$select` has completed loading.
-- **Parameters:**
-  - `caller` (Type: `function`, Default: `function(){}`): The function to be called when loading is complete.
+The `$select` method is a versatile utility for creating and manipulating custom select elements in HTML. It provides a set of properties and methods that allow developers to easily enhance the functionality of standard `<select>` elements.
 
-### 2. `change` Property:
+#### Example Usage:
 
-- **Type:** Method
-- **Description:** A method that executes a provided function when the value of the `$select` changes.
-- **Parameters:**
-  - `caller` (Type: `function`, Default: `function(){}`): The function to be called on value change.
+```javascript
+// Creating a new $select instance
+const mySelect = $select(document.querySelector('.custom-select'));
 
-### 3. `value` Property:
+// Setting up loadend event
+mySelect.loadend(function(caller) {
+    console.log('Custom select has finished loading.');
+});
 
-- **Type:** Getter/Accessor
-- **Description:** Gets the selected value(s) of the `$select`. If in multiple mode, returns a comma-separated string of values.
-- **Returns:** `string` or `undefined` (if not selected)
+// Setting up change event
+mySelect.change(function(caller) {
+    console.log('Value changed in custom select:', this.value);
+});
 
-### 4. `disabled` Property:
+// Getting the selected value
+const selectedValue = mySelect.value;
+console.log('Selected Value:', selectedValue);
 
-- **Type:** Getter/Setter
-- **Description:** Gets or sets the disabled state of the `$select`.
-- **Returns:** `boolean` (`true` if disabled, `false` if not)
+// Disabling the custom select
+mySelect.disabled = true;
 
-### 5. `cntload` Property:
+// Setting up content loading event
+mySelect.cntload(function(caller) {
+    console.log('Content is being loaded in the custom select.');
+});
 
-- **Type:** Method
-- **Description:** A method that executes a provided function during content loading.
-- **Parameters:**
-  - `caller` (Type: `function`, Default: `function(){}`): The function to be called during content loading.
+// Setting HTML content for the custom select
+const optionsHTML = `
+    <o value="option1">Option 1</o>
+    <o value="option2">Option 2</o>
+    <o value="option3">Option 3</o>
+`;
+mySelect.html(optionsHTML);
 
-### 6. `html` Property:
+// Adding a new option to the custom select
+mySelect.add('newOption', 'New Option');
 
-- **Type:** Method
-- **Description:** Sets the HTML content of the `$select` with the provided options HTML.
-- **Parameters:**
-  - `optionsHTML` (Type: `string`): The HTML string representing the options to be set for the `$select`.
-- **Returns:** `undefined`
+// Iterating over options
+mySelect.options(function(option, index) {
+    console.log(`Option ${index}: ${option.value}`);
+});
 
-### 7. `add` Property:
+// Setting the custom select as required
+mySelect.required = true;
 
-- **Type:** Method
-- **Description:** Adds a new option to the `$select`.
-- **Parameters:**
-  - `value` (Type: `string`): The value of the new option.
-  - `text` (Type: `string`): The text content of the new option.
-- **Returns:** `undefined`
+// Enabling multiple selection mode
+mySelect.multiple(true);
 
-### 8. `options` Property:
+// Setting the width of options
+mySelect.options_width('150px');
+```
 
-- **Type:** Method
-- **Description:** A method to iterate over options and execute a provided function.
-- **Parameters:**
-  - `caller` (Type: `function`, Default: `function(){}`): The function to be called for each option.
-  - `index` (Type: `string` or `number`, Default: `"all"`): The index of the option to target or `"all"` for all options.
+#### Properties and Methods:
 
-### 9. `required` Property:
+1. **`loadend` Property:**
+   - **Type:** Method
+   - **Description:** Executes a provided function once the `$select` has completed loading.
+   - **Parameters:**
+     - `caller` (Type: `function`, Default: `function(){}`): The function to be called when loading is complete.
 
-- **Type:** Getter/Setter
-- **Description:** Gets or sets the required attribute of the `$select`.
-- **Returns:** `boolean` (`true` if required, `false` if not)
+2. **`change` Property:**
+   - **Type:** Method
+   - **Description:** Executes a provided function when the value of the `$select` changes.
+   - **Parameters:**
+     - `caller` (Type: `function`, Default: `function(){}`): The function to be called on value change.
 
-### 10. `multiple` Property:
+3. **`value` Property:**
+   - **Type:** Getter/Accessor
+   - **Description:** Gets the selected value(s) of the `$select`. If in multiple mode, returns a comma-separated string of values.
+   - **Returns:** `string` or `undefined` (if not selected)
 
-- **Type:** Method
-- **Description:** A method to set the `$select` to multiple mode and optionally set the size.
-- **Parameters:**
-  - `m` (Type: `boolean`, Default: `false`): Set to `true` to enable multiple mode.
-  - `size` (Type: `number`, Default: `false`): If provided, sets the size attribute.
+4. **`disabled` Property:**
+   - **Type:** Getter/Setter
+   - **Description:** Gets or sets the disabled state of the `$select`.
+   - **Returns:** `boolean` (`true` if disabled, `false` if not)
 
-### 11. `options_width` Property:
+5. **`cntload` Property:**
+   - **Type:** Method
+   - **Description:** Executes a provided function during content loading.
+   - **Parameters:**
+     - `caller` (Type: `function`, Default: `function(){}`): The function to be called during content loading.
 
-- **Type:** Method
-- **Description:** Sets the width of the options in the `$select`.
-- **Parameters:**
-  - `width` (Type: `string`): The CSS width value for the options.
+6. **`html` Property:**
+   - **Type:** Method
+   - **Description:** Sets the HTML content of the `$select` with the provided options HTML.
+   - **Parameters:**
+     - `optionsHTML` (Type: `string`): The HTML string representing the options to be set for the `$select`.
+   - **Returns:** `undefined`
 
-These properties and methods provide various functionalities to interact with and customize the behavior of the `$select` element.
+7. **`add` Property:**
+   - **Type:** Method
+   - **Description:** Adds a new option to the `$select`.
+   - **Parameters:**
+     - `value` (Type: `string`): The value of the new option.
+     - `text` (Type: `string`): The text content of the new option.
+   - **Returns:** `undefined`
+
+8. **`options` Property:**
+   - **Type:** Method
+   - **Description:** A method to iterate over options and execute a provided function.
+   - **Parameters:**
+     - `caller` (Type: `function`, Default: `function(){}`): The function to be called for each option.
+     - `index` (Type: `string` or `number`, Default: `"all"`): The index of the option to target or `"all"` for all options.
+
+9. **`required` Property:**
+   - **Type:** Getter/Setter
+   - **Description:** Gets or sets the required attribute of the `$select`.
+   - **Returns:** `boolean` (`true` if required, `false` if not)
+
+10. **`multiple` Property:**
+    - **Type:** Method
+    - **Description:** A method to set the `$select` to multiple mode and optionally set the size.
+    - **Parameters:**
+      - `m` (Type: `boolean`, Default: `false`): Set to `true` to enable multiple mode.
+      - `size` (Type: `number`, Default: `false`): If provided, sets the size attribute.
+
+11. **`options_width` Property:**
+    - **Type:** Method
+    - **Description:** Sets the width of the options in the `$select`.
+    - **Parameters:**
+      - `width` (Type: `string`): The CSS width value for the options.
+
+
