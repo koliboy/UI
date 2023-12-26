@@ -1,36 +1,65 @@
 # Select Component Documentation
 
-## Attributes
+Certainly! It looks like you have various attributes for customizing the behavior and appearance of your custom select (which is not a dropdown but a select). Let's document these attributes:
 
-- **Options Width:** `300px`
-  - Set the width of the select dropdown using the `options-width` attribute.
+### Custom Select Attributes:
 
-- **Scrollbar Hide:**
-  - Use the `scrollbar-hide` attribute to hide the scrollbar in the dropdown.
+1. **Options Width:**
+   - **Attribute:** `options-width`
+   - **Description:** Set the width of the select dropdown.
+   - **Example:** `<select custom-select options-width="300px">`
 
-- **Filter:**
-  - Enable option filtering with the `filter` attribute.
+2. **Scrollbar Hide:**
+   - **Attribute:** `scrollbar-hide`
+   - **Description:** Hide the scrollbar in the dropdown.
+   - **Example:** `<select custom-select scrollbar-hide>`
 
-- **Multiple Selection:**
-  - Allow multiple selection using the `multiple` attribute.
+3. **Search:**
+   - **Attribute:** `search`
+   - **Description:** Enable searching/filtering options.
+   - **Example:** `<select custom-select search>`
 
-- **Size (Multiple Selection):**
-  - Specify the number of visible options when multiple selection is enabled. Example: `size="6"`.
+4. **Filter:**
+   - **Attribute:** `filter`
+   - **Description:** Enable option filtering.
+   - **Example:** `<select custom-select filter>`
 
-- **Disabled:**
-  - Disable the select dropdown using the `disabled` attribute.
+5. **Multiple Selection:**
+   - **Attribute:** `multiple`
+   - **Description:** Allow multiple selection.
+   - **Example:** `<select custom-select multiple>`
 
-- **Required:**
-  - Mark the select as required with the `required` attribute.
+6. **Size (Multiple Selection):**
+   - **Attribute:** `size`
+   - **Description:** Specify the number of visible options when multiple selection is enabled.
+   - **Example:** `<select custom-select size="6">`
 
-- **Placeholder:**
-  - Provide a placeholder text using the `placeholder` attribute.
+7. **Disabled:**
+   - **Attribute:** `disabled`
+   - **Description:** Disable the select dropdown.
+   - **Example:** `<select custom-select disabled>`
 
-- **Search Holder:**
-  - Customize the search placeholder with the `search-holder` attribute.
+8. **Required:**
+   - **Attribute:** `required`
+   - **Description:** Mark the select as required.
+   - **Example:** `<select custom-select required>`
 
-- **Select Type:** `left-icon`
-  - Use the `selectType` attribute with the value `left-icon` to enable left-aligned icons.
+9. **Placeholder:**
+   - **Attribute:** `placeholder`
+   - **Description:** Provide a placeholder text.
+   - **Example:** `<select custom-select placeholder="Select an option">`
+
+10. **Search Holder:**
+    - **Attribute:** `search-holder`
+    - **Description:** Customize the search placeholder.
+    - **Example:** `<select custom-select search-holder="Search...">`
+
+11. **Select Type:**
+    - **Attribute:** `selectType`
+    - **Description:** Use the value `left-icon` to enable left-aligned icons.
+    - **Example:** `<select custom-select selectType="left-icon">`
+
+These attributes provide flexibility in customizing the appearance and functionality of your custom select element.
 
 
 ## Example Usage
