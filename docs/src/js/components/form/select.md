@@ -152,7 +152,7 @@ mySelect.multiple(true);
 mySelect.options_width('150px');
 ```
 
-#### Properties and Methods:
+#### $select Properties :
 
 1. **`loadend` Property:**
    - **Type:** Method
