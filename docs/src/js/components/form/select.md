@@ -1,8 +1,6 @@
 ## Custom Select Component
 
-The custom select component allows you to create a stylized dropdown using a `<div>` element. Here's how you can use it:
-
-#### Basic Usage:
+To enable the custom select component using the `form="select"` attribute, follow the provided example:
 
 ```html
 <div form="select">
@@ -12,6 +10,10 @@ The custom select component allows you to create a stylized dropdown using a `<d
   <!-- Add more options as needed -->
 </div>
 ```
+
+In this example, the `<div>` element has the attribute `form="select"`, indicating that it should be treated as a custom select component. Inside the `<div>`, `<o>` (option) elements are used to define selectable options. Each option can have a `value` attribute to represent its value.
+
+Feel free to customize the options and their attributes based on your specific use case. The `form="select"` attribute triggers the custom styling and behavior associated with the custom select component.
 
 
 
