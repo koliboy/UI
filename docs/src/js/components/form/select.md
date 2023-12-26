@@ -223,3 +223,69 @@ mySelect.options_width('150px');
       - `width` (Type: `string`): The CSS width value for the options.
 
 
+
+
+### `options` Properties:
+
+The `options` element represents an option within the custom select component. It provides properties that allow you to interact with and customize individual options.
+
+#### 1. `value` Property:
+
+- **Type:** Getter/Accessor
+- **Description:** Gets the value of the option.
+- **Returns:** `string` or `undefined` (if not set)
+
+```javascript
+// Example:
+var optionValue = optionsElement.value;
+```
+
+#### 2. `text` Property:
+
+- **Type:** Getter/Accessor
+- **Description:** Gets the text content of the option.
+- **Returns:** `string`
+
+```javascript
+// Example:
+var optionText = optionsElement.text;
+```
+
+#### 3. `selected` Property:
+
+- **Type:** Getter/Setter
+- **Description:** Gets or sets whether the option is selected.
+- **Returns:** `boolean` (`true` if selected, `false` if not)
+
+```javascript
+// Example:
+var isSelected = optionsElement.selected; // Gets the current selection state
+
+optionsElement.selected = true; // Sets the option as selected
+```
+
+#### 4. `edit` Property:
+
+- **Type:** Method
+- **Description:** Edits the option by setting a new value and text.
+- **Parameters:**
+  - `value` (Type: `string`): The new value for the option.
+  - `text` (Type: `string`): The new text content for the option.
+
+```javascript
+// Example:
+optionsElement.edit("new-value", "New Option Text");
+```
+
+#### 5. `disabled` Property:
+
+- **Type:** Getter/Setter
+- **Description:** Gets or sets whether the option is disabled.
+- **Returns:** `boolean` (`true` if disabled, `false` if not)
+
+```javascript
+// Example:
+var isDisabled = optionsElement.disabled; // Gets the current disabled state
+
+optionsElement.disabled = true; // Disables the option
+```
