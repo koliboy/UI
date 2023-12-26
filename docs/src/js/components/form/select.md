@@ -185,6 +185,41 @@ const mySelect = $select(document.querySelector('.custom-select'));
 });
    
 ```
+### `event` Object:
+
+The `event` object is used within the `cntload` property to handle loading status, errors, and clearing content during loading. It provides several methods for managing the loading process.
+
+1. **`label` Method:**
+   - **Parameters:**
+     - `action` (Type: `boolean`, Default: `false`): Determines whether to show or hide the loading label.
+     - `text` (Type: `string`, Default: `null`): The text content to be displayed in the loading label.
+
+   - **Description:** Displays or hides a loading label with optional custom text.
+
+   ```javascript
+   event.label(true, "Loading..."); // Show loading label with custom text
+   ```
+
+2. **`error` Method:**
+   - **Description:** Marks an error during loading, typically used to handle fetch errors.
+
+   ```javascript
+   event.error(); // Trigger error handling
+   ```
+
+3. **`clear` Method:**
+   - **Parameters:**
+     - `appendData` (Type: `string`, Default: `""`): The HTML content to be appended after loading.
+
+   - **Description:** Clears loading status, appends new content (if provided), and handles additional actions after loading.
+
+   ```javascript
+   event.clear("<o value='1'>Option 1</o><o value='2'>Option 2</o>");
+   ```
+
+   In the example, `event.clear` removes loading indicators, appends new options, and executes additional actions after loading.
+
+These methods provide flexibility in managing loading status, errors, and content clearing, allowing you to customize the behavior during the loading process.
 
 6. **`html` Property:**
    - **Type:** Method
