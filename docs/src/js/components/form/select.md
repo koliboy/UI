@@ -79,7 +79,7 @@ These attributes provide flexibility in customizing the appearance and functiona
 
 The `$select` method is a versatile utility for creating and manipulating custom select elements in HTML. It provides a set of properties and methods that allow developers to easily enhance the functionality of standard `<select>` elements.
 ```html
-<div  class="sitaram"  name="custom-select"   required  search-holder="check"     form="select"      placeholder="select pets"  search >
+<div  class="custom-select"   required  search-holder="check"     form="select"      placeholder="select pets"  search >
       <o value="dog" selected>Dog</o>
        <o value="cat">Cat</o>
      
