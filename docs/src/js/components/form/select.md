@@ -1,17 +1,17 @@
 # Select Component Documentation
 
-Certainly! It looks like you have various attributes for customizing the behavior and appearance of your custom select (which is not a dropdown but a select). Let's document these attributes:
+
 
 ### Custom Select Attributes:
 
 1. **Options Width:**
    - **Attribute:** `options-width`
-   - **Description:** Set the width of the select dropdown.
+   - **Description:** Set the width of the select select.
    - **Example:** `<select custom-select options-width="300px">`
 
 2. **Scrollbar Hide:**
    - **Attribute:** `scrollbar-hide`
-   - **Description:** Hide the scrollbar in the dropdown.
+   - **Description:** Hide the scrollbar in the select.
    - **Example:** `<select custom-select scrollbar-hide>`
 
 3. **Search:**
@@ -36,7 +36,7 @@ Certainly! It looks like you have various attributes for customizing the behavio
 
 7. **Disabled:**
    - **Attribute:** `disabled`
-   - **Description:** Disable the select dropdown.
+   - **Description:** Disable the select select.
    - **Example:** `<select custom-select disabled>`
 
 8. **Required:**
