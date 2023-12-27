@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>removeEventListener Example</title>
+  <script src="https://koliboy.github.io/page/data/js/console.js"></script>
+<script src="https://koliboy.github.io/page/data/js/ssall.js"></script>        
+        <script src="https://koliboy.github.io/page/data/js/http3.js"></script>     
+        <script src="https://koliboy.github.io/page/data/js/theme.js"></script>  
+        <script src="https://koliboy.github.io/page/data/js/userAgent.js"></script> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&family=Roboto+Flex:opsz@8..144&display=swap');
+
+ </style>
+ <!--UIweb-->
+ <style>
+      
+     
+      
+      [form] [scroll-br] {
+    scrollbar-width: thin;
+}  
+
+@media (min-width: 768px){
+   
+   
+ [form] [scroll-br]::-webkit-scrollbar {
+  width: 8px; 
+}
+[form] [scroll-br]::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+[form] [scroll-br]::-webkit-scrollbar-thumb:active {
+  background: #777; 
+}
+
+ [form] [scroll-br]::-webkit-scrollbar-thumb {
+  background: rgba(209, 209, 209, 0.94); 
+  border-radius: 6px; 
+}
+
+}
+ 
+[none-scroll] {
+      scrollbar-width: none;
+ } 
+  
+ [none-scroll]::-webkit-scrollbar {
+  width: 0px;
+  display: none; 
+   background-color:none;
+}
+ [none-scroll]::-webkit-scrollbar-thumb{
+     background: rgba(0, 0, 0, 0);
+ } 
+ 
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    
+
+      [form]{
+       
+        background: none;
+       /* min-height: 40px; */
+       
+         --brand-color:rgba(88, 0, 240, 1);
+         --brand-second-color:black;
+         --border-color:rgba(133, 133, 133, 0.30);
+         --border-color-active:var(--brand-second-color); /* you can chnage forced */
+         --border-width:1px;
+         --border-style:solid;
+         --border-radius:5px;
+         --box-shadow-color:rgba(0, 0, 0, 0.1);
+         --background-color:white;
+         --color:hsla(0, 0%, 24%, 1);
+         --color-active:white;
+         --checkmark-fill:black;
+         --checking-fill:black;
+         --disabled-bacground:rgba(250, 250, 250, 0.08);
+         --disabled-opacity:0.50;
+         --error-color:hsla(0, 100%, 57%, 1);
+         --font-size:17px;
+         --icon-size:calc(var(--font-size) + 5px);   /* you can chnage forced */
+         --left-background:rgba(240, 240, 240, 0.50);
+         --min-height:35px;
+         --placeholder-color:hsla(0, 0%, 24%, 1);
+         --right-icon-fill:rgba(133, 133, 133, 0.70);
+         --redio-height:20px;
+         --transition-time: 200ms;
+         --ul-hover:rgba(148, 148, 148, 0.10); 
+         
+         
+         
+         
+         
+        
+         
+         
+        
+         
+          
+      }
+      
+      
+      
+      [form] input {
+          border:none;
+      }
+      
+      [form-font-size] {
+          font-size: var(--font-size);
+      }
+      
+      
+      [form-input-color]{
+            color:var(--color);
+     }
+        
+      [form] {
+          display: grid;    
+        }
+      
+      [form] [form-label]{
+        font-size: 19px;
+          width: 95%;
+           margin-bottom: 15px;
+         white-space: normal;   word-break: break-all;
+        }
+        
+        
+        
+        [form-user-select] {
+            user-select: none; /*selction not allowd*/
+        }
+        [form-cursor] {
+            cursor: pointer;
+        }
+        [form-cursor-not-allowed] {
+           cursor: not-allowed;
+        }
+        
+      
+      [area=input] label {
+            margin-bottom:13px;
+        }  
+      
+      [form] [padding]{
+           padding:5px 5px 5px 10px;
+      }
+        
+      
+      
+      
+     
+      /*[form] [hover]:hover{ 
+          background:  black; color:white; 
+      }*/
+     
+      [form-input-right-icon]{
+             height:var(--icon-size); width:var(--icon-size);   fill:var(--right-icon-fill); 
+           position: absolute;
+           padding:0;
+            right: 10px;
+            border-radius: var(--border-radius);
+            background: var(--background-color);
+           
+         }
+         
+      [form-input-left-icon]{
+            display: flex;
+             position: absolute;
+              /*padding-left:10px;
+               padding-right:10px;*/
+               margin-left: 10px;
+               margin-right: 10px;
+          height:var(--icon-size); width:var(--icon-size);   
+          fill:rgba(133, 133, 133, 0.70);
+            border-radius: 50%;
+            overflow: hidden;
+             background:none;
+             
+         }
+        
+        [form-input-left-icon] img {
+             height: 100%; width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+         }
+       
+      [form-input-placeholder]::placeholder {
+           color:var(--placeholder-color);
+           opacity: 0.5;
+      }  
+      
+     [form-text-width] {
+           position: relative !important;
+           padding-right: 10px;
+           width: 100% !important;
+           display: flex; 
+           margin-right:50px;
+            box-sizing: content-box;
+             white-space: normal;  word-break: break-word;
+           
+            
+        }
+        
+         
+    
+    
+    [form-input-left-text] {
+             /*  padding-left:10px !important;*/
+              width: auto;
+             /* padding-right: 10px !important;*/
+             height: 100%;
+             display: grid;
+            align-items: center !important; 
+             /*border-right: solid 1px;*/
+              width: 100%;
+             justify-content: center;
+             word-break: break-all !important;
+           color:hsla(0, 0%, 24%, 0.90);
+           box-sizing: border-box;
+          
+             
+         }
+    
+      
+      [form-border] {
+          border:var(--border-style) var(--border-width) var(--border-color);
+          border-radius:var(--border-radius); 
+    }
+      
+     
+      [form-border-left-text] {
+          border-right:var(--border-style) var(--border-width) var(--border-color);
+            
+      }
+      
+      [form-border]:hover {
+            border-color:var(--border-color-active);
+      }       
+
+      
+    
+      
+      
+      div[form=input] [form-input-right-icon] {
+           display: none;
+        }
+        
+      
+      
+        
+        
+</style>   
+ <link href="https://koliboy.github.io/formui/src/js/components/form/select/index.css" rel="stylesheet" type="text/css"> 
+ <script  src="https://koliboy.github.io/formui/src/js/components/form/select/index.js"></script>
+
+<!--mobile bottom-action-bar--> 
+    
+ <script  src="https://koliboy.github.io/formui/src/js/mobile/bottom-action-bar.js"></script>    
+ <link href="https://koliboy.github.io/formui/src/js/mobile/bottom-action-bar.css" rel="stylesheet" type="text/css"> 
+ 
+ <style>
+     body {
+           background:white;
+         /* display: flex;*/ 
+         /* justify-content: center;*/
+           font-family: 'Roboto Flex', sans-serif;
+     }
+     
+     .fex {
+         display: flex;  gap: 50px;flex-wrap: wrap;
+         margin:5px; padding:10px; border:solid 1px rgba(133, 133, 133, 0.30);
+         background: rgba(247, 247, 247, 1);
+         justify-content: center;
+         width: auto;
+         max-width: 1000px; padding-top:50px; padding-bottom:50px;
+         margin-top:0;
+     }
+     .fex-h {
+         display:grid;  gap: 10px; 
+         margin:5px; padding:10px; border:solid 1px rgba(133, 133, 133, 0.30);
+         position: relative; border-bottom: 0; padding-left:10px; padding-right:10px;
+        /* justify-content: center;*/
+          margin-top:30px; width: auto; max-width: 1000px;
+         align-content: center; 
+     }   
+      .fex-h .title {  
+        font-size: 20px; 
+      }
+      .fex-h p {
+          color:gray;
+      }
+      .fex-h p mark {
+          color:black; background: rgba(247, 247, 247, 1); padding:3px; border-radius: 5px;
+      }
+      .fex-h p a {
+          color:rgba(88, 0, 240, 1); background: rgba(247, 247, 247, 1);
+          margin:4px;
+      }
+      .btns {
+          display: flex; gap:20px;  margin:10px;
+      }
+      .btns  button{
+         border:none; padding: 10px;  border-radius: 5px;background: black; color:white;
+      }
+      .btns  button:hover{
+          opacity: 0.80;
+      }
+      .btns  button.active {
+          opacity: 0.40;
+      }
+      
+      [form].h{
+         min-width: 130px;
+         --font-size:13px;
+         /*--background-color:black;
+         --brand-second-color:white;
+         
+         --color:white;*/
+     }
+     [form].h [form-font-size]{
+         font-size: 13px; 
+     }
+     
+     .code { margin:5px; font-size: 15px;
+         padding:10px; border:solid 1px rgba(133, 133, 133, 0.30);
+          font-family: 'Roboto Flex', sans-serif;
+        width: auto; border-radius: 5px;
+        max-width: 1000px;
+     }
+      
+     [form="select"] {
+         min-width: 250px;
+     }
+     
+     @media (min-width: 768px) {
+         body {
+              display: flex; 
+          justify-content: center;
+         }
+         .fex ,.fex-h,.code {
+             min-width: 700px;
+         }
+     }
+     
+ </style>
+</head>
+<div> 
+    <div  type="simple" class="fex-h">
+        <div class="title">Simple</div>
+        <p>To enable the custom select component using the <mark>form="select"</mark> attribute, follow the provided example:
+        <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/select.md#custom-select-component">Learn More</a>
+        </p>
+        <div class="btns">
+            <button class="active" type="p">Preview</button>  <button type="c">code</button>
+            <div form="select" required class="h" style="display:none">
+  <o value="html" selected>HTML</o>
+  
+  
+  
+</div>
+        </div>
+    </div>
+    
+     
+    <div add="simple" style="display:flex" class="fex">
+   <div form="select" placeholder="Please choose">
+  <o value="option1">Option1</o>
+  <o value="option2">Option 2 </o>
+</div>
+
+
+</div>
+   <div code="simple" class="code" style="display:none">
+    <pre style="display:none" type="js"><code class="javascript">console.log("Hello, world!");</code></pre>
+     <pre  type="html"><code class="html">tghtrhrh</code></pre>
+
+</div>
+
+</div>
+
+<script>hljs.highlightAll();</script>
+
+
+<script>
+
+all('.fex').forEach(function(e){
+   var type = e.getAttribute("add");
+   var code =  ss(`[code='${type}']`);
+  
+   if(code){
+     var html = code.querySelector("[type='html']");
+       if(html){
+          html.querySelector("code").textContent = e.innerHTML
+       }
+   }
+});
+
+var hed_btns = all(".fex-h button");
+
+
+hed_btns.forEach(function(e){
+    e.onclick = function (){ 
+         var p = this.parentElement.parentElement
+         var types = p.getAttribute("type");
+         var btns = this.parentElement  
+         this.classList.add("active");
+        if(this.getAttribute("type") == "p"){ /*Preview*/
+           ss(`[add="${types}"]`).style.display = "flex"
+           ss(`[code="${types}"]`).style.display = "none";
+           p.querySelector(".h").style.display = "none"
+           btns.querySelectorAll("button")[1].classList.remove("active")
+          
+        }else{
+          p.querySelector(".h").style.display = "block"
+            ss(`[add="${types}"]`).style.display = "none"
+           ss(`[code="${types}"]`).style.display = "block"
+            btns.querySelectorAll("button")[0].classList.remove("active")
+        }
+    }
+});
+
+var s = all(".h");
+
+s.forEach(function(e){
+      $select(e).change(function(e2){
+          var p = e2.parentElement.parentElement;
+          var t =  p.getAttribute("type")
+          var code = ss(`[code="${t}"]`);
+          
+           if(code){
+              code.querySelectorAll("pre").forEach(function(e4){
+                   if(e2.value == e4.getAttribute("type")){
+                       e4.style.display = "block"
+                   }else{
+                        e4.style.display = "none";
+                   }
+               })
+           }
+      })
+})
+</script>
+</body>
+</html>
+
+
