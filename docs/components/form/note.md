@@ -1,5 +1,5 @@
 ## Not Show Placeholder
-**if multiple  enable or 0 selectd** 
+**if multiple  enable or 0 selectd Defulat** 
 ```html
 <div form="select"  multiple  search selectType="left-icon"  placeholder="countries" search-holder="Find-Country">
      
