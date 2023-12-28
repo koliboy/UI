@@ -1,6 +1,6 @@
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/select.html)
 
-# [View Prievew](https://koliboy.github.io/formui/docs/components/form/select.html)
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/select.html)
 
 ## Custom Select Component
 
