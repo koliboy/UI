@@ -665,11 +665,18 @@ void function () {
                 var now_selected = contents.querySelector("[options]").querySelectorAll('o[selected]');
 
                 input_box.after(contents)
+                var disabled_el = document.createElement("div");
+                disabled_el.setAttribute("sel-disabled", true);
+                contents.after(disabled_el)
+
+
                 var v = [], t = []
-                if (e.getAttribute("multiple") != null) {
+
+                if (e.getAttribute("multiple") != null && now_selected.length > 0) {
 
                     if (e.getAttribute("size") == null) {
                         now_selected.forEach(function (sl) {
+
                             newselected(sl, e);
                             v.push(sl.getAttribute('value'))
                             t.push(sl.querySelector('text').textContent)
@@ -691,6 +698,8 @@ void function () {
                             }
                         });
                     }
+
+
                     e.setAttribute("value", v.toString());
 
                     if (e.getAttribute("filter") == null) {
@@ -698,6 +707,7 @@ void function () {
                     }
 
                 } else {
+
                     now_selected.length > 0 ? newselected(now_selected[0], e) : true
                 }
 
