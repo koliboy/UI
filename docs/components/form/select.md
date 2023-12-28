@@ -1,5 +1,7 @@
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/select.html)
 
+# [View Prievew](https://koliboy.github.io/formui/docs/components/form/select.html)
+
 ## Custom Select Component
 
 To enable the custom select component using the `form="select"` attribute, follow the provided example:
