@@ -55,57 +55,57 @@ Feel free to customize the values, text, and images based on your requirements. 
 1. **Options Width:**
    - **Attribute:** `options-width`
    - **Description:** Set the width of the select select.
-   - **Example:** `<select options-width="300px">`
+   - **Example:** `<div form="select" options-width="300px">`
 
 2. **Scrollbar Hide:**
    - **Attribute:** `scrollbar-hide`
    - **Description:** Hide the scrollbar in the select.
-   - **Example:** `<select  scrollbar-hide>`
+   - **Example:** `<div form="select"  scrollbar-hide>`
 
 3. **Search:**
    - **Attribute:** `search`
    - **Description:** Enable searching/filtering options.
-   - **Example:** `<select search>`
+   - **Example:** `<div form="select" search>`
 
 4. **Filter:**
    - **Attribute:** `filter`
    - **Description:** Enable option filtering.
-   - **Example:** `<select filter>`
+   - **Example:** `<div form="select" filter>`
 
 5. **Multiple Selection:**
    - **Attribute:** `multiple`
    - **Description:** Allow multiple selection.
-   - **Example:** `<select multiple>`
+   - **Example:** `<div form="select" multiple>`
 
 6. **Size (Multiple Selection):**
    - **Attribute:** `size`
    - **Description:** Specify the number of visible options when multiple selection is enabled.
-   - **Example:** `<select multiple size="6">`
+   - **Example:** `<div form="select" multiple size="6">`
 
 7. **Disabled:**
    - **Attribute:** `disabled`
    - **Description:** Disable the select select.
-   - **Example:** `<select disabled>`
+   - **Example:** `<div form="select" disabled>`
 
 8. **Required:**
    - **Attribute:** `required`
    - **Description:** Mark the select as required.
-   - **Example:** `<select required>`
+   - **Example:** `<div form="select" required>`
 
 9. **Placeholder:**
    - **Attribute:** `placeholder`
    - **Description:** Provide a placeholder text.
-   - **Example:** `<select placeholder="Select an option">`
+   - **Example:** `<div form="select" placeholder="Select an option">`
 
 10. **Search Holder:**
     - **Attribute:** `search-holder`
     - **Description:** Customize the search placeholder.
-    - **Example:** `<select search-holder="Search...">`
+    - **Example:** `<div form="select" search-holder="Search...">`
 
 11. **Select Type:**
     - **Attribute:** `selectType`
     - **Description:** Use the value `left-icon` to enable left-aligned icons.
-    - **Example:** `<select selectType="left-icon">`
+    - **Example:** `<div form="select" selectType="left-icon">`
 
 These attributes provide flexibility in customizing the appearance and functionality of your custom select element.
 
@@ -113,7 +113,7 @@ These attributes provide flexibility in customizing the appearance and functiona
 ## Example Usage
 
 ```html
-<select options-width="300px" scrollbar-hide filter multiple size="6" disabled required placeholder="Select an option" search-holder="Type to search">
+<div options-width="300px" scrollbar-hide filter multiple size="6" disabled required placeholder="Select an option" search-holder="Type to search">
     <option value="dog" selected>Dog</option>
     <option value="cat">Cat</option>
     <option value="hamster">Hamster</option>
@@ -125,7 +125,7 @@ These attributes provide flexibility in customizing the appearance and functiona
 
 ### `$select` Method:
 
-The `$select` method is a versatile utility for creating and manipulating custom select elements in HTML. It provides a set of properties and methods that allow developers to easily enhance the functionality of standard `<select>` elements.
+The `$select` method is a versatile utility for creating and manipulating custom select elements in HTML. It provides a set of properties and methods that allow developers to easily enhance the functionality of standard `<div>` elements.
 ```html
 <div  class="custom-select"   required  search-holder="check"     form="select"      placeholder="select pets"  search >
       <o value="dog" selected>Dog</o>
