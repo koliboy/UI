@@ -286,7 +286,8 @@
      position: relative;
     /* min-height: var(--min-height);*/
      background-color: var(--background-color);
-     padding-right: 10px;
+    
+    /* padding-right: 10px;*/
     
  }
  div[form=input] [input] {
@@ -305,15 +306,7 @@
      box-sizing: border-box;
 
  }
- div[form=input]  textarea { 
-     outline: none;
-     /*border-radius: 5px;*/
-    /* height: 90%;*/
-     padding-left: 10px;
-     background: none;
-     border:none;
-
- }
+ 
  
 
  [form] [erro-text-hide] {
@@ -368,7 +361,9 @@ div[form=input] [error-text] {
        color:var(--error-color);
        padding-top:10px;
         padding-bottom:10px;
+        overflow: hidden;
         font-size:calc(calc(var(--font-size) * 0.9));
+         white-space: normal;  word-break: break-word;
        /*var(--border-style) var(--border-width) var(--border-color)*/
  }
  
@@ -489,7 +484,7 @@ div[form=input] [error-text] {
  
  <style>
       :root {
-          --font-size:18px;
+          --font-size:20px;
       }
  </style>
  
@@ -504,7 +499,7 @@ div[form=input] [error-text] {
     <div  form  style="margin-top:30px">
        <label form-label>Samiple Input</label>
        
-       <div form="input"  error  form-border      form-font-size> 
+       <div form="input"  error form-border      form-font-size> 
        <div input>
        <input  padding  form-text-width form-font-size form-input-placeholder  form-input-color placeholder="hello world">
       
@@ -519,9 +514,9 @@ div[form=input] [error-text] {
 </svg>
        <div disabled-bar></div>
        </div>
-       <div form-text-width  error-text>
-           <text padding>
-            ge somting error
+       <div   error-text padding>
+           <text >
+            ge somting error 
         </text>
        </div>
         
@@ -551,7 +546,7 @@ div[form=input] [error-text] {
 </svg>
        <div disabled-bar></div>
        </div>
-       <div form-text-width  error-text>
+       <div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -580,7 +575,7 @@ div[form=input] [error-text] {
 </svg>
  <div disabled-bar></div>
  </div>
- <div form-text-width  error-text>
+ <div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -610,7 +605,7 @@ div[form=input] [error-text] {
 </svg>
 <div disabled-bar></div>
 </div>
-<div form-text-width  error-text>
+<div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -647,7 +642,7 @@ div[form=input] [error-text] {
 </svg>
 <div disabled-bar></div>
 </div>
-<div form-text-width  error-text>
+<div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -687,7 +682,7 @@ div[form=input] [error-text] {
 </svg>
 <div disabled-bar></div>
 </div>
-<div form-text-width  error-text>
+<div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -722,7 +717,7 @@ div[form=input] [error-text] {
 </svg>
 <div disabled-bar></div>
 </div>
-<div form-text-width  error-text>
+<div   error-text>
            <text padding>
             ge somting error
         </text>
@@ -733,43 +728,9 @@ div[form=input] [error-text] {
     </div>
     
      
-    <!--erro show input--> 
     
-    <div  form  style="margin-top:30px">
-       <label form-label>Input with validation error = form-input-error</label>
-      
-       <div form="input"  form-border  error   form-font-size>   
-       <div input>
-       <input padding  form-text-width form-font-size form-input-placeholder form-input-color value="fefewffe">
-       <svg form-input-right-icon  form-input-right-error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z"/>
-</svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>
-</svg>
-<svg  form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z"/>
-</svg>
-<div disabled-bar></div></div>
-<div form-text-width  error-text>
-           <text padding>
-            ge somting error
-        </text>
-       </div>
-       </div>
-        
-        
-    </div>  
- 
-  <!--simple textarea-->
-    <div  form  style="margin-top:30px">
-       <label form-label>Samiple textarea</label>
-       
-       <div form="input" padding  form-border      form-font-size> 
-         <textarea scroll-br form-text-width form-font-size   form-input-color></textarea>
-       </div>
-        
-        
-    </div>   
+  
+     
  
  
   
