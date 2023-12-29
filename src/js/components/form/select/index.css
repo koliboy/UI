@@ -15,7 +15,7 @@ div[form=select] o {
 }
 
 div[form=select][focus] {
-    border-color: var(--border-color-active);
+    border-color: var(-brand-second-color);
 }
 
 div[form=select] [contents] {
@@ -86,7 +86,8 @@ div[form=select][selectType="left-icon"] [form-input-left-icon] {
 }
 
 div[form=select][placeholder_view] [input] [form-text-width] {
-    opacity: var(--disabled-opacity);
+    /*opacity: var(--disabled-opacity);*/
+    color: var(--placeholder-color);
 }
 
 div[form=select][filter][placeholder_view] [input] [form-text-width] {
@@ -98,7 +99,7 @@ div[form=select][selectType="left-icon"] [input] {
 }
 
 div[form=select][selectType="left-icon"] [input] [form-text-width] {
-    margin-left: calc(var(--icon-size) + calc(var(--icon-size) * 0.90));
+    margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.90));
 }
 
 
@@ -106,7 +107,7 @@ div[form=select] [select-ul-search] {
     min-height: var(--min-height);
     display: none;
     position: relative;
-
+    padding: 5px 5px 5px 0;
 
     height: auto !important;
     align-items: center;
@@ -118,17 +119,17 @@ div[form=select] [select-ul-search] {
 div[form=select] [select-ul-search] input {
     outline: none;
     height: 90%;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     background: none;
     color: var(--placeholder-color);
-    opacity: var(--disabled-opacity);
-    margin-left: var(--icon-size);
+    /*opacity: var(--disabled-opacity);*/
+    margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.50));
     font-size: calc(var(--font-size) * 0.90);
 }
 
 div[form=select] [select-ul-search] [form-input-left-icon] {
-    height: calc(var(--icon-size) * 0.80);
-    width: calc(var(--icon-size) * 0.80);
+    height: calc(var(--font-size) + 5px) * 0.80);
+    width: calc(var(--font-size) + 5px) * 0.80);
     fill: var(--right-icon-fill);
 }
 
@@ -186,13 +187,14 @@ div[form=select] [options] [select-ul] {
 }
 
 div[form=select][selectType="left-icon"] [options] [form-text-width] {
-    margin-left: calc(var(--icon-size) + calc(var(--icon-size) * 0.90));
+    margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.90));
 
 }
 
 div[form=select] [options] [select-ul]:hover {
     background: var(--ul-hover);
 }
+
 
 div[form=select] [options] [select-ul][selected] {
     background: var(--ul-hover);
@@ -202,9 +204,7 @@ div[form=select] [options] [select-ul] [form-text-width] {
     padding-left: 10px;
 }
 
-/* div[form=select] [options] [select-ul] [form-input-right-icon]{
-           width: var(--font-size); height: var(--font-size);
-       }*/
+
 
 div[form=select] [options] [select-ul][selected] [form-input-right-icon] {
     display: block;
@@ -260,8 +260,8 @@ div[form=select] [loading-content][error] [label] {
 }
 
 div[form=select] [loading-content] svg {
-    height: calc(var(--icon-size) + 7px);
-    width: calc(var(--icon-size) + 7px);
+    height: calc(var(--font-size) + 10px);
+    width: calc(var(--font-size) + 10px);
     fill: var(--error-color);
 
 
