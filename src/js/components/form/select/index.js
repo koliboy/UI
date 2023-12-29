@@ -111,10 +111,13 @@ void function () {
     }
 
     var selectClose = function (self) {
-        self.removeAttribute("focus");
-        self.removeAttribute("open");
-        var mobile_view = $action_btm(self.querySelector("mobile"));
-        mobile_view.close(); //agin close up when click to close desktop
+       setTimeout(function(){
+           self.removeAttribute("focus");
+           self.removeAttribute("open");
+           var mobile_view = $action_btm(self.querySelector("mobile"));
+           mobile_view.close(); //agin close up when click to close desktop
+        
+        },100);
 
     }
     var selectEvent = function (e) { /*you sould load function after chnage any content in Element fragment*/
