@@ -15,7 +15,7 @@ div[form=select] o {
 }
 
 div[form=select][focus] {
-    border-color: var(-brand-second-color);
+    border-color: var(--color-secondary);
 }
 
 div[form=select] [contents] {
@@ -209,7 +209,7 @@ div[form=select] [options] [select-ul] [form-text-width] {
 div[form=select] [options] [select-ul][selected] [form-input-right-icon] {
     display: block;
     background: none;
-    fill: var(--brand-second-color);
+    fill: var(--color-secondary);
 }
 
 div[form=select] [multiple-remain] {
@@ -224,7 +224,7 @@ div[form=select][multiple][size] [multiple-remain] {
 }
 
 div[form=select] [multiple-remain] [done] {
-    color: var(--brand-second-color);
+    color: var(--color-secondary);
 }
 
 div[form=select] [multiple-remain] [remain] {
@@ -268,7 +268,7 @@ div[form=select] [loading-content] svg {
 }
 
 div[form=select] [loading-content] svg[load] {
-    fill: var(--brand-color);
+    fill: var(--color-primary);
     animation: spinner 2s linear infinite;
 
 }
