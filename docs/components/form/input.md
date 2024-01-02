@@ -336,15 +336,29 @@ The $input function enhances the properties of input elements within a custom in
   ```javascript
   var leftTextContent = customInput.getText;
   ```
+#### 12. `input` Property:
 
-### Multiple Input Example:
+- **Type:** Getter
+- **Description:** Gets the input element associated with the custom input component.
+- **Example:**
+  ```javascript
+  var customInput = document.querySelector('div[form="input"]');
+  var inputElement = $input(customInput).input;
+  ```
 
-```html
-<div form="input" multiple>
-  <input placeholder="Card Number">
-  <input placeholder="Expiry">
-  <input placeholder="CVV">
-</div>
+When the custom input component has the `multiple` attribute, the property returns a NodeList of all input elements. Otherwise, it returns the single input element.
+
+### Example:
+
+#### Single Input:
+
+```javascript
+var customInput = document.querySelector('div[form="input"]');
+var singleInputElement = $input(customInput).input;
 ```
 
-This custom input component provides enhanced styling and functionality for input elements. Customize it further based on your needs.
+#### Multiple Inputs:
+
+```javascript
+var customInputMultiple = document.querySelector('div[form="input"][multiple]');
+var multipleInputElements = $input(customInputMultiple).input;
