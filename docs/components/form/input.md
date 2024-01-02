@@ -19,6 +19,7 @@ The Custom Input Component is a stylized input container that allows for customi
 ```html
 <!-- Use the Custom Input Component with Left Icon -->
 <div form="input" class="my" left="icon">
+ <error>somting error</error>
   <icon><!--<img src="/icons/credit.svg">--></icon>
   <input>
 </div>
