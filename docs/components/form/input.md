@@ -208,3 +208,143 @@ The `pattern`, `required`, `min`, and `maxlength` attributes provide additional 
   ```
 
 These attributes offer flexibility and control over the input field's content and validation rules. Use them as needed based on your specific requirements.
+
+##  $input Propertys
+
+The $input function enhances the properties of input elements within a custom input component. It defines and sets up various attributes and methods for improved styling and functionality. Here's how you can use it:
+
+```html
+<div form="input">
+  <!-- Input field goes here -->
+  <input placeholder="Type something...">
+</div>
+```
+
+`$input`
+
+- **Example:**
+  ```javascript
+  var customInput = $input(document.querySelector('div[form="input"]'));
+  
+  ```
+
+#### 2. `disabled` Property:
+
+- **Type:** Getter/Setter
+- **Description:** Gets or sets the disabled state of the custom input component.
+- **Example:**
+  ```javascript
+  customInput.disabled = true; // Disable the input
+  var isDisabled = customInput.disabled; // Get the disabled state
+  ```
+
+#### 3. `focus` Method:
+
+- **Type:** Method
+- **Description:** Sets focus on the input element.
+- **Example:**
+  ```javascript
+  customInput.focus();
+  ```
+
+#### 4. `blur` Method:
+
+- **Type:** Method
+- **Description:** Removes focus from the input element.
+- **Example:**
+  ```javascript
+  customInput.blur();
+  ```
+
+#### 5. `invalid` Method:
+
+- **Type:** Method
+- **Description:** Sets or clears the invalid state of the input component.
+- **Parameters:**
+  - `bool` (Type: `boolean`, Default: `false`): Set to `true` to indicate an invalid state.
+  - `message` (Type: `string`, Default: `null`): Optional error message to display.
+- **Example:**
+  ```javascript
+  customInput.invalid(true, "Invalid input");
+  ```
+
+#### 6. `isValid` Property:
+
+- **Type:** Getter
+- **Description:** Gets the validity state of the input component. Returns `true` if valid, `false` if invalid.
+- **Example:**
+  ```javascript
+  var isValid = customInput.isValid;
+  ```
+
+#### 7. `checkmark` Property:
+
+- **Type:** Getter/Setter
+- **Description:** Gets or sets the checkmark state of the input component.
+- **Example:**
+  ```javascript
+  customInput.checkmark = true; // Show the checkmark
+  var hasCheckmark = customInput.checkmark; // Check the checkmark state
+  ```
+
+#### 8. `check` Property:
+
+- **Type:** Getter/Setter
+- **Description:** Gets or sets the checking state of the input component.
+- **Example:**
+  ```javascript
+  customInput.check = true; // Show the checking state
+  var isChecking = customInput.check; // Check the checking state
+  ```
+
+#### 9. `icon` Method:
+
+- **Type:** Method
+- **Description:** Sets the icon of the input component.
+- **Parameters:**
+  - `obj` (Type: `string` or `SVGElement` or `HTMLImageElement`): The icon content.
+- **Example:**
+  ```javascript
+  customInput.icon('<img src="/icons/left.svg">');
+  ```
+
+#### 10. `text` Method:
+
+- **Type:** Method
+- **Description:** Sets the text content next to the input.
+- **Parameters:**
+  - `leftText` (Type: `string`): The text content.
+- **Example:**
+  ```javascript
+  customInput.text("Left Text");
+  ```
+
+#### 11. `getIcon` Property:
+
+- **Type:** Getter
+- **Description:** Gets the icon element associated with the input component.
+- **Example:**
+  ```javascript
+  var iconElement = customInput.getIcon;
+  ```
+
+#### 12. `getText` Property:
+
+- **Type:** Getter
+- **Description:** Gets the text content associated with the input component.
+- **Example:**
+  ```javascript
+  var leftTextContent = customInput.getText;
+  ```
+
+### Multiple Input Example:
+
+```html
+<div form="input" multiple>
+  <input placeholder="Card Number">
+  <input placeholder="Expiry">
+  <input placeholder="CVV">
+</div>
+```
+
+This custom input component provides enhanced styling and functionality for input elements. Customize it further based on your needs.
