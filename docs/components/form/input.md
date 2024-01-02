@@ -145,8 +145,7 @@ Feel free to customize the appearance of the Multiple Input Custom Component by 
   - Description: Indicates that there is an error with the input, often visualized by an error message.
 
 - **`toggle` Attribute:**
-  - Values: `"password"`
-  - Description: Converts the input into a password field with a toggle option to show/hide the password.
+   - Description: Converts the input into a password field with a toggle option to show/hide the password.
 
 - **`multiple` Attribute:**
   - Description: Indicates that the component will contain multiple input fields.
