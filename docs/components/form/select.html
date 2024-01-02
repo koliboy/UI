@@ -16,6 +16,7 @@
 
  </style>
  <!--UIweb-->
+<!--UIweb-->
  <style>
       
      
@@ -71,15 +72,15 @@
 
     
 
-      [form]{
+      :root{
        
-        background: none;
+        background: none;  
        /* min-height: 40px; */
        
-         --brand-color:rgba(88, 0, 240, 1);
-         --brand-second-color:black;
+         --color-primary:rgba(88, 0, 240, 1); /*--brand-color*/
+         --color-secondary:black;  /*--brand-second-color*/
          --border-color:rgba(133, 133, 133, 0.30);
-         --border-color-active:var(--brand-second-color); /* you can chnage forced */
+         --border-color-active:var(--color-secondary); /* you can chnage forced */
          --border-width:1px;
          --border-style:solid;
          --border-radius:5px;
@@ -93,26 +94,17 @@
          --disabled-opacity:0.50;
          --error-color:hsla(0, 100%, 57%, 1);
          --font-size:17px;
-         --icon-size:calc(var(--font-size) + 5px);   /* you can chnage forced */
+         /*--icon-size:calc(var(--font-size) + 5px); */  /* you can chnage forced */
          --left-background:rgba(240, 240, 240, 0.50);
-         --min-height:35px;
-         --placeholder-color:hsla(0, 0%, 24%, 1);
-         --right-icon-fill:rgba(133, 133, 133, 0.70);
+         --min-height:30px;
+         --placeholder-color: #999999; /*hsla(0, 0%, 24%, 1)*/
+         --padding:5px; /*top-bottom*/ 
+         --right-icon-fill:#999999;
          --redio-height:20px;
          --transition-time: 200ms;
-         --ul-hover:rgba(148, 148, 148, 0.10); 
+         --ul-hover:rgba(181, 181, 181, 0.34); 
          
-         
-         
-         
-         
-        
-         
-         
-        
-         
-          
-      }
+    }
       
       
       
@@ -158,7 +150,7 @@
         }  
       
       [form] [padding]{
-           padding:5px 5px 5px 10px;
+           padding:var(--padding) 10px var(--padding) 10px;
       }
         
       
@@ -170,7 +162,7 @@
       }*/
      
       [form-input-right-icon]{
-             height:var(--icon-size); width:var(--icon-size);   fill:var(--right-icon-fill); 
+          height:calc(var(--font-size) + 5px); width:calc(var(--font-size) + 5px);   fill:var(--right-icon-fill); 
            position: absolute;
            padding:0;
             right: 10px;
@@ -186,7 +178,8 @@
                padding-right:10px;*/
                margin-left: 10px;
                margin-right: 10px;
-          height:var(--icon-size); width:var(--icon-size);   
+             
+          height:calc(var(--font-size) + 5px); width:calc(var(--font-size) + 5px);   
           fill:rgba(133, 133, 133, 0.70);
             border-radius: 50%;
             overflow: hidden;
@@ -202,40 +195,30 @@
        
       [form-input-placeholder]::placeholder {
            color:var(--placeholder-color);
-           opacity: 0.5;
+           /*opacity: 0.5;*/
       }  
       
      [form-text-width] {
+            min-width: 10px; 
+            flex: auto;
            position: relative !important;
-           padding-right: 10px;
-           width: 100% !important;
+           /*padding-right: 10px;*/
+          /* width: 100% !important;*/
            display: flex; 
-           margin-right:50px;
+           
+           margin-right:calc(var(--font-size) * 2);
             box-sizing: content-box;
              white-space: normal;  word-break: break-word;
-           
+            
             
         }
         
          
     
     
-    [form-input-left-text] {
-             /*  padding-left:10px !important;*/
-              width: auto;
-             /* padding-right: 10px !important;*/
-             height: 100%;
-             display: grid;
-            align-items: center !important; 
-             /*border-right: solid 1px;*/
-              width: 100%;
-             justify-content: center;
-             word-break: break-all !important;
-           color:hsla(0, 0%, 24%, 0.90);
-           box-sizing: border-box;
-          
-             
-         }
+    
+         
+         
     
       
       [form-border] {
@@ -250,7 +233,7 @@
       }
       
       [form-border]:hover {
-            border-color:var(--border-color-active);
+            border-color:var(--color-secondary);
       }       
 
       
@@ -260,12 +243,13 @@
       div[form=input] [form-input-right-icon] {
            display: none;
         }
+     
         
       
       
         
         
-</style>   
+</style>
  <link href="https://koliboy.github.io/formui/src/js/components/form/select/index.css" rel="stylesheet" type="text/css"> 
 
 
