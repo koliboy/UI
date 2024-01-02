@@ -34,7 +34,7 @@ The Custom Input Component is a stylized input container that allows for customi
 
 1. **Icon Container (`<icon>`):**
    - Represents the container for the left-aligned icon.
-   - Use the `<img>` tag to include the icon image.
+   - Use the `<img>` `<svg>` tag to include the icon image.
 
 2. **Text Container (`<text>`):**
    - Represents the container for the left-aligned text.
