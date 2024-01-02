@@ -163,3 +163,47 @@ Feel free to customize the appearance of the Multiple Input Custom Component by 
   <input placeholder="Password" type="password">
 </div>
 ```
+
+### Input Attributes
+
+The `pattern`, `required`, `min`, and `maxlength` attributes provide additional control and validation for input fields.
+
+#### 1. `pattern` Attribute:
+
+- **Description:** Sets a regular expression pattern that the input's value must match.
+- **Example:**
+  ```html
+  <input pattern="[a-zA-Z0-9]{3,10}" placeholder="Alphanumeric, 3 to 10 characters">
+  ```
+
+#### 2. `required` Attribute:
+
+- **Values:**
+  - `"number"`
+  - `"password"`
+  - `"username"`
+  - `"mail"`
+  - Any custom validation string.
+- **Description:** Specifies the type of input validation required. Use predefined values or create custom validation strings.
+- **Example:**
+  ```html
+  <input required="password" placeholder="Password">
+  ```
+
+#### 3. `min` Attribute:
+
+- **Description:** Sets the minimum length or value for the input.
+- **Example:**
+  ```html
+  <input type="number" min="1" placeholder="Minimum value is 1">
+  ```
+
+#### 4. `maxlength` Attribute:
+
+- **Description:** Sets the maximum length of the input value.
+- **Example:**
+  ```html
+  <input maxlength="50" placeholder="Maximum length is 50 characters">
+  ```
+
+These attributes offer flexibility and control over the input field's content and validation rules. Use them as needed based on your specific requirements.
