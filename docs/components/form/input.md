@@ -6,9 +6,6 @@ The Custom Input Component is a stylized input container that allows for customi
 #### Usage:
 
 ```html
-<!-- Include the CSS file in the head of your HTML document -->
-<link rel="stylesheet" type="text/css" href="path/to/custom-input.css">
-
 <!-- Use the Custom Input Component in your HTML -->
 <div form="input">
   <input type="text" placeholder="Type something...">
