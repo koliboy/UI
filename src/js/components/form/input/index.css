@@ -251,3 +251,6 @@ div[form=input][type="password"][toggle] [pass-icon]:first-child {
 
 
 }
+div[form=input][toggle] [form-input-right-error] {
+    display: none;
+}
