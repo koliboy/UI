@@ -154,3 +154,13 @@ Feel free to customize the appearance of the Multiple Input Custom Component by 
 - **`join` Attribute:**
   - Values: `"/"`
   - Description: Specifies a character or text to join multiple input values when the `multiple` attribute is used.
+
+#### Example:
+
+```html
+<!-- Example with Icon, Disabled, and Password Toggle -->
+<div form="input" left="icon" disabled toggle>
+  <icon><img src="/icons/lock.svg"></icon>
+  <input placeholder="Password" type="password">
+</div>
+```
