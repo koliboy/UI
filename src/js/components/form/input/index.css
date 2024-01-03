@@ -246,7 +246,7 @@ div[form=input][type="password"][toggle] [pass-icons] {
 
 }
 
-div[form=input][type="password"][toggle] [pass-icon]:first-child {
+div[form=input][toggle] [pass-icon]:first-child {
     display: block;
 
 
