@@ -237,7 +237,7 @@ div[form=input] input:disabled {
 
 }
 
-div[form=input][type="password"][toggle] [pass-icons] {
+div[form=input][toggle] [pass-icons] {
     width: auto !important;
     position: absolute;
     right: 0;
@@ -247,10 +247,9 @@ div[form=input][type="password"][toggle] [pass-icons] {
 }
 
 div[form=input][toggle] [pass-icon]:first-child {
-    display: block;
-
-
+    display: block; 
 }
+
 div[form=input][toggle] [form-input-right-error] {
     display: none;
 }
