@@ -327,7 +327,7 @@ div[form=select] [loading-content][error] svg[load] {
         top: calc(var(--font-size) + 25px);
         background-color: var(--background-color);
         box-shadow: 0 0 5px 6px var(--box-shadow-color);
-        border: var(--border-style) var(--border-width) var(--border-color);
+        border: var(--border-style) var(--border-width) var(--color-secondary);
         border-radius: var(--border-radius);
         z-index: 1;
 
