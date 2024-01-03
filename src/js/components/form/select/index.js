@@ -1,482 +1,777 @@
-void function(){
-function setA(element, names = []) { /*private*/
-    names.forEach(function (name) {
-        element.setAttribute(name, null)
-    });
+void function () {
+    function adjustVisibility(contents, self) {
+        /*position:absolute or right: 0; in css*/
+        contents.style.top = `${self.getBoundingClientRect().height + 3}px`
+        contents.style.left = 0;
+        var window_over = contents.getBoundingClientRect();
+        if (window_over.bottom > window.innerHeight && (contents.getBoundingClientRect().height + 10 < self.getBoundingClientRect().top)) {
+            contents.style.top = `-${contents.getBoundingClientRect().height + 3}px`;
 
-}
-function inputProperts() {
-    var properties = document.querySelectorAll('div[form="input"]');
-    properties.forEach(function (e) {
-        if (e.getAttribute("prop-setup") == null) {
-            Object.defineProperties(e, {
-                input: {
-                    get: function () {
-                        if (this.getAttribute("multiple") != null) {
-                            return e.querySelectorAll("input");
-                        } else {
-                            return e.querySelector("input")
-                        }
-
-                    }
-                },
-                disabled: {
-                    get: function () {
-                        return this.getAttribute("disabled") != null ? true : false;
-                    },
-                    set: function (bool) {
-                        if (bool) {
-                            this.setAttribute("disabled", null)
-                        } else {
-                            this.removeAttribute("disabled")
-                        }
-                    }
-                },
-                focus: {
-                    value: function (options = false) {
-                        //this.setAttribute("focus",null);
-                        if (options) { this.input.focus(options); } else {
-                            this.input.focus();
-                        }
-
-                    }
-                },
-                blur: {
-                    value: function (options = false) {
-                        //this.removeAttribute("focus",null);
-                        this.input.blur();
-
-                    }
-                },
-                invalid: {
-                    value: function (bool = false, massage = null) {
-                        var s = this;
-                        if (bool) {
-                            this.setAttribute("error", null);
-                            this.removeAttribute("checkmark");
-                            this.removeAttribute("checking");
-                            if (this.getAttribute("step2") == "true") {
-                                if (massage) {
-                                    s.querySelector("[error-text] text").textContent = massage;
-                                }
-                            }
-                            else {
-                                const i = setInterval(function () {
-                                    if (s.getAttribute("step2") == "true") {
-                                        if (massage) {
-                                            s.querySelector("[error-text] text").textContent = massage;
-                                        }
-                                        clearInterval(i);
-                                    }
-                                });
-                            }
-
-                        } else {
-                            this.removeAttribute("error");
-                        }
-                    }
-                },
-                isValid: {
-                    get: function () {
-                        return this.getAttribute("error") != null ? false : true;
-                    }
-
-                },
-                checkmark: {
-                    get: function () {
-                        return this.getAttribute("checkmark") != null ? true : false;
-                    },
-                    set: function (bool) {
-                        if (bool) {
-                            this.setAttribute("checkmark", null);
-                            this.removeAttribute("error");
-                            this.removeAttribute("checking");
-                        } else {
-                            this.removeAttribute("checkmark")
-                        }
-                    }
-                },
-                check: {
-                    get: function () {
-                        return this.getAttribute("checking") != null ? true : false;
-                    },
-                    set: function (bool) {
-                        if (bool) {
-                            this.setAttribute("checking", null);
-                            this.removeAttribute("error");
-                            this.removeAttribute("checkmark");
-                        } else {
-                            this.removeAttribute("checking");
-                        }
-                    }
-                },
-                icon: {
-                    value: function (obj) {
-                        var s = this;
-                        function newIcon(obj, iconLeft) {
-                            if (typeof obj == "string") {
-                                iconLeft.innerHTML = null;
-                                iconLeft.innerHTML = obj;
-
-                            } else if (obj instanceof SVGSVGElement || obj instanceof HTMLImageElement) {
-                                iconLeft.innerHTML = null;
-                                iconLeft.append(obj);
-
-                            }
-                        }
-
-                        if (this.getAttribute("step2") == "true") {
-                            var iconLeft = this.querySelector("[form-input-left-icon]");
-                            newIcon(obj, iconLeft);
-                        }
-                        else {
-                            const i = setInterval(function () {
-                                if (s.getAttribute("step2") == "true") {
-                                    var iconLeft = s.querySelector("[form-input-left-icon]");
-                                    newIcon(obj, iconLeft);
-                                    clearInterval(i);
-                                }
-                            });
-                        }
-
-
-                    }
-                },
-                text: {
-                    value: function (leftText = null) {
-                        var s = this;
-                        if (s.getAttribute("step2") == "true") {
-                            var TextLeft = s.querySelector("[form-input-left-text]");
-                            TextLeft.textContent = leftText
-
-                        } else {
-                            const i = setInterval(function () {
-                                if (s.getAttribute("step2") == "true") {
-                                    var TextLeft = s.querySelector("[form-input-left-text]");
-                                    TextLeft.textContent = leftText
-                                    clearInterval(i);
-                                }
-                            });
-                        }
-                    }
-                },
-                getIcon: {
-                    get: function () {
-                        if (this.getAttribute("step2") == "true") {
-                            var l = this.querySelector("[form-input-left-icon]");
-                            var s = l.querySelector("img") != null ? l.querySelector("img") : l.querySelector("svg");
-                            return s //element|null
-                        } else {
-                            var l = this.querySelector("icon");
-                            var s = l.querySelector("img") != null ? l.querySelector("img") : l.querySelector("svg");
-                            return s  //element|null
-                        }
-                    }
-                },
-                getText: {
-                    get: function () {
-                        if (this.getAttribute("step2") == "true") {
-                            var l = this.querySelector("[form-input-left-text]");
-                            var s = l.textContent;
-                            return s //string|null 
-                        } else {
-                            var l = this.querySelector("text");
-                            var s = l != null ? l.textContent : null;
-                            return s  //string|null
-                        }
-                    }
-                }
-
-
-            });
-            e.setAttribute("prop-setup", true)
         }
 
+        if (window_over.right > window.innerWidth) {
+            contents.style.left = `-${(window_over.right - window.innerWidth) + 30}px`
 
-
-    });
-}
-
-inputProperts();
-Object.defineProperties(this, {
-    $input: {
-        value: function (element) {
-            inputProperts();
-            return element
-        },
-        writable: false
+        }
     }
-});
 
-var d_iconL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22,6H2C0.895,6,0,6.895,0,8v8c0,1.105,0.895,2,2,2h20c1.105,0,2-0.895,2-2V8C24,6.895,23.105,6,22,6z M3,16 c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1s1,0.448,1,1C4,15.552,3.552,16,3,16z M7,16c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1 s1,0.448,1,1C8,15.552,7.552,16,7,16z M11,16c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1s1,0.448,1,1C12,15.552,11.552,16,11,16z"/></svg>`;
+    function iconSet(self, option) {
+        if (self.getAttribute("selectType") == "left-icon") {
+            try {
+                var name = self.getAttribute("name");
+                var datalist = document.querySelector(`datalist[name="${name}"]`);
+                var imgORsvg = datalist.querySelector(`data[value="${option.getAttribute("value")}"]`);
+                option.querySelector('[form-input-left-icon]').innerHTML = imgORsvg.innerHTML
+            } catch (e) {
+                /**/
+            }
 
-var right_icons = `<svg form-input-right-icon form-input-right-error xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path
-            d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z M 11 7L11 9L13 9L13 7L11 7 z M 11 11L11 17L13 17L13 11L11 11 z" />
-    </svg><svg form-input-right-icon form-input-right-checkmark xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path
-            d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z" />
-    </svg>
-    <svg form-input-right-icon form-input-right-checking xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path
-            d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z" />
-    </svg>`;
+        }
+    }
+    function unsCheckAll(elment) {
+        var a = Array.from(elment.querySelectorAll("o[select-ul]")).filter(function (f) { if (f.getAttribute("selected") != null) { return f } })
 
-var pass_icon = ` <div pass-icons form-cursor>
-           <svg action="show" form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M12 4C4 4 1 12 1 12C1 12 4 20 12 20C20 20 23 12 23 12C23 12 20 4 12 4 z M 12 6C17.276 6 19.944594 10.267094 20.808594 11.996094C19.943594 13.713094 17.255 18 12 18C6.724 18 4.0554062 13.732906 3.1914062 12.003906C4.0574062 10.286906 6.745 6 12 6 z M 12 8C9.791 8 8 9.791 8 12C8 14.209 9.791 16 12 16C14.209 16 16 14.209 16 12C16 9.791 14.209 8 12 8 z M 12 10C13.105 10 14 10.895 14 12C14 13.105 13.105 14 12 14C10.895 14 10 13.105 10 12C10 10.895 10.895 10 12 10 z"/>
-</svg>
-       <svg action="hide" form-input-right-icon pass-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M4.2070312 2.7929688L2.7929688 4.2070312L5.0820312 6.4960938C2.4151866 8.6404109 1.1608367 11.416191 1.0800781 11.605469L0.91210938 12L1.0800781 12.394531C1.2130781 12.705531 4.428 20 12 20C14.066349 20 15.797205 19.449537 17.238281 18.652344L19.792969 21.207031L21.207031 19.792969L4.2070312 2.7929688 z M 12 4C10.789 4 9.7000313 4.200625 8.7070312 4.515625L10.353516 6.1621094C10.874516 6.0631094 11.419 6 12 6C17.396 6 20.167625 10.588094 20.890625 11.996094C20.596625 12.559094 19.952359 13.651953 18.943359 14.751953L20.369141 16.177734C22.049141 14.359734 22.854922 12.545531 22.919922 12.394531L23.087891 12L22.919922 11.605469C22.786922 11.294469 19.572 4 12 4 z M 6.5117188 7.9257812L8.5625 9.9765625C8.2079471 10.569059 8 11.258899 8 12C8 14.206 9.794 16 12 16C12.741101 16 13.430941 15.792053 14.023438 15.4375L15.748047 17.162109C14.674347 17.671227 13.428307 18 12 18C6.604 18 3.832375 13.411906 3.109375 12.003906C3.5249986 11.207948 4.6402378 9.3628241 6.5117188 7.9257812 z M 12.212891 8.0214844L15.978516 11.787109C15.869516 9.7541094 14.245891 8.1304844 12.212891 8.0214844 z M 10.074219 11.488281L12.511719 13.925781C12.347951 13.969804 12.177911 14 12 14C10.897 14 10 13.103 10 12C10 11.822089 10.030196 11.652049 10.074219 11.488281 z"/>
-</svg>
-       </div>`
+        if (a.length == 0) { /*no selected*/
 
-setInterval(function () {
+            elment.setAttribute("value", "")
+            elment.setAttribute("placeholder_view", null)
+            elment.querySelector('[input] [form-text-width]').textContent = elment.getAttribute('placeholder')
+            if (elment.getAttribute("selectType") == "left-icon") {
+                elment.querySelector('[input] [form-input-left-icon]').innerHTML = input_icon_def;
+            }
+
+        }
+        return a.length
+    }
+
+    function newselected(element, e) {
+        var self = element;
+        var set_value = self.getAttribute('value')
+        var options = e.querySelectorAll("[options] [select-ul]");
+
+        if (e.getAttribute("filter") == null) {
+            e.querySelector('[input] [form-text-width]').textContent = self.textContent
+        }
 
 
-    var step1 = document.querySelectorAll('div[form="input"]');
-    step1.forEach(function (e) {
-        if (e.getAttribute("ui-setup") == null || e.querySelector("input[worker]") == null) {
-            // document.console = "HAA"
-            e.setAttribute("form-border", null); e.setAttribute("form-font-size", null)
-            var icon = e.querySelector("icon"), lText = e.querySelector("text"), eText = e.querySelector("error");
-
-            var Input_e = document.createElement("div");
-            var PI = icon != undefined ? icon.innerHTML : d_iconL, PT = lText != undefined ? lText.textContent : null;
-            var PE = eText != undefined ? eText.textContent : null;
-
-            Input_e.setAttribute("input", null);
-
-            var cnt = `<div form-input-left-icon> ${PI} </div>
-         <div padding form-border-left-text  form-font-size form-input-color form-input-left-text form-border-color>
-         ${PT}
-         </div> 
-         ${pass_icon} 
-         ${right_icons}
-         <div disabled-bar></div>
-          `
-
-            if (icon) { icon.remove() };
-            if (lText) { lText.remove() }
-            if (eText) { eText.remove() }
-
-            Input_e.innerHTML = cnt;
-
-            var inputs = e.querySelectorAll("input") /*main*/
-            inputs.forEach(function (input) {
-                input.setAttribute("worker", true)
-                if (e.getAttribute("multiple") == null) {
-                    var setPriv = ["worker", "padding", "form-text-width", "form-font-size", "form-input-placeholder", "form-input-color"]
-                } else {
-                    var setPriv = ["worker", "padding", "form-font-size", "form-input-placeholder", "form-input-color"]
+        self.querySelector("[form-input-right-icon]").innerHTML = path_selected
+        if (self.getAttribute('value')) {
+            e.setAttribute('value', set_value)
+        } else {
+            e.setAttribute('value', "")
+        }
+        self.setAttribute("selected", true)
+        if (e.getAttribute("multiple") == null) {
+            options.forEach(function (us) {
+                if (self != us) {
+                    us.querySelector("[form-input-right-icon]").innerHTML = path_selecte
+                    us.removeAttribute("selected");
 
                 }
-
-                setA(input, setPriv)
             });
-
-            if (e.getAttribute("multiple") == null) {
-                Input_e.querySelector("[form-input-left-text]").after(inputs[0]);
-            } else {
-                var partsE = document.createElement("div");
-                var partsto = ["form-text-width", "parts", "form-font-size", "form-input-color"];
-                setA(partsE, partsto);
+        }
 
 
-                for (let pI = 0; inputs.length > pI; pI++) {
-                    partsE.append(inputs[pI])
-                    if (pI + 1 < inputs.length && e.getAttribute("join") != null) {
+        if (e.getAttribute("selectType") == "left-icon") {
+            e.querySelector('[input] [form-input-left-icon]').innerHTML = self.querySelector('[form-input-left-icon]').innerHTML
+        }
 
-                        var joinE = document.createElement("div");
-                        var joinTo = ["join", "padding", "form-input-color"];
-                        setA(joinE, joinTo)
-                        joinE.textContent = e.getAttribute("join");
-                        inputs[pI].after(joinE)
+        e.removeAttribute("placeholder_view");
+    }
 
-                    }
-                }
-                Input_e.querySelector("[form-input-left-text]").after(partsE);
-            }
+    function unselected(self, e) {
+        self.removeAttribute("selected")
+        self.querySelector("[form-input-right-icon]").innerHTML = path_selecte
+
+    }
+
+    function adjustSizeDesktop(self) {
+
+        if (self.getAttribute("options-width") && (768 <= window.innerWidth)) {  /*dekstop only*/
+
+            self.querySelector("[contents]").style.width = `${self.getAttribute("options-width")}`
+        } else {
+            self.querySelector("[contents]").style.width = "100%"
+        }
+    }
+
+    var selectOpen = function (self) {
+        self.setAttribute("focus", true);
+        self.setAttribute("open", true);
+        /* var topDefult = self.querySelector("[input]").getBoundingClientRect().height
+          self.querySelector("[contents]").style.top =`${topDefult+3}px`*/
+        adjustVisibility(self.querySelector("[contents]"), self);
+        adjustSizeDesktop(self)
+        window.addEventListener('resize', function () {
+            adjustVisibility(self.querySelector("[contents]"), self);
+            adjustSizeDesktop(self);
+        });
 
 
-            e.append(Input_e)
+    }
 
-            /*valid check*/
+    var selectClose = function (self) {
+       setTimeout(function(){
+           self.removeAttribute("focus");
+           self.removeAttribute("open");
+           var mobile_view = $action_btm(self.querySelector("mobile"));
+           mobile_view.close(); //agin close up when click to close desktop
+        
+        },100);
+
+    }
+    var selectEvent = function (e) { /*you sould load function after chnage any content in Element fragment*/
+
+        /*select*/
+        e.querySelectorAll("[options] [select-ul]").forEach(function (e2) {
+            if (e2.getAttribute("event-steup") == null) {
+                if (e2.getAttribute("disabled") == null) {
+                    e2.addEventListener("click", function () {
+
+                        var options = e.querySelectorAll("[options] [select-ul]");
+                        var mobile_close = $action_btm(e.querySelector("mobile"));
+                        if (e.getAttribute("multiple") == null) {
 
 
-            function validfind(pattern, value) {
-                var patternString = `^${pattern}$`;
-                return new RegExp(patternString).test(value);
 
-            }
+                            if (this.getAttribute('selected') == null || e.getAttribute('required') != null) {
+                                newselected(this, e);
 
 
-            /*events or valid*/
-            inputs.forEach(function (valid) {
-                valid.addEventListener("input", function (event) {
-                    var s = this
-                    var pattern = valid.getAttribute("pattern");
 
-                    if (pattern != null) {
-                        if (!validfind(pattern, s.value)) {
-                            $input(e).invalid(true)
+                            } else {
+                                unselected(this, e)
+                                unsCheckAll(e)
+
+                            }
+                            //selectClose(e);  
+                            if (e.getAttribute("open") == "true") {
+                                e.querySelector("[input]").click()
+                            }
+
+
                         } else {
-                            $input(e).invalid(false);
-                            $input(e).checkmark = true
 
-                        }
+                            if (this.getAttribute('selected') == null) {
+                                newselected(this, e);
+                            } else if (unsCheckAll(e) != 1 || e.getAttribute('required') == null) {
+                                unselected(this, e)
+                            }
 
-                    }
+                            if (e.getAttribute("size") != null) {
 
-
-                    if (e.getAttribute("multiple") != null && valid.getAttribute("maxlength") != null) {
-                        var max_legth = valid.getAttribute("maxlength");
-
-                        if (max_legth == valid.value.length) {
-                            var nf = Array.from(inputs);
-                            nf.forEach(function (next, index) {
-                                if (valid == next) {
-                                    var foucs_ = nf[index + 1];
-                                    if (foucs_) {
-                                        foucs_.focus()
+                                if (unsCheckAll(e) > e.getAttribute("size")) { //max 
+                                    for (let max = 0; options.length > max; max++) {
+                                        if (options[max] != this && options[max].getAttribute('selected') !== null) {
+                                            unselected(options[max], e);
+                                            break;
+                                        }
                                     }
-
                                 }
-                            })
+                                if (unsCheckAll(e) == e.getAttribute("size")) {
+                                    if (e.getAttribute("open") == "true") {
+                                        e.querySelector("[input]").click()
+                                    }
+                                }
+                                e.querySelector("[multiple-remain] [remain]").textContent = e.getAttribute("size");
+                                e.querySelector("[multiple-remain] [done]").textContent = unsCheckAll(e)
+
+                            }
+
+
+                            var v = [], t = [], o_ob = [];
+
+                            options.forEach(function (al) {
+                                if (al.getAttribute('selected') != null) {
+                                    v.push(al.getAttribute("value"))
+                                    t.push(al.querySelector('[form-text-width]').textContent)
+                                    o_ob.push(al)
+                                }
+
+                            });
+
+
+                            if (e.getAttribute("filter") == null) {
+                                e.querySelector('[input] [form-text-width]').textContent = t.toString()
+
+
+                            }
+
+                            e.setAttribute("value", v.toString())
+                            if (o_ob.length > 0 && e.getAttribute("selectType") == "left-icon") {
+                                e.querySelector('[input] [form-input-left-icon]').innerHTML = o_ob[o_ob.length - 1].querySelector('[form-input-left-icon]').innerHTML
+                            }
+
+                            unsCheckAll(e)
+
+                        }
+
+
+                    });
+                }
+                e2.setAttribute("event-steup", true);
+            }
+        });
+
+
+        /*search*/
+        function find(el, keyword = "") {
+            var finds = Array.from(el.querySelectorAll("[options] [select-ul]")).filter(function (f) {
+                if (f.querySelector('[form-text-width]').textContent.toLowerCase().includes(keyword.toLowerCase())) {
+                    return true
+                }
+            });
+            return finds
+        }
+
+        var back = e.querySelectorAll("[options] [select-ul]")
+
+        e.querySelector("[select-ul-search] input").addEventListener("input", function () {
+            var keyword = this.value.trim();
+            e.querySelector("[options]").scrollTop = 0;
+
+            var shif = e.querySelectorAll("[options] [select-ul]")[0]
+            find(e, keyword).forEach(function (top) {
+                if (shif) {
+                    shif.before(top);
+
+                }
+            });
+            if (keyword.length == 0) {
+                e.querySelectorAll("[options] [select-ul]").forEach(function (remove) {
+                    remove.remove()
+                })
+                back.forEach(function (b) {
+                    e.querySelector("[options]").append(b)
+                });
+            }
+        });
+
+    }
+
+    var path_selected = `<path d="M11,16.4l-4.7-4.7l1.4-1.4l3.3,3.3l8.4-8.4C17.5,3.3,14.9,2,12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10 c0-1.9-0.5-3.6-1.4-5.1L11,16.4z"/>`
+    var path_selecte = ` <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z"/>`
+    var input_icon_def = `<svg  opacity="0.30"  defult f xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" />
+</svg>`
+
+    function optionPropert(p) {
+        p.querySelectorAll('o').forEach(function (po) {
+            if (po.getAttribute("prop-setup") == null) {
+                Object.defineProperties(po, {
+                    value: {
+                        get: function () {
+                            return this.getAttribute("value")
+                        }
+                    },
+                    text: {
+                        get: function () {
+                            return this.querySelector('text').textContent;
+                        }
+                    },
+                    selected: {
+                        get: function () {
+                            return this.getAttribute('selected') == null ? false : true
+                        },
+                        set: function (bool) {
+
+                            var s = this
+                            const i = setInterval(function () {
+                                if (p.getAttribute("step2") == "true") {
+                                    if (bool) { s.getAttribute('selected') == null ? s.click() : false } else { s.getAttribute('selected') != null ? s.click() : false; }
+                                    clearInterval(i)
+                                }
+                            });
+                        }
+                    },
+                    edit: {
+                        value: function (value, text) {
+                            var s = this
+                            const i = setInterval(function () {
+                                if (p.getAttribute("step2") == "true") {
+                                    s.setAttribute("value", new String(value));
+                                    s.querySelector("[form-text-width]").textContent = text
+                                    clearInterval(i)
+                                }
+                            });
+                        },
+                        disabled: {
+                            get: function () {
+                                return this.getAttribute("disabled") != null ? true : false;
+                            },
+                            set: function (bool) {
+                                if (bool) {
+                                    this.setAttribute("disabled", null)
+                                } else {
+                                    this.removeAttribute("disabled")
+                                }
+                            }
+                        }
+
+                    },
+
+                });
+                po.setAttribute("prop-setup", true);
+            }
+
+        })
+    }
+
+    function selectPropert() {
+        var properties = document.querySelectorAll('div[form="select"]');
+        properties.forEach(function (p) {
+            if (p.getAttribute("properties-setup") == null) {
+
+                /*self*/
+                Object.defineProperties(p, {
+                    loadend: {
+                        value: function (caller = function () { }) {
+                            var s = this;
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true") {
+                                    caller.call(s, s);
+                                    clearInterval(i)
+                                }
+                            });
+                        }
+                    },
+                    change: {
+                        value: function (caller = function () { }) {
+                            var s = this;
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true" && s.getAttribute("reload") == null) {
+                                    s.setAttribute("reload", true);
+
+                                    s.querySelectorAll(['[options] [select-ul]']).forEach(function (u) {
+                                        if (u.getAttribute("event-chnage-steup") == null) {
+                                            u.addEventListener("click", function () {
+                                                if (u.getAttribute("disabled") == null) {
+                                                    caller.call(s, s)
+                                                }
+
+                                            });
+                                            u.setAttribute("event-chnage-steup", true)
+                                        }
+
+                                    })
+
+                                    // clearInterval(i)
+                                }
+                            });
+                        }
+                    },
+                    value: {
+                        get: function () {
+                            if (this.getAttribute("step2") == null) { /*.getAttribute("step2")*/
+                                var value_re = ""
+                                if (this.getAttribute("multiple") == null) {
+                                    value_re = this.querySelector("option[selected]").value
+                                } else {
+                                    value_re = Array.from(this.querySelectorAll("option[selected]")).map(function (e) {
+                                        return e.value
+                                    }).toString();
+                                }
+
+                                return value_re
+                            } else {
+                                return this.getAttribute('value')
+                            }
+                        },
+
+                    },
+                    disabled: {
+                        get: function () {
+                            return this.getAttribute("disabled") != null ? true : false;
+                        },
+                        set: function (bool) {
+                            if (bool) {
+                                this.setAttribute("disabled", null)
+                            } else {
+                                this.removeAttribute("disabled")
+                            }
+                        }
+                    },
+                    cntload: {
+                        value: function (caller = function () { }) {
+                            var s = this; var click = 0;
+
+
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true") {
+                                    var lEl = s.querySelector('[contents] [loading-content]')
+                                    var event = {
+
+                                        label: function (action = false, text = null) {
+                                            if (action) {
+                                                lEl.querySelector("[label]").style.display = "flex"
+                                                lEl.querySelector("[label]").textContent = text;
+                                            }
+                                        },
+                                        clearloade: false,
+                                        error: function () {
+                                            s.removeAttribute("cnt-laoding-wait");
+                                            lEl.setAttribute("error", null);
+                                            click = 1;
+
+                                        },
+                                        clear: function (appendData = "") {
+                                            s.removeAttribute("cnt-laoding");
+                                            s.removeAttribute("cnt-laoding-wait");
+                                            event.clearloade = true;
+                                            click = 0;
+                                            s.html(appendData);
+                                            // selectClose(s) 
+                                            //s.querySelector("[input]").click()
+                                            //  $action_btm(self.querySelector("mobile"))
+                                            var i2 = setInterval(function () {
+                                                if (s.getAttribute("step2") == "true") {
+                                                    var mobile_view = $action_btm(s.querySelector("mobile"))
+                                                    mobile_view.show()
+
+                                                    mobile_view.onclose(function () {
+                                                        this.close(function () {
+                                                            selectClose(s);
+                                                        });
+                                                    });
+                                                    clearInterval(i2)
+                                                }
+
+
+                                            });
+
+
+
+
+
+                                        },
+                                    }
+                                    var opend = s.querySelector("[input]");
+                                    if (!event.clearloade && s.getAttribute("cnt-laoding-wait") == null) {
+                                        s.setAttribute("cnt-laoding-wait", true);
+
+                                        click = 1;
+                                        opend.addEventListener("click", function () {
+                                            if (click == 1 && s.getAttribute("open") != null) {
+
+                                                click = 0;
+
+                                                s.querySelector('[contents] [options]').style.display = "none";
+                                                s.querySelector("[contents] [select-ul-search]").style.display = "none";
+                                                s.setAttribute("cnt-laoding", true);
+                                                lEl.removeAttribute("error");
+                                                caller.call(event, event, s)
+
+                                            }
+
+                                        });
+
+
+
+                                    } else {
+                                        click = 0
+                                    }
+                                    //e.querySelector("[input]").addEventListener("click"
+                                    clearInterval(i)
+                                }
+                            });
+
+                        }
+                    },
+                    html: {
+                        value: function (optionsHTML) {
+                            var s = this;
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true") {
+                                    s.innerHTML = optionsHTML
+                                    s.removeAttribute("ui-setup"); s.removeAttribute("step2");
+                                    s.removeAttribute("step1");
+                                    s.setAttribute("reload", true);
+                                    s.removeAttribute("reload")
+                                    clearInterval(i);
+                                }
+                            });
+                        }
+                    },
+                    add: {
+                        value: function (value, text) {
+                            var s = this
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true") {
+                                    var o = document.createElement("o");
+                                    o.setAttribute("select-ul", null); o.setAttribute("form-font-size", null); o.setAttribute("form-cursor", null);
+                                    o.setAttribute("value", value);
+                                    o.innerHTML = ` 
+                       <div form-input-left-icon></div> <text form-text-width>${text}</text>
+                       <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                       <path d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z" />
+                       </svg>`
+                                    iconSet(s, o);
+                                    s.querySelector("[contents] [options]").append(o);
+                                    selectEvent(s);
+                                    optionPropert(s);
+                                    s.removeAttribute("reload");
+                                    clearInterval(i)
+                                }
+                            });
+                        }
+                    },
+                    options: {
+                        value: function (caller = function () { }, index = "all") {
+                            var s = this;
+                            const i = setInterval(function () {
+                                if (s.getAttribute("step2") == "true") {
+                                    var ops = s.querySelectorAll("o");
+                                    for (let i = 0; ops.length > i; i++) {
+
+                                        if (index != "all") {
+                                            if (i == index) {
+                                                caller.call(s, ops[i], i);
+                                                break
+                                            }
+                                        }
+                                        else {
+                                            caller.call(s, ops[i], i);
+                                        }
+                                    }
+                                    clearInterval(i)
+                                }
+                            });
+
+                        }
+                    },
+                    required: {
+                        get: function () {
+                            return this.getAttribute("required") != null ? true : false;
+                        },
+                        set: function (bool) {
+                            if (bool) {
+                                this.setAttribute("required", null)
+                            } else {
+                                this.removeAttribute("required")
+                            }
+                        }
+                    },
+                    multiple: {
+                        value: function (m = false, size = false) {
+                            if (m) {
+                                this.setAttribute("multiple", true);
+                                if (size) {
+                                    this.setAttribute("size", size)
+                                }
+
+                            } else {
+                                this.removeAttribute("multiple")
+                            }
+                        }
+                    },
+                    options_width: {
+                        value: function (width) {
+                            this.setAttribute("options-width", width)
                         }
                     }
 
-                    /*required min size*/
-                    if (valid.getAttribute("min") != null) {
-                        var reS = valid.getAttribute("min");
-
-                        if (new Number(reS) > valid.value.length) {
-                            $input(e).invalid(true)
-                        } else {
-                            $input(e).invalid(false)
-                        }
-                    }
-
-
-                    /*required*/
-                    if (valid.getAttribute("required") != null) {
-                        var required = valid.getAttribute("required");
-
-                        if (required == "number") {
-                            if (isNaN(new Number(event.data))) {
-                                valid.value = valid.value.slice(0, -1)
-                                $input(e).invalid(true)
-                            } else {
-                                $input(e).checkmark = true
-                                $input(e).invalid(false)
-                            }
-
-                        }
-                        else if (required == "password") {
-                            /*At least one lowercase letter (?=.*[a-z])
-                           At least one uppercase letter (?=.*[A-Z])
-                           At least one digit (?=.*\d)
-                           At least one special character from the set [!@#$%^&*] (?=.*[!@#$%^&*])
-                           Minimum length of 8 characters [A-Za-z\d!@#$%^&*]{8,}*/
-
-                            var pattren = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,}"
-                            if (!validfind(pattren, valid.value)) {
-                                $input(e).invalid(true)
-                            } else {
-                                $input(e).invalid(false)
-                                $input(e).checkmark = true
-                            }
-
-                        }
-                        else if (required == "username") {
-                            /*[a-zA-Z0-9_-]: This part defines a character set that includes uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), underscores (_), and hyphens (-).
-                            {3,16}: This part specifies the allowed length range for the string. The string must be at least 3 characters long and can be up to 16 characters long.
-                            Here are some examples of strings that match this pattern:
-                            "abc123"
-                            "user_name"
-                            "test-123"
-                            less than 3 characters)
-                            more than 16 characters
-                            */
-                            var pattren = "[a-zA-Z0-9_-]{3,16}";
-                            if (!validfind(pattren, valid.value)) {
-                                $input(e).invalid(true)
-                            } else {
-                                $input(e).invalid(false)
-                                $input(e).checkmark = true
-                            }
-                        }
-
-                        else if (required == "mail") {
-                            /*
-                            @: Matches the at symbol that separates the local part from the domain.
-                            
-                            [a-zA-Z0-9.-]+: Matches the domain part of the email address, which can include letters, numbers, dots, and hyphens.
-                            
-                            \.: Matches the dot that separates the domain from the top-level domain (TLD).
-                            
-                            [a-zA-Z]{2,}$: Matches the TLD, which must consist of at least two letters.
-                            */
-                            var pattren = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}";
-                            if (!validfind(pattren, valid.value)) {
-                                $input(e).invalid(true)
-                            } else {
-                                $input(e).invalid(false)
-                                $input(e).checkmark = true
-                            }
-                        }
-
-
-
-
-
-                    }
-
-
                 });
+                /*options*/
+                optionPropert(p)
+                p.setAttribute("properties-setup", true)
+            }
 
+        });
+    }
+    selectPropert();
 
-
-                valid.addEventListener("focus", function (event) {
-                    e.setAttribute("focus", null)
-                });
-                valid.addEventListener("blur", function (event) {
-                    e.removeAttribute("focus")
-                });
-
-            })
-
-            /*pass toogle*/
-            var tog = e.querySelector("[pass-icons]").querySelectorAll("svg");
-            tog.forEach(function(toggle){
-                  toggle.onclick = function(){
-                      if(this.getAttribute("action") == "show"){
-                          this.style.display = "none";
-                          tog[1].style.display = "block";
-                           inputs.forEach(function(type){type.setAttribute("type","text")}); 
-                      }else{
-                          this.style.display = "none";
-                          tog[0].style.display = "block";
-                          inputs.forEach(function(type){type.setAttribute("type","password")});
-                      }
-                  }
-             })
-             
-            var error_e = document.createElement("div"); error_e.setAttribute("padding", null); error_e.setAttribute("error-text", null)
-            error_e.innerHTML = `<text>${PE}</text>`
-            e.querySelector("[input]").after(error_e);
-
-
-
-
-            /*done*/
-            e.setAttribute("ui-setup", true);
-            e.setAttribute("step2", true);
+    Object.defineProperties(this, {
+        $select: {
+            value: function (element) {
+                selectPropert();
+                return element
+            },
+            writable: false
         }
     });
 
 
-});
-    
-    
-}();
+    setInterval(function () {
+        var step1 = document.querySelectorAll('div[form="select"]');
+
+        step1.forEach(function (e) {
+            if (e.getAttribute("step1") == null) {
+                e.setAttribute("placeholder_view", null); e.setAttribute("form-border", null); e.setAttribute("form-font-size", null); e.setAttribute("form-input-color", null);
+                e.setAttribute("value", "")
+
+                var input_box = document.createElement("div");
+                var placeholder = e.getAttribute('placeholder') != null ? e.getAttribute('placeholder') : ""
+                input_box.setAttribute("input", null); input_box.setAttribute("form-cursor", null); input_box.setAttribute("padding", null)
+                var input_boxInner = `<div form-input-left-icon> <svg  opacity="0.30"  defult  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.453125 3L3 5.453125L3 8.2792969L8.28125 3L5.453125 3 z M 12.582031 3L3 12.582031L3 15.410156L15.410156 3L12.582031 3 z M 19.59375 3L3 19.595703L3 20.970703L4.453125 20.970703L21 4.421875L21 3L19.59375 3 z M 21 8.6660156L8.6953125 20.970703L11.523438 20.970703L21 11.494141L21 8.6660156 z M 21 15.736328L15.767578 20.970703L18.595703 20.970703L21 18.564453L21 15.736328 z" /</svg></div>
+         <text form-text-width>${placeholder}</text>
+     <svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+   <path d="M11 3L11 17.070312L6.4296875 12.5L4.9296875 14L12 21.070312L19.070312 14L17.570312 12.5L13 17.070312L13 3L11 3 z" />
+ </svg>
+`
+                input_box.innerHTML = input_boxInner;
+                if (e.querySelector("o")) {
+                    e.querySelector("o").before(input_box)
+                } else {
+                    e.append(input_box)
+                }
+
+
+                /*option sets*/
+                var contents = document.createElement("div"); contents.setAttribute('contents', null);
+                //contents.style.display = "block"
+                var search_holder = e.getAttribute("search-holder") != null ? e.getAttribute("search-holder") : "search";
+
+                contents.innerHTML = `
+          <mobile max-height="90%" form="bottom-bar">
+  <div select-ul-search>
+    <svg form-input-left-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M9 2C5.1458514 2 2 5.1458514 2 9C2 12.854149 5.1458514 16 9 16C10.747998 16 12.345009 15.348024 13.574219 14.28125L14 14.707031L14 16L20 22L22 20L16 14L14.707031 14L14.28125 13.574219C15.348024 12.345009 16 10.747998 16 9C16 5.1458514 12.854149 2 9 2 z M 9 4C11.773268 4 14 6.2267316 14 9C14 11.773268 11.773268 14 9 14C6.2267316 14 4 11.773268 4 9C4 6.2267316 6.2267316 4 9 4 z" />
+    </svg>
+    <input type="text" form-text-width form-input-placeholder placeholder="${search_holder}">
+  </div>
+  <div multiple-remain padding form-font-size><span done>0</span>/<span remain>0</span></div>
+  <div options scroll-br>
+  </div>
+   <div loading-content > 
+       <div load_i padding  spinner-icon>
+           <svg load  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z" />
+</svg>
+  <svg error  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M22.239,18.451L13.442,3.816C13.135,3.305,12.596,3,12,3s-1.135,0.305-1.441,0.815L1.761,18.451 c-0.312,0.519-0.32,1.168-0.022,1.695C2.036,20.673,2.597,21,3.203,21h17.595c0.605,0,1.167-0.327,1.464-0.854 C22.56,19.619,22.551,18.97,22.239,18.451z M13,18h-2v-2h2V18z M13,14h-2V9h2V14z" />
+</svg>
+       </div>
+       <div style="display:noned"  load_i label  form-font-size form-input-color  padding>Loading...</div>
+       </div>
+</mobile>
+`
+
+                e.querySelectorAll('o').forEach(function (o) {
+                    o.setAttribute("select-ul", null); o.setAttribute("form-font-size", null); o.setAttribute("form-cursor", null);
+                    o.getAttribute("value") == null ? o.setAttribute("value", "") : true;
+                    var text = o.textContent
+                    o.innerHTML = `
+                 <div form-input-left-icon></div> 
+<text form-text-width>${text}</text>
+ 
+<svg form-input-right-icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path
+    d="M12 2C6.4889971 2 2 6.4889971 2 12C2 17.511003 6.4889971 22 12 22C17.511003 22 22 17.511003 22 12C22 6.4889971 17.511003 2 12 2 z M 12 4C16.430123 4 20 7.5698774 20 12C20 16.430123 16.430123 20 12 20C7.5698774 20 4 16.430123 4 12C4 7.5698774 7.5698774 4 12 4 z" />
+</svg>
+`
+                    iconSet(e, o)
+                    contents.querySelector("[options]").append(o);
+
+                });
+
+                var now_selected = contents.querySelector("[options]").querySelectorAll('o[selected]');
+
+                input_box.after(contents)
+                var disabled_el = document.createElement("div");
+                disabled_el.setAttribute("sel-disabled", true);
+                contents.after(disabled_el)
+
+
+                var v = [], t = []
+
+                if (e.getAttribute("multiple") != null && now_selected.length > 0) {
+
+                    if (e.getAttribute("size") == null) {
+                        now_selected.forEach(function (sl) {
+
+                            newselected(sl, e);
+                            v.push(sl.getAttribute('value'))
+                            t.push(sl.querySelector('text').textContent)
+                        });
+
+
+                    } else {
+                        var size = e.getAttribute("size") - 1;
+                        e.querySelector("[multiple-remain] [remain]").textContent = e.getAttribute("size");
+                        now_selected.forEach(function (sl, ind) {
+
+                            if (size >= ind) {
+                                newselected(sl, e);
+                                v.push(sl.getAttribute('value'))
+                                t.push(sl.querySelector('text').textContent);
+                                e.querySelector("[multiple-remain] [done]").textContent = ind + 1
+                            } else {
+                                sl.removeAttribute('selected');
+                            }
+                        });
+                    }
+
+
+                    e.setAttribute("value", v.toString());
+
+                    if (e.getAttribute("filter") == null) {
+                        e.querySelector('[input] [form-text-width]').textContent = t.toString()
+                    }
+
+                } else {
+
+                    now_selected.length > 0 ? newselected(now_selected[0], e) : true
+                }
+
+
+
+
+
+                e.setAttribute("step1", true);
+                e.setAttribute("ui-setup", true);
+            }
+        });
+
+        /*setup 2*/
+        var select_steup2 = document.querySelectorAll('div[form="select"][ui-setup="true"]');
+        select_steup2.forEach(function (e) {
+            if (e.getAttribute('step2') == null) {
+                /*opend*/
+                e.querySelector("[input]").addEventListener("click", function (event) {
+                    var self = this.parentElement;
+
+
+                    if (!self.getAttribute("disabled")) {
+
+                        if (self.getAttribute("open")) { /*is aredy opend*/
+                            selectClose(self);
+
+                        } else {
+
+                            selectOpen(self)
+                            var mobile_view = $action_btm(self.querySelector("mobile"));
+                            mobile_view.show();
+
+                            mobile_view.onclose(function () {
+                                this.close(function () {
+                                    selectClose(self);
+                                });
+                            });
+
+
+
+
+
+
+                        }
+
+
+
+
+                    }
+                    document.addEventListener('click', function (event) {
+                        if (event.target.closest('div[form="select"]') != self) {
+                            selectClose(self);
+                        }
+                    });
+                });
+                selectEvent(e);
+                e.setAttribute("step2", true);
+            }
+        });
+
+
+    });
+
+}(); 
