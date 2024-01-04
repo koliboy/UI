@@ -10,8 +10,10 @@ Object.defineProperties(this, {
                        */
                     if (mutation.addedNodes.length > 0) {
                         const addedElement = mutation.addedNodes[0];
-                        if (addedElement.matches(targetSelector)) {
-                            callback(addedElement,mutation);
+                        if( typeof addedElement.matches == "function"){
+                           if (addedElement.matches(targetSelector)) {
+                               callback(addedElement,mutation);
+                            }
                         }
                     }
                 }
