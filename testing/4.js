@@ -2,10 +2,8 @@ function arriveAdd(targetSelector, callback) {
   const observer = new MutationObserver(function(mutationsList) {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-        const addedElement = mutation.addedNodes[0];
-        if (addedElement.matches(targetSelector)) {
-          callback(addedElement);
-        }
+           callback(addedElement);
+        
       }
     }
   });
