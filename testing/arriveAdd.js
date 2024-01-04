@@ -1,13 +1,15 @@
-function arriveAdd(callback) {
+function arriveAdd(targetSelector, callback) {
   const observer = new MutationObserver(function(mutationsList) {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-           callback(addedElement);
-        
+        const addedElement = mutation.addedNodes[0];
+        if (addedElement.matches(targetSelector)) {
+          callback(addedElement);
+        }
       }
     }
   });
 
   const observerConfig = { childList: true, subtree: true };
-  observer.observe(document.body, observerConfig);
+  observer.observe(document, observerConfig);
 }
