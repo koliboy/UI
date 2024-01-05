@@ -81,6 +81,9 @@ The `themeSet` method is used to programmatically set the theme of the webpage. 
    });
    ```
 
+### Notes
+
+- The `currentTheme` value can be a string (`"dark"`, `"light"`), `undefined` (if no theme is set), or `false` (if there's an issue).
 
 
 ### Notes
