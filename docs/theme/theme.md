@@ -106,4 +106,51 @@ The Custom Theme Switcher script provides a flexible solution for implementing t
 
 ---
 
-Feel free to adjust the documentation to better suit your needs or provide more details based on your implementation!
+Certainly! Below is a documentation section for the `class='theme'` attribute in your HTML code:
+
+---
+
+### Theme Class
+
+The `class='theme'` attribute is used to designate HTML elements that should be affected by the custom theme-switching functionality. Elements with this class will dynamically apply styles based on the selected theme (light or dark).
+
+#### Usage Example
+
+```html
+<div class='theme'>
+  <h>This is a paragraph</h>
+  <article>
+    Something written here
+  </article>
+</div>
+```
+
+In this example, the `<div>` element has the `class='theme'` attribute, indicating that it should be subject to changes in styling when the theme is toggled between light and dark modes.
+
+#### Styling for Light and Dark Themes
+
+The styles for light and dark themes are defined in the document's `<style>` section. For instance:
+
+```css
+<style>
+  .dark {
+    background: black;
+    color: white;
+  }
+  /* ... other styles ... */
+</style>
+```
+
+The `.dark` class contains styles that will be applied to elements with the `class='theme'` attribute when the dark theme is active.
+
+### Notes
+
+- The `class='theme'` attribute is essential for associating specific elements with the theme-switching functionality.
+
+- Ensure that the styles for light and dark themes are appropriately defined in the document to achieve the desired visual changes.
+
+- You can customize the styles within the `.dark` class to match the visual design of your dark theme.
+
+---
+
+
