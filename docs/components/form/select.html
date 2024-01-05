@@ -167,7 +167,7 @@
  
 
  @media (min-width: 768px) {
-     body {
+      {
          display: flex;
          justify-content: center;
      }
@@ -220,6 +220,7 @@
  }
 </style>
 </head>
+  <body class="theme">
 <div> 
   <button theme="toggle">Toggle Theme</button>
     <div  type="simple" class="fex-h">
@@ -949,13 +950,13 @@ all('.fex').forEach(function(e){
 
 var  htm_e = `
 \n
-</body>
+</>
 </html>
 `
    if(code){
      var html = code.querySelector("[type='html']");
        if(html){
-          html.querySelector("code").textContent = htm_s+html.querySelector("code").textContent+"<body> \n"+e.innerHTML+htm_e
+          html.querySelector("code").textContent = htm_s+html.querySelector("code").textContent+"<> \n"+e.innerHTML+htm_e
        }
    }
 });
@@ -1006,7 +1007,7 @@ s.forEach(function(e){
 </script>
  
 <script>hljs.highlightAll();</script>
-</body>
+</>
 </html>
 
 
