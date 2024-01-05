@@ -18,7 +18,7 @@
  <script  src="https://koliboy.github.io/formui/src/js/main.js"></script>
  <link href="https://koliboy.github.io/formui/src/js/components/form/form.css" rel="stylesheet" type="text/css"> 
  <link href="https://koliboy.github.io/formui/src/js/components/form/select/index.css" rel="stylesheet" type="text/css"> 
-<script  src="https://koliboy.github.io/formui/src/js/components/form/select/index.js"></script>
+
 <script  src="https://koliboy.github.io/formui/src/js/theme/index.js"></script>
 <!--mobile bottom-action-bar--> 
     
@@ -925,50 +925,7 @@
 <div form="select" class="loading-error"   search   placeholder="countries" search-holder="Find-Country">
  </div>
 
-<script>
-   var element = document.querySelector(".loading-error");
-   var s = $select(element);
-  s.cntload(function(event){
-      event.label(true,"loading....") 
-      setTimeout(function(){
-       event.error();
-         event.label(true,"!Opps") 
-      },300);
-  });
-   
-</script>
-</div>
-   
-   <div code="loading-error" class="code" style="display:none">
-    <pre style="display:none" type="js"><code class="javascript">console.log("Hello, world!");</code></pre>
-     <pre  type="html"><code class="html">
-&lt;script  src="/path/to/formui/main.js">&lt;/script&gt;
-
-&lt;!-- plugin to use --&gt;
-&lt;link rel="stylesheet" href="/path/to/formui/components/form.css"&gt;
-&lt;script   src="/path/to/formui/components/form.js">&lt;/script&gt;
- 
-&lt;/head&gt;
-</code></pre>
-
-</div> 
-<!--end-->
-
-<div class="ftr" style="margin-top:60px"></div>
-</div>
-
-
- 
-
-
-
-
-
-
-
-
-
-<script>
+script>
 
 all('.fex').forEach(function(e){
    var type = e.getAttribute("add");
@@ -1016,6 +973,10 @@ hed_btns.forEach(function(e){
     }
 });
 
+</script>
+
+ <script  src="https://koliboy.github.io/formui/src/js/components/form/select/index.js"></script>            
+<script>
 var s = all(".h");
 
 s.forEach(function(e){
@@ -1036,7 +997,6 @@ s.forEach(function(e){
       })
 })
 </script>
- 
 <script>hljs.highlightAll();</script>
 </body>
 </html>
