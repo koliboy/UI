@@ -47,6 +47,30 @@ The Custom Theme Switcher is a JavaScript script that enables users to switch be
    ```javascript
    $theme.themeSet("dark");
    ```
+   ### `themeSet` Method
+
+The `themeSet` method is used to programmatically set the theme of the webpage. It accepts the following options:
+
+1. **"dark"**
+   - Set the theme to dark mode.
+
+   ```javascript
+   $theme.themeSet("dark");
+   ```
+
+2. **"light"**
+   - Set the theme to light mode.
+
+   ```javascript
+   $theme.themeSet("light");
+   ```
+
+3. **"default"**
+   - Reset the theme to its default state. This removes any user-selected theme and may result in the application of the system's default theme or the default theme specified on the toggle button.
+
+   ```javascript
+   $theme.themeSet("default");
+   ```
 
 4. **Theme Change Callback**
    - Register a callback function using `$theme.change` to be notified when the theme changes.
