@@ -45,17 +45,19 @@
     }
 
 
-
-
-    const defaultset = function () {
-
-        var Themis = function () {
+var Themis = function () {
             try {
                 return localStorage.getItem("my-theme-formui")
             } catch (e) {
                 return null
             }
         }
+if(Themis() == "dark"){ /*fastly*/
+    set_themeToElement("dark");
+ }  
+    const defaultset = function () {
+
+        
         var button = document.querySelector('[theme="toggle"]');
         var prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (Themis() == undefined || Themis() == null) { /* no history*/
