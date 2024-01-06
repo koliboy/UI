@@ -910,7 +910,68 @@
      <iframe src="https://koliboy.github.io/formui-examples/form/select/loading-error.html"></iframe>
 </div> 
 
+<div type="custom" class="fex-h">
+      <div class="title">Custom Styles</div>
+      <p>You can customize the Input component by passing custom <mark>styles</mark>
+        
+        <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/select.md#custom-select-component">Learn
+          More</a>
+      </p>
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
 
+
+
+        </div>
+      </div>
+    </div>
+    <div add="custom" style="display:flex" class="fex">
+        <style>
+            .custom {
+                --color-secondary:rgba(129, 51, 255, 1);
+                --background-color:rgba(153, 255, 175, 1);
+                background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);;
+                --color:black;
+            }
+            .custom2 {
+                --border-width:2px;
+                 --right-icon-fill:white;
+                --background-color:rgba(153, 184, 255, 1);
+                
+                --color:black;
+            }
+        </style>
+      <div form="select" class="custom" placeholder="Please choose">
+        <o value="option1">Option1</o>
+        <o value="option2">Option 2 </o>
+      </div>
+
+     
+      
+      <div form="select" class="custom2" placeholder="Choose Animals">
+
+        <o value="dog" selected>Dog</o>
+        <o value="cat">Cat</o>
+        <o value="hamster">Hamster</o>
+        <o value="parrot">Parrot</o>
+        <o value="spider">Spider</o>
+        <o value="goldfish">Goldfish</o>
+      </div>
+
+     
+
+    </div>
+    <div code="custom" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/select/custom.html"></iframe>    
+
+
+    </div>
+
+    
 
 
 
