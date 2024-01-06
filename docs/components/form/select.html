@@ -29,7 +29,7 @@
 <script  src="https://koliboy.github.io/formui/src/js/components/form/select/index.js"></script>
 
   <style>
-    body {
+     body {
       background: rgba(247, 247, 247, 0.50);
 
       font-family: 'Roboto Flex', sans-serif;
@@ -204,7 +204,18 @@
 
     }
 
-
+   [theme="toggle"] {
+       display: flex; top:10px; position: fixed; z-index: 1000;
+       padding:10px; background:white; border-radius: 50%; box-shadow: 1px -5px 5px 5px var(--box-shadow-color);
+       border:solid 1px var(--border-color);
+        
+   }
+   [theme="toggle"] svg {
+       width: 20px; height: 20px;
+   }
+   [theme="toggle"] .sun {
+       display: none;
+   }
 
     .dark {
       background: rgba(15, 15, 15, 1);
@@ -251,6 +262,15 @@
 
     .dark code {
       color: white;
+    }
+    .dark [theme="toggle"] {
+        background: black;
+    }
+    .dark [theme="toggle"] .sun {
+        display: block;  fill:white
+    }
+    .dark [theme="toggle"] .moon {
+        display: none;
     }
 
     /*.code pre code {
