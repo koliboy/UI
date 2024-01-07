@@ -526,6 +526,67 @@
     </div> 
    
 
+    <!--error-->
+    <div type="error" class="fex-h">
+      <div class="title">Error Messages</div>
+      <p> Represents the container for displaying error messages.
+      <mark>Attribute error to Parment error</mark>
+      
+        
+        <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div add="error" style="display:flex" class="fex">
+     
+     <div form="input" error left="text">
+  <text>Mail</text>
+  <error>
+    Please enter a valid email
+  </error>
+  <input value="desh@" required="mail">
+</div>
+<div form="input" style="width:100%;max-width:500px" error multiple left="icon">
+  <icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M4 4C2.895 4 2 4.895 2 6L2 7L22 7L22 6C22 4.895 21.105 4 20 4L4 4 z M 2 10L2 18C2 19.105 2.895 20 4 20L20 20C21.105 20 22 19.105 22 18L22 10L2 10 z" />
+    </svg></icon>
+  <error>
+    Please enter a valid Card Number
+  </error>
+  <input placeholder="Card Number" maxlength="16" size="16">
+  <input placeholder="Expiry" maxlength="5" size="5">
+  <input placeholder="CVV" maxlength="4" size="4">
+</div>
+
+<div form="input" error>
+
+  <error>
+    Please enter a valid email
+  </error>
+  <input required="mail" placeholder="mail">
+</div>
+
+
+      
+  
+</div>
+  
+
+    
+  
+    <div code="error" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/error.html"></iframe>    
+    </div> 
     
 
 
