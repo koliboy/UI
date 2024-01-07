@@ -288,7 +288,7 @@ setInterval(function () {
                     if (pI + 1 < inputs.length && e.getAttribute("join") != null) {
 
                         var joinE = document.createElement("div");
-                        var joinTo = ["join", "padding", "form-input-color"];
+                        var joinTo = ["join",  "form-input-color"];
                         setA(joinE, joinTo)
                         joinE.textContent = e.getAttribute("join");
                         inputs[pI].after(joinE)
