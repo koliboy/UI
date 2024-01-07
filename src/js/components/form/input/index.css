@@ -103,8 +103,14 @@ div[form=input] [form-input-left-icon] {
 div[form=input][left="icon"]  [form-input-left-icon]{
     display: flex;
 }
+div[form=input][left="icon"] input {
+    margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.90));
+}
 div[form=input][left="icon"] [parts] {
     margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.90));
+}
+div[form=input][left="icon"] [parts] input {
+    margin-left: 0;
 }
 div[form=input][left="text"] [parts]{
    margin-left:0;
