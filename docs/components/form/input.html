@@ -289,6 +289,19 @@
       min-width: 250px;
       --padding:6px;
     }
+    img.dark {
+        display: none;
+    }
+    
+    .dark img.dark {   
+        display: block;
+    }
+    .dark img.light {
+        display:none ;
+    }
+    .dark {
+        --left-background:rgba(31, 31, 31, 0.72);
+    }
   </style>   
 </head>
 
@@ -341,8 +354,7 @@
 
 
 <!--left-->
-    
-     <div type="left-aligned" class="fex-h">
+   <div type="left-aligned" class="fex-h">
       <div class="title">left-aligned  Text or Icon</div>
       <p>To include a left-aligned icon, set the left attribute to "icon" or "text" <mark>left="icon"</mark>
       <mark>left="text"</mark>
@@ -368,23 +380,27 @@
 </div>
 <div form="input" left="icon">
   <input type="text" placeholder="Email">
-  <icon><img src="https://koliboy.github.io/formui-examples/asset/images/mail.svg"></icon>
+  <icon>
+      <img class="dark" src="https://koliboy.github.io/formui-examples/asset/images/mail-l.svg">
+      <img  class="light" src="https://koliboy.github.io/formui-examples/asset/images/mail.svg">
+  </icon>
 </div>
-<div form="input" left="icon">
+<div form="input" left="icon">    
   <input type="text" placeholder="Name">
   <icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path
         d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M12,4.75 c1.795,0,3.25,1.455,3.25,3.25s-1.455,3.25-3.25,3.25S8.75,9.795,8.75,8S10.205,4.75,12,4.75z M12,20 c-2.77,0-5.21-1.408-6.646-3.547C6.475,14.823,10.046,14,12,14s5.525,0.823,6.646,2.453C17.21,18.592,14.77,20,12,20z"
-        fill="blue" />
-    </svg></icon>
-</div>
+        />
+    </svg></icon>   
+</div>   
     
     </div>   
     <div code="left-aligned" class="code" style="display:none">
        <iframe src="https://koliboy.github.io/formui-examples/form/input/left-aligned.html"></iframe>    
 
 
-    </div>
+    </div> 
+    
 
 
 
