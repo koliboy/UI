@@ -90,7 +90,7 @@ div[form=input] [form-input-left-text] {
     overflow: hidden;
     flex: initial;
     max-width: 60%;
-
+   border-radius:var(--border-radius);
     text-overflow: ellipsis;
     white-space: nowrap;
     position: relative;
