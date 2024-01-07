@@ -6,18 +6,13 @@
     display: none;
 }
 
-div[form=input] icon,
-text,
-error,
-input {
-    /*before steup*/
+div[form=input] icon,text,error,input { /*before steup*/
     display: none;
 }
 
 div[form=input][ui-setup="true"] input {
-    display: block;
+ display: block;
 }
-
 div[form=input] {
     height: auto;
     width: auto;
@@ -35,13 +30,11 @@ div[form=input] [input] {
     align-items: center;
     overflow: hidden;
     box-sizing: border-box;
-
+ 
 }
-
 div[form=input][focus] {
-    border-color: var(--color-secondary);
-}
-
+     border-color:var(--color-secondary);
+}  
 div[form=input] input {
     outline: none;
     background: none;
@@ -51,98 +44,80 @@ div[form=input] input {
     appearance: none;
 
 }
-
 div[form=input][multiple] [parts] {
-    display: flex;
-    gap: 5px;
-    overflow: hidden;
-    /* background: pink;*/
+    display: flex; gap:5px; overflow: hidden;
+    background:none; border-radius: var(--border-radius);  align-items: center;
 }
-
 div[form=input][multiple][join] [parts] {
-    gap: 0px;
+     gap:0px;
 }
 
-div[form=input][multiple] [parts] input,
-[join] {
-    min-width: 10px;
-    flex: initial;
-    margin: 0;
-
-    /* background:red;*/
-    align-content: center;
+div[form=input][multiple] [parts] input,[join] {
+      min-width: 10px;  flex: initial; margin:0;
+    
 }
-
 div[form=input][multiple] [parts] [join] {
-    text-align: center;
-
-
+     text-align: center;
+   
+    
 }
 
 
 div[form=input][multiple] [parts] [join] {
     font-size: calc(var(--font-size) + 5px);
-
+    
 }
-
 div[form=input] [form-input-left-text] {
     display: none;
     overflow: hidden;
     flex: initial;
     max-width: 60%;
-   border-radius:var(--border-radius);
+    border-radius:var(--border-radius);
     text-overflow: ellipsis;
     white-space: nowrap;
     position: relative;
-    color: var(--color);
+    color:var(--color);
     box-sizing: border-box;
 
 
 }
-
 div[form=input][left="icon"] {
     padding-left: 0;
 }
-
 [form] [erro-text-hide] {
     display: none;
 }
-
 div[form=input][disabled] [disabled-bar] {
     display: block;
-}
-
+}   
 div[form=input][disabled] {
     background: var(--disabled-bacground);
     opacity: var(--disabled-opacity);
 }
-
 div[form=input][disabled]:hover {
     border-color: var(--border-color);
 }
-
 div[form=input] [form-input-left-icon] {
     display: none;
 }
-
-div[form=input][left="icon"] [form-input-left-icon] {
+div[form=input][left="icon"]  [form-input-left-icon]{
     display: flex;
 }
-
-div[form=input][left="icon"] input,
-[parts] {
+div[form=input][left="icon"] [parts] {
     margin-left: calc(calc(var(--font-size) + 5px) + calc(calc(var(--font-size) + 5px) * 0.90));
 }
-
-div[form=input][left="text"] [parts] {
-    margin-left: 0;
+div[form=input][left="text"] [parts]{
+   margin-left:0;
 }
 
 
 div[form=input][left="text"] [form-input-left-text] {
     background: var(--left-background);
     opacity: 0.70;
-    display: block;
+    display:inline-block;
+    
+   
+   
 
 }
 
@@ -154,11 +129,9 @@ div[form=input][error] {
     border-color: var(--error-color);
 
 }
-
-div[form=input]:invalid {
-    border-color: var(--error-color);
+div[form=input]:invalid  {
+      border-color: var(--error-color);
 }
-
 div[form=input]:invalid [error-text] {
     display: block;
     border-top: var(--border-style) var(--border-width) var(--border-color);
@@ -171,11 +144,9 @@ div[form=input]:invalid [error-text] {
     word-break: break-word;
     /*var(--border-style) var(--border-width) var(--border-color)*/
 }
-
 div[form=input]:invalid text {
-    display: block;
+     display: block;
 }
-
 div[form=input][error] [error-text] {
     display: block;
     border-top: var(--border-style) var(--border-width) var(--border-color);
@@ -192,15 +163,13 @@ div[form=input][error] [error-text] {
 div[form=input][error] text {
     display: block;
 }
-
 div[form=input][error]:hover [error-text] {
     border-color: var(--error-color);
 }
 
 div[form=input][focus] [error-text] {
-    border-color: var(--error-color);
+     border-color: var(--error-color);
 }
-
 div[form=input][error]:hover {
     border-color: var(--error-color);
 }
