@@ -688,7 +688,7 @@
   <icon><img class="dark" src="https://koliboy.github.io/formui-examples/asset/images/mail-l.svg">
       <img  class="light" src="https://koliboy.github.io/formui-examples/asset/images/mail.svg"></icon>
 </div>
-<div form="input"  class="checking" style="width:70%;max-width:700px">
+<div form="input"  class="checking"  style="width:70%;max-width:700px">
   <input type="text"  min="2" required="username" placeholder="Username">
  <error>
      less than 3 characters)
@@ -698,19 +698,19 @@
 
  
 <script>
-    var  valid = $input(document.querySelector(".checking")) ;
-     valid.input.oninput = function(){ 
+    var  valid2 = $input(document.querySelector(".checking")) ;
+     valid2.input.oninput = function(){ 
         
-         if(valid.isValid && this.value.length < 17){ 
-            valid.check = true; 
+         if(valid2.isValid && this.value.length < 17){ 
+            valid2.check = true; 
             setTimeout(function(){
-                if(valid.isValid){
-                  valid.checkmark = true
+                if(valid2.isValid){
+                  valid2.checkmark = true
                   }
                
             },400)  
          }else{
-              valid.checkmark = false
+              valid2.checkmark = false
          }
      }
 </script>
