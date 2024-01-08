@@ -846,7 +846,52 @@ Minimum length of 8 characters
 
 
 
+<!--pattern-->
+    <div type="pattern" class="fex-h">
+      <div class="title">Pattern</div>
+      <p> Sets a regular expression pattern that the input's value must match
+      <mark> Attribute pattern</mark>  
+<mark style="white-space: pre-line;">
+example pattern="[a-zA-Z0-9]{3,10}"
+</mark>
+      <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
 
+
+
+        </div>
+      </div>
+    </div>
+    <div add="pattern" style="display:flex" class="fex">
+      
+   <div form="input" class="pattern" error  style="width:70%;max-width:700px">
+  <input pattern="[a-zA-Z0-9]{3,10}" placeholder="3 to 10 characters">
+ <error>
+    Alphanumeric, 3 to 10 characters
+ </error>
+</div>
+  <script>
+       var pattern = $input(document.querySelector(".pattern"));
+       pattern.input.oninput = function(){
+           if(pattern.isValid){
+               pattern.checkmark =true
+           }
+       }
+  </script>
+ </div>   
+    <div code="pattern" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/pattern.html"></iframe>    
+
+
+    </div>
+
+    
 
 
 
