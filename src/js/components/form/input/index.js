@@ -249,7 +249,7 @@ void function () {
 
                 var Input_e = document.createElement("div");
                 var PI = icon != undefined ? icon.innerHTML : d_iconL, PT = lText != undefined ? lText.textContent : null;
-                var PE = eText != undefined ? eText.textContent : null;
+                var PE = eText != undefined ? eText.innerHTML : "Please enter a valid";
 
                 Input_e.setAttribute("input", null);
 
