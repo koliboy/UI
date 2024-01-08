@@ -594,7 +594,72 @@
        <iframe src="https://koliboy.github.io/formui-examples/form/input/error.html"></iframe>    
     </div> 
     
+<!--checkmark-->
+    <div type="checkmark" class="fex-h">
+      <div class="title">Checkmark</div>
+      <p>Description: Indicates that the input has passed validation, often visualized by a checkmark icon
+      <mark>checkmark</mark>
+      <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
 
+
+
+        </div>
+      </div>
+    </div>
+    <div add="checkmark" style="display:flex" class="fex">
+     
+<div form="input"  style="width:70%;max-width:700px" checkmark left="text">
+  <input type="text" value="desh@example.com" placeholder="example.com">
+  <text>https://</text>
+</div>
+<div form="input"  disabled style="width:70%;max-width:700px" checkmark left="text">
+  <input type="text" value="desh@example.com" placeholder="example.com">
+  <text>https://</text>
+</div>
+
+<div form="input" class="checkmark" style="width:70%;max-width:700px">    
+  <input  placeholder="Type something...">
+    <error>
+        required min length 1
+    </error>
+</div> 
+<script>
+    var  valid = $input(document.querySelector(".checkmark")) ;
+     valid.input.oninput = function(){ 
+         if(this.value.length > 0){
+            valid.invalid(false);
+            valid.checkmark = true
+         }else{
+             valid.invalid(true)
+         }
+     }
+</script>
+<!--<div form="input" left="icon">
+  <input type="text" placeholder="Email">
+  <icon>
+      <img class="dark" src="https://koliboy.github.io/formui-examples/asset/images/mail-l.svg">
+      <img  class="light" src="https://koliboy.github.io/formui-examples/asset/images/mail.svg">
+  </icon>
+</div>-->
+  
+    
+    </div>   
+    <div code="checkmark" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/checkmark.html"></iframe>    
+
+
+    </div>
+
+
+
+    
 
 <!--end-->
 <div style="margin-top:60px"></div>
