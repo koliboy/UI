@@ -722,7 +722,56 @@
     </div>
 
 
-    
+
+      <!--password-->
+    <div type="password" class="fex-h">
+      <div class="title">Password Input</div>
+      <p>Converts the input into a password field with a toggle option to show/hide the password.
+      <mark>toggle Attribute</mark> or required <mark>"password"</mark>
+      <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div add="password" style="display:flex" class="fex">
+     
+     <h3 style="width:100%;text-align: center;">toggle</h3>
+<div form="input"  style="width:70%;max-width:700px" toggle >
+  <input type="password" value="12345678" placeholder="password">
+ 
+</div>
+ <h3 style="width:100%;text-align: center;">none toggle</h3>
+<div form="input"  style="width:70%;max-width:700px" >
+  <input type="password" placeholder="password">
+ 
+</div>
+  <h3 style="width:100%;text-align: center;">required password</h3>
+<div form="input"  style="width:70%;max-width:700px" toggle >
+  <input type="password"  required="password" placeholder="password">
+  <error> 
+<pre>At least one lowercase letter</pre>
+<pre>At least one uppercase letter</pre>
+<pre>At least one digit</pre>
+<pre>At least one special character [!@#$%^&*]</pre>
+<pre>Minimum length of 8 characters</pre>
+  </error>
+</div>
+ </div>   
+    <div code="password" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/password.html"></iframe>    
+
+
+    </div>
+      
     
 
 <!--end-->
