@@ -159,7 +159,7 @@
        position: absolute;
        padding: 0;
        right: 10px;
-       border-radius: var(--border-radius);
+        border-radius:50%;
        background: var(--background-color);
 
      }
