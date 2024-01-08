@@ -772,6 +772,85 @@ Minimum length of 8 characters
 
     </div>
       
+
+<!--required-->
+    <div type="required" class="fex-h">
+      <div class="title">Required</div>
+      <p> Specifies the type of input validation required. Use predefined values or create custom validation strings.
+      <mark> Attribute required</mark>  
+<mark style="white-space: pre-line;">
+"number"
+"password"
+"username"
+"mail"
+</mark>
+      <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div add="required" style="display:flex" class="fex">
+     
+     <h3 style="width:100%;text-align: center;">number</h3>
+<div form="input" error  style="width:70%;max-width:700px"  >
+  <input required="number" min="1" placeholder="0000">
+ <error>
+     Input only Number
+ </error>
+</div>
+ <h3 style="width:100%;text-align: center;">mail</h3>
+<div form="input" error  style="width:70%;max-width:700px"  >
+  <input required="mail" placeholder="name@example.com">
+ <error>
+    Please enter a valid email
+ </error>
+</div>
+
+ <h3 style="width:100%;text-align: center;">username</h3>
+<div form="input" error  style="width:70%;max-width:700px"  >
+  <input required="username" placeholder="username">
+ <error>
+    Please enter a valid username
+    less than 3 characters
+    more than 16 characters
+ </error>
+</div>
+
+  <h3 style="width:100%;text-align: center;">password</h3>
+<div form="input" error style="width:70%;max-width:700px" toggle >
+  <input type="password"  required="password" placeholder="password">
+  <error> 
+At least one lowercase letter
+At least one uppercase letter
+At least one digit
+At least one special character [!@#$%^&*]
+Minimum length of 8 characters
+  </error>  
+</div>
+ </div>   
+    <div code="required" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/required.html"></iframe>    
+
+
+    </div>
+
+
+
+
+
+
+
+
+
     
 
 <!--end-->
