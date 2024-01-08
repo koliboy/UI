@@ -923,12 +923,68 @@ example pattern="[a-zA-Z0-9]{3,10}"
  
  </div>       
     <div code="min-max" class="code" style="display:none">
-       <iframe src="https://koliboy.github.io/formui-examples/form/input/min-max"></iframe>    
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/min-max.html"></iframe>    
 
 
     </div>
 
+<!--custom-->  
+    <div type="custom" class="fex-h">
+      <div class="title">Custom Styles</div>
+      <p>You can customize the Input component by passing custom 
+      <mark>styles</mark>  
+    <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/input.md">Learn
+          More</a>
+      </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
 
+
+
+        </div>
+      </div>
+    </div>
+    <div add="custom" style="display:flex" class="fex">
+     <style>
+     .custom {
+         --background-color:rgba(191, 248, 228, 0.3);
+          
+         
+     }
+     
+      .custom2 {
+           --color-secondary:blue;
+           --font-size:20px;
+           --color:blue;
+           font-family: Georgia, serif;
+      }
+      .dark .custom2 {
+          --color-secondary:lightblue;
+          --color:lightblue;
+      }
+ </style>
+ <div form="input" left="icon" class="custom">    
+  <input type="text" placeholder="Name">
+  <icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M12,2C6.477,2,2,6.477,2,12c0,5.523,4.477,10,10,10s10-4.477,10-10C22,6.477,17.523,2,12,2z M12,4.75 c1.795,0,3.25,1.455,3.25,3.25s-1.455,3.25-3.25,3.25S8.75,9.795,8.75,8S10.205,4.75,12,4.75z M12,20 c-2.77,0-5.21-1.408-6.646-3.547C6.475,14.823,10.046,14,12,14s5.525,0.823,6.646,2.453C17.21,18.592,14.77,20,12,20z"
+        />
+    </svg></icon>   
+</div> 
+<div form="input"  class="custom2">
+  <input   placeholder="type.....">
+ </div>
+ </div>       
+    <div code="custom" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/custom.html"></iframe>    
+
+
+    </div>
+
+    
 
 
     
