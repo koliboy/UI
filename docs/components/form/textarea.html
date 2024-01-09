@@ -334,7 +334,54 @@
 
    
    
+ <!--height-->  
+    <div type="height" class="fex-h">
+      <div class="title">Auto-Height Textarea</div>
+      <p>Create textarea elements with the height="auto" attribute to enable automatic height adjustment.
+      <mark>height="auto"</mark>
+      
+    <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/textarea.md">Learn
+          More</a>
+      </p>
+      <b>Configuration Options</b>
+      <p style="white-space: pre-line;">
+          <mark> Attribute height="auto": </mark>
+          Set this attribute on your textarea element to enable the auto-height feature.
+          <mark>Attribute min="200px"</mark>
+min Attribute: Optionally, you can set a minimum height for the textarea. If the content is less than the minimum height, it will still be displayed at the specified minimum height.
+      </p>
+      <p>
+           <mark> style:max-height,height</mark>
+           </p>
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
 
+
+
+        </div>
+      </div>
+    </div>
+    <div add="height" style="display:flex" class="fex">
+    <style>
+        textarea {
+            height:50px;
+            max-height:200px;
+        }
+    </style>
+     <textarea  height="auto"   min="50px"  placeholder="Comment text."></textarea>
+     <textarea height="auto" style="resize:none;" min="50px" placeholder="Comment text."></textarea>
+   
+ </div>       
+    <div code="height" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/input/height.html"></iframe>    
+
+
+    </div>
+
+    
 
 
 
