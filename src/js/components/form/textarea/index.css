@@ -17,6 +17,7 @@ textarea:focus {
 textarea:disabled {
      background: var(--disabled-bacground);
      opacity: var(--disabled-opacity);
+     cursor: not-allowed;
 }
 
 textarea::placeholder {
