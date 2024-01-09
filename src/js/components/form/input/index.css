@@ -6,7 +6,10 @@
     display: none;
 }
 
-div[form=input] icon,text,error,input { /*before steup*/
+div[form=input] icon,text,error { /*before steup*/
+    display: none;
+}
+div[form=input] input {
     display: none;
 }
 
