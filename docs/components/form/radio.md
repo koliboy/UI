@@ -47,7 +47,7 @@ The `$radio` object is designed to simplify working with radio buttons in a docu
 
 ```javascript
 // Create a $radio object for radio buttons with the name 'color'
-var radioGroup = this.$radio('colors');
+var radioGroup = $radio('colors');
 
 // Attach a change event listener
 radioGroup.change(function (selectedRadio, allRadios, event) {
