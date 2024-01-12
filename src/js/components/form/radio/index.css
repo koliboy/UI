@@ -20,3 +20,9 @@ input[type="radio"]:disabled {
     opacity: var(--disabled-opacity);
     cursor: not-allowed;
 }
+
+input[type="radio"]:checked {
+   border-color: var(--color-primary);
+   border: solid calc(var(--font-size) * 0.30) var(--color-primary);
+
+}
