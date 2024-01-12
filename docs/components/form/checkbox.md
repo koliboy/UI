@@ -80,7 +80,7 @@ var checkedCheckboxes = checkboxes.checked(); //Array elements
 console.log('Checked checkboxes:', checkedCheckboxes);
 
 //or  
-var checkbox = document.querySelector('input');
+var checkbox = $checkbox(document.querySelector('input'));
 
 checkbox.change(function (changedCheckbox, allCheckboxes, event) {
     console.log('Checkbox changed:', changedCheckbox.checked);
