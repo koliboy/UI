@@ -366,7 +366,100 @@
 
     </div>
 
-   
+ <!--ram-->  
+    <div type="ram" class="fex-h">
+      <div class="title">Small cards</div>
+      <p> 
+     <a href="https://github.com/koliboy/formui/blob/main/docs/components/form/radio.md">Learn
+          More</a>
+      </p>
+      
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
+
+
+
+        </div>
+      </div>
+    </div>
+    
+    <div add="ram" style="display:flex" class="fex">
+       <style>
+    .ram {
+       display: flex;  
+       flex-wrap: wrap; gap:10px; 
+       justify-content: center;
+    }  
+    .ram .label {
+        display: flex;
+    }
+    .ram .label label {
+         border:var(--border-style) var(--border-width) var(--border-color);
+         padding:10px 15px 10px 15px;  
+         color:var(--color);
+         font-size: var(--font-size);
+         border-radius: var(--border-radius);
+         background: var(--background-color);
+          transition:background var(--transition-time) ease-in-out;
+        
+    } 
+    .ram .label label.disabled {
+      background: var(--disabled-bacground);
+    opacity: var(--disabled-opacity);
+    cursor: not-allowed;
+    }
+    .ram .label label:hover {
+        background: var(--ul-hover);
+    }
+    .ram input {
+        display: none;
+    }
+    .ram input:checked + label {
+         border-color: var(--color-primary);
+         background: var(--color-primary);
+         color:white;
+    }
+    .ram input:checked + label:hover {
+        background: var(--color-primary);
+    }
+</style>
+
+<h3 style="width:100%;text-align: center;">RAM ~ See performance specs</h3>
+<div class="ram">
+    <div class="label">
+        <input type="radio"  id="4" name="ram" value="4"   />
+        <label for="4">4GB</label>
+    </div> 
+    <div class="label">
+        <input type="radio" id="8" name="ram" value="8"  checked />
+        <label for="8">8GB</label>
+    </div> 
+    <div class="label">
+        <input type="radio" id="16" name="ram" value="16"   />
+        <label for="16">16GB</label>
+    </div>
+    <div class="label">
+        <input type="radio" id="32" name="ram" value="32"   />
+        <label for="32">32GB</label>
+    </div>
+    <div class="label">
+        <input type="radio" id="64" name="ram" value="64" disabled />
+        <label class="disabled" for="64">32GB</label>
+    </div>
+    
+</div>
+     
+ </div>       
+    <div code="ram" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/form/radio/ram.html"></iframe>    
+
+
+    </div>
+
+    
    
 
 
