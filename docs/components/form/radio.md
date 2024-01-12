@@ -23,10 +23,31 @@ The `$radio` object is designed to simplify working with radio buttons in a docu
   - Returns the array of radio buttons with the specified name.
 
 ### Example Usage:
+```html
+<fieldset>
+  <legend>Select color:</legend>
+
+  <div>
+
+    <input type="radio" name="colors" value="red" />
+    <label for="huey">Red</label>
+  </div>
+
+  <div>
+    <input type="radio" name="colors" value="green" checked />
+    <label for="dewey">Green</label>
+  </div>
+  <div>
+    <input type="radio" name="colors" value="blue" checked />
+    <label for="dewey">Blue</label>
+  </div>
+
+</fieldset>
+```
 
 ```javascript
 // Create a $radio object for radio buttons with the name 'color'
-var radioGroup = this.$radio('color');
+var radioGroup = this.$radio('colors');
 
 // Attach a change event listener
 radioGroup.change(function (selectedRadio, allRadios, event) {
@@ -36,9 +57,13 @@ radioGroup.change(function (selectedRadio, allRadios, event) {
 });
 
 // Another example: Change the background color based on the selected radio
-this.$radio('color').change(function (selectedRadio) {
+this.$radio('colors').change(function (selectedRadio) {
     document.body.style.backgroundColor = selectedRadio.value;
 });
+
+
+// all colores nodeList 
+  console.log('All drones:', radioGroup.names);
 ```
 
 In this example documentation, I've added more details about the `$radio` object, including its properties and the `change` method. The example usage demonstrates attaching a general event listener and another example that changes the background color based on the selected radio button. Feel free to modify the documentation and examples based on your specific use case.
