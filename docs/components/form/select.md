@@ -27,7 +27,20 @@
 | --left-icon-fill | fill | all svg | mainCSS
 | --ul-hover | ul-list:hover=>background   | ul | mainCSS
 
+### Custom Styles
+```html
+<style>
+    .custom {
+        --background-color: green;
+        /*....................*/
+    }
+</style>
 
+<div form="select" class="custom" placeholder="Please choose">
+    <o value="option1">Option1</o>
+    <o value="option2">Option 2 </o>
+</div>
+```
 
 
 ## Custom Select Component
