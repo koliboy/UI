@@ -2,15 +2,6 @@
   border: none;
 }
 
-[form-font-size] {
-  font-size: var(--font-size);
-}
-
-
-[form-input-color] {
-  color: var(--color);
-}
-
 [form] {
   display: grid;
 }
@@ -30,25 +21,9 @@
   /*selction not allowd*/
 }
 
-[form-cursor] {
-  cursor: pointer;
-}
-
-[form-cursor-not-allowed] {
-  cursor: not-allowed;
-}
-
-
 [area=input] label {
   margin-bottom: 13px;
 }
-
-[form] [padding] {
-  padding: var(--padding) 10px var(--padding) 10px;
-}
-
-
-
 
 
 /*[form] [hover]:hover{ 
