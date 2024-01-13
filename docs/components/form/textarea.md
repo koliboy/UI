@@ -1,3 +1,29 @@
+# Textarea
+
+# [View DEMO](https://koliboy.github.io/formui/docs/components/form/radio.html)
+
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/radio.html)
+
+# styled UI
+
+| Properties | 	Descriptio | for | Default
+|----------|----------|----------|---
+| --background-color  | background-color | textarea | mainCSS
+| --color-secondary  | foucs=>border | textarea | mainCSS
+| --border-radius  | border-radius | textarea | mainCSS
+| --border-width  | border-width | textarea | mainCSS
+| --border-style  | border-style | textarea | mainCSS
+| --font-size  | font-size | textarea | mainCSS
+| --color  | color | textarea | mainCSS
+| --padding  | top-bottom | textarea | mainCSS
+| --disabled-bacground  | background-color | textarea | mainCSS
+| --disabled-bacground  | background-color | textarea | mainCSS
+| --disabled-opacity  | opacity | textarea | mainCSS
+| --placeholder-color  | placeholder-color | textarea | mainCSS
+
+
+
+
 
 ## Textarea Component 
 
