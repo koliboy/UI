@@ -1,3 +1,7 @@
+# [View DEMO](https://koliboy.github.io/formui/docs/components/form/input.html)
+
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/input.html)
+
 
 ### Custom Input Component
 
