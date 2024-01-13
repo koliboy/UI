@@ -94,3 +94,23 @@
   --ul-hover: rgba(181, 181, 181, 0.34);
 
 }
+
+[form-font-size] {
+  font-size: var(--font-size);
+}
+
+[form-input-color] {
+  color: var(--color);
+}
+
+[form-cursor] {
+  cursor: pointer;
+}
+
+[form-cursor-not-allowed] {
+  cursor: not-allowed;
+}
+
+[padding] {
+  padding: var(--padding) 10px var(--padding) 10px;
+}
