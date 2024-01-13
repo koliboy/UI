@@ -1,6 +1,32 @@
+# Input
+
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/input.html)
 
 # [View Prieview](https://koliboy.github.io/formui/docs/components/form/input.html)
+
+
+# styled UI
+
+| Properties | 	Descriptio | for | Default
+|----------|----------|----------|---
+| --background-color | background-color | input,right-icon  |mainCSS
+| --left-background | left-text-background-color | text |mainCSS
+| --min-height | min-height | input  |mainCSS
+| --color-secondary | foucs-input-border,checkmark-fill,checking-fill | input,checkmark-icon,checking-icon,border-input  |mainCSS
+| --border-radius | border-radius | input  |mainCSS
+| --border-color | border-color | input,error-text ,left-text |mainCSS
+| --border-style | border-style | input,error-text,left-text  |mainCSS
+| --border-width | border-width | input,error-text  |mainCSS
+|--font-size|input,icon,wight-height|input,icons,error-text |mainCSS
+|--padding|top,bottom|input |mainCSS
+|--color|color|input |mainCSS
+|--placeholder-color|color | input |mainCSS
+|--error-color|color|error-text |mainCSS
+|--disabled-bacground|background | input |mainCSS
+|--disabled-opacity|opacity | input |mainCSS
+|--left-icon-fill|fill|left-icon |mainCSS
+|--right-icon-fill|fill|right-icon |mainCSS
+
 
 
 ### Custom Input Component
