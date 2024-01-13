@@ -1,3 +1,8 @@
+# [View DEMO](https://koliboy.github.io/formui/docs/components/form/radio.html)
+
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/radio.html)
+
+
 Certainly! It seems you're looking for documentation and more examples for the `$radio` object and its `change` method. Let's write some documentation and provide additional examples:
 
 ### $radio Object
