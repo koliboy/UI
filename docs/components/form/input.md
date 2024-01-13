@@ -27,7 +27,19 @@
 |--left-icon-fill|fill|left-icon |mainCSS
 |--right-icon-fill|fill|right-icon |mainCSS
 
+### Custom Styles
+```html
+<style>
+    .custom {
+        --font-size :18px;
+         /*....................*/
+    }
+</style>
 
+ <div form="input" class="custom">
+  <input type="text" placeholder="Type something...">
+</div>
+```
 
 ### Custom Input Component
 
