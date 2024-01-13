@@ -1,3 +1,8 @@
+# [View DEMO](https://koliboy.github.io/formui/docs/components/form/checkbox.html)
+
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/checkbox.html)
+
+
 # `$checkbox` Utility Object Documentation
 
 The `$checkbox` utility object provides a set of methods for working with checkboxes, allowing you to manage and handle events for a list of checkboxes.
