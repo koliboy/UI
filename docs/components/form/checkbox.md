@@ -1,6 +1,24 @@
+# Checkbox
+
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/checkbox.html)
 
 # [View Prieview](https://koliboy.github.io/formui/docs/components/form/checkbox.html)
+
+
+## styled UI
+
+| Properties | 	Descriptio | for | Default
+|----------|----------|----------|---
+| --background-color | background | checkbox  |mainCSS
+| --ul-hover | background | toggle  |mainCSS
+| --font-size | height,width | checkbox ,toggle |mainCSS
+| --border-style | style of border | checkbox |mainCSS
+| --border-radius | border-radius | checkbox |mainCSS
+| --transition-time |  transition | checkbox,toggle |mainCSS
+| --disabled-bacground |  if disbled background | checkbox |mainCSS
+| --disabled-opacity |  if disbled opacity | checkbox,toggle |mainCSS
+| --color-secondary |  checked background | checkbox |mainCSS
+| --color-primary |  background- after checked | toggle |mainCSS
 
 
 # `$checkbox` Utility Object Documentation
