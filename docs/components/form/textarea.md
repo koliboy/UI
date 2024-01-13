@@ -22,7 +22,17 @@
 | --placeholder-color  | placeholder-color | textarea | mainCSS
 
 
+### Custom Styles
+```html
+<style>
+    .custom {
+        --background-color:green;
+         /*....................*/
+    }
+</style>
 
+<textarea  class="custom"  placeholder="Comment text."></textarea>
+```
 
 
 ## Textarea Component 
