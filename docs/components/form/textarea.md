@@ -1,8 +1,8 @@
 # Textarea
 
-# [View DEMO](https://koliboy.github.io/formui/docs/components/form/radio.html)
+# [View DEMO](https://koliboy.github.io/formui/docs/components/form/textarea.html)
 
-# [View Prieview](https://koliboy.github.io/formui/docs/components/form/radio.html)
+# [View Prieview](https://koliboy.github.io/formui/docs/components/form/textarea.html)
 
 # styled UI
 
