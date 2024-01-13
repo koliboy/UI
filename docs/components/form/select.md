@@ -1,6 +1,34 @@
+# Select
+
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/select.html)
 
 # [View Prieview](https://koliboy.github.io/formui/docs/components/form/select.html)
+
+# styled UI
+
+| Properties | 	Descriptio | for | Default
+|----------|----------|----------|---
+| --background-color  | background-color | select,contents | mainCSS
+| --min-height | min-height | select,search | mainCSS
+| --color | color | all-text| mainCSS
+| --color-primary | color-load-icon | load-icon| mainCSS
+| --color-secondary | input-foucs-border,ul-selected-right-icon,count | select,contents,ul-right-icon,count-text | mainCSS
+| --error-color | load-fiald | load-icon,label| mainCSS
+| --disabled-bacground | bacground-color  | ul,select | mainCSS
+| --disabled-opacity |opacit   | ul,select | mainCSS
+| --transition-time | transition | all* | mainCSS
+| --border-color | border-color | select,contents,search | mainCSS
+| --border-style | border-style | select,contents,search | mainCSS
+| --border-width | border-style | select,contents,search | mainCSS
+| --placeholder-color | color | select,search | mainCSS
+| --font-size | font-size,height,width | select,search,icons-sizes | mainCSS
+| --padding | top-bottom | select*all | mainCSS
+| --right-icon-fill | fill | all  | mainCSS
+| --left-icon-fill | fill | all svg | mainCSS
+| --ul-hover | ul-list:hover=>background   | ul | mainCSS
+
+
+
 
 ## Custom Select Component
 
