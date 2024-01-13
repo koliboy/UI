@@ -17,6 +17,21 @@
 |--disabled-opacity | opacity | radio | mainCSS
 |--color-primary | after checked | radio | mainCSS
 
+### Custom Styles
+```html
+<style>
+    #red {
+        --color-primary: red;
+        /*....................*/
+    }
+</style>
+
+<input type="radio" id="red" name="colors" value="red" />
+<label for="red">Red</label>
+```
+
+
+
 
 
 
