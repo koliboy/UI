@@ -1,6 +1,23 @@
+# Radio
+
 # [View DEMO](https://koliboy.github.io/formui/docs/components/form/radio.html)
 
 # [View Prieview](https://koliboy.github.io/formui/docs/components/form/radio.html)
+
+# styled UI
+
+| Properties | 	Descriptio | for | Default
+|----------|----------|----------|---
+| --background-color | background-color | radio | mainCSS 
+|--disabled-bacground |background-color | radio | mainCSS
+|--font-size |wight,height | radio | mainCSS 
+|--border-color |color | radio | mainCSS 
+|--border-style |border-style | radio | mainCSS
+|--transition-time |transition | radio | mainCSS
+|--disabled-opacity | opacity | radio | mainCSS
+|--color-primary | after checked | radio | mainCSS
+
+
 
 
 Certainly! It seems you're looking for documentation and more examples for the `$radio` object and its `change` method. Let's write some documentation and provide additional examples:
