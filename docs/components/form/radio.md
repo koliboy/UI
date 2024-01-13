@@ -15,7 +15,7 @@
 |--border-style |border-style | radio | mainCSS
 |--transition-time |transition | radio | mainCSS
 |--disabled-opacity | opacity | radio | mainCSS
-|--color-primary | after checked | radio | mainCSS
+|--color-primary | after checked border-color | radio | mainCSS
 
 ### Custom Styles
 ```html
