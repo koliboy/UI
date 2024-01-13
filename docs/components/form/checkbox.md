@@ -20,6 +20,19 @@
 | --color-secondary |  checked background | checkbox |mainCSS
 | --color-primary |  background- after checked | toggle |mainCSS
 
+### Custom Styles
+```html
+<style>
+    .custom {
+        --color-secondary: gray;
+        /*....................*/
+    }
+</style>
+
+<input type="checkbox" id="scales" class="custom" name="scales" checked />
+<label for="scales">Scales</label>
+```
+
 
 # `$checkbox` Utility Object Documentation
 
