@@ -31,8 +31,10 @@
   }
 
   mobile[form="bottom-bar"] [mobile-view-none][last] {
+
     min-height: 30%;
-    max-height: 50%;
+    max-height: 80%;
+
   }
 
 
@@ -42,10 +44,10 @@
 
   mobile[form="bottom-bar"] [mobile-view-cnt] {
 
-    background: var(--background-color) !important;
+    background: var(--background-color);
 
     padding-bottom: 15px;
-    padding-top: 5px;
+    padding-top: 15px;
     overflow: hidden;
     display: block;
     overflow-y: auto;
@@ -56,8 +58,9 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-top: var(--border-style) var(--border-width) var(--color-secondary);
-    height: 100%;
-    box-shadow: 1px 1px 10px 2px white;
+    height: auto;
+    max-height: 95%;
+    box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
     box-sizing: content-box;
 
   }
