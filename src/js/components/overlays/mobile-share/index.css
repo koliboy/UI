@@ -7,7 +7,7 @@
     left: 0;
     background: rgba(0, 0, 0, 0.30);
     overflow: hidden;
-    z-index: 50;
+    z-index: var(--level-100);
     scroll-snap-type: y mandatory;
     overflow-y: auto;
     padding-bottom: 10px;
