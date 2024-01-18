@@ -54,7 +54,7 @@
     right: 0;
     left: 0;
     border-top-left-radius: 15px;
-    border-top-right-radius: 10px;
+    border-top-right-radius: 15px;
     border-top: var(--border-style) var(--border-width) var(--color-secondary);
     height: 100%;
     box-shadow: 1px 1px 10px 2px white;
