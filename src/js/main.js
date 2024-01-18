@@ -30,3 +30,19 @@ Object.defineProperties(this, {
         writable: false
     }
 });
+
+function $disableScroll() {
+    document.querySelectorAll(".disableScroll").forEach(function(disS){
+        disS.classList.add("Scrollon");
+    });
+    document.documentElement.style.overflow = 'hidden';  // For most modern browsers
+    document.body.scroll = 'no';  // For some older browsers
+    
+} 
+function $enableScroll() {
+    document.querySelectorAll(".disableScroll").forEach(function(disS){
+        disS.classList.remove("Scrollon");
+    });
+    document.documentElement.style.overflow = 'auto';
+    document.body.scroll = 'yes';
+} 
