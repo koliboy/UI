@@ -1,6 +1,8 @@
 @media (min-width: 768px) {
   [scroll-br] {
     scrollbar-width: thin;
+
+
   }
 
   [scroll-br]::-webkit-scrollbar {
@@ -8,12 +10,12 @@
   }
 
   [scroll-br]::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #999999;
   }
 
 
   [scroll-br]::-webkit-scrollbar-thumb:active {
-    background: #777;
+    background: #999999;
   }
 
   [scroll-br]::-webkit-scrollbar-thumb {
