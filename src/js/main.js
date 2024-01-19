@@ -46,3 +46,10 @@ function $enableScroll() {
     document.documentElement.style.overflow = 'auto';
     document.body.scroll = 'yes';
 } 
+
+function $sizeDekstop(){
+    return 768 < window.innerWidth;
+}
+function $sizeMobile(){
+    return 768 > window.innerWidth;
+}
