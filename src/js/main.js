@@ -53,3 +53,13 @@ function $sizeDekstop(){
 function $sizeMobile(){
     return 768 >= window.innerWidth;
 }
+
+
+function $getDeviceType() {
+  const userAgent = navigator.userAgent;
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+    return 'Mobile';
+  } else {
+    return 'Desktop';
+  }
+}
