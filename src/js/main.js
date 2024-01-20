@@ -51,5 +51,5 @@ function $sizeDekstop(){
     return 768 < window.innerWidth;
 }
 function $sizeMobile(){
-    return 768 > window.innerWidth;
+    return 768 >= window.innerWidth;
 }
