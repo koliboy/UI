@@ -148,7 +148,7 @@
             if (it.getAttribute("setup") == null) {
               it.setAttribute("setup", true);
               it.addEventListener("click", function () {
-                if (!this.getAttribute("disabled")) {
+                if (this.getAttribute("disabled") == null) {
                   if (!(this.getAttribute("event-remove") == "true")) {
 
                     setTimeout(function () {
