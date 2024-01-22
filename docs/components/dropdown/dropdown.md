@@ -64,3 +64,33 @@
 - Adjust the `d-defind` values to match between the triggering button and its associated dropdown menu.
 
 Feel free to ask if you have any more questions or if there's anything else I can help you with!
+
+
+#### Text with Left and Right Icons:
+
+```html
+<ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
+    <a>Home</a>
+    <a>
+        <left>
+            <img src="https://koliboy.github.io/formui/data/images/usa.png">
+        </left> 
+        <div>About</div>
+        <right>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M6.5234375 3.1484375L5.4765625 4.8515625L17.09375 12L5.4765625 19.148438L6.5234375 20.851562L20.908203 12L6.5234375 3.1484375 z"/>
+            </svg>
+        </right>
+    </a>
+</ul>
+```
+
+
+#### Usage:
+
+1. **Text with Left and Right Icons (`<a>`):**
+   - Use the `<a>` tag for each dropdown item.
+   - Customize the content within `<left>`, `<div>`, and `<right>` to achieve the desired layout.
+   - The `<img>` tag inside `<left>` is for displaying an image/icon on the left.
+   - The `<div>` tag contains the text for the item.
+   - The `<svg>` tag inside `<right>` is for displaying an SVG icon on the right.
