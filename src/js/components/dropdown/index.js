@@ -40,10 +40,11 @@
 
 
   function dropOpen(open, trigger, mobile = null) {
+    $disableScroll();
     open.setAttribute("open", true)
     adjustVisibility(open, trigger);
     mobile.show();
-    $disableScroll();
+
 
     window.addEventListener('resize', function () {
       adjustVisibility(open, trigger);
