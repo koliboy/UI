@@ -80,7 +80,7 @@
     margin-bottom: var(--padding);
     background: var(--border-color);
     height: var(--border-width);
-     opacity: 0.50;
+    opacity: 0.50;
 }
 
 .disableScroll.Scrollon {
@@ -90,6 +90,24 @@
 
 .padding {
     padding: var(--padding) 10px var(--padding) 10px;
+}
+
+.border {
+    border: var(--border-style) var(--border-width) var(--border-color);
+}
+
+.center {
+    justify-items: center;
+    justify-content: center;
+
+}
+
+.user-select {
+    user-select: none;
+}
+
+.center-t {
+    text-align: center;
 }
 
 .center-tb {
