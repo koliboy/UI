@@ -1,0 +1,73 @@
+  .img {
+      height: 100%;
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+  }
+
+  /* var(--border-style) var(--border-width) var(--border-color)*/
+  .divider {
+      display: flex;
+      margin-top: var(--padding);
+      margin-bottom: var(--padding);
+      background: var(--border-color);
+      height: var(--border-width);
+  }
+
+  .disableScroll.Scrollon {
+      /*when dropdown or.. dogle opend*/
+      overflow-x: hidden;
+  }
+
+  .padding {
+      padding: var(--padding) 10px var(--padding) 10px;
+  }
+
+  .center-tb {
+      align-content: center;
+      align-items: center;
+  }
+
+  .over-x-adjust {
+      overflow-x: hidden;
+      white-space: normal;
+      word-break: break-all;
+  }
+
+  .over-x-dot {
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+  }
+
+  .icon {
+      height: calc(var(--font-size) + 5px);
+      width: calc(var(--font-size) + 5px);
+      min-height: calc(var(--font-size) + 5px);
+      min-width: calc(var(--font-size) + 5px);
+      border-radius: 50%;
+      fill: var(--fill);
+  }
+
+  .icon img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+  }
+
+  .flex-l-c-r {
+      /*left ro right icon with text center*/
+      display: flex;
+      height: auto;
+      border: solid;
+  }
+
+  .flex-l-c-r .center {
+      flex: auto;
+      margin-left: var(--padding);
+      margin-right: var(--padding);
+
+  }
