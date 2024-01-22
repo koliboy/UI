@@ -53,6 +53,9 @@ A dropdown component is a user interface element commonly used in web developmen
    - Use `d-defind` with the same value as the triggering button to create a link between them.
    - Inside the `<ul>`, use `<a>` tags for individual dropdown items, and optionally, `<button>` elements.
 
+ **Overflow Control:**
+   - The `overflow-x: nowrap;` style is applied to control horizontal overflow within the dropdown menu.
+   - This is useful when you want to keep the content in a single line without wrapping.
 #### Usage:
 
 1. **Disabled Item (`<a disabled>`):**
@@ -62,7 +65,7 @@ A dropdown component is a user interface element commonly used in web developmen
 2. **Item Not Closeable When Clicked (`<a event="remove">` and `<button event="remove">`):**
    - Use the `event="remove"` attribute on an `<a>` or `<button>` tag to create an item that will not close the dropdown when clicked.
    - This can be useful for items that trigger additional actions without closing the dropdown.
-     
+  
 #### Notes:
 
 - The dropdown will now be triggered when the button is clicked.
