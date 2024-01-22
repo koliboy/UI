@@ -91,6 +91,10 @@
 .padding {
     padding: var(--padding) 10px var(--padding) 10px;
 }
+.gap-t-b {
+        margin-top:var(--padding);
+        margin-bottom:var(--padding);
+    }
 
 .border {
     border: var(--border-width) var(--border-style)  var(--border-color);
