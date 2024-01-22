@@ -73,7 +73,7 @@ Feel free to ask if you have any more questions or if there's anything else I ca
     <a>Home</a>
     <a>
         <left>
-            <img src="https://koliboy.github.io/formui/data/images/usa.png">
+            <img src="/images/usa.png">
         </left> 
         <div>About</div>
         <right>
