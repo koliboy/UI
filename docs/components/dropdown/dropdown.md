@@ -2,13 +2,12 @@
 #### HTML Structure:
 
 ```html
-<button class="dropdown" d-event="click" data="post-id-2" d-defind="rest" dropdown="trigger">rest</button>
-<ul class="dropdown-menu" d-event="click" d-defind="rest">
+<ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
     <a href="#home">Home</a>
     <a>About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <button>Button</button>
+    <a disabled>Services</a> <!-- Target disabled: This item is disabled and cannot be clicked. -->
+    <a event="remove">Contact</a> <!-- Not closeable when clicked: This item will not close the dropdown when clicked. -->
+    <button event="remove">Button</button>
 </ul>
 ```
 
@@ -47,6 +46,16 @@
    - Use `d-defind` with the same value as the triggering button to create a link between them.
    - Inside the `<ul>`, use `<a>` tags for individual dropdown items, and optionally, `<button>` elements.
 
+#### Usage:
+
+1. **Disabled Item (`<a disabled>`):**
+   - Use the `disabled` attribute on an `<a>` tag to create a disabled item.
+   - The disabled item cannot be clicked or interacted with.
+
+2. **Item Not Closeable When Clicked (`<a event="remove">` and `<button event="remove">`):**
+   - Use the `event="remove"` attribute on an `<a>` or `<button>` tag to create an item that will not close the dropdown when clicked.
+   - This can be useful for items that trigger additional actions without closing the dropdown.
+     
 #### Notes:
 
 - The dropdown will now be triggered when the button is clicked.
