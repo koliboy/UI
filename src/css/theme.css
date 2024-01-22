@@ -1,73 +1,140 @@
-  .img {
-      height: 100%;
-      width: 100%;
-      background-size: contain;
-      background-repeat: no-repeat;
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&family=Roboto+Flex:opsz@8..144&display=swap');
 
-  }
+* {
+    font-family: 'Roboto Flex', sans-serif;
+}
 
-  /* var(--border-style) var(--border-width) var(--border-color)*/
-  .divider {
-      display: flex;
-      margin-top: var(--padding);
-      margin-bottom: var(--padding);
-      background: var(--border-color);
-      height: var(--border-width);
-  }
+.h1 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.60));
+}
 
-  .disableScroll.Scrollon {
-      /*when dropdown or.. dogle opend*/
-      overflow-x: hidden;
-  }
+.h2 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.50));
+}
 
-  .padding {
-      padding: var(--padding) 10px var(--padding) 10px;
-  }
+.h3 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.40));
+}
 
-  .center-tb {
-      align-content: center;
-      align-items: center;
-  }
+.h4 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.30));
+}
 
-  .over-x-adjust {
-      overflow-x: hidden;
-      white-space: normal;
-      word-break: break-all;
-  }
+.h5 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.20));
+}
 
-  .over-x-dot {
-      overflow-x: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-  }
+.h6 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.10));
+}
 
-  .icon {
-      height: calc(var(--font-size) + 5px);
-      width: calc(var(--font-size) + 5px);
-      min-height: calc(var(--font-size) + 5px);
-      min-width: calc(var(--font-size) + 5px);
-      border-radius: 50%;
-      fill: var(--fill);
-  }
+.h7 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.07));
+}
 
-  .icon img {
-      height: 100%;
-      width: 100%;
-      border-radius: 50%;
-      background-size: contain;
-      background-repeat: no-repeat;
-  }
+.h8 {
+    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.05));
+}
 
-  .flex-l-c-r {
-      /*left ro right icon with text center*/
-      display: flex;
-      height: auto;
-      border: solid;
-  }
+.h9 {
+    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.05));
+}
 
-  .flex-l-c-r .center {
-      flex: auto;
-      margin-left: var(--padding);
-      margin-right: var(--padding);
+.h10 {
+    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.10));
+}
 
-  }
+.h11 {
+    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.20));
+}
+
+.h12 {
+    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.30));
+}
+
+.color {
+    color: var(--color);
+}
+
+.bg {
+    background: var(--background-color);
+}
+
+.color-blur {
+    color: #999999;
+
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+/* var(--border-style) var(--border-width) var(--border-color)*/
+.divider {
+    display: flex;
+    margin-top: var(--padding);
+    margin-bottom: var(--padding);
+    background: var(--border-color);
+    height: var(--border-width);
+}
+
+.disableScroll.Scrollon {
+    /*when dropdown or.. dogle opend*/
+    overflow-x: hidden;
+}
+
+.padding {
+    padding: var(--padding) 10px var(--padding) 10px;
+}
+
+.center-tb {
+    align-content: center;
+    align-items: center;
+}
+
+.over-x-adjust {
+    overflow-x: hidden;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.over-x-dot {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon {
+    height: calc(var(--font-size) + 5px);
+    width: calc(var(--font-size) + 5px);
+    min-height: calc(var(--font-size) + 5px);
+    min-width: calc(var(--font-size) + 5px);
+    border-radius: 50%;
+    fill: var(--fill);
+}
+
+.icon img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.flex-l-c-r {
+    /*left ro right icon with text center*/
+    display: flex;
+    height: auto;
+    border: solid;
+}
+
+.flex-l-c-r .center {
+    flex: auto;
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+
+}
