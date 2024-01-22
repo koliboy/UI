@@ -178,3 +178,74 @@ Feel free to ask if you have any more questions or if there's anything else I ca
 6. **Nested Submenu Items:**
    - Include `<ul class="dropdown-menu">` within the nested submenu to represent the dropdown menu.
    - Add items, such as `<a>`, inside the nested submenu.
+
+
+## Data:
+
+```html
+<!-- Example blog posts with dropdown components -->
+<article class="blog-post">
+    <h1 class="post-title">id-1</h1>
+    <button class="dropdown" data="post-id-1" d-defind="rest" dropdown="trigger">more...</button>
+</article>
+
+<article class="blog-post">
+    <h1 class="post-title">id-2</h1>
+    <button class="dropdown" data="post-id-2" d-defind="rest" dropdown="trigger">more...</button>
+</article>
+
+<article class="blog-post">
+    <h1 class="post-title">id-3</h1>
+    <button class="dropdown" data="post-id-3" d-defind="rest" dropdown="trigger">more...</button>
+</article>
+
+<!-- Dropdown menu with options -->
+<ul class="dropdown-menu each_id" d-event="mouseover" d-defind="rest">
+    <a>
+        <div class="post-delete">Delete Post</div>
+    </a>
+    <a>
+        <div class="post-share">Share Post</div>
+    </a>
+</ul>
+
+<script>
+    // Example script for handling a click event within the dropdown menu
+    document.querySelector(".post-delete").addEventListener("click", function () {
+        // Retrieve the post ID associated with the dropdown menu
+        var post_id = document.querySelector(".each_id").getAttribute("data");
+        console.log("Delete post with ID:", post_id);
+        // Perform the desired actions with the post ID
+    });
+</script>
+```
+
+#### Explanation:
+
+1. **Blog Post Structure:**
+   - Each blog post is represented by an `<article>` element containing a post title (`<h1>`) and a dropdown button.
+
+2. **Dropdown Component:**
+   - The dropdown component is represented by a `<button>` element with the class "dropdown."
+   - It includes the `data` attribute to store additional information, such as the post ID (`data="post-id-1"`).
+   - The `d-defind` attribute provides a unique identifier for the associated dropdown menu.
+   - The `dropdown="trigger"` attribute marks the button as the trigger for the dropdown menu.
+
+3. **Dropdown Menu:**
+   - The dropdown menu (`<ul class="dropdown-menu each_id">`) contains options like "Delete Post" and "Share Post."
+
+4. **Dropdown Menu Script:**
+   - The script listens for a click event on the "Delete Post" option within the dropdown.
+   - It retrieves the post ID associated with the dropdown menu using `getAttribute("data")`.
+   - The post ID is then logged to the console, and you can perform desired actions with the post ID.
+
+#### Usage:
+
+1. **Dropdown Trigger Button:**
+   - Clicking on the "more..." button triggers the dropdown menu.
+
+2. **Dropdown Menu Options:**
+   - The dropdown menu provides options like "Delete Post" and "Share Post."
+
+3. **Script Handling:**
+   - The script demonstrates handling a click event within the dropdown menu, extracting the associated post ID.
