@@ -94,3 +94,82 @@ Feel free to ask if you have any more questions or if there's anything else I ca
    - The `<img>` tag inside `<left>` is for displaying an image/icon on the left.
    - The `<div>` tag contains the text for the item.
    - The `<svg>` tag inside `<right>` is for displaying an SVG icon on the right.
+
+
+## Submenu Container :
+
+```html
+<ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
+    <a>Home</a>
+    <div class="dropdown-sub">
+        <a dropdown="trigger">
+            <div>Account</div>
+        </a>
+        <ul class="dropdown-menu">
+            <a>Tree</a>
+            <div class="dropdown-sub">
+                <a dropdown="trigger">
+                    <div>Account</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <a>Tree</a>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</ul>
+
+```
+
+#### Explanation:
+
+1. **Submenu Container (`<div class="dropdown-sub">`):**
+   - Represents a container for a submenu item.
+   - Contains a trigger (`<a dropdown="trigger">`) and content (`<div>`).
+
+2. **Submenu Trigger (`<a dropdown="trigger">`):**
+   - Represents the trigger for the submenu.
+   - Allows users to interact with the submenu.
+
+3. **Submenu Content (`<div>`):**
+   - Represents the content of the submenu item.
+   - Can include text or other elements.
+
+4. **Nested Submenu (`<div class="dropdown-sub">` within submenu):**
+   - Allows for the creation of nested submenus.
+   - Follows the same structure as the top-level submenu.
+
+5. **Nested Submenu Trigger (`<a dropdown="trigger">` within nested submenu):**
+   - Acts as the trigger for the nested submenu.
+
+6. **Nested Submenu Content (`<div>` within nested submenu):**
+   - Represents the content of the nested submenu item.
+
+7. **Nested Submenu Items (`<ul class="dropdown-menu">` within nested submenu):**
+   - Represents the dropdown menu associated with the nested submenu.
+   - Contains items, such as `<a>`, that users can interact with.
+
+#### Usage:
+
+1. **Creating a Submenu:**
+   - Use `<div class="dropdown-sub">` to create a container for a submenu item.
+   - Include a trigger (`<a dropdown="trigger">`) and content (`<div>`) inside the submenu item.
+
+2. **Nested Submenus:**
+   - To create nested submenus, place another `<div class="dropdown-sub">` within the submenu.
+   - Continue nesting as needed.
+
+3. **Submenu Trigger:**
+   - Use `<a dropdown="trigger">` as the trigger for the submenu.
+   - This element is clickable and opens the associated submenu.
+
+4. **Submenu Content:**
+   - Use `<div>` to represent the content of the submenu item.
+   - This can include text or other elements.
+
+5. **Nested Submenu Trigger and Content:**
+   - Follow the same structure for nested submenus, including a trigger and content.
+
+6. **Nested Submenu Items:**
+   - Include `<ul class="dropdown-menu">` within the nested submenu to represent the dropdown menu.
+   - Add items, such as `<a>`, inside the nested submenu.
