@@ -80,6 +80,7 @@
     margin-bottom: var(--padding);
     background: var(--border-color);
     height: var(--border-width);
+     opacity: 0.50;
 }
 
 .disableScroll.Scrollon {
