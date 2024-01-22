@@ -101,6 +101,7 @@
         background: none;
         height: auto;
         max-height: auto;
+         padding:0;
     }
 
     .dropdown-menu[open] {
