@@ -66,7 +66,7 @@
 Feel free to ask if you have any more questions or if there's anything else I can help you with!
 
 
-#### Text with Left and Right Icons:
+## Text with Left and Right Icons:
 
 ```html
 <ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
