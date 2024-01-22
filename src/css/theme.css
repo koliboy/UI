@@ -160,3 +160,17 @@
     margin-right: var(--padding);
 
 }
+
+@media (min-width: 768px) {
+    .ul-hover:hover {
+        background: var(--ul-hover);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /*mobile*/
+    .ul-hover:active {
+        background: var(--ul-hover);
+    }
+}
