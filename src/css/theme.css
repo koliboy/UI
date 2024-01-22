@@ -106,9 +106,12 @@
     user-select: none;
 }
 
-.center-t {
-    text-align: center;
-}
+.t-center {
+         text-align: center;
+     }
+.t-end {
+         text-align: end;
+     }
 
 .center-tb {
     align-content: center;
@@ -148,7 +151,7 @@
     /*left ro right icon with text center*/
     display: flex;
     height: auto;
-    border: solid;
+   
 }
 
 .flex-l-c-r .center {
