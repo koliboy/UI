@@ -2,6 +2,8 @@
 #### HTML Structure:
 
 ```html
+<button class="dropdown" d-event="click" data="post-id-2" d-defind="rest" dropdown="trigger">rest</button>
+
 <ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
     <a href="#home">Home</a>
     <a>About</a>
