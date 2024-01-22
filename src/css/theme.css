@@ -93,7 +93,7 @@
 }
 
 .border {
-    border: var(--border-style) var(--border-width) var(--border-color);
+    border: var(--border-width) var(--border-style)  var(--border-color);
 }
 
 .center {
