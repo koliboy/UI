@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" scroll-br="none">
+
+<head>    
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdowns</title>
+  <script src="https://koliboy.github.io/page/data/js/console.js"></script>
+  <script src="https://koliboy.github.io/page/data/js/ssall.js"></script>
+  <script src="https://koliboy.github.io/page/data/js/http3.js"></script>
+  <!-- <script src="https://koliboy.github.io/page/data/js/theme.js"></script>  -->
+  <script src="https://koliboy.github.io/page/data/js/userAgent.js"></script>
+ <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>-->
+         
+  <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&family=Roboto+Flex:opsz@8..144&display=swap');
+  </style>
+  <script src="https://koliboy.github.io/formui/src/js/main.js"></script>
+  <link href="https://koliboy.github.io/formui/src/css/main.css" rel="stylesheet" type="text/css">
+  <link href="https://koliboy.github.io/formui/src/js/components/form/form.css" rel="stylesheet" type="text/css">
+  <link href="https://koliboy.github.io/formui/src/js/components/form/select/index.css" rel="stylesheet"
+    type="text/css">
+<link href="https://koliboy.github.io/formui/src/js/components/dropdown/index.css" rel="stylesheet"
+    type="text/css">
+  <script src="https://koliboy.github.io/formui/src/js/theme/index.js"></script>
+  
+  
+  <!--mobile bottom-action-bar-->
+
+ <script src="https://koliboy.github.io/formui/src/js/components/overlays/mobile-share/index.js"></script>
+  <link href="https://koliboy.github.io/formui/src/js/components/overlays/mobile-share/index.css" rel="stylesheet" type="text/css">
+
+<script  src="https://koliboy.github.io/formui/src/js/components/form/select/index.js"></script>
+<script  src="https://koliboy.github.io/formui/src/js/components/dropdown/index.js"></script>
+<link href="https://koliboy.github.io/formui/src/css/theme.css" rel="stylesheet" type="text/css">
+
+  <style>
+    body {
+      background: rgba(247, 247, 247, 0.50);
+
+      font-family: 'Roboto Flex', sans-serif;
+    }
+
+
+    .fex {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin: 5px;
+      padding: 10px;
+      border: solid 1px rgba(133, 133, 133, 0.30);
+      background: rgba(247, 247, 247, 1);
+      justify-content: center;
+      width: auto;
+      max-width: 1000px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      margin-top: 0;
+    }
+
+    .fex-h {  
+      display: grid;
+      gap: 10px;
+      margin: 5px;
+      padding: 10px;
+      border: solid 1px rgba(133, 133, 133, 0.30);
+      position: relative;
+      border-bottom: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+      /* justify-content: center;*/
+      background: white;
+      margin-top: 60px;
+      width: auto;
+      max-width: 1000px;
+      align-content: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .fex-h .title {
+      font-size: 23px;
+    }
+
+    .fex-h p {
+      width: auto;
+      color: gray;
+      line-height: 30px;
+      overflow: hidden;
+      /* or auto, scroll, etc. */
+      width: 80%;
+      white-space: normal;
+      overflow: hidden;
+      word-break: break-word;
+
+
+    }
+
+    .fex-h p mark {
+      color: black;
+      background: rgba(247, 247, 247, 1);
+      padding: 3px;
+      border-radius: 5px;
+    }
+
+
+    .fex-h p a {
+      color: var(--color-primary);
+      background: rgba(247, 247, 247, 1);
+      margin: 4px;
+    }
+
+    . .fex-h code {
+
+      background: red;
+
+    }
+
+
+    .btns {
+      display: flex;
+      gap: 20px;
+      margin: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      background: black;
+      color: white;
+    }
+
+    .dark button {
+      color: black;
+      background: white;
+    }
+  
+
+    .btns button:hover {
+      opacity: 0.80;
+    }
+
+    .btns button.active {
+      opacity: 0.40;
+    }
+
+    [form].h {
+      min-width: 130px;
+      --font-size: 13px;
+      /*--background-color:black;
+         --brand-second-color:white;
+         
+         --color:white;*/
+    }
+
+    [form].h [form-font-size] {
+      font-size: 13px;
+    }
+
+    .code {
+      display: block;
+      margin: 5px;
+      padding: 10px;
+      border: solid 1px rgba(133, 133, 133, 0.30);
+      position: relative;
+      border-bottom: 0;
+      /* justify-content: center;*/
+      background: white;
+     /* overflow-y:auto;*/
+      width: auto;
+      max-width: 1000px;
+    
+
+
+
+    
+    }
+
+
+    .code pre {
+
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .code {
+        overflow: auto;
+        min-width: 100px;
+        padding: 2px;
+      }
+
+    }
+
+    @media (min-width: 768px) {
+      body {
+        display: flex;
+        justify-content: center;
+      }
+
+      .fex,
+      .fex-h,
+      .code {
+       /* width: 768px;*/
+
+
+      }
+
+
+    }
+
+   [theme="toggle"] {
+       display: flex; top:10px; position: fixed; z-index: 1000;
+       padding:10px; background:white; border-radius: 50%; box-shadow: 1px -5px 5px 5px var(--box-shadow-color);
+       border:solid 1px var(--border-color);
+        
+   }
+   [theme="toggle"] svg {
+       width: 20px; height: 20px;
+   }
+   [theme="toggle"] .sun {
+       display: none;
+   }
+
+    .dark {
+      background: rgba(15, 15, 15, 1);
+      color: white;
+      --color-secondary: white;
+      --color: white;
+      --background-color: black;
+      --color-primary:rgba(148, 87, 255, 1);
+    }
+
+    .dark .fex-h {
+      background: black;
+
+    }
+
+    .dark .fex {
+      background: rgba(15, 15, 15, 1);
+
+    }
+
+    .dark .code {
+      background: rgba(15, 15, 15, 1);
+    }
+
+    .dark .fex-h p a {
+      background: rgba(15, 15, 15, 1);
+
+    }
+
+    .dark .fex-h p mark {
+      background: rgba(15, 15, 15, 1);
+      color: white;
+    }
+
+    .dark .fex-h p code {
+      background: rgba(15, 15, 15, 1);
+    }
+
+    code {
+      color: black;   
+      background: rgba(247, 247, 247, 1);
+      font-size: 17px;
+    }
+
+    .dark code {
+      color: white;
+    }
+    .dark [theme="toggle"] {
+        background: black;
+    }
+    .dark [theme="toggle"] .sun {
+        display: block;  fill:white
+    }
+    .dark [theme="toggle"] .moon {
+        display: none;
+    }
+
+    /*.code pre code {
+      font-size: 14px;
+    }*/
+    iframe {
+             border:none; width: 100%; height: 400px;
+             border-radius: 5px;
+        }
+    .dropdown-menu {
+        min-width: 200px; --font-size:17px;
+    }
+    /*input[type="radio"]{
+    width: 80%; max-width: 700px; height: 150px;
+    }*/
+    
+    
+  </style>   
+</head>
+
+<body class="theme">
+  <div>   
+   
+    <div  theme="toggle">
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+  <path d="M12 0C11.4 0 11 0.4 11 1L11 2C11 2.6 11.4 3 12 3C12.6 3 13 2.6 13 2L13 1C13 0.4 12.6 0 12 0 z M 4.1992188 3.1992188C3.9492188 3.1992187 3.7 3.3 3.5 3.5C3.1 3.9 3.1 4.5003906 3.5 4.9003906L4.1992188 5.5996094C4.5992187 5.9996094 5.1996094 5.9996094 5.5996094 5.5996094C5.9996094 5.1996094 5.9996094 4.5992188 5.5996094 4.1992188L4.9003906 3.5C4.7003906 3.3 4.4492188 3.1992188 4.1992188 3.1992188 z M 19.800781 3.1992188C19.550781 3.1992188 19.299609 3.3 19.099609 3.5L18.400391 4.1992188C18.000391 4.5992187 18.000391 5.1996094 18.400391 5.5996094C18.800391 5.9996094 19.400781 5.9996094 19.800781 5.5996094L20.5 4.9003906C20.9 4.5003906 20.9 3.9 20.5 3.5C20.3 3.3 20.050781 3.1992188 19.800781 3.1992188 z M 12 5 A 7 7 0 0 0 5 12 A 7 7 0 0 0 12 19 A 7 7 0 0 0 19 12 A 7 7 0 0 0 12 5 z M 1 11C0.4 11 0 11.4 0 12C0 12.6 0.4 13 1 13L2 13C2.6 13 3 12.6 3 12C3 11.4 2.6 11 2 11L1 11 z M 22 11C21.4 11 21 11.4 21 12C21 12.6 21.4 13 22 13L23 13C23.6 13 24 12.6 24 12C24 11.4 23.6 11 23 11L22 11 z M 4.9003906 18.099609C4.6503906 18.099609 4.3992188 18.200391 4.1992188 18.400391L3.5 19.099609C3.1 19.499609 3.1 20.1 3.5 20.5C3.9 20.9 4.5003906 20.9 4.9003906 20.5L5.5996094 19.800781C5.9996094 19.400781 5.9996094 18.800391 5.5996094 18.400391C5.3996094 18.200391 5.1503906 18.099609 4.9003906 18.099609 z M 19.099609 18.099609C18.849609 18.099609 18.600391 18.200391 18.400391 18.400391C18.000391 18.800391 18.000391 19.400781 18.400391 19.800781L19.099609 20.5C19.499609 20.9 20.1 20.9 20.5 20.5C20.9 20.1 20.9 19.499609 20.5 19.099609L19.800781 18.400391C19.600781 18.200391 19.349609 18.099609 19.099609 18.099609 z M 12 21C11.4 21 11 21.4 11 22L11 23C11 23.6 11.4 24 12 24C12.6 24 13 23.6 13 23L13 22C13 21.4 12.6 21 12 21 z"/>
+</svg>
+
+<svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M13.019,21.998c-3.729,0-7.313-2.093-9.032-5.673c-1.156-2.408-1.305-5.122-0.419-7.642c0.886-2.52,2.7-4.544,5.108-5.7 c1.359-0.653,2.855-1.024,4.364-0.981c0.994,0.028,1.325,0.764,0.386,1.321c-2.98,1.768-4.301,6.583-2.852,9.601l0,0 c1.338,2.786,5.118,5.816,9.467,4.224c0.581-0.213,1.28,0.376,0.693,1.188c-0.855,1.182-2.089,2.046-3.403,2.677 C15.939,21.681,14.467,21.997,13.019,21.998z" />
+</svg>
+    </div> 
+    <!--toggle-->  
+    <div type="simple" class="fex-h">
+      <div class="title">Dropdown Simple</div>
+      <p>A dropdown component is a user interface element commonly used in web development. It provides a compact way to present a list of options or actions to users
+     <a href="https://github.com/koliboy/formui/blob/main/docs/components/dropdown/dropdown.md">Learn
+          More</a>
+      </p>
+      
+      
+      <div class="btns">
+        <button class="active" type="p">Preview</button> <button type="c">code</button>
+        <div form="select" required class="h" style="display:none">
+          <o value="html" selected>HTML</o>
+
+
+
+        </div>
+      </div>
+    </div>
+    
+    <div add="simple" style="display:flex;" class="fex">
+    
+ 
+         <button class="dropdown"   d-event="click" data=""  d-defind="menu"  dropdown="trigger">Open</button>
+        
+      <ul class="dropdown-menu" overflow-x="nowrap" d-event="click"  d-defind="menu">
+     <div event-remove="true" class="h7 padding">My Account</div>
+     <div event-remove="true" class="divider"></div>
+    <a>
+         <left><img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1705945262~exp=1705945862~hmac=f7f69ab6e4b92af6a7aabebc5b3d316669f780eec21d9e11ae67d205c07f07c8"></left>
+        <div>Profile</div>
+    </a>
+     <a>
+         <left><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M3 2L3 22L5 22C5 21.448 5.448 21 6 21C6.552 21 7 21.448 7 22L9 22C9 21.448 9.448 21 10 21C10.552 21 11 21.448 11 22L13 22C13 21.448 13.448 21 14 21C14.552 21 15 21.448 15 22L17 22C17 21.448 17.448 21 18 21C18.552 21 19 21.448 19 22L21 22L21 2L19 2C19 2.552 18.552 3 18 3C17.448 3 17 2.552 17 2L15 2C15 2.552 14.552 3 14 3C13.448 3 13 2.552 13 2L11 2C11 2.552 10.552 3 10 3C9.448 3 9 2.552 9 2L7 2C7 2.552 6.552 3 6 3C5.448 3 5 2.552 5 2L3 2 z M 5 5L19 5L19 19L18 19L14 19L10 19L6 19L5 19L5 5 z M 7 7L7 9L17 9L17 7L7 7 z M 7 11L7 13L17 13L17 11L7 11 z M 7 15L7 17L17 17L17 15L7 15 z" />
+</svg></left>
+        <div>Billing</div>
+    </a>
+    <a>
+         <left><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M9.6660156 2L9.1757812 4.5234375C8.3516137 4.8342536 7.5947862 5.2699307 6.9316406 5.8144531L4.5078125 4.9785156L2.171875 9.0214844L4.1132812 10.708984C4.0386488 11.16721 4 11.591845 4 12C4 12.408768 4.0398071 12.832626 4.1132812 13.291016L4.1132812 13.292969L2.171875 14.980469L4.5078125 19.021484L6.9296875 18.1875C7.5928951 18.732319 8.3514346 19.165567 9.1757812 19.476562L9.6660156 22L14.333984 22L14.824219 19.476562C15.648925 19.165543 16.404903 18.73057 17.068359 18.185547L19.492188 19.021484L21.826172 14.980469L19.886719 13.291016C19.961351 12.83279 20 12.408155 20 12C20 11.592457 19.96113 11.168374 19.886719 10.710938L19.886719 10.708984L21.828125 9.0195312L19.492188 4.9785156L17.070312 5.8125C16.407106 5.2676813 15.648565 4.8344327 14.824219 4.5234375L14.333984 2L9.6660156 2 z M 11.314453 4L12.685547 4L13.074219 6L14.117188 6.3945312C14.745852 6.63147 15.310672 6.9567546 15.800781 7.359375L16.664062 8.0664062L18.585938 7.40625L19.271484 8.5917969L17.736328 9.9277344L17.912109 11.027344L17.912109 11.029297C17.973258 11.404235 18 11.718768 18 12C18 12.281232 17.973259 12.595718 17.912109 12.970703L17.734375 14.070312L19.269531 15.40625L18.583984 16.59375L16.664062 15.931641L15.798828 16.640625C15.308719 17.043245 14.745852 17.36853 14.117188 17.605469L14.115234 17.605469L13.072266 18L12.683594 20L11.314453 20L10.925781 18L9.8828125 17.605469C9.2541467 17.36853 8.6893282 17.043245 8.1992188 16.640625L7.3359375 15.933594L5.4140625 16.59375L4.7285156 15.408203L6.265625 14.070312L6.0878906 12.974609L6.0878906 12.972656C6.0276183 12.596088 6 12.280673 6 12C6 11.718768 6.026742 11.404282 6.0878906 11.029297L6.265625 9.9296875L4.7285156 8.59375L5.4140625 7.40625L7.3359375 8.0683594L8.1992188 7.359375C8.6893282 6.9567546 9.2541467 6.6314701 9.8828125 6.3945312L10.925781 6L11.314453 4 z M 12 8C9.8034768 8 8 9.8034768 8 12C8 14.196523 9.8034768 16 12 16C14.196523 16 16 14.196523 16 12C16 9.8034768 14.196523 8 12 8 z M 12 10C13.111477 10 14 10.888523 14 12C14 13.111477 13.111477 14 12 14C10.888523 14 10 13.111477 10 12C10 10.888523 10.888523 10 12 10 z"/>
+</svg></left>
+        <div>Settings</div>
+        <right><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M6 3C4.3550302 3 3 4.3550302 3 6L3 18C3 19.64497 4.3550302 21 6 21L18 21C19.64497 21 21 19.64497 21 18L21 6C21 4.3550302 19.64497 3 18 3L6 3 z M 6 5L18 5C18.56503 5 19 5.4349698 19 6L19 18C19 18.56503 18.56503 19 18 19L6 19C5.4349698 19 5 18.56503 5 18L5 6C5 5.4349698 5.4349698 5 6 5 z M 12 6C11.6445 6 11.288687 6.1082187 10.992188 6.3242188L7.6542969 8.7402344C7.2382969 9.0432344 7 9.502 7 10C7 10.498 7.2382969 10.956766 7.6542969 11.259766L8.6777344 12L7.65625 12.740234C7.23925 13.043234 7 13.502 7 14C7 14.498 7.2382969 14.956766 7.6542969 15.259766L10.992188 17.675781C11.288187 17.891781 11.643047 17.998047 11.998047 17.998047C12.353047 17.998047 12.709859 17.892734 13.005859 17.677734L16.34375 15.259766C16.76175 14.956766 17 14.498 17 14C17 13.502 16.761703 13.043234 16.345703 12.740234L15.324219 12L16.345703 11.259766C16.761703 10.956766 17 10.498 17 10C17 9.502 16.76075 9.0432344 16.34375 8.7402344L13.007812 6.3242188C12.711312 6.1082187 12.3555 6 12 6 z M 12 7.0019531C12.149 7.0019531 12.298922 7.0457656 12.419922 7.1347656L15.757812 9.5507812C15.913812 9.6627813 16 9.823 16 10C16 10.177 15.914813 10.337219 15.757812 10.449219L14.46875 11.382812L13.007812 10.324219C12.414813 9.8922187 11.585188 9.8922187 10.992188 10.324219L10.380859 10.767578L11.230469 11.386719L11.580078 11.132812C11.702078 11.044813 11.851 11 12 11C12.149 11 12.298922 11.043812 12.419922 11.132812L13.617188 12L12.419922 12.867188C12.175922 13.043188 11.821125 13.043234 11.578125 12.865234L8.2421875 10.449219C8.0861875 10.337219 8 10.177 8 10C8 9.823 8.0861875 9.6627813 8.2421875 9.5507812L11.580078 7.1347656L11.580078 7.1328125C11.702078 7.0448125 11.851 7.0019531 12 7.0019531 z M 9.53125 12.617188L10.992188 13.675781C11.288188 13.891781 11.645 13.998047 12 13.998047C12.355 13.998047 12.710813 13.892734 13.007812 13.677734L14.470703 12.619141L15.757812 13.550781C15.914813 13.663781 16 13.823 16 14C16 14.177 15.913812 14.337219 15.757812 14.449219L12.421875 16.867188C12.177875 17.043187 11.823078 17.043234 11.580078 16.865234L8.2421875 14.449219C8.0851875 14.337219 8 14.177 8 14C8 13.823 8.0861875 13.662781 8.2421875 13.550781L9.53125 12.617188 z"/>
+</svg></right>
+    </a>
+      <div event-remove="true" class="divider"></div>
+       <div class="dropdown-sub">
+        <a dropdown="trigger">
+            <left><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 5C10.35499 5 9 6.3549904 9 8C9 9.6450096 10.35499 11 12 11C13.64501 11 15 9.6450096 15 8C15 6.3549904 13.64501 5 12 5 z M 5 7 A 2 2 0 0 0 3 9 A 2 2 0 0 0 5 11 A 2 2 0 0 0 7 9 A 2 2 0 0 0 5 7 z M 12 7C12.564129 7 13 7.4358706 13 8C13 8.5641294 12.564129 9 12 9C11.435871 9 11 8.5641294 11 8C11 7.4358706 11.435871 7 12 7 z M 19 7 A 2 2 0 0 0 17 9 A 2 2 0 0 0 19 11 A 2 2 0 0 0 21 9 A 2 2 0 0 0 19 7 z M 5 13C2.815 13 1 13.908797 1 15.216797L1 17L6 17L6 19L18 19L18 18L18 17L23 17L23 15.216797C23 13.908797 21.185 13 19 13C17.805298 13 16.733357 13.278135 15.996094 13.738281C15.969473 13.726403 15.946853 13.7108 15.919922 13.699219C14.834786 13.232561 13.476448 13 12 13C10.523552 13 9.1652139 13.232561 8.0800781 13.699219C8.0531468 13.7108 8.0305269 13.726403 8.0039062 13.738281C7.266643 13.278135 6.1947021 13 5 13 z M 12 15C13.254552 15 14.396792 15.222267 15.128906 15.537109C15.494963 15.694531 15.75147 15.875567 15.876953 16.007812C16.002436 16.14006 16 16.178915 16 16.216797L16 17L8 17L8 16.216797C8 16.178917 7.99756 16.140057 8.1230469 16.007812C8.2485299 15.875566 8.5050366 15.694531 8.8710938 15.537109C9.6032079 15.222267 10.745448 15 12 15 z"/>
+</svg></left>
+            <div>Team</div>
+        </a>
+        <ul class="dropdown-menu">
+            <a>
+                <left>
+                    <img src="https://img.freepik.com/free-photo/pleasant-looking-caucasian-female-with-long-hair-wearing-yellow-casual-shirt-having-good-mood-looking-happily-camera_176532-11558.jpg?w=1060&t=st=1705946693~exp=1705947293~hmac=00bf4ab83a3ff664620014478be03aab5be8d587329f197f709a03384a585e40">
+                </left>
+                <div>Ajay Yogi</div>
+            </a>
+             <a>
+                <left>
+                    <img src="https://img.freepik.com/free-photo/young-woman-with-round-glasses-yellow-sweater_273609-7091.jpg?w=1060&t=st=1705946791~exp=1705947391~hmac=c03246d3733fbedcd6202e258935447809e6cbfcc7ddbcc49313a566bf8c65f9">
+                </left>
+                <div>Bana Gurjar</div>
+            </a>
+            <a>
+                <left>
+                    <img src="https://img.freepik.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?w=1060&t=st=1705946881~exp=1705947481~hmac=6c922993dffbd6eada71fd6985b582d97ecc7bb1bf49069bbcef9beca9305e0f">
+                </left>
+                <div>Bron Koli</div>
+            </a>
+            
+        </ul>
+    </div>
+      <a disabled>
+         <div>Log out</div>
+         <right><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M5 3C3.9069372 3 3 3.9069372 3 5L3 19C3 20.093063 3.9069372 21 5 21L19 21C20.093063 21 21 20.093063 21 19L21 5C21 3.9069372 20.093063 3 19 3L5 3 z M 5 5L19 5L19 10.585938L15.707031 7.2929688L14.292969 8.7070312L16.585938 11L9 11L9 13L16.585938 13L14.292969 15.292969L15.707031 16.707031L19 13.414062L19 19L5 19L5 5 z" />
+</svg></right>
+        
+    </a>
+</ul>
+     
+ </div>       
+    <div code="simple" class="code" style="display:none">
+       <iframe src="https://koliboy.github.io/formui-examples/dropdown/simple.html"></iframe>    
+
+  
+    </div>
+
+   
+   
+
+
+
+
+
+
+<!--end-->
+<div style="margin-top:60px"></div>
+</div>
+
+<script>
+ 
+var s = all(".h");
+
+s.forEach(function(e){
+      $select(e).change(function(e2){
+          var p = e2.parentElement.parentElement;
+          var t =  p.getAttribute("type")
+          var code = ss(`[code="${t}"]`);
+          
+           if(code){
+              code.querySelectorAll("pre").forEach(function(e4){
+                   if(e2.value == e4.getAttribute("type")){
+                       e4.style.display = "block"
+                   }else{
+                        e4.style.display = "none";
+                   }
+               })
+           }
+      })
+});
+
+</script>
+
+<script>
+   /* all('.fex').forEach(function(e){
+   var type = e.getAttribute("add");
+   var code =  ss(`[code='${type}']`);
+ var htm_s =`
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/path/to/formui/main.css">`
+
+var  htm_e = `
+\n
+</>
+</html>
+`
+   if(code){
+     var html = code.querySelector("[type='html']");
+       if(html){
+          html.querySelector("code").textContent = htm_s+html.querySelector("code").textContent+"<> \n"+e.innerHTML+htm_e
+       }
+   }
+});*/
+
+var hed_btns = all(".fex-h button");
+
+
+hed_btns.forEach(function(e){
+    e.onclick = function (){ 
+         var p = this.parentElement.parentElement
+         var types = p.getAttribute("type");
+         var btns = this.parentElement  
+         this.classList.add("active");
+        if(this.getAttribute("type") == "p"){ /*Preview*/
+           ss(`[add="${types}"]`).style.display = "flex"
+           ss(`[code="${types}"]`).style.display = "none";
+           p.querySelector(".h").style.display = "none"
+           btns.querySelectorAll("button")[1].classList.remove("active")
+          
+        }else{
+          p.querySelector(".h").style.display = "block"
+            ss(`[add="${types}"]`).style.display = "none"
+           ss(`[code="${types}"]`).style.display = "block"
+            btns.querySelectorAll("button")[0].classList.remove("active")
+        }
+    }
+});      
+
+    
+  
+ 
+</script>
+</body>
+
+</html>
