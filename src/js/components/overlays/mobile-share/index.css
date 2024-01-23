@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
   mobile[form="bottom-bar"] {
     position: fixed !important;
     top: 0 !important;
@@ -27,13 +27,13 @@
     bottom: 0;
     right: 0;
     left: 0;
-
+ 
   }
 
   mobile[form="bottom-bar"] [mobile-view-none][last] {
-
-    min-height: 30%;
-    max-height: 80%;
+ 
+   min-height: 30%;
+    max-height: 90%;
 
   }
 
@@ -46,24 +46,27 @@
 
     background: var(--background-color);
 
-    padding-bottom: 15px;
-    padding-top: 15px;
     overflow: hidden;
-    display: block;
+    display:block;
+    overflow: hidden;
     overflow-y: auto;
     position: absolute;
-    bottom: 0;
+    bottom:0; 
     right: 0;
     left: 0;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border-top: var(--border-style) var(--border-width) var(--color-secondary);
-    height: auto;
-    max-height: 95%;
+    height:auto;
+    padding-bottom: 20px;
+    padding-top: 15px; 
+    max-height: 95%; 
     box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
     box-sizing: content-box;
 
   }
+ 
+  
 
   mobile[form="bottom-bar"] [mobile-view-cnt][overflow="false"] {
     /*options*/
@@ -85,7 +88,8 @@
   mobile[form="bottom-bar"] [mobile-view-cnt][show-event="click-hide"] {
     animation: mb-bottom-bar-close-by-click 300ms forwards;
   }
-
+ 
+ 
 
 }
 
