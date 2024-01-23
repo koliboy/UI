@@ -1,4 +1,4 @@
-!function () {
+ !function () {
   Object.defineProperties(window, {
     $action_btm: {
       value: function (element) {
@@ -80,10 +80,10 @@
         var setup_cnt = `<div mobile-view-none mobile-hidden></div> 
                  <div mobile-view-none last> 
                 <div  mobile-view-cnt none-scroll overflow="${e.getAttribute("overflow")}"> 
-                   
+                  
                   </div></div> 
                 `
-        viewOne.innerHTML = setup_cnt
+        viewOne.innerHTML = setup_cnt 
         var append_orgin = viewOne.querySelector("[mobile-view-cnt]")
         Array.from(e.childNodes).forEach(function (e2) {
           append_orgin.append(e2)
@@ -117,16 +117,20 @@
               let close_bar = this.querySelectorAll("[mobile-view-none]")[1];
               if (caller instanceof Function) {
                 /*close_bar.onclick = function (event) {
-                   
+                    
                   caller.call(self, event)
                   self.setAttribute("close-event", "click-hide")
                   event.preventDefault();
 
-                };*/
-                document.addEventListener("click",function(event){
+                };*/ 
+                self.addEventListener("click",function(event){
+                    
                     if(!event.target.closest('[mobile-view-cnt]')){
-                       caller.call(self, event)
-                       self.setAttribute("close-event", "click-hide")
+                       caller.call(self, event);
+                       /*if( self.getAttribute("show-event") == "true"){*/
+                           self.setAttribute("close-event", "click-hide")
+                      // }
+                       
                     }
                 });
 
