@@ -1,8 +1,3 @@
-/*mobile-bottom-action-bar*/
-
-/*options max-height="60%",overflow=false*/
-
-
 !function () {
   Object.defineProperties(window, {
     $action_btm: {
@@ -119,14 +114,21 @@
           Ponclose: {
             value: function (caller) {
               let self = this, ch_s = this.scrollTop
-              let close_bar = this.querySelector("[mobile-view-none][mobile-hidden]");
+              let close_bar = this.querySelectorAll("[mobile-view-none]")[1];
               if (caller instanceof Function) {
-                close_bar.onclick = function (event) {
+                /*close_bar.onclick = function (event) {
+                   
                   caller.call(self, event)
                   self.setAttribute("close-event", "click-hide")
                   event.preventDefault();
 
-                };
+                };*/
+                document.addEventListener("click",function(event){
+                    if(!event.target.closest('[mobile-view-cnt]')){
+                       caller.call(self, event)
+                       self.setAttribute("close-event", "click-hide")
+                    }
+                });
 
                 self.onscroll = function (event) {
                   if (this.getAttribute('show-event-onshide') == "true") {
