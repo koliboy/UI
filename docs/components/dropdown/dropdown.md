@@ -9,7 +9,7 @@ A dropdown component is a user interface element commonly used in web developmen
 ```html
 <button class="dropdown" d-event="click" data="post-id-2" d-defind="rest" dropdown="trigger">rest</button>
 
-<ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
+<ul class="dropdown-menu" overflow-x="nowrap" d-event="mouseover" d-defind="rest">
     <a href="#home">Home</a>
     <a>About</a>
     <a disabled>Services</a> <!-- Target disabled: This item is disabled and cannot be clicked. -->
@@ -54,7 +54,7 @@ A dropdown component is a user interface element commonly used in web developmen
    - Inside the `<ul>`, use `<a>` tags for individual dropdown items, and optionally, `<button>` elements.
 
  **Overflow Control:**
-   - The `overflow-x: nowrap;` style is applied to control horizontal overflow within the dropdown menu.
+   - The `overflow-x="nowrap"` style is applied to control horizontal overflow within the dropdown menu.
    - This is useful when you want to keep the content in a single line without wrapping.
 #### Usage:
 
