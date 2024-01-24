@@ -92,6 +92,11 @@
         background-color: none;
     }
 
+    .dropdown-menu[d-defind]{
+         position:fixed;
+        
+    }
+
     .dropdown-menu {
         width: auto;
         max-width: auto;
