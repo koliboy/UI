@@ -5,7 +5,7 @@
     min-width: calc(var(--font-size) + var(--font-size));
     padding: var(--padding) 0 var(--padding) 0;
     border-radius: var(--border-radius);
-    column-gap: var(--padding);
+    column-gap: calc(var(--font-size) * 0.40);
     background: var(--background-color);
 }
 
