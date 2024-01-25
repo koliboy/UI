@@ -44,10 +44,12 @@
     background: none;
     border-radius: 50%;
     border: calc(var(--font-size) * 0.20) solid var(--color-primary);
+    /* Circle border color */
     border-top: calc(var(--font-size) * 0.20) solid transparent;
-   
+    /* Make the top transparent to create a loading effect */
     animation: spinner 1s linear infinite;
-   }
+    /* Use the 'spin' animation for rotation */
+}
 
 [loader="inline"],
 [loader="inline-synk"] {
@@ -86,4 +88,47 @@
 
 [loader="inline-synk"] [inline] {
     animation: inline-synk 2s linear infinite;
+}
+
+
+@keyframes inline-synk {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 45%;
+    }
+
+    80% {
+        width: 50%;
+        /* Adjust the width during animation */
+    }
+
+    100% {
+        width: 90%;
+        /* Adjust the width during animation */
+    }
+}
+
+@keyframes load-inline {
+    0% {
+        width: 5%;
+        transform: translateX(-50%);
+    }
+
+    50% {
+        transform: translateX(10%);
+        width: 20%;
+
+    }
+
+    80% {
+        transform: translateX(30%);
+        width: 50%;
+    }
+
+    100% {
+        transform: translateX(40%);
+    }
 }
