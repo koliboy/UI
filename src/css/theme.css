@@ -10,8 +10,7 @@
 
 a {
   text-decoration: none;
-  font-weight: bold;
-  color: var(--color-primary);
+ color: var(--color-primary);
 }
 
 a.a-icon::after {
