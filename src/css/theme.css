@@ -1,184 +1,237 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&family=Roboto+Flex:opsz@8..144&display=swap');
 
 * {
-    font-family: 'Roboto Flex', sans-serif;
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+::selection {
+  background-color: var(--selection-color);
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+a.a-icon::after {
+  content: '\031A';
+  /* Unicode arrow right character */
+  margin-left: -2px;
+  font-weight: bold;
+  background: red;
 }
 
 .h1 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.60));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.60));
 }
 
 .h2 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.50));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.50));
 }
 
 .h3 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.40));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.40));
 }
 
 .h4 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.30));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.30));
 }
 
 .h5 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.20));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.20));
 }
 
 .h6 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.10));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.10));
 }
 
 .h7 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.07));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.07));
 }
 
 .h8 {
-    font-size: calc(var(--font-size) + calc(var(--font-size) * 0.05));
+  font-size: calc(var(--font-size) + calc(var(--font-size) * 0.05));
 }
 
 .h9 {
-    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.05));
+  font-size: calc(var(--font-size) - calc(var(--font-size) * 0.05));
 }
 
 .h10 {
-    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.10));
+  font-size: calc(var(--font-size) - calc(var(--font-size) * 0.10));
 }
 
 .h11 {
-    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.20));
+  font-size: calc(var(--font-size) - calc(var(--font-size) * 0.20));
 }
 
 .h12 {
-    font-size: calc(var(--font-size) - calc(var(--font-size) * 0.30));
+  font-size: calc(var(--font-size) - calc(var(--font-size) * 0.30));
 }
 
+
+
 .color {
-    color: var(--color);
+  color: var(--color);
 }
 
 .bg {
-    background: var(--background-color);
+  background: var(--background-color);
 }
 
 .color-blur {
-    color: #999999;
+  color: #999999;
 
 }
 
+.error {
+  color: var(--error-color);
+  fill: var(--error-color);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-gap {
+  gap: var(--padding)
+}
+
 .img {
-    height: 100%;
-    width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
 
 }
 
 /* var(--border-style) var(--border-width) var(--border-color)*/
 .divider {
-    display: flex;
-    margin-top: var(--padding);
-    margin-bottom: var(--padding);
-    background: var(--border-color);
-    height: var(--border-width);
-    opacity: 0.50;
+  display: flex;
+  margin-top: var(--padding);
+  margin-bottom: var(--padding);
+  background: var(--border-color);
+  height: var(--border-width);
+  opacity: 0.50;
 }
 
 .disableScroll.Scrollon {
-    /*when dropdown or.. dogle opend*/
-    overflow-x: hidden;
+  /*when dropdown or.. dogle opend*/
+  overflow-x: hidden;
 }
 
 .padding {
-    padding: var(--padding) 10px var(--padding) 10px;
+  padding: var(--padding) 10px var(--padding) 10px;
 }
+
+.padding-cnt {
+  padding: var(--padding) var(--padding-cnt) var(--padding) var(--padding-cnt);
+}
+
 .gap-t-b {
-        margin-top:var(--padding);
-        margin-bottom:var(--padding);
-    }
+  margin-top: var(--padding);
+  margin-bottom: var(--padding);
+}
 
 .border {
-    border: var(--border-width) var(--border-style)  var(--border-color);
+  border: var(--border-width) var(--border-style) var(--border-color);
+
 }
+
 .border-radius {
   border-radius: var(--border-radius);
 
 }
 
 .center {
-    justify-items: center;
-    justify-content: center;
+  justify-items: center;
+  justify-content: center;
 
 }
 
 .user-select {
-    user-select: none;
+  user-select: none;
 }
 
 .t-center {
-         text-align: center;
-     }
+  text-align: center;
+}
+
 .t-end {
-         text-align: end;
-     }
+  text-align: end;
+}
 
 .center-tb {
-    align-content: center;
-    align-items: center;
+  align-content: center;
+  align-items: center;
 }
 
 .over-x-adjust {
-    overflow-x: hidden;
-    white-space: normal;
-    word-break: break-all;
+  overflow-x: hidden;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .over-x-dot {
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .icon {
-    height: calc(var(--font-size) + 5px);
-    width: calc(var(--font-size) + 5px);
-    min-height: calc(var(--font-size) + 5px);
-    min-width: calc(var(--font-size) + 5px);
-    border-radius: 50%;
-    fill: var(--fill);
+  height: calc(var(--font-size) + 5px);
+  width: calc(var(--font-size) + 5px);
+  min-height: calc(var(--font-size) + 5px);
+  min-width: calc(var(--font-size) + 5px);
+  border-radius: 50%;
+  fill: var(--fill);
 }
 
 .icon img {
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .flex-l-c-r {
-    /*left ro right icon with text center*/
-    display: flex;
-    height: auto;
-   
+  /*left ro right icon with text center*/
+  display: flex;
+  height: auto;
+
 }
 
 .flex-l-c-r .center {
-    flex: auto;
-    margin-left: var(--padding);
-    margin-right: var(--padding);
+  flex: auto;
+  margin-left: var(--padding);
+  margin-right: var(--padding);
 
 }
 
-@media (min-width: 768px) {
-    .ul-hover:hover {
-        background: var(--ul-hover);
-    }
+.spinner {
+  animation: spinner 2s linear infinite;
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  .ul-hover:hover {
+    background: var(--ul-hover);
+  }
 
-    /*mobile*/
-    .ul-hover:active {
-        background: var(--ul-hover);
-    }
+  .pointer {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  /*mobile*/
+  .ul-hover:active {
+    background: var(--ul-hover);
+  }
 }
