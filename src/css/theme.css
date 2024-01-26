@@ -6,6 +6,7 @@
 
 ::selection {
   background-color: var(--selection-color);
+   color:var(--color);
 }
 
 a {
