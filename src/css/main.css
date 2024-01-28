@@ -132,6 +132,8 @@
   --left-background: rgba(240, 240, 240, 0.50);
   --left-icon-fill: #999999;
   --min-height: 30px;
+  --over-bg-blur: blur(1px);
+  --over-bg: rgba(0, 0, 0, 0.2);
   --placeholder-color: #999999;
   /*hsla(0, 0%, 24%, 1)*/
   --padding: 5px;
