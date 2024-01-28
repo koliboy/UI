@@ -77,7 +77,7 @@ function $parserHTML(string_, applyto, method = "append", scriptMehtod = "after"
     });
     if (typeof applyto[method] == "function") {
         Array.from(htmlDoc.body.childNodes).forEach(function (doc) {
-            applyto.appendChild(doc);
+            applyto[method](doc);
         });
     } else {
         applyto[method] = htmlDoc.body[method]
