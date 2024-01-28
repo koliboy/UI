@@ -38,21 +38,21 @@ function $disableScroll() {
     document.documentElement.style.overflow = 'hidden';  // For most modern browsers
     document.body.scroll = 'no';  // For some older browsers
     
-} 
+};
 function $enableScroll() {
     document.querySelectorAll(".disableScroll").forEach(function(disS){
         disS.classList.remove("Scrollon");
     });
     document.documentElement.style.overflow = 'auto';
     document.body.scroll = 'yes';
-} 
+};
 
 function $sizeDekstop(){
     return 768 < window.innerWidth;
-}
+};
 function $sizeMobile(){
     return 768 >= window.innerWidth;
-}
+};
 
 
 function $getDeviceType() {
@@ -62,4 +62,40 @@ function $getDeviceType() {
   } else {
     return 'Desktop';
   }
-}
+};
+
+function $parserHTML(string_, applyto, method = "append", scriptMehtod = "after") {
+    //methods textCotent,innerHTML,append,appendChild .....
+    //scriptMehtod append,after before,prepend
+
+    var parser = new DOMParser();
+    var htmlDoc = parser.parseFromString(string_, 'text/html');
+
+    var scripts = document.createElement("div");
+    htmlDoc.querySelectorAll("script").forEach(function (script) {
+        scripts.append(script);
+    });
+    if (typeof applyto[method] == "function") {
+        Array.from(htmlDoc.body.childNodes).forEach(function (doc) {
+            applyto.appendChild(doc);
+        });
+    } else {
+        applyto[method] = htmlDoc.body[method]
+    }
+
+    Array.from(scripts.childNodes).forEach(function (script) {
+
+        var newScript = document.createElement("script");
+        script_scopp = ["async", "crossorigin", "defer", "fetchpriority", "integrity",
+            "nomodule", "src", "text", "type"]
+        script_scopp.forEach(function (scop) {
+            if (script.getAttribute(scop) != null) {
+                newScript.setAttribute(scop, script.getAttribute(scop));
+            }
+        })
+        if (script.getAttribute("src") == null) {
+            newScript.innerHTML = script.innerHTML;
+        }
+        applyto[scriptMehtod](newScript);
+    });
+};
