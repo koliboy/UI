@@ -1,6 +1,6 @@
 
 !function () {
-    Object.defineProperty(window, "$http3", {
+    Object.defineProperty(window, "$http", {
         value: {
             worker__: function (type, request, data, options) {
                 var http_data = JSON.stringify(data);
