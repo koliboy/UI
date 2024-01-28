@@ -1,4 +1,4 @@
-Object.defineProperties(this, {
+Object.defineProperties(window, {
     $arriveAdd: {
         value: function (targetSelector, callback) { /*call(element,MutationRecord])*/
         
