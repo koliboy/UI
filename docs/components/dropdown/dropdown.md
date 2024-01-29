@@ -598,3 +598,63 @@ In this example, the `htp-swap` attribute is set to "childAppend," indicating th
 ### JavaScript Integration:
 
 While the `htp-swap` attribute defines the type of update, you may need to use JavaScript to manipulate the DOM based on specific insertion points or positions, like "prepend," "after," or "before," as demonstrated in the previous examples.
+
+
+### `htp-sync`:
+
+The `htp-sync` attribute is used to control the synchronization behavior of HTTP requests triggered by a dropdown menu. It determines whether subsequent requests should wait for the completion of the ongoing request before initiating a new one.
+
+#### Options:
+
+- **"true" (Default):**
+  - Subsequent requests wait for the completion of the ongoing request before initiating a new one.
+
+    ```html
+    htp-sync="true"
+    ```
+
+- **"false":**
+  - Subsequent requests are not synchronized and can be initiated independently of the ongoing request.
+
+    ```html
+    htp-sync="false"
+    ```
+
+#### Example Usage:
+
+```html
+<!-- Example Dropdown Menu with htp-sync Attribute -->
+<ul class="dropdown-menu"
+    cnt-load-get="/api/fetch-dropdown-data"
+    htp-query='{"key": 1, "id": "$data"}'
+    htp-s="call_fun_success"
+    htp-sync="true"
+    error-label="Something went wrong!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+```
+
+In this example:
+
+- **htp-sync:**
+  - Specifies whether subsequent HTTP requests triggered by the dropdown menu should be synchronized.
+  - Example: `htp-sync="true"`
+
+### Usage Guidelines:
+
+1. **"true" (Default):**
+   - Use this option when you want to ensure that subsequent requests wait for the completion of the ongoing request before initiating a new one.
+   - This is useful when you want to avoid potential conflicts or unexpected behavior due to multiple concurrent requests.
+
+    ```html
+    htp-sync="true"
+    ```
+
+2. **"false":**
+   - Use this option when you want subsequent requests to be independent of the ongoing request. Each trigger click initiates a new request, regardless of the status of the ongoing request.
+   - This can be useful in scenarios where you want to allow users to quickly switch between different options without waiting for the completion of previous requests.
+
+    ```html
+    htp-sync="false"
+    ```
