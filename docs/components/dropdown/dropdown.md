@@ -434,3 +434,50 @@ In this example, the query parameters include a dynamic value (`$data`), static 
 ### Summary:
 
 The `htp-query` attribute provides flexibility in constructing HTTP requests by allowing a mix of static values, dynamic values based on the dropdown trigger (`$data`), and function calls. This flexibility ensures that you can tailor your requests to retrieve the specific data needed for each dropdown item. Adjust the query parameters according to your application's requirements.
+
+
+### `htp-swap` Attribute:
+
+The `htp-swap` attribute is used to specify how the content received from the server should be integrated into the existing dropdown menu. This attribute does not directly support options like "prepend," "after," or "before." Instead, it defines the property or attribute of the dropdown menu element that will be updated with the fetched content.
+
+#### Options:
+
+1. **innerHTML (Default):**
+   - Updates the inner HTML of the dropdown menu with the fetched content.
+
+    ```html
+    htp-swap="innerHTML"
+    ```
+
+2. **textContent:**
+   - Updates the text content of the dropdown menu.
+
+    ```html
+    htp-swap="textContent"
+    ```
+
+3. **childAppend:**
+   - Appends the fetched content as a child element to the dropdown menu.
+
+    ```html
+    htp-swap="childAppend"
+    ```
+
+#### Example:
+
+```html
+<ul class="dropdown-menu"
+    cnt-load-get="/dropdown-menu-edit-file"
+    htp-query='{"key":1,"id":"$data"}'
+    htp-s="childAppend"
+    error-label="something went wrong !!!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+```
+
+In this example, the `htp-swap` attribute is set to "childAppend," indicating that the fetched content will be appended as a child element to the existing dropdown menu.
+
+### JavaScript Integration:
+
+While the `htp-swap` attribute defines the type of update, you may need to use JavaScript to manipulate the DOM based on specific insertion points or positions, like "prepend," "after," or "before," as demonstrated in the previous examples.
