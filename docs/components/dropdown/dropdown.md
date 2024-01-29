@@ -379,7 +379,7 @@ It seems like you're trying to define additional options for a dropdown menu, in
     - Provides an example script (`call_fun_success`) to handle the success callback.
     - Demonstrates updating the content of the dropdown menu.
 
-### `cnt-load-get` Attribute:
+### `cnt-load-get`:
 
 The `cnt-load-get` attribute is used to define the URL for an HTTP GET request that retrieves content dynamically to populate a dropdown menu. This attribute plays a crucial role in fetching data from a server or an external source to update the dropdown menu.
 
