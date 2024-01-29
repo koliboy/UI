@@ -380,3 +380,57 @@ It seems like you're trying to define additional options for a dropdown menu, in
     - Demonstrates updating the content of the dropdown menu.
 
 
+### htp-query Attribute:
+
+The `htp-query` attribute is used to define the query parameters for the HTTP request made to load content dynamically. It accepts a JSON object as its value, where keys represent parameter names, and values can be static, dynamic, or derived from function calls.
+
+#### Examples:
+
+1. **Static Values:**
+   - You can use static values for query parameters that remain constant.
+
+    ```html
+    htp-query='{"key": 1, "type": "user"}'
+    ```
+
+2. **Dynamic Values (`$data`):**
+   - The `$data` placeholder allows you to dynamically insert the value associated with the dropdown trigger. It's especially useful when each dropdown item corresponds to a unique data value.
+
+    ```html
+    htp-query='{"id": "$data", "action": "details"}'
+    ```
+
+3. **Function Calls:**
+   - You can call functions to dynamically generate values for query parameters.
+
+    ```html
+    htp-query='{"id": "$data", "name": "$Namefun()"}'
+    ```
+
+   - Here, the `Namefun` function is invoked to dynamically retrieve a value for the "name" parameter.
+
+    ```javascript
+    function Namefun() {
+        return "Ashok";
+    }
+    ```
+
+#### Usage Guidelines:
+
+- **Static Parameters:** Use static values when the query parameter remains the same for every request.
+
+- **Dynamic Values (`$data`):** Utilize `$data` when you want the query parameter to be specific to the data associated with the dropdown trigger. This is often useful when each dropdown item represents a unique entity, and you want to fetch details related to that entity.
+
+- **Function Calls:** If you need more complex or dynamic values for query parameters, you can call functions. These functions can perform calculations, retrieve values from external sources, or apply any custom logic.
+
+#### Example with Multiple Types of Parameters:
+
+```html
+htp-query='{"id": "$data", "type": "user", "status": "active", "name": "$Namefun()"}'
+```
+
+In this example, the query parameters include a dynamic value (`$data`), static values ("type" and "status"), and the result of calling a function (`$Namefun()`).
+
+### Summary:
+
+The `htp-query` attribute provides flexibility in constructing HTTP requests by allowing a mix of static values, dynamic values based on the dropdown trigger (`$data`), and function calls. This flexibility ensures that you can tailor your requests to retrieve the specific data needed for each dropdown item. Adjust the query parameters according to your application's requirements.
