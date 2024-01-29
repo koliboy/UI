@@ -658,3 +658,63 @@ In this example:
     ```html
     htp-sync="false"
     ```
+
+
+### `htp-headers`:
+The `htp-headers` attribute allows you to include custom HTTP headers in the request triggered by the dropdown menu.
+
+#### Example Usage:
+
+```html
+<!-- Example Dropdown Menu with htp-headers Attribute -->
+<ul class="dropdown-menu"
+    cnt-load-get="/api/fetch-dropdown-data"
+    htp-query='{"key": 1, "id": "$data"}'
+    htp-s="call_fun_success"
+    htp-headers='{"Authorization": "Bearer Token123", "Custom-Header": "Value"}'
+    error-label="Something went wrong!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+```
+
+In this example:
+
+- **htp-headers:**
+  - Specifies custom HTTP headers to be included in the request.
+  - Example: `htp-headers='{"Authorization": "Bearer Token123", "Custom-Header": "Value"}'`
+
+### Usage Guidelines:
+
+1. **Custom Headers (`htp-headers`):**
+   - Use the `htp-headers` attribute to include custom HTTP headers in the request.
+   - Specify headers as a JSON object, where each key-value pair represents a header and its value.
+
+    ```html
+    htp-headers='{"Authorization": "Bearer Token123", "Custom-Header": "Value"}'
+    ```
+
+2. **Authorization Headers:**
+   - If your server requires authentication, you can include an "Authorization" header with an authentication token.
+
+    ```html
+    htp-headers='{"Authorization": "Bearer Token123"}'
+    ```
+
+3. **Custom Headers:**
+   - Include any additional custom headers that your server may require for processing the request.
+
+    ```html
+    htp-headers='{"Custom-Header": "Value"}'
+    ```
+
+4. **Multiple Headers:**
+   - You can include multiple headers by separating them with commas within the JSON object.
+
+    ```html
+    htp-headers='{"Header1": "Value1", "Header2": "Value2"}'
+    ```
+
+### Summary:
+
+The `htp-headers` attribute is useful when you need to include custom HTTP headers in the request triggered by a dropdown menu. This is common when dealing with APIs that require authentication tokens or additional information in the headers for successful communication. Specify the headers as a JSON object, and include the necessary information to ensure that the server processes the request correctly. Adjust the headers based on the specific requirements of your server and API.
