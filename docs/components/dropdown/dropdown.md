@@ -47,7 +47,11 @@ A dropdown component is a user interface element commonly used in web developmen
    - Set a unique identifier using `d-defind` to link the button with its associated dropdown menu.
    - Add the `dropdown="trigger"` attribute to mark this element as the dropdown trigger.
 
-2. **Dropdown Menu (`<ul class="dropdown-menu">`):**
+2. **cnt-load-post:**
+   - Specifies the HTTP POST request URL for loading content dynamically.
+   - Example: `cnt-load-post="/dropdown-menu-edit-file"`
+     
+3. **Dropdown Menu (`<ul class="dropdown-menu">`):**
    - Place the `<ul>` element immediately after the triggering button.
    - Set the `d-event` attribute to "click" to make the dropdown menu triggered on a click.
    - Use `d-defind` with the same value as the triggering button to create a link between them.
