@@ -295,10 +295,89 @@ Feel free to ask if you have any more questions or if there's anything else I ca
 
 #### Explanation:
 
-1. **Custom "open" Event:**
+1. **"open" Event:**
    - The `openDropdownMenu` function represents the logic to be executed when the dropdown menu is opened.
    - The event listener is set up to listen for the custom "open" event on the `.dropdown-menu` element.
 
-2. **Custom "close" Event:**
+2. **"close" Event:**
    - The `closeDropdownMenu` function represents the logic to be executed when the dropdown menu is closed.
    - The event listener is set up to listen for the custom "close" event on the `.dropdown-menu` element.
+
+
+## cnt-load
+
+```html
+<!-- Dropdown Menu with Dynamic Content Loading Options -->
+
+<ul class="dropdown-menu"
+    cnt-load-get="/dropdown-menu-edit-file"
+    htp-query='{"key":1,"id":"$data"}'
+    htp-s="call_fun_success"
+    error-label="something went wrong !!!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+
+<script>
+    // Function to handle HTTP success callback
+    function call_fun_success(ul, status) {
+        // 'ul' is the dropdown menu element
+        // 'status' is the HTTP status of the request
+        // Your logic to handle success goes here
+        ul.innerHTML = "Updated content"; // Example: Update content of the dropdown
+    }
+</script>
+```
+
+#### Explanation:
+
+1. **cnt-load-get:**
+   - Defines the HTTP GET request URL for loading content dynamically.
+   - Example: `cnt-load-get="/dropdown-menu-edit-file"`
+
+2. **htp-query:**
+   - Specifies query parameters for the HTTP request.
+   - Allows dynamic values using `$data` or function calls (e.g., `{"key":1,"id":"$data","name":"$Namefun()"}`).
+   - Example: `htp-query='{"key":1,"id":"$data"}'`
+
+3. **Function for Dynamic Value (`$Namefun()`):**
+   - Provides an example of a function (`Namefun`) that can be called for dynamic values.
+   - Example: `function Namefun(){ return "Ashok" }`
+
+4. **Conditional Content-Type for POST Request:**
+   - If `cnt-load-post` is used, the default Content-Type header is set to `application/json`.
+   - The option to override this behavior is mentioned: `htp-headers` can be used to include additional headers.
+
+5. **htp-headers:**
+   - Specifies additional headers for the HTTP request.
+   - Example: `htp-headers='{"Authorization": "Bearer YOUR_TOKEN"}'`
+
+6. **htp-s:**
+   - Defines a callback function (`call_fun_success`) to handle the HTTP request's success.
+   - Example: `htp-s="call_fun_success"`
+
+7. **htp-swap:**
+   - Specifies the property to update with the fetched content. Default is `innerHTML`.
+   - Example: `htp-swap="innerHTML"`
+
+8. **htp-sync:**
+   - Controls whether the dropdown menu should synchronize with the server on every trigger click. Default is `false`.
+   - Example: `htp-sync="false"`
+
+9. **error-label:**
+   - Sets the error label text if something goes wrong during the HTTP request.
+   - Example: `error-label="something went wrong !!!"`
+
+10. **overflow-x:**
+    - Sets the CSS style for horizontal overflow in the dropdown menu. Default is `nowrap`.
+    - Example: `overflow-x="nowrap"`
+
+11. **d-defind:**
+    - A unique identifier for the associated dropdown menu.
+    - Example: `d-defind="trigger"`
+
+12. **Example Script:**
+    - Provides an example script (`call_fun_success`) to handle the success callback.
+    - Demonstrates updating the content of the dropdown menu.
+
+
