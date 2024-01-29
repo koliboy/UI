@@ -140,11 +140,11 @@ function queryParams___$_$(query__$_$ = {},scope__$_$ =true) {
     return queryParams__$_$
 }
 
-var geth__$__$ =  $target__$_$.getAttribute("cnt-load-get");
-var posth__$__$ =  $target__$_$.getAttribute("cnt-load-post");
-var query__$__$ = $target__$_$.getAttribute("query") == null ?"{}":`${$target__$_$.getAttribute("query")}`;
-var headers__$__$ = $target__$_$.getAttribute("post") == null ?"{}":`${$target__$_$.getAttribute("post")}`;
-var status__$__$ = $target__$_$.getAttribute("s-status") == null ?200:`${$target__$_$.getAttribute("s-status")}`;
+var geth__$__$ =  $target__$_$.getAttribute("cnt-load-get") || $target__$_$.getAttribute("htp-get");
+var posth__$__$ =  $target__$_$.getAttribute("cnt-load-post") ||  $target__$_$.getAttribute("htp-post"); 
+var query__$__$ = $target__$_$.getAttribute("htp-query") == null ?"{}":`${$target__$_$.getAttribute("htp-query")}`;
+var headers__$__$ = $target__$_$.getAttribute("htp-headers") == null ?"{}":`${$target__$_$.getAttribute("htp-headers")}`;
+var status__$__$ = $target__$_$.getAttribute("htp-status") == null ?200:`${$target__$_$.getAttribute("htp-status")}`;
 
 if(geth__$__$ != null){
       
