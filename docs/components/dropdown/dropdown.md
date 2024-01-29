@@ -310,6 +310,8 @@ Feel free to ask if you have any more questions or if there's anything else I ca
 
 ## cnt-load
 
+It seems like you're trying to define additional options for a dropdown menu, including options for loading content dynamically using HTTP requests. Let's break down the provided code and document the options:
+
 ```html
 <!-- Dropdown Menu with Dynamic Content Loading Options -->
 
