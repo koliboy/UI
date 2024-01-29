@@ -252,3 +252,58 @@ Feel free to ask if you have any more questions or if there's anything else I ca
 
 3. **Script Handling:**
    - The script demonstrates handling a click event within the dropdown menu, extracting the associated post ID.
+
+## Events
+
+```html
+<!-- Trigger Button -->
+<button class="dropdown" data="post-id-1" d-defind="rest" dropdown="trigger">more...</button>
+
+<!-- Dropdown Menu -->
+<ul class="dropdown-menu" d-event="mouseover" d-defind="rest">
+    <a>
+        <div class="post-delete">Delete Post</div>
+    </a>
+    <a>
+        <div class="post-share">Share Post</div>
+    </a>
+</ul>
+
+<!-- Script for Custom Events -->
+<script>
+    // Function to open the dropdown menu
+    function openDropdownMenu() {
+        // Your logic to open the dropdown menu goes here
+        console.log("Dropdown menu opened!");
+    }
+
+    // Function to close the dropdown menu
+    function closeDropdownMenu() {
+        // Your logic to close the dropdown menu goes here
+        console.log("Dropdown menu closed!");
+    }
+
+    // Event listener for custom "open" event
+    document.querySelector('.dropdown-menu').addEventListener("open", openDropdownMenu);
+
+    // Event listener for custom "close" event
+    document.querySelector('.dropdown-menu').addEventListener("close", closeDropdownMenu);
+
+    // Example: Triggering the custom events
+    // Simulate opening the dropdown (replace this with your actual logic)
+    document.querySelector('.dropdown-menu').dispatchEvent(new Event("open"));
+
+    // Simulate closing the dropdown (replace this with your actual logic)
+    document.querySelector('.dropdown-menu').dispatchEvent(new Event("close"));
+</script>
+```
+
+#### Explanation:
+
+1. **Custom "open" Event:**
+   - The `openDropdownMenu` function represents the logic to be executed when the dropdown menu is opened.
+   - The event listener is set up to listen for the custom "open" event on the `.dropdown-menu` element.
+
+2. **Custom "close" Event:**
+   - The `closeDropdownMenu` function represents the logic to be executed when the dropdown menu is closed.
+   - The event listener is set up to listen for the custom "close" event on the `.dropdown-menu` element.
