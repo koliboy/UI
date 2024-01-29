@@ -308,7 +308,7 @@ Feel free to ask if you have any more questions or if there's anything else I ca
    - The event listener is set up to listen for the custom "close" event on the `.dropdown-menu` element.
 
 
-# cnt-load
+# AJAX "cnt-load"
 
 It seems like you're trying to define additional options for a dropdown menu, including options for loading content dynamically using HTTP requests. Let's break down the provided code and document the options:
 
