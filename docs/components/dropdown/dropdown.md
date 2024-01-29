@@ -269,7 +269,7 @@ Feel free to ask if you have any more questions or if there's anything else I ca
     </a>
 </ul>
 
-<!-- Script for Custom Events -->
+
 <script>
     // Function to open the dropdown menu
     function openDropdownMenu() {
