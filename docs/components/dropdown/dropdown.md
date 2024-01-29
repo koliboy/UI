@@ -366,21 +366,14 @@ Feel free to ask if you have any more questions or if there's anything else I ca
 
 8. **htp-sync:**
    - Controls whether the dropdown menu should synchronize with the server on every trigger click. Default is `false`.
-   - Example: `htp-sync="false"`
+   - Example: `htp-sync="true"`
 
 9. **error-label:**
    - Sets the error label text if something goes wrong during the HTTP request.
    - Example: `error-label="something went wrong !!!"`
 
-10. **overflow-x:**
-    - Sets the CSS style for horizontal overflow in the dropdown menu. Default is `nowrap`.
-    - Example: `overflow-x="nowrap"`
 
-11. **d-defind:**
-    - A unique identifier for the associated dropdown menu.
-    - Example: `d-defind="trigger"`
-
-12. **Example Script:**
+10. **Example Script:**
     - Provides an example script (`call_fun_success`) to handle the success callback.
     - Demonstrates updating the content of the dropdown menu.
 
