@@ -37,10 +37,21 @@
   }
 
 
+  var onopen = new CustomEvent('open', {
+    detail: {
+      message: 'on opend it'
+    }
+  });
 
+  var onclose = new CustomEvent('close', {
+    detail: {
+      message: 'on close it'
+    }
+  });
 
   function dropOpen(open, trigger, mobile = null) {
     $disableScroll();
+    open.dispatchEvent(onopen);
     open.setAttribute("open", true)
     adjustVisibility(open, trigger);
     mobile.show();
@@ -56,6 +67,54 @@
       }
 
     });
+
+    /*cnt-load*/
+    var cnt_load = open.getAttribute("cnt-load-get") || open.getAttribute("cnt-load-post");
+
+    if (cnt_load) {
+      if (window.$cntload) {
+        open.setAttribute("isloading", true);
+        var errorE = open.querySelector("[loading-drop]");
+        errorE.querySelector(".error-l-drop").style.display = 'none'
+        errorE.querySelector(".loader-icon").style.display = "block";
+        function success_load(status, cnt) {
+          if (status == 200) {
+            var swap_cnt = this.getAttribute("htp-swap") || "innerHTML";
+            $parserHTML(cnt, this.querySelector(".items-drops"), swap_cnt);
+            ulitem(this);
+
+            this.removeAttribute("isloading");
+            if (this.getAttribute("htp-sync") != "true") {
+              this.removeAttribute("cnt-load-get");
+              this.removeAttribute("cnt-load-post");
+
+            }
+
+          } else {
+            errorE.querySelector(".icon").style.display = "none";
+            errorE.querySelector(".error-l-drop").style.display = "flex";
+
+          }
+
+          var agent_call = this.getAttribute("htp-s") || null;
+          if (agent_call) {
+            try {
+              var fun = eval(agent_call);
+              if (typeof fun == "function") {
+                fun.call(this, this, status);
+              }
+            } catch (erc) {
+              null;
+            }
+          }
+        }
+        var data = open.getAttribute("data");
+        $cntload(open, success_load, { "data": data });
+      }
+
+    }
+
+
     document.querySelectorAll('.dropdown').forEach(function (unset) {
       if (trigger != unset) {
         unset.removeAttribute('Isopen')
@@ -88,8 +147,11 @@
 
   }
 
+
+
   function dropClose(open, mobile, trigger) {
     if (open.getAttribute("open")) {
+      open.dispatchEvent(onclose);
       open.removeAttribute("open")
       open.removeAttribute("down")
       open.removeAttribute("up");
@@ -154,7 +216,7 @@
                     setTimeout(function () {
                       dropClose(ul);
 
-                    });
+                    }, 100);
 
 
                   }
@@ -227,12 +289,12 @@
 
 
             } else {
-
-              dropOpen(ul, trigger, mobile);
-              this.setAttribute("Isopen", true);
               if (e.getAttribute("data")) {
                 ul.setAttribute("data", e.getAttribute("data"));
               }
+              dropOpen(ul, trigger, mobile);
+              this.setAttribute("Isopen", true);
+
 
             }
 
@@ -266,6 +328,7 @@
     stup2.forEach(function (ul) {
 
       if (ul.getAttribute("stup2") == null || ul.querySelector("mobile") == null) {
+        ul.setAttribute("stup2", "t");
         ul.setAttribute("scroll-br", null);
         var mb = document.createElement("mobile");
         var items_drops = document.createElement("div");
@@ -285,8 +348,32 @@
 
           items_drops.append(c);
         });
+
+
+        var loading_drop = document.createElement("div");
+        loading_drop.setAttribute("loading-drop", "t");
+        loading_drop.className = "padding-cnt flex center-tb center";
+        var elabel = ul.getAttribute("error-label") || ""
+        loading_drop.innerHTML = `
+         <div class="icon loader-icon"> 
+    <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M11 2.1816406L11 6L13 6L13 2.1816406L11 2.1816406 z M 7.9570312 2.9960938L6.2246094 3.9960938L8.1347656 7.3046875L9.8652344 6.3046875L7.9570312 2.9960938 z M 16.042969 2.9960938L14.134766 6.3046875L15.865234 7.3046875L17.775391 3.9960938L16.042969 2.9960938 z M 3.9960938 6.2246094L2.9960938 7.9570312L6.3046875 9.8652344L7.3046875 8.1347656L3.9960938 6.2246094 z M 20.003906 6.2246094L16.695312 8.1347656L17.695312 9.8652344L21.003906 7.9570312L20.003906 6.2246094 z M 2.1816406 11L2.1816406 13L6 13L6 11L2.1816406 11 z M 18 11L18 13L21.818359 13L21.818359 11L18 11 z M 6.3046875 14.134766L2.9960938 16.042969L3.9960938 17.775391L7.3046875 15.865234L6.3046875 14.134766 z M 17.695312 14.134766L16.695312 15.865234L20.003906 17.775391L21.003906 16.042969L17.695312 14.134766 z M 8.1347656 16.695312L6.2246094 20.003906L7.9570312 21.003906L9.8652344 17.695312L8.1347656 16.695312 z M 15.865234 16.695312L14.134766 17.695312L16.042969 21.003906L17.775391 20.003906L15.865234 16.695312 z M 11 18L11 21.818359L13 21.818359L13 18L11 18 z" />
+    </svg> 
+  </div>
+  <div style="display:none" class="error-l-drop error flex flex-col center-tb center flex-gap">
+    <div class="icon">
+      <svg style="fill:var(--error-color)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M22.239,18.451L13.442,3.816C13.135,3.305,12.596,3,12,3s-1.135,0.305-1.441,0.815L1.761,18.451 c-0.312,0.519-0.32,1.168-0.022,1.695C2.036,20.673,2.597,21,3.203,21h17.595c0.605,0,1.167-0.327,1.464-0.854 C22.56,19.619,22.551,18.97,22.239,18.451z M13,18h-2v-2h2V18z M13,14h-2V9h2V14z" />
+      </svg>
+    </div>
+    <div class="error-mdl-label over-x-adjust">${elabel}</div>
+         `
+
         mb.append(items_drops);
+        mb.querySelector(".items-drops").after(loading_drop)
         ul.append(mb)
+
+
 
         /*close dropdown-menu*/
         var menu_event_d = "click";
@@ -369,4 +456,4 @@
 
   });
 
-}();
+}();  
