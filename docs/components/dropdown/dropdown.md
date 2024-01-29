@@ -379,8 +379,125 @@ It seems like you're trying to define additional options for a dropdown menu, in
     - Provides an example script (`call_fun_success`) to handle the success callback.
     - Demonstrates updating the content of the dropdown menu.
 
+### `cnt-load-get` Attribute:
 
-### htp-query Attribute:
+The `cnt-load-get` attribute is used to define the URL for an HTTP GET request that retrieves content dynamically to populate a dropdown menu. This attribute plays a crucial role in fetching data from a server or an external source to update the dropdown menu.
+
+#### Example Usage:
+
+```html
+<!-- Example Dropdown Menu with Dynamic Content Loading using GET -->
+<ul class="dropdown-menu"
+    cnt-load-get="/api/fetch-dropdown-data"
+    htp-query='{"key": 1, "id": "$data"}'
+    htp-s="call_fun_success"
+    error-label="Something went wrong!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+```
+
+In this example:
+
+- **cnt-load-get:**
+  - Specifies the URL for the HTTP GET request.
+  - Example: `cnt-load-get="/api/fetch-dropdown-data"`
+
+- **htp-query:**
+  - Specifies query parameters for the HTTP GET request.
+  - Example: `htp-query='{"key": 1, "id": "$data"}'`
+  - Here, `$data` is a placeholder that gets replaced with the data associated with the dropdown trigger.
+
+- **htp-s:**
+  - Defines a callback function (`call_fun_success`) to handle the success of the HTTP request.
+  - Example: `htp-s="call_fun_success"`
+
+- **error-label:**
+  - Sets the error label text in case something goes wrong during the HTTP request.
+  - Example: `error-label="Something went wrong!"`
+
+
+### Usage Guidelines:
+
+1. **Endpoint for GET Request (`cnt-load-get`):**
+   - Specify the endpoint or URL for the HTTP GET request. This should be the server endpoint responsible for providing the data to populate the dropdown menu.
+
+2. **Query Parameters (`htp-query`):**
+   - If the server expects additional parameters, use the `htp-query` attribute to define them.
+   - Utilize placeholders like `$data` to dynamically insert values associated with the dropdown trigger.
+
+3. **Success Handling (`htp-s`):**
+   - Define a callback function to handle the success of the HTTP request. This function can manipulate the content of the dropdown menu based on the received data.
+
+4. **Error Label (`error-label`):**
+   - Provide a user-friendly error message in case the HTTP request encounters an issue.
+
+
+### Summary:
+
+The `cnt-load-get` attribute is a key component for dynamically loading content into a dropdown menu through an HTTP GET request. It allows you to fetch data from a specified endpoint and integrate it seamlessly into the dropdown menu, enhancing the user experience by providing up-to-date and relevant information. Adjust the URL and query parameters as needed for your specific use case.
+
+### `cnt-load-post`:
+
+The `cnt-load-post` attribute is used to define the URL for an HTTP POST request that retrieves content dynamically to populate a dropdown menu. This attribute is crucial when you need to send data to the server, such as form data, to fetch specific information based on the provided parameters.
+
+#### Example Usage:
+
+```html
+<!-- Example Dropdown Menu with Dynamic Content Loading using POST -->
+<ul class="dropdown-menu"
+    cnt-load-post="/api/fetch-dropdown-data"
+    htp-query='{"key": 1, "id": "$data"}'
+    htp-s="call_fun_success"
+    error-label="Something went wrong!"
+    overflow-x="nowrap"
+    d-defind="trigger">
+</ul>
+```
+
+In this example:
+
+- **cnt-load-post:**
+  - Specifies the URL for the HTTP POST request.
+  - Example: `cnt-load-post="/api/fetch-dropdown-data"`
+
+- **htp-query:**
+  - Specifies query parameters for the HTTP POST request.
+  - Example: `htp-query='{"key": 1, "id": "$data"}'`
+  - Here, `$data` is a placeholder that gets replaced with the data associated with the dropdown trigger.
+
+- **htp-s:**
+  - Defines a callback function (`call_fun_success`) to handle the success of the HTTP request.
+  - Example: `htp-s="call_fun_success"`
+
+- **error-label:**
+  - Sets the error label text in case something goes wrong during the HTTP request.
+  - Example: `error-label="Something went wrong!"`
+
+
+
+### Usage Guidelines:
+
+1. **Endpoint for POST Request (`cnt-load-post`):**
+   - Specify the endpoint or URL for the HTTP POST request. This should be the server endpoint responsible for processing the POST data and providing the necessary information to populate the dropdown menu.
+
+2. **Query Parameters (`htp-query`):**
+   - If the server expects additional parameters, use the `htp-query` attribute to define them.
+   - Utilize placeholders like `$data` to dynamically insert values associated with the dropdown trigger.
+
+3. **Success Handling (`htp-s`):**
+   - Define a callback function to handle the success of the HTTP request. This function can manipulate the content of the dropdown menu based on the received data.
+
+4. **Error Label (`error-label`):**
+   - Provide a user-friendly error message in case the HTTP request encounters an issue.
+
+
+
+### Summary:
+
+The `cnt-load-post` attribute is essential when you need to send data to the server via an HTTP POST request to dynamically load content into a dropdown menu. It facilitates communication with the server, allowing you to provide specific parameters and retrieve relevant information. Adjust the URL, query parameters, and other attributes as needed for your specific use case.
+
+### htp-query:
 
 The `htp-query` attribute is used to define the query parameters for the HTTP request made to load content dynamically. It accepts a JSON object as its value, where keys represent parameter names, and values can be static, dynamic, or derived from function calls.
 
