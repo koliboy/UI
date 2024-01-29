@@ -289,12 +289,7 @@ Feel free to ask if you have any more questions or if there's anything else I ca
     // Event listener for custom "close" event
     document.querySelector('.dropdown-menu').addEventListener("close", closeDropdownMenu);
 
-    // Example: Triggering the custom events
-    // Simulate opening the dropdown (replace this with your actual logic)
-    document.querySelector('.dropdown-menu').dispatchEvent(new Event("open"));
-
-    // Simulate closing the dropdown (replace this with your actual logic)
-    document.querySelector('.dropdown-menu').dispatchEvent(new Event("close"));
+    
 </script>
 ```
 
