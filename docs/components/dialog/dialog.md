@@ -144,3 +144,56 @@ A dialog component is a user interface element that presents a modal or popup ov
 2. **`.dialog .dialog-content`:**
    - Targets the content inside the dialog with the class "dialog-content" to customize its appearance.
    - Sets the background color to pink as an example.
+
+
+## Events 
+
+### Using `$dialog` Function:
+
+```javascript
+// Open the dialog using $dialog function
+$dialog(document.querySelector(".dialog")).open();
+
+// Close the dialog using $dialog function
+$dialog(document.querySelector(".dialog")).close();
+```
+
+### Adding Event Listeners to Dialog:
+
+```javascript
+// Get the dialog element
+var dialog = document.querySelector(".dialog");
+
+// Add an event listener for the "open" event
+dialog.addEventListener("open", function () {
+    console.log("Dialog opened!");
+    // Additional actions when the dialog is opened
+});
+
+// Add an event listener for the "close" event
+dialog.addEventListener("close", function () {
+    console.log("Dialog closed!");
+    // Additional actions when the dialog is closed
+});
+```
+
+### Explanation:
+
+1. **Using `$dialog` Function:**
+   - `$dialog` is a custom function that facilitates opening and closing dialogs.
+   - `open()` method opens the dialog.
+   - `close()` method closes the dialog.
+
+2. **Adding Event Listeners:**
+   - Event listeners are added to the dialog element to listen for "open" and "close" events.
+   - The callback functions inside event listeners execute when the respective events occur.
+   - Additional actions or logic can be added within the callback functions.
+
+### Usage:
+
+1. **Using `$dialog` Function:**
+   - Use `$dialog` function to programmatically open and close the dialog.
+
+2. **Adding Event Listeners:**
+   - Register event listeners on the dialog element.
+   - Customize the callback functions to perform specific actions when the dialog is opened or closed.
