@@ -104,3 +104,43 @@ A dialog component is a user interface element that presents a modal or popup ov
 5. **Custom Header and Footer:**
    - Use the `cnt-tag="header"` and `cnt-tag="footer"` attributes to add custom header and footer content.
 
+
+
+## Custom Styles
+
+```html
+<!-- Dialog Container with Options and Custom Styles -->
+<div class="dialog dialog-mdl" dg-defind="rest" d-title="Hello Title" open="true"  placement="center" close-self="false">
+    <!-- Content -->
+       <div>Content</div>
+        <div>Content 2</div>
+    
+    <!-- Custom Header -->
+    <div class="dialog-content" cnt-tag="header">My Custom Header</div>
+    <!-- Custom Footer -->
+    <div class="dialog-content" cnt-tag="footer">My Custom Footer</div>
+</div>
+```
+
+```css
+/* Custom Styles for Dialog */
+.dialog .dialog-mdl {
+    /* Customize module size and control height/width */
+    max-width: 300px;
+}
+
+.dialog .dialog-content {
+    /* Customize content appearance */
+    background: pink;
+}
+```
+
+#### CSS Styles Explained:
+
+1. **`.dialog .dialog-mdl`:**
+   - Targets the dialog with the class "dialog-mdl" to customize module size.
+   - Adjusts the `max-width` property to control the maximum width of the dialog.
+
+2. **`.dialog .dialog-content`:**
+   - Targets the content inside the dialog with the class "dialog-content" to customize its appearance.
+   - Sets the background color to pink as an example.
