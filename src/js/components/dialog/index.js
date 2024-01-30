@@ -26,10 +26,10 @@
         errorE.querySelector(".loader-icon").style.display = "block";
         function success_load(status, cnt) {
           if (status == 200) {
-            var swap_cnt = this.getAttribute("cnt-swap") || "innerHTML";
+            var swap_cnt = this.getAttribute("htp-swap") || "innerHTML";
             $parserHTML(cnt, this.querySelector(".dialog-content"), swap_cnt);
             this.removeAttribute("isloading");
-            if (this.getAttribute("loadsync") != "true") {
+            if (this.getAttribute("htp-sync") != "true") {
               this.removeAttribute("cnt-load-get");
               this.removeAttribute("cnt-load-post");
 
@@ -39,6 +39,18 @@
             errorE.querySelector(".icon").style.display = "none";
             errorE.querySelector(".error-mdl").style.display = "flex";
 
+          }
+
+          var agent_call = this.getAttribute("htp-s") || null;
+          if (agent_call) {
+            try {
+              var fun = eval(agent_call);
+              if (typeof fun == "function") {
+                fun.call(this, this, status);
+              }
+            } catch (erc) {
+              null;
+            }
           }
         }
         var data = d.getAttribute("data");
@@ -237,6 +249,9 @@
       }
     })
   }
+
+
+
   Object.defineProperties(window, {
     $dialog: {
       value: function (element) {
