@@ -54,3 +54,54 @@ A dialog component is a user interface element that presents a modal or popup ov
     </div>
     ```
 
+## Dialog Component with Options:
+
+```html
+<!-- Dialog Container with Options -->
+<div class="dialog" dg-defind="rest" d-title="Hello Title" open="true" md-screen="full" dk-screen="full" placement="center" close-self="false">
+    <!-- Content -->
+    <div class="dialog-content">
+        <div>Content</div>
+        <div>Content 2</div>
+    </div>
+    <!-- Custom Header -->
+    <div class="dialog-content" cnt-tag="header">My Custom Header</div>
+    <!-- Custom Footer -->
+    <div class="dialog-content" cnt-tag="footer">My Custom Footer</div>
+</div>
+```
+
+#### Options Explained:
+
+1. **`open="true"`:**
+   - Opens the dialog by default without waiting for a trigger.
+
+2. **`md-screen="full"` and `dk-screen="full"`:**
+   - Makes the dialog full-screen width on mobile and desktop screens.
+
+3. **`placement="center"`:**
+   - Defines the default placement of the dialog. Options include "top," "bottom," or the default "center."
+
+4. **`close-self="false"`:**
+   - Prevents the dialog from closing when clicking outside the viewport or the close button.
+
+5. **Custom Header and Footer:**
+   - Utilizes the `cnt-tag` attribute to create custom header and footer content within the dialog.
+
+### Usage:
+
+1. **Default Open Dialog:**
+   - The `open="true"` attribute opens the dialog by default without needing an external trigger.
+
+2. **Full-Screen Width:**
+   - `md-screen="full"` and `dk-screen="full"` make the dialog full-screen width on mobile and desktop screens.
+
+3. **Placement Options:**
+   - Adjust the `placement` attribute to set the default placement of the dialog. Options include "top," "bottom," or the default "center."
+
+4. **Preventing Dialog Closure:**
+   - Set `close-self="false"` to prevent the dialog from closing when clicking outside the viewport or the close button.
+
+5. **Custom Header and Footer:**
+   - Use the `cnt-tag="header"` and `cnt-tag="footer"` attributes to add custom header and footer content.
+
