@@ -261,7 +261,7 @@ It seems like you're trying to define additional options for a dialog, including
 <!-- dialog with Dynamic Content Loading Options -->
 
 <div class="dialog" 
-    cnt-load-get="/hello.html" 
+    cnt-load-get="/dialog-content.html" 
     htp-query='{"key": 1, "id": "$data"}'
     htp-s="call_fun_success"
     error-label="Something went wrong !!!"
@@ -290,7 +290,7 @@ It seems like you're trying to define additional options for a dialog, including
 
 1. **cnt-load-get:**
    - Defines the HTTP GET request URL for loading content dynamically.
-   - Example: `cnt-load-get="/dialog-menu-edit-file"`
+   - Example: `cnt-load-get="/dialog-content.html"`
 
 2. **htp-query:**
    - Specifies query parameters for the HTTP request.
@@ -403,7 +403,7 @@ The `cnt-load-post` attribute is used to define the URL for an HTTP POST request
 ```html
 <!-- Example dialog with Dynamic Content Loading using POST -->
 <div class="dialog" 
-    cnt-load-get="/hello.html" 
+    cnt-load-get="/dialog-content.html" 
     htp-query='{"key": 1, "id": "$data"}'
     htp-s="call_fun_success"
     error-label="Something went wrong !!!"
