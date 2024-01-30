@@ -60,10 +60,9 @@ A dialog component is a user interface element that presents a modal or popup ov
 <!-- Dialog Container with Options -->
 <div class="dialog" dg-defind="rest" d-title="Hello Title" open="true" md-screen="full" dk-screen="full" placement="center" close-self="false">
     <!-- Content -->
-    <div class="dialog-content">
         <div>Content</div>
         <div>Content 2</div>
-    </div>
+    
     <!-- Custom Header -->
     <div class="dialog-content" cnt-tag="header">My Custom Header</div>
     <!-- Custom Footer -->
