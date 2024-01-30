@@ -199,3 +199,22 @@ var HTP__$_$ =   $http.post(posth__$__$,$op__$__$).done(function(data__$_$,ht__$
 } 
     
 };
+
+
+!function () {
+    document.addEventListener("DOMContentLoaded", (event) => {
+        if ($getDeviceType() == "Desktop") {
+            var Myscroll = document.createElement("style");
+            Myscroll.innerHTML = `[scroll-br] {scrollbar-width: thin;}
+[scroll-br]::-webkit-scrollbar { width: 8px;}[scroll-br]::-webkit-scrollbar-thumb:hover {background: #999999;}
+[scroll-br]::-webkit-scrollbar-thumb:active {background: #999999;}
+[scroll-br]::-webkit-scrollbar-thumb {background: rgba(209, 209, 209, 0.94); border-radius: 6px;}`;
+            var head = $qs("head");
+            if (head) {
+                document.console = head.append(Myscroll)
+            }
+
+        }
+    });
+
+}();
