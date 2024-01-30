@@ -1,3 +1,11 @@
+function $qs(selectors){
+    return document.querySelector(selectors);
+}
+function $qsall(selectors){
+    return document.querySelectorAll(selectors);
+}
+
+
 Object.defineProperties(window, {
     $arriveAdd: {
         value: function (targetSelector, callback) { /*call(element,MutationRecord])*/
