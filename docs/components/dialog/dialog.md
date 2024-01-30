@@ -221,7 +221,7 @@ dialog.addEventListener("close", function () {
 
 ```html
 <div class="dialog dialog-mdl" dg-defind="rest" d-title="Hello Title" open="true" placement="center" close-self="false">
-       div class="post-delete"> Delete</div>
+       <div class="post-delete"> Delete</div>
         <div> Share Post</div>
     
     <!-- Custom Header -->
