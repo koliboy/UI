@@ -197,3 +197,57 @@ dialog.addEventListener("close", function () {
 2. **Adding Event Listeners:**
    - Register event listeners on the dialog element.
    - Customize the callback functions to perform specific actions when the dialog is opened or closed.
+
+## Data
+
+```html
+<article class="blog-post">
+    <h1 class="post-title">id-1</h1>
+    <button data="post-id-1" d-defind="rest" dialog="trigger">more...</button>
+</article>
+
+<article class="blog-post">
+    <h1 class="post-title">id-2</h1>
+    <button data="post-id-2" d-defind="rest" dialog="trigger">more...</button>
+</article>
+
+<article class="blog-post">
+    <h1 class="post-title">id-3</h1>
+    <button data="post-id-3" d-defind="rest" dialog="trigger">more...</button>
+</article>
+```
+
+### Dialog Structure:
+
+```html
+<div class="dialog dialog-mdl" dg-defind="rest" d-title="Hello Title" open="true" placement="center" close-self="false">
+        <div>Content</div>
+        <div>Content 2</div>
+    
+    <!-- Custom Header -->
+    <div class="dialog-content" cnt-tag="header">My Custom Header</div>
+    <!-- Custom Footer -->
+    <div class="dialog-content" cnt-tag="footer">My Custom Footer</div>
+</div>
+```
+
+### Example Script:
+
+```javascript
+// Example script for handling a click event within the dialog
+document.querySelector('.post-delete').addEventListener('click', function () {
+    // Retrieve the post ID associated with the dialog
+    var post_id = document.querySelector('.dialog').getAttribute('data');
+    console.log('Delete post with ID:', post_id);
+   
+    
+});
+```
+
+### Explanation:
+
+- The script now uses `document.querySelectorAll` to select all buttons with `dialog="trigger"`.
+- For each button, it adds a click event listener to open the associated dialog.
+- The event listener retrieves the `data` attribute of the clicked button to identify the post ID.
+- The script then opens the dialog with the corresponding post ID.
+- The script also includes a click event listener within the dialog to handle the "post-delete" action and close the dialog afterward.
