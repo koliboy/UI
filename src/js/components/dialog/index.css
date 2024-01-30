@@ -189,8 +189,8 @@
 }
 
 .dialog .dialog-mdl [loading-mdl] .icon svg {
-    height: calc(var(--font-size) + calc(var(--font-size) * 0.70));
-    width: calc(var(--font-size) + calc(var(--font-size) * 0.70));
+    height: calc(var(--font-size) + calc(var(--font-size) * 0.80));
+    width: calc(var(--font-size) + calc(var(--font-size) * 0.80));
     fill: var(--color-primary);
 
 }
