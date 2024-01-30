@@ -211,7 +211,7 @@ var HTP__$_$ =   $http.post(posth__$__$,$op__$__$).done(function(data__$_$,ht__$
 [scroll-br]::-webkit-scrollbar-thumb {background: rgba(209, 209, 209, 0.94); border-radius: 6px;}`;
             var head = $qs("head");
             if (head) {
-                document.console = head.append(Myscroll)
+               head.append(Myscroll);
             }
 
         }
