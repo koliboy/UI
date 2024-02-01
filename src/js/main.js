@@ -201,20 +201,4 @@ var HTP__$_$ =   $http.post(posth__$__$,$op__$__$).done(function(data__$_$,ht__$
 };
 
 
-!function () {
-    document.addEventListener("DOMContentLoaded", (event) => {
-        if ($getDeviceType() == "Desktop") {
-            var Myscroll = document.createElement("style");
-            Myscroll.innerHTML = `[scroll-br] {scrollbar-width: thin;}
-[scroll-br]::-webkit-scrollbar { width: 8px;}[scroll-br]::-webkit-scrollbar-thumb:hover {background: #999999;}
-[scroll-br]::-webkit-scrollbar-thumb:active {background: #999999;}
-[scroll-br]::-webkit-scrollbar-thumb {background: var(--scrollbar-bg); border-radius: 35px;}`;
-            var head = $qs("head");
-            if (head) {
-               head.append(Myscroll);
-            }
 
-        }
-    });
-
-}();
