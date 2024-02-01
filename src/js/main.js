@@ -40,7 +40,7 @@ Object.defineProperties(window, {
 });
 
 function $disableScroll() {
-    document.querySelectorAll(".disableScroll").forEach(function(disS){
+    document.querySelectorAll(".d-scroll").forEach(function(disS){
         disS.classList.add("Scrollon");
     });
     document.documentElement.style.overflow = 'hidden';  // For most modern browsers
