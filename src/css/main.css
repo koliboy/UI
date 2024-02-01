@@ -59,6 +59,28 @@
     transform: translateY(0);
   }
 }
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+   @keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :root {
 
   background: none;
@@ -111,6 +133,7 @@
   --right-icon-fill: #999999;
   --redio-height: 20px;
   --selection-color:rgba(171, 122, 255, 0.60);
+  --scrollbar-bg:white;
   --transition-time: 200ms;
   --ul-hover: rgba(181, 181, 181, 0.34);
 
