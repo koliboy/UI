@@ -48,7 +48,7 @@ function $disableScroll() {
     
 };
 function $enableScroll() {
-    document.querySelectorAll(".disableScroll").forEach(function(disS){
+    document.querySelectorAll(".d-scroll").forEach(function(disS){
         disS.classList.remove("Scrollon");
     });
     document.documentElement.style.overflow = 'auto';
