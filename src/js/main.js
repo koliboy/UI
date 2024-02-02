@@ -209,7 +209,7 @@ var HTP__$_$ =   $http.post(posth__$__$,$op__$__$).done(function(data__$_$,ht__$
             Myscroll.innerHTML = `
 * {scrollbar-width: thin;scrollbar-color: #c2c2c2 var(--scrollbar-bg);}
 ::-webkit-scrollbar-button {display: none; }
-::-webkit-scrollbar { width: 8px; background:var(--scrollbar-bg);}
+::-webkit-scrollbar { width:var(--scrollbar-width); background:var(--scrollbar-bg);}
 ::-webkit-scrollbar-thumb:hover {background:#c2c2c2;}
 ::-webkit-scrollbar-thumb:active {background:#c2c2c2;  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);}
 ::-webkit-scrollbar-thumb {background: #c2c2c2; border-radius: 35px;}
