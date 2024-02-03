@@ -1,7 +1,3 @@
-/*@media (min-width: 768px) {
-[scroll-br] {scrollbar-width: thin;}
-}*/
-
 [none-scroll] {
   scrollbar-width: none;
 }
@@ -14,7 +10,7 @@
 
 [none-scroll]::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0);
-} 
+}
 
 
 @keyframes spinner {
@@ -27,33 +23,36 @@
   }
 }
 
-@keyframes fadeInDown { 
+@keyframes fadeInDown {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeInDown { 
+@keyframes fadeInDown {
   from {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeInUp { 
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -65,19 +64,46 @@
     opacity: 0;
     transform: translateY(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-   @keyframes fadeDown {
+
+@keyframes fadeDown {
   0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  100% {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
   }
 }
 
@@ -100,7 +126,7 @@
   --border-radius: 5px;
   --box-shadow-color: rgba(0, 0, 0, 0.1);
   --background-color: white;
-  --color: hsla(0, 0%, 24%, 1);  
+  --color: hsla(0, 0%, 24%, 1);
   --color-active: white;
   --checkmark-fill: black;
   --checking-fill: black;
@@ -108,35 +134,43 @@
   --disabled-opacity: 0.50;
   --error-color: hsla(0, 100%, 57%, 1);
   --font-size: 17px;
-  --fill:#999999;
-  
+  --fill: #999999;
+
   /*--icon-size:calc(var(--font-size) + 5px); */
   /* you can chnage forced */
-  
-  --level-1:1;  /*z-index:1 ; content level;*/
-  --level-5:5;  /*z-index:10 ;content hoverd lke fixed chat icon or..*/
-  --level-50:50;  /*z-index: ; header;*/
-  --level-60:60;  /*z-index: ; sidebars;*/
-  --level-100:100;  /*z-index: ;Popover, Dialog; dropdown, Tooltip*/
-  --level-150:150;  /*z-index: ;Alert Dialog*/
-  
+
+  --level-1: 1;
+  /*z-index:1 ; content level;*/
+  --level-5: 5;
+  /*z-index:10 ;content hoverd lke fixed chat icon or..*/
+  --level-50: 50;
+  /*z-index: ; header;*/
+  --level-60: 60;
+  /*z-index: ; sidebars;*/
+  --level-100: 100;
+  /*z-index: ;Popover, Dialog; dropdown, Tooltip*/
+  --level-150: 150;
+  /*z-index: ;Alert Dialog*/
+
   --left-background: rgba(240, 240, 240, 0.50);
   --left-icon-fill: #999999;
   --min-height: 30px;
-  --over-bg-blur:blur(1px);
-  --over-bg:rgba(0, 0, 0, 0.2);
+  --over-bg-blur: blur(1px);
+  --over-bg: rgba(0, 0, 0, 0.2);
   --placeholder-color: #999999;
   /*hsla(0, 0%, 24%, 1)*/
   --padding: 5px;
-  --padding-cnt:15px;
+  --padding-cnt: 15px;
   /*top-bottom*/
   --right-icon-fill: #999999;
   --redio-height: 20px;
-  --selection-color:rgba(171, 122, 255, 0.60);
-  --scrollbar-bg:white;
+  --selection-color: rgba(171, 122, 255, 0.60);
+  --scrollbar-bg: white;
+  --scrollbar-width: 8px;
   --transition-time: 200ms;
   --ul-hover: rgba(181, 181, 181, 0.34);
-
+  --viwport: 1350px;
+  /*max-width;*/
 }
 
 [form-font-size] {
@@ -159,9 +193,9 @@
   padding: var(--padding) var(--padding-cnt) var(--padding) var(--padding-cnt);
 }
 
-[disabled]{
-    opacity: var(--disabled-opacity);
-    background-color:var(--disabled-bacground);
-    cursor: not-allowed;
-    
+[disabled] {
+  opacity: var(--disabled-opacity);
+  background-color: var(--disabled-bacground);
+  cursor: not-allowed;
+
 }
