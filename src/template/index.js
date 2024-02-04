@@ -2,7 +2,7 @@
     /*platforms*/
     document.addEventListener("DOMContentLoaded", (event) => {
         if ($getDeviceType() == "Mobile") {
-            $qs("body").setAttribute("d-mb", "t");
+            //$qs("body").setAttribute("d-mb", "t");
             /*header*/
             var scrollTop = window.innerHeight + 50, bdtop = 0;
             $qs(".home").addEventListener("scroll", function () {
@@ -22,9 +22,7 @@
 
 
         }
-        else {
-            $qs("body").setAttribute("d-dk", "t");
-        }
+        
     });
 
 
