@@ -211,3 +211,21 @@ Certainly! The `md-fix` attribute in the `<header>` element is used to control w
     
     In this example, `md-fix="true"` indicates that the header should be fixed at the top on mobile devices. If you want the header to behave normally (not fixed) on mobile, you can omit the `md-fix` attribute or set it to `false`.
     
+
+## themes
+```html
+<style>
+    .theme.dark {
+        --background-color: black;
+        --color: white;
+        --scrollbar-bg: black;
+    }
+
+</style>
+
+<header>
+    <div class="h3">Header</div>
+    <button sidebar="trigger" s-defind="menu">Open Sidebar</button>
+    <button theme="toggle" default="light">Toggle Theme</button>
+</header>
+```
