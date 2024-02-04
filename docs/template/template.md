@@ -80,3 +80,37 @@ t looks like you have a structure for a web page that includes a sidebar, header
    - `<h1>`: Heading for the main content area, e.g., a blog post heading.
    - Additional content goes here.
 .
+## Sidebar
+
+### Sidebar Trigger Button:
+```html
+<!-- Sidebar Trigger Button -->
+<button sidebar="trigger" s-defind="menu">Open Sidebar</button>
+```
+
+#### Usage:
+- The button with `sidebar="trigger"` attribute is used to trigger the opening of the sidebar.
+- `s-defind="menu"` is a unique identifier associated with the sidebar.
+
+### Sidebar Structure:
+```html
+<!-- Sidebar Container -->
+<nav class="sidebar b-right" s-defind="menu"> 
+    <!-- Sidebar Header -->
+    <div class="padding-cnt bar-exp">Sidebar Header</div>
+    
+    <!-- Sidebar Content -->
+    <div class="sidebar-content flex flex-col gap-l-f padding-cnt">
+        Sidebar Content
+    </div>
+    
+    <!-- Sidebar Footer -->
+    <div class="padding-cnt" cnt-tag="footer">Sidebar Footer</div>
+</nav>
+```
+
+#### Explanation:
+. **Sidebar Container (`<nav class="sidebar" s-defind="menu">`):**
+   - The main container for the sidebar.
+   - Positioned on the right side (`b-right` class).
+   - Identified by `s-defind="menu"`.
