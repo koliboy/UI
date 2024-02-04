@@ -186,3 +186,17 @@ t looks like you have a structure for a web page that includes a sidebar, header
 - Use the `placement` attribute to specify whether the sidebar should be on the left or right side on desktop screens.
 - The `open` attribute controls the default visibility of the sidebar on desktop screens. If set to `always-exp`, it indicates that the sidebar should always show expanding menus.
 - Customize the sidebar appearance using CSS, applying styles based on desktop conditions using the `[d-dk]` attribute and `[expand]` attribute.
+
+### Customizing Sidebar on Mobile
+Absolutely! You can further customize the sidebar on mobile by updating its background color. Here's an example:
+
+```html
+<style>
+    /* Mobile-specific styles for the sidebar */
+    .sidebar[d-mb] {
+        width: 300px;
+        /* Add other mobile-specific styles */
+       --background-color, blue
+    }
+</style>
+```
