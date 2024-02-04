@@ -72,6 +72,16 @@ function $getDeviceType() {
   }
 };
 
+!function () {
+  document.addEventListener("DOMContentLoaded", (event) => {
+    if ($getDeviceType() == "Mobile") {
+      $qs("body").setAttribute("d-mb", "t");
+    } else {
+      $qs("body").setAttribute("d-dk", "t");
+    }
+  });
+}();
+
 function $parserHTML(string_, applyto, method = "append", scriptMehtod = "after") {
     //methods textCotent,innerHTML,append,appendChild .....
     //scriptMehtod append,after before,prepend
