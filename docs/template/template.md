@@ -199,3 +199,16 @@ Absolutely! You can further customize the sidebar on mobile by updating its back
     }
 </style>
 ```
+
+## header options 
+
+Certainly! The `md-fix` attribute in the `<header>` element is used to control whether the header is fixed at the top of the viewport on mobile devices. Here's an example:
+
+    ```html
+    <header md-fix="true">
+        <!-- Content of your header goes here -->
+    </header>
+    ```
+    
+    In this example, `md-fix="true"` indicates that the header should be fixed at the top on mobile devices. If you want the header to behave normally (not fixed) on mobile, you can omit the `md-fix` attribute or set it to `false`.
+    
