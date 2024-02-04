@@ -113,3 +113,76 @@ t looks like you have a structure for a web page that includes a sidebar, header
 . **Sidebar Container (`<nav class="sidebar" s-defind="menu">`):**
    - The main container for the sidebar.
    - Identified by `s-defind="menu"`.
+
+
+### Sidebar Options
+
+#### 1. Placement Options:
+- **`placement` (Desktop Only):** Specifies the placement of the sidebar on desktop screens.
+  - Values: `left` (default), `right`
+  
+#### Examples:
+
+##### Placement Left Example:
+```html
+<body class="theme">
+    <nav class="sidebar" placement="left" s-defind="menu"></nav>
+    <div class="body">
+        <header></header>
+        <div class="home"></div>
+    </div>
+</body>
+```
+
+##### Placement Right Example:
+```html
+<body class="theme">
+    <div class="body">
+        <header></header>
+        <div class="home"></div>
+    </div>
+    <nav class="sidebar" placement="right" s-defind="menu"></nav>
+</body>
+```
+
+#### 2. Open Behavior Options:
+- **`open` (Desktop Only):** Controls the visibility of the sidebar on desktop screens.
+  - Values: `always` (default), `always-exp`
+
+##### Example - Open "Always" on Desktop:
+```html
+<nav class="sidebar" open="always" s-defind="menu">
+    <!-- Content -->
+</nav>
+<button sidebar="trigger" s-defind="menu">Open and Close by Trigger</button>
+```
+
+##### Example - Open "Always Expanding" on Desktop:
+```html
+<nav class="sidebar" open="always-exp" s-defind="menu">
+    <div class="bar-exp">Header</div>
+    <div class="sidebar-content">
+        <!-- Sidebar content with expanding menus -->
+    </div>
+</nav>
+```
+
+### Customizing Sidebar on Desktop:
+```html
+<style>
+    .sidebar[d-dk] {
+        width: 300px;
+        /* Add other desktop-specific styles */
+    }
+
+    /* Custom styles when sidebar is open or expanding on desktop */
+    .sidebar[d-dk][expand] {
+        /* Apply styles when open="always-exp" or manually expanded */
+    }
+</style>
+```
+
+#### Explanation:
+- Use the `placement` attribute to specify whether the sidebar should be on the left or right side on desktop screens.
+- The `open` attribute controls the default visibility of the sidebar on desktop screens. If set to `always-exp`, it indicates that the sidebar should always show expanding menus.
+- Customize the sidebar appearance using CSS, applying styles based on desktop conditions using the `[d-dk]` attribute and `[expand]` attribute.
