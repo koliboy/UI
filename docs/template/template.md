@@ -194,8 +194,7 @@ Absolutely! You can further customize the sidebar on mobile by updating its back
 <style>
     /* Mobile-specific styles for the sidebar */
     .sidebar[d-mb] {
-        width: 300px;
-        /* Add other mobile-specific styles */
+       /* Add other mobile-specific styles */
        --background-color, blue
     }
 </style>
