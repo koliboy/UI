@@ -16,6 +16,22 @@ The Button component can be used in various ways to suit different needs. Here a
     </div>
 </div>
 ```
+### isloading: Loading State
+```html
+<div class="button" isloading="true" label="Mail Sending....">
+    <div class="text">Send Mail</div>
+    <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M4 4C3.07 4 2.2923125 4.6429063 2.0703125 5.5039062L12 11.726562L21.935547 5.5214844C21.719547 4.6504844 20.937 4 20 4L4 4 z M 2 7.734375L2 18C2 19.103 2.897 20 4 20L20 20C21.103 20 22 19.103 22 18L22 7.7558594L12 14L2 7.734375 z"/>
+        </svg>
+    </div>
+</div>
+```
+## Attributes
+
+- `isloading`: When present, it indicates that the button is in a loading state.
+- `label`: Specifies the label to be displayed during the loading state. Update this attribute with a meaningful message, such as "Mail Sending...".
+
 
 ### Example 2: Disabled Button
 
