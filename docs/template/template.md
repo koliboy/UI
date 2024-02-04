@@ -274,3 +274,24 @@ The provided CSS code shows media query-based customization for mobile (`[d-md]`
         /* ... */
     }
     ``
+
+
+## With Screen responsive
+
+Your media queries for responsive design are on the right track. The CSS you've provided uses `@media` queries to apply specific styles based on the screen width. In this example:
+
+```css
+/* Mobile styles (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .example {
+        /* Mobile-specific styles go here */
+    }
+}
+
+/* Desktop styles (min-width: 768px) */
+@media screen and (min-width: 768px) {
+    .example {
+        /* Desktop-specific styles go here */
+    }
+}
+```
