@@ -229,3 +229,48 @@ Certainly! The `md-fix` attribute in the `<header>` element is used to control w
     <button theme="toggle" default="light">Toggle Theme</button>
 </header>
 ```
+
+
+## responsive
+
+The provided CSS code shows media query-based customization for mobile (`[d-md]`) and desktop (`[d-dk]`) views. Here's the explanation:
+
+1. **Mobile Customization:**
+    ```css
+    [d-md] .body {
+        /* Mobile-specific styles for the .body class */
+        /* ... */
+    }
+
+    [d-md] .example {
+        /* Mobile-specific styles for the .body class */
+        /* ... */
+    }
+    ```
+    This rule applies styles to elements with the class `.body` only when the viewport matches the conditions for a mobile view (using `[d-md]` as a media query). Adjust the styles within the curly braces to customize the appearance for mobile devices.
+
+    Alternatively, if you want to apply styles based on both theme and viewport size, you can combine selectors like this:
+
+    ```css
+    .theme[d-md] .body {
+        /* Styles for the .body class on mobile in the dark theme */
+        /* ... */
+    }
+    ```
+
+2. **Desktop Customization:**
+    ```css
+    [d-dk] .body {
+        /* Desktop-specific styles for the .body class */
+        /* ... */
+    }
+    [d-dk] .example {
+        /* Desktop-specific styles for the .body class */
+        /* ... */
+    }
+
+    .theme[d-dk] .example {
+        /* Desktop-specific styles for the .body class */
+        /* ... */
+    }
+    ``
