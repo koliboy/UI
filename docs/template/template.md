@@ -243,7 +243,7 @@ The provided CSS code shows media query-based customization for mobile (`[d-md]`
     }
 
     [d-md] .example {
-        /* Mobile-specific styles for the .body class */
+        /* Mobile-specific styles */
         /* ... */
     }
     ```
@@ -265,12 +265,12 @@ The provided CSS code shows media query-based customization for mobile (`[d-md]`
         /* ... */
     }
     [d-dk] .example {
-        /* Desktop-specific styles for the .body class */
+        /* Desktop-specific styles */
         /* ... */
     }
 
     .theme[d-dk] .example {
-        /* Desktop-specific styles for the .body class */
+        /* Desktop-specific styles*/
         /* ... */
     }
     ``
