@@ -89,7 +89,7 @@
     animation: dialogOpen1 var(--transition-time) ease;
 }
 
-.dialog[open] .dialog-mdl {
+.dialog[open] .dialog-card {
     animation: dialogOpen var(--transition-time) ease;
 }
 
@@ -97,11 +97,11 @@
     animation: dialogClose1 var(--transition-time) ease-out;
 }
 
-.dialog[close] .dialog-mdl {
+.dialog[close] .dialog-card {
     animation: dialogClose var(--transition-time) ease-out;
 }
 
-.dialog .dialog-mdl {
+.dialog .dialog-card {
     background: var(--background-color);
     position: fixed;
 
@@ -120,11 +120,11 @@
     flex-direction: column;
 }
 
-.dialog[placement="top"] .dialog-mdl {
+.dialog[placement="top"] .dialog-card {
     top: var(--padding);
 }
 
-.dialog[placement="bottom"] .dialog-mdl {
+.dialog[placement="bottom"] .dialog-card {
     bottom: var(--padding);
 }
 
@@ -132,11 +132,11 @@
 @media screen and (max-width: 768px) {
 
     /*mobile*/
-    .dialog .dialog-mdl {
+    .dialog .dialog-card {
         max-width: 90%;
     }
 
-    .dialog[md-screen="full"] .dialog-mdl {
+    .dialog[md-screen="full"] .dialog-card {
         height: 100%;
         width: 100%;
         max-width: 100%;
@@ -148,7 +148,7 @@
 @media screen and (min-width: 768px) {
 
     /*desktop*/
-    .dialog[dk-screen="full"] .dialog-mdl {
+    .dialog[dk-screen="full"] .dialog-card {
         height: 100%;
         width: 100%;
         max-width: 100%;
@@ -157,30 +157,30 @@
     }
 }
 
-.dialog[close-self="false"] .dialog-mdl .dialog-head .icon-actn {
+.dialog[close-self="false"] .dialog-card .dialog-head .icon-actn {
     display: none;
 }
 
-.dialog .dialog-mdl .dialog-head {
+.dialog .dialog-card .dialog-head {
     display: flex;
     column-gap: 10px;
 
 }
 
-.dialog .dialog-mdl .dialog-head .title {
+.dialog .dialog-card .dialog-head .title {
     font-weight: bold;
     flex: auto;
 }
 
-.dialog .dialog-mdl .dialog-head .title .icon {}
+.dialog .dialog-card .dialog-head .title .icon {}
 
-.dialog .dialog-mdl .dialog-content {
+.dialog .dialog-card .dialog-content {
     max-height: 100%;
     overflow: hidden;
     overflow-y: auto;
 }
 
-.dialog .dialog-mdl [loading-mdl] {
+.dialog .dialog-card [loading-mdl] {
     padding-top: calc(var(--font-size) + calc(var(--font-size) * 0.60));
     padding-bottom: calc(var(--font-size) + calc(var(--font-size) * 0.60));
     min-height: 100%;
@@ -188,25 +188,25 @@
     display: none;
 }
 
-.dialog .dialog-mdl [loading-mdl] .icon svg {
+.dialog .dialog-card [loading-mdl] .icon svg {
     height: calc(var(--font-size) + calc(var(--font-size) * 0.80));
     width: calc(var(--font-size) + calc(var(--font-size) * 0.80));
     fill: var(--color-primary);
 
 }
 
-.dialog[isloading="true"] .dialog-mdl {
+.dialog[isloading="true"] .dialog-card {
     min-width: 40%;
     min-height: 40%;
 
 }
 
-.dialog[isloading="true"] .dialog-mdl [loading-mdl] {
+.dialog[isloading="true"] .dialog-card [loading-mdl] {
     display: flex;
 }
 
-.dialog[isloading="true"] .dialog-mdl [cnt-tag="header"],
-.dialog[isloading="true"] .dialog-mdl [cnt-tag="footer"],
-.dialog[isloading="true"] .dialog-mdl .dialog-content {
+.dialog[isloading="true"] .dialog-card [cnt-tag="header"],
+.dialog[isloading="true"] .dialog-card [cnt-tag="footer"],
+.dialog[isloading="true"] .dialog-card .dialog-content {
     display: none;
 }
