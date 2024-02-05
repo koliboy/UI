@@ -10,8 +10,10 @@ A dialog component is a user interface element that presents a modal or popup ov
 
 <!-- Dialog Container -->
 <div class="dialog" dg-defind="rest" d-title="Hello Title">
+ <div class="dialog-content">
    <div>Content</div>
    <div>Content 2</div>
+ </div>
 </div>
 ```
 
@@ -49,8 +51,10 @@ A dialog component is a user interface element that presents a modal or popup ov
 
     ```html
     <div class="dialog" dg-defind="rest" d-title="Hello Title">
+     <div class="dialog-content">
        <div>Content</div>
        <div>Content 2</div>
+    </div>
     </div>
     ```
 
@@ -60,9 +64,10 @@ A dialog component is a user interface element that presents a modal or popup ov
 <!-- Dialog Container with Options -->
 <div class="dialog" dg-defind="rest" d-title="Hello Title" open="true" md-screen="full" dk-screen="full" placement="center" close-self="false">
     <!-- Content -->
+ <div class="dialog-content">
         <div>Content</div>
         <div>Content 2</div>
-    
+    </div>
     <!-- Custom Header -->
     <div  cnt-tag="header">My Custom Header</div>
     <!-- Custom Footer -->
@@ -112,9 +117,10 @@ A dialog component is a user interface element that presents a modal or popup ov
 <!-- Dialog Container with Options and Custom Styles -->
 <div class="dialog " dg-defind="rest" d-title="Hello Title" open="true"  placement="center" close-self="false">
     <!-- Content -->
+ <div class="dialog-content">
        <div>Content</div>
         <div>Content 2</div>
-    
+    </div>
     <!-- Custom Header -->
     <div cnt-tag="header">My Custom Header</div>
     <!-- Custom Footer -->
@@ -221,9 +227,10 @@ dialog.addEventListener("close", function () {
 
 ```html
 <div class="dialog" dg-defind="rest" d-title="Hello Title" open="true" placement="center" close-self="false">
+  <div class="dialog-content">
        <div class="post-delete"> Delete</div>
         <div> Share Post</div>
-    
+    </div>
     <!-- Custom Header -->
     <div  cnt-tag="header">My Custom Header</div>
     <!-- Custom Footer -->
