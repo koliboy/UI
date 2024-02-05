@@ -74,7 +74,7 @@
     d.dispatchEvent(onclose);
     d.setAttribute("close", true);
     $enableScroll()
-    d.querySelector(".dialog-mdl").addEventListener('animationend', function () {
+    d.querySelector(".dialog-card").addEventListener('animationend', function () {
       if (d.getAttribute("close") != null) {
         d.removeAttribute("open");
       }
@@ -91,7 +91,7 @@
         e.setAttribute("step1", true);
         e.setAttribute("data", "");
         var modal = document.createElement("div");
-        modal.className = "dialog-mdl";
+        modal.className = "dialog-card";
         var cstn_h = e.querySelector(`[cnt-tag="header"]`);
         if (cstn_h == null) {
           var ti = e.getAttribute("d-title") == null ? "" : e.getAttribute("d-title");
@@ -109,12 +109,12 @@
 
           modal.append(cstn_h);
         }
-        var dialog_content = document.createElement("div");
+        /*var dialog_content = document.createElement("div");
         dialog_content.setAttribute("scroll-br", "t");
-        dialog_content.className = "dialog-content color padding-cnt"
+        dialog_content.className = "dialog-content color padding-cnt"*/
         //modal.innerHTML += `<div class="dialog-content color padding-cnt" scroll-br></div>`;
 
-        Array.from(e.childNodes).forEach(function (c) {
+        /*Array.from(e.childNodes).forEach(function (c) {
           if (c.getAttribute) {
 
             if (c.getAttribute("cnt-tag") != "footer") {
@@ -123,8 +123,10 @@
           } else {
             dialog_content.append(c);
           }
-        });
-        modal.append(dialog_content)
+        });*/
+        //modal.append(dialog_content)
+        var conten_d = e.querySelector(".dialog-content") || ""
+        modal.append(conten_d);
         var cst_f = e.querySelector(`[cnt-tag="footer"]`);
         if (cst_f != null) {
           modal.append(cst_f);
@@ -180,7 +182,7 @@
 
         e.addEventListener("click", function (event) {
           if (e.getAttribute("close-self") != "false") {
-            if (event.target.closest('.dialog-mdl') != modal) {
+            if (event.target.closest('.dialog-card') != modal) {
               dialogClose(e)
             }
           }
@@ -261,4 +263,4 @@
     }
   });
 
-}();
+}();  
