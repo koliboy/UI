@@ -60,6 +60,12 @@ The Button component can be used in various ways to suit different needs. Here a
         <img src="/compose.svg" alt="Compose Icon">
     </div>
 </button>
+
+<button class="button" align="icon" align-l="y"> 
+    <div class="icon">
+        <img src="/compose.svg" alt="Compose Icon">
+    </div>
+</button>
 ```
 
 ### Example 5: Text-only Button
