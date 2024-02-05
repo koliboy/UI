@@ -45,13 +45,18 @@
 
 }
 
-.button[align="icon"] .icon {
-    height: calc(var(--font-size) + 2px);
-    width: calc(var(--font-size) + 2px);
-    min-height: calc(var(--font-size) + 2px);
-    min-width: calc(var(--font-size) + 2px);
+[d-dk] .button[align="icon"][align-l]:hover {
+    background: var(--ul-hover);
 }
 
+.button[align="icon"][align-l] {
+    background: none;
+
+}
+
+.button[align="icon"][align-l] .icon {
+    fill: var(--fill);
+}
 
 .button [btn-loader] {
     background: var(--color-secondary);
@@ -74,6 +79,7 @@
 .button[dk-a-btn] {
     filter: brightness(40%);
     filter: contrast(50%);
+    background: var(--ul-hover);
 }
 
 .button[isloading]:hover {
