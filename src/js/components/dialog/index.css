@@ -1,4 +1,4 @@
-@keyframes dialogOpen {
+ @keyframes dialogOpen {
     0% {
         opacity: 0;
         transform: translateY(100%);
@@ -110,7 +110,7 @@
     width: auto;
     max-width: 80%;
     max-height: 80%;
-    box-shadow: 0 4px 8px var(--box-shadow-color);
+    box-shadow: 0 4px 20px 2px var(--box-shadow-color); 
     border-radius: 15px;
     overflow: hidden;
     overflow-x: hidden;
@@ -170,6 +170,9 @@
 .dialog .dialog-card .dialog-head .title {
     font-weight: bold;
     flex: auto;
+}
+[d-mb] .dialog .dialog-card .dialog-head .title {
+    text-align: center;
 }
 
 
