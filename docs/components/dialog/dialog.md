@@ -130,7 +130,7 @@ A dialog component is a user interface element that presents a modal or popup ov
 
 ```css
 /* Custom Styles for Dialog */
-.dialog .dialog-mdl {
+.dialog .dialog-card {
     /* Customize module size and control height/width */
     max-width: 300px;
 }
@@ -143,8 +143,8 @@ A dialog component is a user interface element that presents a modal or popup ov
 
 #### CSS Styles Explained:
 
-1. **`.dialog .dialog-mdl`:**
-   - Targets the dialog with the class "dialog-mdl" to customize module size.
+1. **`.dialog .dialog-card`:**
+   - Targets the dialog with the class "dialog-card" to customize module size.
    - Adjusts the `max-width` property to control the maximum width of the dialog.
 
 2. **`.dialog .dialog-content`:**
