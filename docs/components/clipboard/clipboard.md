@@ -82,6 +82,49 @@ The `clip-b` class is a fundamental component of the clipboard functionality wit
   ```
   This button will copy the text content of the element with the class `target-element` when clicked.
 
+## **`clip-b-d` Attribute**
+
+The `clip-b-d` attribute is utilized in conjunction with the `clip-b` class to specify the data to be copied to the clipboard when the associated button is clicked. This attribute allows developers to define the content directly within the HTML markup, simplifying the implementation of basic clipboard functionality without the need for additional scripting.
+
+### Syntax:
+```html
+<button class="button clip-b" clip-b-d="data"></button>
+```
+
+### Attributes:
+- `clip-b-d`: Assigns the data to be copied to the clipboard when the button is clicked.
+  - **data**: The text content or data to be copied. This can be a string, variable, or any other valid data type that can be converted to text.
+
+### Usage:
+- **Simple Text Copying**: Incorporating the `clip-b-d` attribute into a button element allows for quick and straightforward copying of specified text. For instance:
+  ```html
+  <button class="button clip-b" clip-b-d="Copy Text"></button>
+  ```
+  This button will copy the text "Copy Text" to the clipboard when clicked.
+
+- **Dynamic Content**: Developers can dynamically generate the content to be copied using server-side scripts or client-side JavaScript, allowing for flexible clipboard functionality. For example:
+  ```html
+  <button class="button clip-b" clip-b-d="<?php echo $dynamicText; ?>"></button>
+  ```
+
+### Additional Notes:
+- **Static vs. Dynamic Content**: While the `clip-b-d` attribute allows for static text content to be specified directly within the HTML markup, it can also be used in conjunction with server-side scripting languages or client-side JavaScript to dynamically generate the data to be copied.
+- **Security Considerations**: When using dynamic content with the `clip-b-d` attribute, developers should ensure that the data being copied does not contain sensitive information and is sanitized to prevent potential security risks, such as cross-site scripting (XSS) attacks.
+- **Fallback Options**: For browsers that do not support the Clipboard API or JavaScript, it's advisable to provide alternative methods for users to copy content manually.
+
+### Example:
+```html
+<!-- Simple clipboard button with specified text -->
+<button class="button clip-b" clip-b-d="Click to Copy"></button>
+
+<!-- Dynamic content generation using server-side scripting -->
+<?php
+    $dynamicText = "Dynamic Text Content";
+?>
+<button class="button clip-b" clip-b-d="<?php echo $dynamicText; ?>"></button>
+```
+
+In summary, the `clip-b-d` attribute facilitates the easy implementation of basic clipboard functionality by allowing developers to specify the data to be copied directly within the HTML markup. This attribute is versatile and can be used with both static and dynamically generated content to provide users with a seamless copying experience.
 
 ## **`clip-b-t` Attribute**
 
