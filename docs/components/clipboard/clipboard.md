@@ -214,3 +214,49 @@ The `clip-b-v` attribute is an essential part of the clipboard functionality pro
 ```
 
 In summary, the `clip-b-v` attribute enhances the clipboard functionality by allowing developers to specify the value or property of the target element(s) to be copied to the clipboard. This attribute enables customization and flexibility in selecting the content for the clipboard operation, catering to various use cases and requirements.
+
+** `clip-b-e` Attribute**
+
+The `clip-b-e` attribute is a vital attribute associated with the clipboard functionality facilitated by the `clip-b` class. It determines the method by which the target element(s) are selected and how the content from these elements is copied to the clipboard. This attribute offers developers flexibility in customizing the behavior of the clipboard operation based on specific requirements.
+
+### Syntax:
+```html
+<button class="button clip-b" clip-b-e="method"></button>
+```
+
+### Attributes:
+- `clip-b-e`: Specifies the method for selecting target element(s) and extracting content for copying to the clipboard.
+  - **method**: Indicates the selection method. It can take values such as `"index"`, `"all"`, or custom methods defined by developers.
+
+### Usage:
+- **Selecting Target Element by Index**: The `clip-b-e="index"` method selects individual target element(s) based on their index within a collection. For example:
+  ```html
+  <button class="button clip-b" clip-b-t=".paragraph" clip-b-e="index" clip-b-v="textContent"></button>
+  ```
+  This button will copy the text content of each paragraph element with the class `paragraph` to the clipboard, where each button corresponds to a specific paragraph based on its index.
+
+- **Selecting All Target Elements**: The `clip-b-e="all"` method selects all target elements that match the specified selector. For instance:
+  ```html
+  <button class="button clip-b" clip-b-t=".paragraph" clip-b-e="all" clip-b-v="textContent"></button>
+  ```
+  This button will copy the text content of all paragraph elements with the class `paragraph` to the clipboard when clicked.
+
+### Additional Notes:
+- **Custom Selection Methods**: Developers can define custom methods to suit their specific use cases. These methods can utilize JavaScript functions to select target elements and extract content dynamically.
+- **Dynamic Selection**: The behavior of the `clip-b-e` attribute can be dynamic, allowing developers to change the selection method based on user interactions or other conditions.
+- **Dependence on Target Element Selection**: The effectiveness of the `clip-b-e` attribute is contingent upon the presence and accuracy of the target element(s) specified using the `clip-b-t` attribute.
+
+### Example:
+```html
+<!-- Selecting target element by index -->
+<p class="paragraph">Paragraph 1</p>
+<p class="paragraph">Paragraph 2</p>
+<button class="button clip-b" clip-b-t=".paragraph" clip-b-e="index" clip-b-v="textContent"></button>
+
+<!-- Selecting all target elements -->
+<p class="paragraph">Paragraph 1</p>
+<p class="paragraph">Paragraph 2</p>
+<button class="button clip-b" clip-b-t=".paragraph" clip-b-e="all" clip-b-v="textContent"></button>
+```
+
+In summary, the `clip-b-e` attribute plays a crucial role in determining how target element(s) are selected and content is extracted for copying to the clipboard. By providing various selection methods, developers can create versatile clipboard functionality tailored to different use cases and user interactions.
