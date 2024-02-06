@@ -94,8 +94,7 @@ The `clip-b-t` attribute is an essential attribute associated with the clipboard
 <p id="paragraph1">This is the text to be copied.</p>
 <button class="button clip-b" clip-b-t="#paragraph1"></button>
 
-<!-- Copy text from all paragraphs -->
-<p>This is paragraph 1.</p>
+
 <p>This is paragraph 2.</p>
 <button class="button clip-b" clip-b-t="p"></button>
 ```
