@@ -30,7 +30,8 @@ This component provides examples of how to use the clipboard functionality with 
 
 3. **Each Target Element with Index**
    - Example with code elements:
-   ```html
+
+```html
      <pre type="html"><code>
         <h1>code 1</h1>
      </code></pre>
