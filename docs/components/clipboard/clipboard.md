@@ -2,6 +2,12 @@
 
 This component provides examples of how to use the clipboard functionality with different target elements.
 
+**Note Regarding Clipboard Feature:**
+
+Please note that clipboard functionality is only available in secure contexts (HTTPS) and may vary in support across different browsers. Ensure your website is served over HTTPS to utilize this feature reliably. Always provide alternative methods for users if clipboard operations are not supported in their browser environment.
+
+
+
 1. **Simple Usage**
    ```html
    <button class="button clip-b" clip-b-d="Copy Text"></button>
