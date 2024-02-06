@@ -215,7 +215,7 @@ The `clip-b-v` attribute is an essential part of the clipboard functionality pro
 
 In summary, the `clip-b-v` attribute enhances the clipboard functionality by allowing developers to specify the value or property of the target element(s) to be copied to the clipboard. This attribute enables customization and flexibility in selecting the content for the clipboard operation, catering to various use cases and requirements.
 
-** `clip-b-e` Attribute**
+## ** `clip-b-e` Attribute**
 
 The `clip-b-e` attribute is a vital attribute associated with the clipboard functionality facilitated by the `clip-b` class. It determines the method by which the target element(s) are selected and how the content from these elements is copied to the clipboard. This attribute offers developers flexibility in customizing the behavior of the clipboard operation based on specific requirements.
 
