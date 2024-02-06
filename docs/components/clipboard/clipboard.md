@@ -57,6 +57,32 @@ This component provides examples of how to use the clipboard functionality with 
 - Ensure that the necessary class names and attributes are correctly set on the target elements for the clipboard functionality to work as expected.
 - Test the functionality thoroughly across different browsers to ensure compatibility.
 
+## b**`clip-b` Class**
+
+The `clip-b` class is a fundamental component of the clipboard functionality within HTML documents. It enables the creation of buttons that, when clicked, facilitate the copying of specified text content to the clipboard. This class acts as a marker for identifying elements that trigger clipboard operations.
+
+### Syntax:
+```html
+<button class="button clip-b"></button>
+```
+
+### Attributes:
+- `class="clip-b"`: Assigns the clipboard behavior to the HTML element. When combined with other attributes and event listeners, it facilitates the copying of text content to the clipboard.
+
+### Usage:
+- **Simple Clipboard Button**: Incorporating the `clip-b` class into a button element instantly provides clipboard functionality. For instance:
+  ```html
+  <button class="button clip-b" clip-b-d="Copy Text"></button>
+  ```
+  This button, when clicked, will copy the text "Copy Text" to the clipboard.
+
+- **Customized Clipboard Behavior**: The `clip-b` class can be augmented with additional attributes to specify the text content to be copied and the target element(s) from which the text will be copied. For example:
+  ```html
+  <button class="button clip-b" clip-b-t=".target-element" clip-b-v="textContent"></button>
+  ```
+  This button will copy the text content of the element with the class `target-element` when clicked.
+
+
 ## **`clip-b-t` Attribute**
 
 The `clip-b-t` attribute is an essential attribute associated with the clipboard component (`clip-b`). It specifies the target element(s) from which text content will be copied when the clipboard button is clicked. This attribute plays a crucial role in determining the source of the text data to be copied to the clipboard.
