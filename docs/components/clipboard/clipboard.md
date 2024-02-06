@@ -57,7 +57,7 @@ This component provides examples of how to use the clipboard functionality with 
 - Ensure that the necessary class names and attributes are correctly set on the target elements for the clipboard functionality to work as expected.
 - Test the functionality thoroughly across different browsers to ensure compatibility.
 
-## b**`clip-b` Class**
+## **`clip-b` Class**
 
 The `clip-b` class is a fundamental component of the clipboard functionality within HTML documents. It enables the creation of buttons that, when clicked, facilitate the copying of specified text content to the clipboard. This class acts as a marker for identifying elements that trigger clipboard operations.
 
