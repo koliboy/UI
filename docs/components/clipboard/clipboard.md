@@ -169,3 +169,48 @@ The `clip-b-t` attribute is an essential attribute associated with the clipboard
 ```
 
 In summary, the `clip-b-t` attribute allows you to specify the target element(s) whose text content will be copied to the clipboard when the associated clipboard button is clicked. It provides flexibility in selecting the desired source of text data for copying.
+
+
+## **`clip-b-v` Attribute**
+
+The `clip-b-v` attribute is an essential part of the clipboard functionality provided by the `clip-b` class. It allows developers to specify the content that will be copied to the clipboard when the associated button is clicked. This attribute provides flexibility in selecting the portion of content from the target element(s) to be included in the clipboard operation.
+
+### Syntax:
+```html
+<button class="button clip-b" clip-b-v="value"></button>
+```
+
+### Attributes:
+- `clip-b-v`: Defines the value or property of the target element(s) whose content will be copied to the clipboard.
+  - **value**: Specifies the specific property or attribute of the target element(s) to be copied. It can be any valid JavaScript property or attribute containing text content.
+
+### Usage:
+- **Copying Text Content**: The most common usage of the `clip-b-v` attribute is to copy the text content of the target element(s). For example:
+  ```html
+  <button class="button clip-b" clip-b-t=".target-element" clip-b-v="textContent"></button>
+  ```
+  This button will copy the text content of the element(s) with the class `target-element` to the clipboard when clicked.
+
+- **Customized Content Selection**: Developers can specify different properties or attributes of the target element(s) to be copied based on their requirements. For instance:
+  ```html
+  <button class="button clip-b" clip-b-t=".input-field" clip-b-v="value"></button>
+  ```
+  This button will copy the `value` attribute of the input field(s) with the class `input-field` to the clipboard.
+
+### Additional Notes:
+- **Property Flexibility**: The `clip-b-v` attribute provides flexibility in selecting the specific property or attribute of the target element(s) to be included in the clipboard operation. Developers can choose attributes such as `textContent`, `value`, `innerHTML`, etc.
+- **Dynamic Content Selection**: Developers can dynamically generate the content to be copied by selecting different properties or attributes of the target element(s) based on changing conditions or user interactions.
+- **Target Element Dependency**: The behavior of the `clip-b-v` attribute is dependent on the presence of the `clip-b-t` attribute, which specifies the target element(s) from which the content will be copied.
+
+### Example:
+```html
+<!-- Copying text content from a paragraph -->
+<p class="paragraph">Paragraph Content</p>
+<button class="button clip-b" clip-b-t=".paragraph" clip-b-v="textContent"></button>
+
+<!-- Copying inner HTML content from a div -->
+<div class="content">Text Content to Copy</div>
+<button class="button clip-b" clip-b-t=".content" clip-b-v="innerHTML"></button>
+```
+
+In summary, the `clip-b-v` attribute enhances the clipboard functionality by allowing developers to specify the value or property of the target element(s) to be copied to the clipboard. This attribute enables customization and flexibility in selecting the content for the clipboard operation, catering to various use cases and requirements.
