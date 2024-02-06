@@ -56,3 +56,48 @@ This component provides examples of how to use the clipboard functionality with 
 #### Note
 - Ensure that the necessary class names and attributes are correctly set on the target elements for the clipboard functionality to work as expected.
 - Test the functionality thoroughly across different browsers to ensure compatibility.
+
+## **`clip-b-t` Attribute**
+
+The `clip-b-t` attribute is an essential attribute associated with the clipboard component (`clip-b`). It specifies the target element(s) from which text content will be copied when the clipboard button is clicked. This attribute plays a crucial role in determining the source of the text data to be copied to the clipboard.
+
+### Syntax:
+```html
+<button class="button clip-b" clip-b-t="targetSelector"></button>
+```
+
+### Attributes:
+- `clip-b-t`: This attribute specifies the target element or elements from which text content will be copied.
+  - **targetSelector**: A CSS selector that identifies the target element(s) from which text content will be copied.
+
+### Usage:
+- **Single Target Element**: You can specify a single target element using its CSS selector. For example:
+  ```html
+  <button class="button clip-b" clip-b-t=".input"></button>
+  ```
+  This will copy the text content from the input field with the class `input` when the button is clicked.
+
+- **Multiple Target Elements**: If you have multiple elements from which you want to copy text content, you can specify them using a common CSS selector. For example:
+  ```html
+  <button class="button clip-b" clip-b-t="p"></button>
+  ```
+  This will copy text content from all `<p>` elements on the page.
+
+### Additional Notes:
+- The target element specified using `clip-b-t` should contain the text content you wish to copy to the clipboard.
+- It's important to ensure that the specified target element(s) exist in the DOM when the clipboard button is clicked.
+- You can combine the `clip-b-t` attribute with other attributes like `clip-b-v` to further customize the data that will be copied to the clipboard.
+
+### Example:
+```html
+<!-- Copy text from a specific paragraph -->
+<p id="paragraph1">This is the text to be copied.</p>
+<button class="button clip-b" clip-b-t="#paragraph1"></button>
+
+<!-- Copy text from all paragraphs -->
+<p>This is paragraph 1.</p>
+<p>This is paragraph 2.</p>
+<button class="button clip-b" clip-b-t="p"></button>
+```
+
+In summary, the `clip-b-t` attribute allows you to specify the target element(s) whose text content will be copied to the clipboard when the associated clipboard button is clicked. It provides flexibility in selecting the desired source of text data for copying.
