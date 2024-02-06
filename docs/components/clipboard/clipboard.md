@@ -307,3 +307,52 @@ Let's break down the examples provided:
    In this corrected version, all clipboard buttons target the paragraph elements correctly, and each button specifies the content to be copied to the clipboard using `clip-b-v`, ensuring consistent behavior across all buttons.
 
 In summary, when using `clip-b-e`, ensure that each clipboard button has a clear and consistent target element, and specify the content to be copied accurately using `clip-b-v` to avoid unintended behavior in clipboard operations.
+
+
+## **Clipboard Event Handling**
+
+The following documentation provides an example of how to handle events related to clipboard operations triggered by the `clip-b` class. This example demonstrates how to listen for clipboard events such as successful copying, copying completion, and error handling.
+
+### HTML Markup:
+```html
+<!-- Event -->
+<h1>Copy paragraph</h1>
+<p class="paragraph">Paragraph Content</p>
+
+<button class="button clip-b" clip-b-t=".paragraph" clip-b-e="index" clip-b-v="textContent"></button>
+```
+
+### JavaScript Code:
+```javascript
+<script>
+    // Selecting elements
+    var change =  document.querySelector("h1");
+    var btn = document.querySelector(".clip-b");
+    
+    // Event listener for successful clipboard copy
+    btn.addEventListener("clip-success", function() {
+        change.textContent = "Copied!";
+    });
+    
+    // Event listener for completion of clipboard operation
+    btn.addEventListener("clip-after", function() {
+        change.textContent = "Copy paragraph";
+    });
+    
+    // Event listener for clipboard operation error
+    btn.addEventListener("clip-error", function() {
+        console.log("Error copying text to clipboard");
+    });
+</script>
+```
+
+### Description:
+- The HTML markup contains a heading (`<h1>`) and a paragraph (`<p>`) element with a class of `paragraph`, along with a button (`<button>`) that triggers clipboard functionality.
+- In the JavaScript code:
+  - The `document.querySelector` method is used to select the heading and button elements by their respective classes.
+  - Event listeners are added to the button element to handle clipboard-related events:
+    - `clip-success`: Fired when the clipboard operation is successful. It updates the heading text to indicate that the paragraph has been copied.
+    - `clip-after`: Fired after the clipboard operation is completed, resetting the heading text to its initial state.
+    - `clip-error`: Fired if an error occurs during the clipboard operation, logging an error message to the console.
+
+This documentation provides a basic example of how to handle clipboard events in a web application using the `clip-b` class and corresponding event listeners. Developers can further customize event handling based on their specific requirements and user experience considerations.
