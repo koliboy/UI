@@ -1,6 +1,6 @@
 [pop-t-o] {
   background-color: var(--color-secondary);
-  color: var(--color-btn);
+  color: var(--color-tertiary);
   z-index: var(--level-70);
   display: none;
 
