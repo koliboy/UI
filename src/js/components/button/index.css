@@ -4,7 +4,7 @@
     padding: var(--padding) var(--padding-cnt) var(--padding) var(--padding-cnt);
     border-radius: var(--border-radius);
     display: flex;
-    color: var(--color-btn);
+    color: var(--color-tertiary);
     background-color: var(--color-secondary);
     user-select: none;
     font-size: var(--font-size);
@@ -34,7 +34,7 @@
 }
 
 .button .icon {
-    fill: var(--color-btn);
+    fill: var(--color-tertiary);
 }
 
 .button[align="icon"] {
