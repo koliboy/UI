@@ -62,6 +62,19 @@ In this example:
   
 This alert will remain visible until the user manually closes it by interacting with the close button, allowing developers to create alerts that require user action to dismiss.
 
+To display an HTML link using the `$alert` component, you can directly pass the HTML content as a string to the `message` parameter. Here's how you can incorporate an HTML link within the alert:
+
+```javascript
+$alert("Operation successful! <a href='mange'>Account Manage</a>", "success");
+```
+
+In this example:
+
+- We use the `$alert` function to display a success message.
+- The `message` parameter contains the HTML content, including an anchor (`<a>`) tag with the text "Account Manage" and a hyperlink (`href`) pointing to "mange".
+
+When the alert is displayed, users will see the message "Operation successful!" with a clickable link "Account Manage". Upon clicking the link, users will be directed to the "mange" URL.
+
 ## Displaying HTML Content in Alerts
 
 ```javascript
