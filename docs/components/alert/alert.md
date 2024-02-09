@@ -50,6 +50,18 @@ $alert("New message received!", "primary", { placement: "top" });
 
 This example demonstrates how to specify the placement of the alert. In this case, the alert will be display at the top of the screen.
 
+##  sleep
+```javascript
+$alert("This alert will stay until manually closed", "warning", { sleep:false });
+```
+
+In this example:
+
+- We invoke the `$alert` function with the message "This alert will stay until manually closed", specifying a warning type of alert.
+- We include the `sleep: false` option in the options object, indicating that the alert should not close automatically.
+  
+This alert will remain visible until the user manually closes it by interacting with the close button, allowing developers to create alerts that require user action to dismiss.
+
 ## Displaying HTML Content in Alerts
 
 ```javascript
