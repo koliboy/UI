@@ -57,3 +57,29 @@ The `$alert` component provides developers with a versatile tool for displaying 
 ---
 
 This documentation provides an overview of the `$alert` component, its purpose, usage instructions, parameters, and examples demonstrating its functionality.
+
+## Events
+
+The `$alert` component dispatches custom events to provide hooks for handling alert lifecycle events.
+
+1. `displayed`: Dispatched when an alert is displayed.
+2. `close`: Dispatched when an alert is closed.
+
+Developers can listen for these events and perform actions based on the alert's lifecycle.
+
+### Example:
+
+```javascript
+const myalert = $alert("Operation successful!", "success", { display: "3s" });
+
+// Listening for the 'displayed' event on myalert
+myalert.addEventListener("displayed", function() {
+    console.log("Alert displayed!");
+});
+
+// Listening for the 'close' event on myalert
+myalert.addEventListener("close", function() {
+    console.log("Alert closed!");
+});
+```
+
