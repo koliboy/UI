@@ -8,19 +8,19 @@ The `<div>` elements with the `avatar` class represent user avatars, typically d
 #### Syntax:
 ```html
 <div class="avatar"> 
-    <img src="IMAGE_SOURCE_URL">
+    <img>
     <span class="badge">BADGE_CONTENT</span>
 </div>
 ```
-or 
+without Badge 
 ```html
 <div class="avatar"> 
-    <img src="IMAGE_SOURCE_URL">
+    <img >
   </div>
 ```
-or
+without border
 <div class="avatar" style="border:none"> 
-    <img src="IMAGE_SOURCE_URL">
+    <img>
     <span class="badge">BADGE_CONTENT</span>
 </div>
 
