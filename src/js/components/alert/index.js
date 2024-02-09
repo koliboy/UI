@@ -28,7 +28,7 @@
         }
     }
 
-    var ondisplayed = new CustomEvent('displayed');
+    var ondisplayed = new CustomEvent('display');
     var onclose = new CustomEvent('close');
 
     var closealert = function (byBtn) {
