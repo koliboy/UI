@@ -50,6 +50,16 @@ $alert("New message received!", "primary", { placement: "top" });
 
 This example demonstrates how to specify the placement of the alert. In this case, the alert will be displayed at the top of the screen.
 
+## Example 1: Displaying HTML Content in Alerts
+
+```javascript
+$alert("<h1>Welcome to our website!</h1>", "primary");
+```
+
+In this example, we invoke the `$alert` function with HTML content ("<h1>Welcome to our website!</h1>") as the message parameter. The alert will be displayed with the specified HTML content.
+
+
+
 ## Conclusion
 
 The `$alert` component provides developers with a versatile tool for displaying alerts in web applications. By leveraging its customizable options and straightforward syntax, developers can create visually appealing and informative alerts to enhance user interaction and feedback.
