@@ -50,7 +50,7 @@ $alert("New message received!", "primary", { placement: "top" });
 
 This example demonstrates how to specify the placement of the alert. In this case, the alert will be display at the top of the screen.
 
-## Example 1: Displaying HTML Content in Alerts
+## Displaying HTML Content in Alerts
 
 ```javascript
 $alert("<h1>Welcome to our website!</h1>", "primary");
