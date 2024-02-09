@@ -72,6 +72,58 @@ or
 </div>
 ```
 
+
+##  Avatar Group 
+
+#### Description:
+The `avatar-group` `<div>` is a container that groups multiple avatar elements together, typically used to display a collection of user avatars.
+
+#### Syntax:
+```html
+<div class="avatar-group">
+    <!-- Individual avatar elements -->
+</div>
+```
+
+#### Attributes:
+- `class="avatar-group"`: Specifies that the `<div>` element belongs to the `avatar-group` class for styling purposes.
+
+#### Child Elements:
+- `<div class="avatar">`: Represents an individual avatar element within the group.
+  - **Attributes:**
+    - `style="--font-size:15px;"`: Specifies the font size for the avatar element. This is a custom CSS variable and can be adjusted as needed.
+  - **Content:**
+    - `<img>`: Represents the avatar image.
+      - **Attributes:**
+        - `src`: Specifies the URL of the image.
+
+#### Example:
+```html
+<div class="avatar-group">
+    <div class="avatar" style="--font-size:15px;"> 
+        <img>
+    </div>
+    <div class="avatar" style="--font-size:15px;"> 
+       <svg>></svg>
+    </div>
+    <div class="avatar" style="--font-size:15px;"> 
+        <img>
+    </div>
+    <div class="avatar" style="--font-size:15px;"> 
+        <img >
+    </div>
+</div>
+```
+
+
+
+#### Notes:
+- You can add or remove avatar elements within the `avatar-group` container as per your requirements.
+
+---
+
+Feel free to adjust the documentation according to your specific needs or to fit the conventions of your project. Let me know if you need further assistance!
+
 #### Usage:
 - Replace `IMAGE_SOURCE_URL` with the URL of the image for image avatars.
 - Replace `SVG_PATH_DATA` with the path data for the SVG icon for SVG avatars.
