@@ -22,10 +22,10 @@ $alert(message, prompt, options);
 
 ### Parameters
 
-1. `message` (String): The text message to be displayed in the alert.
+1. `message` (String): The text message to be display in the alert.
 2. `prompt` (String): Type of alert. Possible values are "success", "error", "primary", or "warning".
 3. `options` (Object, optional): An object containing additional customization options for the alert. Possible options include:
-   - `display` (String): Duration for which the alert should be displayed (e.g., "5s" for 5 seconds).
+   - `display` (String): Duration for which the alert should be display (e.g., "5s" for 5 seconds).
    - `placement` (String): Position of the alert on the screen. Possible values are "top" or "bottom".
    - `sleep` (Boolean): If set to true, the alert won't close automatically.
 
@@ -48,7 +48,7 @@ In this example, we invoke the `$alert` function with different messages and typ
 $alert("New message received!", "primary", { placement: "top" });
 ```
 
-This example demonstrates how to specify the placement of the alert. In this case, the alert will be displayed at the top of the screen.
+This example demonstrates how to specify the placement of the alert. In this case, the alert will be display at the top of the screen.
 
 ## Example 1: Displaying HTML Content in Alerts
 
@@ -56,7 +56,7 @@ This example demonstrates how to specify the placement of the alert. In this cas
 $alert("<h1>Welcome to our website!</h1>", "primary");
 ```
 
-In this example, we invoke the `$alert` function with HTML content ("<h1>Welcome to our website!</h1>") as the message parameter. The alert will be displayed with the specified HTML content.
+In this example, we invoke the `$alert` function with HTML content ("<h1>Welcome to our website!</h1>") as the message parameter. The alert will be display with the specified HTML content.
 
 
 
@@ -72,7 +72,7 @@ This documentation provides an overview of the `$alert` component, its purpose, 
 
 The `$alert` component dispatches custom events to provide hooks for handling alert lifecycle events.
 
-1. `displayed`: Dispatched when an alert is displayed.
+1. `display`: Dispatched when an alert is display.
 2. `close`: Dispatched when an alert is closed.
 
 Developers can listen for these events and perform actions based on the alert's lifecycle.
@@ -82,9 +82,9 @@ Developers can listen for these events and perform actions based on the alert's 
 ```javascript
 const myalert = $alert("Operation successful!", "success", { display: "3s" });
 
-// Listening for the 'displayed' event on myalert
-myalert.addEventListener("displayed", function() {
-    console.log("Alert displayed!");
+// Listening for the 'display' event on myalert
+myalert.addEventListener("display", function() {
+    console.log("Alert display!");
 });
 
 // Listening for the 'close' event on myalert
