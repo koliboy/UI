@@ -114,6 +114,7 @@ a {
     margin-bottom: var(--padding);
     margin-top: var(--padding);
     opacity: 0.50;
+   width:100%;
 }
 
 .divider-y {
