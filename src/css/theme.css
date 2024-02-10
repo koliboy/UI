@@ -116,6 +116,17 @@ a {
     opacity: 0.50;
 }
 
+.divider-y {
+    background: var(--border-color);
+    display:grid;
+    width:var(--border-width);
+    height:auto;
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    opacity: 0.50;
+}
+
+
 /* F */
 .fixed {
     position: fixed;
@@ -371,3 +382,4 @@ a {
 .wm-25 {
     min-width: 25%;
 }
+
