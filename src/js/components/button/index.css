@@ -15,7 +15,7 @@
     justify-items: center;
     gap: var(--padding-cnt);
     height: auto;
-
+    transition: all var(--transition-time) ease-out;
 
 }
 
@@ -79,7 +79,9 @@
 .button[dk-a-btn] {
     filter: brightness(40%);
     filter: contrast(50%);
-    background: var(--ul-hover);
+    /* background: red;*/
+    /*scale: 50%;*/
+    transform: scale(90%);
 }
 
 .button[isloading]:hover {
@@ -106,10 +108,19 @@
 
 }
 
+.button[mb-a-btn] {
+    transform: scale(90%);
+}
+
+[d-mb] .button[align="icon"] {
+    transform: scale(100%);
+}
+
 .button[mb-a-btn]::before {
     animation-name: mb-a-btn;
     animation-duration: var(--transition-time);
     animation-fill-mode: forwards;
+
     /*animation-delay: 200ms;*/
 
 }
