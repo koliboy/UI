@@ -131,3 +131,24 @@ When a user clicks on a page link, the pagination component dynamically updates 
 - Clicking on page 2 would update the URL hash to `#example-page=2`.
 
 This allows for seamless navigation within a single-page application while maintaining a clear representation of the current page state within the URL hash.
+
+
+##  Disabled Page Jump Button
+
+The pagination component allows users to navigate through a series of pages, typically used for breaking up long lists or sets of data into manageable segments. This version includes a disabled page jump button.
+
+### Usage
+
+To use the pagination component with a disabled page jump button, include the following HTML structure:
+
+```html
+<div class="pagination"
+     dis-j="true"
+     pn-current="1"  
+     pn-tabs="3"  
+     pn-total="50">
+</div>
+```
+
+### Attributes
+- **dis-j**: Specifies whether to disable the page jump button. When set to `true`, the page jump 
