@@ -152,3 +152,37 @@ To use the pagination component with a disabled page jump button, include the fo
 
 ### Attributes
 - **dis-j**: Specifies whether to disable the page jump button. When set to `true`, the page jump 
+
+
+## Pagination Event
+
+The pagination event allows you to capture changes or interactions with a pagination component, enabling you to respond to those events accordingly. This event can be useful for implementing dynamic behavior, such as fetching and displaying data corresponding to a specific page.
+
+### Usage
+
+To listen for pagination events, you can attach an event listener to the pagination component using JavaScript.
+
+#### Example:
+
+```javascript
+document.querySelector(".pagination").addEventListener("change", function(event) {
+    console.log(this.getAttribute("get-page"));
+});
+```
+
+In this example:
+- The `querySelector()` method is used to select the pagination component in the document.
+- An event listener is attached to the pagination component, listening for the `"change"` event.
+- When the `"change"` event occurs (e.g., when the user selects a different page), the specified function is executed.
+- Inside the function, `this` refers to the pagination component that triggered the event.
+- `getAttribute("get-page")` retrieves the value of the attribute named `"get-page"` from the pagination component.
+
+```
+
+### Notes
+
+- Ensure that the pagination component has the appropriate attributes and structure to support the event handling logic.
+- Customize the event listener function and event handling logic according to your application's requirements.
+- Test your pagination functionality thoroughly to ensure it behaves as expected in different scenarios.
+
+By leveraging pagination events, you can create dynamic and interactive pagination components that enhance the user experience in your web applications.
