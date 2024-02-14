@@ -1,5 +1,5 @@
 !function () {
-    var onchange = new CustomEvent('onchange');
+    var onchange = new CustomEvent('change');
     function event_(current) {
         this.setAttribute("get-page", current)
 
@@ -172,7 +172,7 @@
         pn.forEach(function (e) {
             if (e.getAttribute("pag-n-s") == null) {
                 e.setAttribute("pag-n-s", "t");
-                e.className += "flex  center center-tb f-wrap g-gap";
+                e.className += " flex  center center-tb f-wrap g-gap";
                 var jumbtn = e.getAttribute("pn-j-label") || "Jump"
                 e.innerHTML = `
           <div class="flex-l-c-r  center center-tb pag-n-a  g-gap  over-h">
