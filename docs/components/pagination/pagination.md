@@ -10,7 +10,12 @@ The pagination component allows users to navigate through a series of pages, typ
 To use the pagination component, include the following HTML structure:
 
 ```html
-<div class="pagination gap-t-l" pn-j-label="Jump" pn-current="1" pn-tabs="3" pn-total="50"></div>
+<div class="pagination gap-t-l"
+pn-j-label="Jump"
+pn-current="1"
+pn-tabs="3"
+pn-total="50">
+</div>
 ```
 
 ### Attributes
