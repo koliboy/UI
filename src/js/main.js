@@ -225,6 +225,102 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 
 };
 
+function $htp(scopp__$) {
+  var self__$ = this;
+  var synk__$ = this.getAttribute("htp-sync") == "true" || undefined
+  var target__$ = $qs(this.getAttribute("htp-t")) || this;
+  var lder__$ = $qs(this.getAttribute("htp-ldr")) || target__$;
+  var htp_data__$ = target__$.getAttribute("htp-data") || target__$.querySelector(`[htp-data]`);
+  var status_r__$ = this.getAttribute("htp-status") || 200;
+  var swap__$ = this.getAttribute("htp-swap") || "innerHTML"
+  var swap_s__$ = this.getAttribute("htp-swap-s") || "after"
+  var agent_call__$ = this.getAttribute("htp-s") || undefined;
+  var download__$ = lder__$.querySelector(`[htp-type="progress"]`) || undefined;
+  var upload__$ = lder__$.querySelector(`[htp-type="progress-up"]`) || undefined;
+  var download_op__$ = download__$ != null ? download__$.getAttribute("htp-type-t") || "value" : undefined;
+  var upload_op__$ = upload__$ != null ? upload__$.getAttribute("htp-type-t") || "value" : undefined;
+
+  /* upload progrss must use post reqeust*/
+
+  target__$.setAttribute("htp-on", "t");
+  lder__$.removeAttribute("htp-done");
+  lder__$.removeAttribute("htp-fail");
+
+  function download_f__$(pro) {
+    if (download__$ && download_op__$) {
+
+      if (download_op__$ == "width") {
+        download__$.style.width = `${pro}%`
+      } else {
+
+        download__$.value = pro;
+      }
+
+    }
+  }
+  function upload_f__$(pro) {
+
+    if (upload__$ && upload_op__$) {
+
+      if (upload_op__$ == "width") {
+        upload__$.style.width = `${pro}%`
+      } else {
+        upload__$.value = pro;
+      }
+
+    }
+  }
+  download_f__$(0);
+  upload_f__$(0)
+  function onetime__$() {
+    self__$.removeAttribute("cnt-load-get");
+    self__$.removeAttribute("cnt-load-post");
+    self__$.removeAttribute("htp-get");
+    self__$.removeAttribute("htp-post")
+  }
+  function call_agent__$(st) {
+    try {
+      var fun = eval(agent_call__$);
+      if (typeof fun == "function") {
+        fun.call(this, this, st);
+      }
+    } catch (erc) {
+      null;
+    }
+  }
+  function success_load__$(status, cnt) {
+    target__$.removeAttribute("htp-on")
+    if (status_r__$ == status) {
+      lder__$.setAttribute("htp-done", "t");
+      if (htp_data__$) {
+        $parserHTML(cnt, htp_data__$, swap__$, swap_s__$)
+      }
+
+
+
+      if (!synk__$) {
+        onetime__$();
+
+      }
+
+    } else {
+      lder__$.setAttribute("htp-fail", "t");
+    }
+
+    if (agent_call__$) {
+      call_agent__$.call(this, status);
+    }
+  }
+
+  $cntload(this, success_load__$, scopp__$, function (pr) {
+    download_f__$(pr)
+  }, function (pr) {
+    upload_f__$(pr)
+  });
+
+
+
+};
 
 
 !function () {
