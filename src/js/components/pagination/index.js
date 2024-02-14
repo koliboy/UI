@@ -18,16 +18,17 @@
     }
     function genrate(current, tabs, total, e) {
         event_.call(e, current, total)
-        fixd = undefined
+        notfixd = undefined
+
         if (!total) {
+            notfixd = true
             total = current + tabs;
+
             var max = e.getAttribute("pn-mx-total") || undefined;
             if (max && total > max) {
                 total = max
             }
             // e.setAttribute("total",current+tabs)
-        } else {
-            fixd = total
         }
         var start = 2;
         var end = tabs;
@@ -65,7 +66,7 @@
         for (let i = start; end >= i; i++) {
 
             if (i != 0 && i != 1 && (i < total && i > 0)) {
-                //document.console = i
+                
                 var active = i == current ? "current-p" : ""
                 if (ap) {
                     $parserHTML(`<a  href="${ap}=${i}" class="n-page button ${active}" value="${i}">${i}</a>`, ato);
@@ -92,15 +93,19 @@
             }
 
         }
+
+        if (notfixd) {
+            total = undefined
+        }
         ato.querySelectorAll(".button").forEach(function (btn) {
             btn.addEventListener("click", function () {
                 if (this.getAttribute("disabled") == null) {
                     var key = this.getAttribute('value');
                     e.setAttribute("pn-current", key);
                     if (ap && e.getAttribute("pn-a-s-page") == "true") {
-                        genrate(new Number(key).valueOf(), tabs, fixd, e)
+                        genrate(new Number(key).valueOf(), tabs, total, e)
                     } else if (!ap) {
-                        genrate(new Number(key).valueOf(), tabs, fixd, e)
+                        genrate(new Number(key).valueOf(), tabs, total, e)
                     }
                 }
 
@@ -118,13 +123,14 @@
 
         prev.onclick = function () {
             if (this.getAttribute("disabled") == null) {
-                genrate(current - 1, tabs, fixd, e)
+                genrate(current - 1, tabs, total, e)
             }
 
         }
         next.onclick = function () {
+           
             if (this.getAttribute("disabled") == null) {
-                genrate(current + 1, tabs, fixd, e)
+                genrate(current + 1, tabs, total, e)
             }
 
         }
@@ -138,13 +144,13 @@
 
         jump.onclick = function () {
             if (this.getAttribute("disabled") == null) {
-                genrate(new Number(jin.value).valueOf(), tabs, fixd, e)
+                genrate(new Number(jin.value).valueOf(), tabs, total, e)
             }
 
         }
 
         jin.oninput = function (event) {
-            // document.console = this.value
+
             var v = new Number(this.value).valueOf();
             if (v && v != current && v <= total) {
                 e.classList.remove("error");
@@ -171,6 +177,7 @@
         var pn = $qsall(".pagination");
         pn.forEach(function (e) {
             if (e.getAttribute("pag-n-s") == null) {
+
                 e.setAttribute("pag-n-s", "t");
                 e.className += " flex  center center-tb f-wrap g-gap";
                 var jumbtn = e.getAttribute("pn-j-label") || "Jump"
