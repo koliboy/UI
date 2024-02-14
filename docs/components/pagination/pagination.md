@@ -154,6 +154,69 @@ To use the pagination component with a disabled page jump button, include the fo
 - **dis-j**: Specifies whether to disable the page jump button. When set to `true`, the page jump 
 
 
+## without Fixed Total Pages
+
+The pagination component without a fixed total pages attribute (`pn-total`) provides a flexible solution for scenarios where the total number of pages is not predetermined or potentially infinite. This allows for dynamic pagination without the need to specify an exact total number of pages.
+
+### Usage
+
+To use the pagination component without a fixed total pages attribute, include the following HTML structure:
+
+```html
+<div class="pagination"
+     pn-j-label="Jump" 
+     pn-current="1"  
+     pn-tabs="10">
+</div>
+```
+
+## with Maximum Total Pages
+
+The pagination component with a maximum total pages attribute (`pn-mx-total`) allows you to specify an upper limit for the total number of pages while still providing flexibility for dynamic pagination. This is useful when you have a large dataset but want to limit the number of pages shown for better performance or usability.
+
+### Usage
+
+To use the pagination component with a maximum total pages attribute, include the following HTML structure:
+
+```html
+<div class="pagination"
+     pn-j-label="Jump" 
+     pn-current="1"  
+     pn-tabs="10" 
+     pn-mx-total="1000">
+</div>
+```
+
+### Attributes
+- **pn-mx-total**: Specifies the maximum total number of pages allowed.
+
+### Example
+
+```html
+<div class="pagination"
+     pn-j-label="Jump" 
+     pn-current="1"  
+     pn-tabs="10" 
+     pn-mx-total="1000">
+</div>
+```
+
+In this example:
+- The pagination component has a class of `pagination` for styling purposes.
+- The label for the jump functionality is set to "Jump".
+- The current active page is 1.
+- 10 tabs (or pages) are displayed at a time.
+- The maximum total number of pages is set to 1000.
+
+### Notes
+
+- By specifying a maximum total pages attribute (`pn-mx-total`), you can control the pagination behavior and prevent excessive pagination in scenarios with a large dataset.
+- Ensure that the maximum total pages attribute aligns with the actual number of available pages or with the logic for dynamically loading content.
+- Customize the pagination component according to your specific requirements and dataset characteristics.
+
+This documentation provides an overview of the pagination component with a maximum total pages attribute, its usage, attributes, an example, and additional notes for customization in scenarios where a maximum limit for pagination is desired.
+
+
 ## Pagination Event
 
 The pagination event allows you to capture changes or interactions with a pagination component, enabling you to respond to those events accordingly. This event can be useful for implementing dynamic behavior, such as fetching and displaying data corresponding to a specific page.
