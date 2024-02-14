@@ -118,96 +118,111 @@ function $parserHTML(string_, applyto, method = "append", scriptMehtod = "after"
     });
 };
 
-function $cntload($target__$_$,$call__$_$,scops_apply={}){
-//$cntload(element,success)
-//$call__$_$.call [status = 200,300 ,300 is error],[data],[targetElement],[http],[this=targetElement]
-//scops_apply target global or local variables orgin scope is global not local caller function
+function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
+  $upprogress_call_$) {
+  //$cntload(element,success)  
+  //$call__$_$.call [status = 200,300 ,300 is error],[data],[targetElement],[http],[this=targetElement]
+  //scops_apply target global or local variables orgin scope is global not local caller function
 
- 
-function queryParams___$_$(query__$_$ = {},scope__$_$ =true) {
-    
+
+  function queryParams___$_$(query__$_$ = {}, scope__$_$ = true) {
+
     var queryParams__$_$ = {}
-    
-    try { 
-        var parse__$_$ = JSON.parse(query__$_$);
-        if(scope__$_$){
-          for (var [key__$_$, value__$_$] of Object.entries(parse__$_$)) {
-            try {    
-                if (value__$_$[0] == "$") {
-                   if(scops_apply[value__$_$.slice(1)]){
-                      parse__$_$[key__$_$] = scops_apply[value__$_$.slice(1)]
-                   }else{
-                      parse__$_$[key__$_$] = eval(value__$_$.slice(1));
-                   }
-                    
-                }
 
-            } catch (errorx) {
-                null 
-            } 
+    try {
+      var parse__$_$ = JSON.parse(query__$_$);
+      if (scope__$_$) {
+        for (var [key__$_$, value__$_$] of Object.entries(parse__$_$)) {
+          try {
+            if (value__$_$[0] == "$") {
+              if (scops_apply[value__$_$.slice(1)]) {
+                parse__$_$[key__$_$] = scops_apply[value__$_$.slice(1)]
+              } else {
+                parse__$_$[key__$_$] = eval(value__$_$.slice(1));
+              }
+
+            }
+
+          } catch (errorx) {
+            null
+          }
 
         }
-        }
-       
-        queryParams__$_$ = parse__$_$;
+      }
+
+      queryParams__$_$ = parse__$_$;
     }
     catch (errorx) {
-        null
+      null
     }
-    
+
     return queryParams__$_$
-}
+  }
 
-var geth__$__$ =  $target__$_$.getAttribute("cnt-load-get") || $target__$_$.getAttribute("htp-get");
-var posth__$__$ =  $target__$_$.getAttribute("cnt-load-post") ||  $target__$_$.getAttribute("htp-post"); 
-var query__$__$ = $target__$_$.getAttribute("htp-query") == null ?"{}":`${$target__$_$.getAttribute("htp-query")}`;
-var headers__$__$ = $target__$_$.getAttribute("htp-headers") == null ?"{}":`${$target__$_$.getAttribute("htp-headers")}`;
-var status__$__$ = $target__$_$.getAttribute("htp-status") == null ?200:`${$target__$_$.getAttribute("htp-status")}`;
+  var geth__$__$ = $target__$_$.getAttribute("cnt-load-get") || $target__$_$.getAttribute("htp-get");
+  var posth__$__$ = $target__$_$.getAttribute("cnt-load-post") || $target__$_$.getAttribute("htp-post");
+  var query__$__$ = $target__$_$.getAttribute("htp-query") == null ? "{}" : `${$target__$_$.getAttribute("htp-query")}`;
+  var headers__$__$ = $target__$_$.getAttribute("htp-headers") == null ? "{}" : `${$target__$_$.getAttribute("htp-headers")}`;
+  var status__$__$ = $target__$_$.getAttribute("htp-status") == null ? 200 : `${$target__$_$.getAttribute("htp-status")}`;
 
-if(geth__$__$ != null){
-      
-    let pr__$__$  = queryParams___$_$(query__$__$);
-    let he__$__$  = queryParams___$_$(headers__$__$);
-    
+  if (geth__$__$ != null) {
+
+    let pr__$__$ = queryParams___$_$(query__$__$);
+    let he__$__$ = queryParams___$_$(headers__$__$);
+
     let $op__$__$ = {
-        headers:he__$__$,
-        status:eval(status__$__$),
-        body:null
+      headers: he__$__$,
+      status: eval(status__$__$),
+      body: null
     }
-$http.get(geth__$__$,pr__$__$,$op__$__$).done(function(data__$_$,ht__$_$){
-       if( typeof $call__$_$ == "function"){
-           $call__$_$.call($target__$_$,200,data__$_$,ht__$_$);
-       }
-}).error(function(){ 
-    if( typeof $call__$_$ == "function"){
-          $call__$_$.call($target__$_$,300,null,null);
-       }
-}); 
-   
-}
-else if(posth__$__$ != null){
-    let pr__$__$  = queryParams___$_$(query__$__$);
-    let he__$__$  = queryParams___$_$(headers__$__$);
+    $http.get(geth__$__$, pr__$__$, $op__$__$).done(function (data__$_$, ht__$_$) {
+      if (typeof $call__$_$ == "function") {
+        $call__$_$.call($target__$_$, 200, data__$_$, ht__$_$);
+      }
+    })
+      .downloadProgress(function ($__progress__$) {
+        $progress_call_$.call($target__$_$, $__progress__$);
+      })
+      .uploadProgress(function ($_progress__$) {
+        $upprogress_call_$.call($target__$_$, $_progress__$)
+      })
+      .error(function () {
+        if (typeof $call__$_$ == "function") {
+          $call__$_$.call($target__$_$, 300, null, null);
+        }
+      });
+
+  }
+  else if (posth__$__$ != null) {
+    let pr__$__$ = queryParams___$_$(query__$__$);
+    let he__$__$ = queryParams___$_$(headers__$__$);
     he__$__$["Content-Type"] = "application/json"
     let $op__$__$ = {
-        headers: he__$__$,
-        status:eval(status__$__$),
-        body:JSON.stringify(pr__$__$)
+      headers: he__$__$,
+      status: eval(status__$__$),
+      body: JSON.stringify(pr__$__$)
     }
-         
-var HTP__$_$ =   $http.post(posth__$__$,$op__$__$).done(function(data__$_$,ht__$_$){
-       if( typeof $call__$_$ == "function"){
-           $call__$_$.call($target__$_$,200,data__$_$,ht__$_$);
-       }
+
+    var HTP__$_$ = $http.post(posth__$__$, $op__$__$).done(function (data__$_$, ht__$_$) {
+      if (typeof $call__$_$ == "function") {
+        $call__$_$.call($target__$_$, 200, data__$_$, ht__$_$);
+      }
       // $parserHTML(data,ss("button"),"innerHTML") 
-         
-}).error(function(){ 
-    if( typeof $call__$_$ == "function"){
-           $call__$_$.call($target__$_$,300,null,null);
-       }
-}); 
-} 
-    
+
+    })
+      .downloadProgress(function ($__progress__$) {
+        $progress_call_$.call($target__$_$, $__progress__$);
+      })
+      .uploadProgress(function ($_progress__$) {
+        $upprogress_call_$.call($target__$_$, $_progress__$)
+      })
+      .error(function () {
+        if (typeof $call__$_$ == "function") {
+          $call__$_$.call($target__$_$, 300, null, null);
+        }
+      });
+  }
+
 };
 
 
