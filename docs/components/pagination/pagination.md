@@ -95,3 +95,39 @@ This allows for seamless navigation between different pages of content while mai
 - Customize the URL pattern according to your specific requirements, such as incorporating additional query parameters or route segments.
 
 This URL pattern functionality provides flexibility in generating page links dynamically based on a specified pattern, facilitating efficient pagination within your web application or website.
+
+## URL Pattern with Same Page Window Option
+
+The URL pattern attribute (`pn-pattern-a`) in conjunction with the same page window option (`pn-a-s-page`) provides a mechanism for dynamically updating the URL hash to reflect the current page state within a single-page application (SPA) context. This is particularly useful for preserving the application's state in the URL hash while navigating through different pages or sections.
+
+### Usage
+
+Include the `pn-pattern-a` and `pn-a-s-page` attributes within the pagination component to enable the same page window option.
+
+### Example
+
+```html
+<div class="pagination"
+     pn-j-label="Jump" 
+     pn-current="1"  
+     pn-tabs="7"  
+     pn-total="100"
+     pn-pattern-a="#example-page"
+     pn-a-s-page="true">
+</div>
+```
+
+In this example:
+- The pagination component is configured to display 7 tabs at a time, with a total of 100 pages.
+- The URL pattern is specified as `#example-page`.
+- The same page window option is enabled (`pn-a-s-page="true"`).
+- When a user interacts with the pagination component, the URL hash is updated to reflect the current page state, ensuring that the application's state is preserved within the URL hash.
+
+### URL Construction
+
+When a user clicks on a page link, the pagination component dynamically updates the URL hash to reflect the current page state. For instance:
+
+- Clicking on page 1 would update the URL hash to `#example-page=1`.
+- Clicking on page 2 would update the URL hash to `#example-page=2`.
+
+This allows for seamless navigation within a single-page application while maintaining a clear representation of the current page state within the URL hash.
