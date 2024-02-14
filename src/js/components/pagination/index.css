@@ -1,5 +1,5 @@
-.pagination[pn-patter-a] .p-next,
-.pagination[pn-patter-a] .p-pre
+.pagination[pn-pattern-a] .p-next,
+.pagination[pn-pattern-a] .p-pre
 {
    display: none;
 }
@@ -10,10 +10,10 @@
     display: flex;
 }
 
-.pagination[pn-patter-a] .pag-n-go {
+.pagination[pn-pattern-a] .pag-n-go {
     display: none;
 }
-.pagination[pn-total][pn-patter-a][pn-a-s-page] .pag-n-go{
+.pagination[pn-total][pn-pattern-a][pn-a-s-page] .pag-n-go{
     display: flex;
 }
 
