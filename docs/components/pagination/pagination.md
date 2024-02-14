@@ -10,7 +10,7 @@ The pagination component allows users to navigate through a series of pages, typ
 To use the pagination component, include the following HTML structure:
 
 ```html
-<div class="pagination gap-t-l"
+<div class="pagination"
 pn-j-label="Jump"
 pn-current="1"
 pn-tabs="3"
@@ -29,15 +29,20 @@ pn-total="50">
 ### Example
 
 ```html
-<div class="pagination gap-t-l" pn-j-label="Jump" pn-current="1" pn-tabs="3" pn-total="50"></div>
+<div class="pagination"
+pn-j-label="Go Page"
+pn-current="33"
+pn-tabs="10"
+pn-total="500">
+</div>
 ```
 
 In this example:
 - The pagination component has a class of `pagination` for styling purposes.
-- The label for the jump functionality is set to "Jump".
-- The current active page is 1.
-- 3 tabs (or pages) are displayed at a time.
-- There are a total of 50 pages.
+- The label for the jump functionality is set to "Go Page".
+- The current active page is 33.
+- 10 tabs (or pages) are displayed at a time.
+- There are a total of 500 pages.
 
 ### Notes
 
