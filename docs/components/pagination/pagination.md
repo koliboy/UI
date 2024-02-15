@@ -249,3 +249,84 @@ In this example:
 - Test your pagination functionality thoroughly to ensure it behaves as expected in different scenarios.
 
 By leveraging pagination events, you can create dynamic and interactive pagination components that enhance the user experience in your web applications.
+
+
+##  `cnt-load`
+
+The pagination component allows users to navigate through a series of pages of content. It typically involves loading content dynamically from a server when a user interacts with the pagination controls. Below is the documentation for the pagination component, focusing on the `cnt-load-get` and `cnt-load-post` attributes, along with additional information about integrating with `$htp`.
+
+---
+
+### Pagination Component Attributes:
+
+#### 1. `cnt-load-get` (or `cnt-load-post`)
+
+- **Description:** Specifies the URL to which AJAX requests will be sent to fetch the content for the pagination component.
+- **Usage:** Use either `cnt-load-get` or `cnt-load-post` based on the HTTP method required by the server.
+- **Example:**
+```css
+#page[htp-on] {
+     /*is ready load http*/
+
+}
+
+#page[htp-on] .page-data,
+#page[htp-fail] .page-data {
+     display: none;
+}
+
+.page-error {
+     display: none;
+}
+
+#page[htp-fail] .page-error {
+     display: block;
+}
+
+#page[htp-done] .loading,
+#page[htp-fail] .loading {
+     display: none;
+}
+```
+
+  ```html
+  <div class="pagination" cnt-load-get="/api/fetch-data"
+     htp-query='{"page-query":"$page"}'
+     htp-t="#page"
+     htp-sync="true"
+     pn-j-label="Jump" 
+     pn-current="1"  
+     pn-tabs="3"  
+     pn-total="50"
+  ></div>
+
+  <div id="page">
+     <div class="loading" loader="icon"></div>
+     <div class="page-error" style="color:var(--error-color)">
+          Page Cann't Load Try Agin !!!
+     </div>
+     <div class="page-data" htp-data="">
+
+     </div>
+</div>
+
+  ```
+
+## 2. `htp-query`
+
+- **Description:** Defines the query parameters for the AJAX request. These parameters may include dynamic values or fixed values.
+- **Usage:** Specify the query parameters as a JSON object. Dynamic values can be represented using placeholders like `$page`.
+- **Example:**
+  ```html
+  <div class="pagination" cnt-load-get="/api/fetch-data" htp-query='{"page": "$page"}'></div>
+  ```
+
+
+
+### Learn More:
+
+For more information on `$htp` and its capabilities, refer to the [$htp options](https://github.com/koliboy/formui/blob/main/docs/http/htp.md#htp-options).
+
+---
+
+This documentation provides an overview of the pagination component's key attributes, focusing on `cnt-load-get` and `cnt-load-post`, along with guidance on integrating with `$htp` for dynamic content loading.
