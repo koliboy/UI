@@ -557,3 +557,66 @@ In this example, we'll demonstrate how to dynamically load content from an exter
 - For the second `<div>` element, we use the `htp-t` attribute to specify the target container where the fetched content will be inserted.
 
 This example demonstrates how to use `$htp` to load content dynamically from an external URL while providing feedback to users through loading indicators and error messages.
+
+
+## `htp-ldr` 
+
+In this example, we'll demonstrate how to load content dynamically with a loader indicator while providing error handling.
+
+#### CSS Styling:
+
+```css
+<style>
+    /* Hide dynamic content by default */
+    .dynamic-t {
+        background: pink;
+        display: none;
+    }
+
+    /* Show dynamic content when loading is done */
+    .dynamic-t[htp-done] {
+        display: block;
+    }
+
+    /* Hide loading indicator and error message when loading is done */
+    .target[htp-done] .loading, 
+    .target[htp-fail] .loading {
+        display: none;
+    }
+
+    /* Show error message if loading fails */
+    .target[htp-fail] .page-error {
+        display: block;
+    }
+</style>
+```
+
+#### HTML Markup:
+
+```html
+<div 
+    htp-get="/home.html"
+    htp-t=".dynamic-t"
+    htp-ldr=".target"
+></div>
+
+<div class="target">
+    <div class="loading" loader="icon"></div>
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+</div>
+
+<div class="dynamic-t">
+    <div class="dynamic" htp-data="">
+        <!-- Placeholder for dynamic content -->
+    </div> 
+</div>
+```
+
+#### Explanation:
+
+- We have a loader indicator with the class `loading` inside the `.target` container.
+- The `.dynamic-t` container is initially hidden (`display: none;`) to hide the dynamic content until it's loaded.
+- When the dynamic content is loaded (`htp-done`), the `.dynamic-t` container is displayed (`display: block;`).
+- If loading fails (`htp-fail`), the error message is displayed, and the loading indicator is hidden.
