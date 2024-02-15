@@ -134,6 +134,46 @@ document.querySelector("div").addEventListener("click",function(){
 - Use `htp-post` for requests where you want to send data to the server, typically used with form submissions.
 - These attributes are often used in combination with JavaScript functions to handle the AJAX requests and responses, such as `$htp.call()`.
 
+
+##  `htp-query`
+
+The `htp-query` attribute in an AJAX request specifies the query parameters to be sent along with the request. These parameters are typically used to customize the server's response based on the client's requirements. The `htp-query` attribute value should be a valid JSON object representing the query parameters.
+
+#### Syntax:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-query='{"param1": "value1", "param2": "value2"}'
+>
+    <!-- AJAX Content -->
+</div>
+```
+#### Example:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-query='{"page": 1, "limit": 10, "sort": "asc"}'
+    htp-swap="innerHTML"
+    htp-t=".data-container"
+>
+    <!-- Placeholder for AJAX Content -->
+</div>
+```
+
+#### Explanation:
+
+- In this example, a `<div>` element is configured to make a GET request to `/api/data` with query parameters `page`, `limit`, and `sort`.
+- The `htp-query` attribute value is a JSON object with key-value pairs specifying the query parameters.
+- The fetched content will replace the innerHTML of the element with the class `data-container` once the request is successful.
+
+#### Notes:
+
+- Ensure that the query parameters are properly encoded, especially if they contain special characters or spaces.
+- Check the server-side documentation to understand how query parameters are expected to be formatted and processed.
+- Use query parameters to filter, paginate, or customize the server's response based on the client's requirements.
+- 
 ## Dynamic Values
 
 In HTML, dynamic values can be injected into attributes using placeholders. These placeholders are then replaced with actual values using JavaScript before initiating AJAX requests. Here's an example demonstrating the usage of dynamic values:
