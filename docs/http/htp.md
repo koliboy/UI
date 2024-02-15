@@ -13,17 +13,16 @@ $htp.call(element,dynamic_options,options);
 #### Example Usage
 
 ```html
-<div class="content"
+<div
      htp-get="/content.html"
      htp-query='{"key":1,"id":"20"}'>
-  <div htp-data="">
-    <!-- Placeholder for AJAX Content -->
-  </div>
+     Click me to fetch data
 </div>
 
 <script>
-  // Call the $htp function on an element with the class "content"
-  $htp.call(document.querySelector(".content"));
+ document.querySelector("div").addEventListener("click",function(){
+ $htp.call(this);
+});
 </script>
 ```
 
