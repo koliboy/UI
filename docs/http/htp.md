@@ -620,3 +620,54 @@ In this example, we'll demonstrate how to load content dynamically with a loader
 - The `.dynamic-t` container is initially hidden (`display: none;`) to hide the dynamic content until it's loaded.
 - When the dynamic content is loaded (`htp-done`), the `.dynamic-t` container is displayed (`display: block;`).
 - If loading fails (`htp-fail`), the error message is displayed, and the loading indicator is hidden.
+
+
+## `htp-type`
+
+In this example, we'll demonstrate how to use progress indicators for download and upload operations.
+
+#### Download Progress:
+
+```html
+<div class="target" htp-get="/home.html">
+    <!-- Progress indicator for download -->
+    <progress class="loading" value="0" max="100" htp-type="progress">0%</progress>
+    
+    <!-- Error message for failed download -->
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+    
+    <!-- Placeholder for dynamic content -->
+    <div class="dynamic" htp-data="">
+        <!-- dynamic content -->
+    </div>
+</div>
+```
+
+#### Upload Progress:
+
+```html
+<div class="target" htp-get="/post.py" htp-query='{"key":1,"id":"20"}'>
+    <!-- Progress indicator for upload -->
+    <progress class="loading" value="0" max="100" htp-type="progress-up">0%</progress>
+    
+    <!-- Error message for failed upload -->
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+    
+    <!-- Placeholder for dynamic content -->
+    <div class="dynamic" htp-data="">
+        <!-- dynamic content -->
+    </div>
+</div>
+```
+
+#### Explanation:
+
+- For both download and upload operations, we use a `progress` element to visualize the progress. 
+- The `value` attribute of the `progress` element is updated dynamically to reflect the progress.
+- For download progress, `htp-type="progress"` is used, and for upload progress, `htp-type="progress-up"` is used.
+- The error message is displayed in case the operation fails, indicating that the page couldn't load.
+- The `dynamic` class is used as a placeholder for the dynamic content that will be loaded after the operation is complete.
