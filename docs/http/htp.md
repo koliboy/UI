@@ -5,7 +5,7 @@ The `$htp` function is a custom JavaScript function designed to handle AJAX (Asy
 #### Syntax
 
 ```javascript
-$htp.call(element);
+$htp.call(element,options);
 ```
 
 - `element`: The DOM element on which the `$htp` function is called. This element should have attributes specifying the details of the AJAX request, such as the URL (`htp-get`) and additional query parameters (`htp-query`).
