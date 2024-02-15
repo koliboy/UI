@@ -133,3 +133,38 @@ document.querySelector("div").addEventListener("click",function(){
 - Use `htp-get` for requests where you want to retrieve data from the server.
 - Use `htp-post` for requests where you want to send data to the server, typically used with form submissions.
 - These attributes are often used in combination with JavaScript functions to handle the AJAX requests and responses, such as `$htp.call()`.
+
+## Dynamic Values
+
+In HTML, dynamic values can be injected into attributes using placeholders. These placeholders are then replaced with actual values using JavaScript before initiating AJAX requests. Here's an example demonstrating the usage of dynamic values:
+
+```html
+<div
+  class="content"
+  htp-get="/api/data"
+  htp-query='{"key":1,"id":"$id","user_name":"$name","total":"$total_number()"}'
+>
+  <!-- Dynamic Values -->
+  <!-- $id: 12, $name: "barinty", $total_number(): 80 -->
+</div>
+<script>
+  var id = 12;
+  var name = "barinty";
+  function total_number() {
+    return 50 + 30;
+  }
+  $htp.call(document.querySelector(".content"), {
+    id: id,
+    /.............../ 
+  });
+</script>
+```
+
+#### Explanation:
+
+- In the `htp-query` attribute, placeholders like `$id`, `$name`, and `$total_number()` are used to represent dynamic values.
+- JavaScript variables (`id` and `name`) and a function (`total_number()`) are defined to provide actual values for these placeholders.
+- The `$htp.call()` function is invoked with the target element (`.content`) and an object containing the values for dynamic placeholders (`id` and `name`).
+- Before making the AJAX request, the placeholders in `htp-query` are replaced with their corresponding values.
+
+This approach allows for flexible and dynamic generation of AJAX requests with varying parameters based on the context or user input.
