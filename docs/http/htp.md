@@ -703,7 +703,7 @@ In this example, we'll demonstrate how to use a progress indicator with custom s
 - In case of a failed download, the error message is displayed in the `page-error` section.
 - The `dynamic` class serves as a placeholder for the dynamic content that will be loaded once the operation is complete.
 
-### Cross-Origin Note
+# `Cross-Origin Note`
 
 When using AJAX requests, it's essential to be aware of cross-origin restrictions imposed by web browsers. These restrictions are in place to enhance security and prevent malicious attacks.
 
