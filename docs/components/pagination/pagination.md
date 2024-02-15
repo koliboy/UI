@@ -240,7 +240,7 @@ In this example:
 - Inside the function, `this` refers to the pagination component that triggered the event.
 - `getAttribute("get-page")` retrieves the value of the attribute named `"get-page"` from the pagination component.
 
-```
+
 
 ### Notes
 
