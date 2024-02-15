@@ -293,3 +293,45 @@ The `htp-data` attribute is used to indicate the location where fetched content 
 - Test the behavior of content insertion with different target elements to confirm the expected functionality.
 
 These examples demonstrate how `htp-data` can be used to specify the location where fetched content should be inserted in the HTML document after an AJAX request.
+
+## `htp-swap`
+
+The `htp-swap` attribute in the `$htp` library specifies the property to be updated with the fetched content after a successful AJAX request. It determines how the fetched data will be integrated into the target element. Here's a breakdown of its usage:
+
+#### Available Options:
+
+1. **innerHTML**:
+   - Replaces the entire content inside the target element with the fetched data.
+
+2. **append**:
+   - Appends the fetched data to the existing content inside the target element.
+
+3. **after**:
+   - Inserts the fetched data immediately after the target element.
+
+4. **before**:
+   - Inserts the fetched data immediately before the target element.
+
+#### Example Usage:
+
+```html
+<!-- Replaces the entire content inside the target element -->
+<div htp-get="/api/fetch-data" htp-swap="innerHTML"></div>
+
+<!-- Appends the fetched data to the existing content inside the target element -->
+<div htp-get="/api/fetch-data" htp-swap="append"></div>
+
+<!-- Inserts the fetched data immediately after the target element -->
+<div htp-get="/api/fetch-data" htp-swap="after"></div>
+
+<!-- Inserts the fetched data immediately before the target element -->
+<div htp-get="/api/fetch-data" htp-swap="before"></div>
+```
+
+#### Usage Notes:
+
+- Choose the appropriate `htp-swap` option based on how you want the fetched data to integrate with the existing content.
+- Ensure that the target element exists in the document for the content insertion to occur correctly.
+- Test the behavior of content integration with different `htp-swap` options to confirm the expected functionality.
+
+This explanation outlines the usage of `htp-swap` in the `$htp` library, allowing you to control how fetched data is integrated into the target element after an AJAX request.
