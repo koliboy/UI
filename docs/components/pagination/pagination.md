@@ -264,6 +264,7 @@ The pagination component allows users to navigate through a series of pages of c
 - **Description:** Specifies the URL to which AJAX requests will be sent to fetch the content for the pagination component.
 - **Usage:** Use either `cnt-load-get` or `cnt-load-post` based on the HTTP method required by the server.
 - **Example:**
+
 ```css
 #page[htp-on] {
      /*is ready load http*/
@@ -289,7 +290,7 @@ The pagination component allows users to navigate through a series of pages of c
 }
 ```
 
-  ```html
+```html
   <div class="pagination" cnt-load-get="/api/fetch-data"
      htp-query='{"page-query":"$page"}'
      htp-t="#page"
@@ -310,7 +311,7 @@ The pagination component allows users to navigate through a series of pages of c
      </div>
 </div>
 
-  ```
+```
 
 ## 2. `htp-query`
 
