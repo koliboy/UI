@@ -223,6 +223,52 @@ The `htp-t` attribute is employed to specify the target element where fetched co
 These examples showcase how `htp-t` can be utilized to define the location where fetched content should be inserted in the HTML document following an AJAX request.
 
 
+##  `htp-headers`
+
+The `htp-headers` attribute in an AJAX request specifies additional HTTP headers to be included in the request sent to the server. These headers can provide various types of information, such as authentication tokens, content types, or custom headers required by the server to process the request properly.
+
+#### Syntax:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-headers='{"HeaderName": "HeaderValue", "Authorization": "Bearer TOKEN"}'
+>
+    <!-- AJAX Content -->
+</div>
+```
+
+#### Attributes:
+
+- **htp-get** or **htp-post**: Specifies the URL to which the AJAX request will be sent.
+- **htp-headers**: Specifies a JSON object containing key-value pairs of HTTP headers to be included in the request.
+- **htp-swap** (optional): Specifies how the fetched content should be inserted into the HTML document (e.g., innerHTML, append).
+- **htp-data** (optional): Placeholder for the fetched content.
+- Other optional attributes like `htp-query`, `htp-t`, `htp-s`, etc., may also be included based on the specific requirements.
+
+#### Example:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-headers='{"Authorization": "Bearer YOUR_TOKEN", "Content-Type": "application/json"}'
+    htp-swap="append"
+    htp-t=".target-element"
+>
+    <!-- Placeholder for AJAX Content -->
+</div>
+```
+
+#### Explanation:
+
+- In this example, a `<div>` element is configured to make a GET request to `/api/data`.
+- The `htp-headers` attribute includes two headers: `Authorization` with the value `Bearer YOUR_TOKEN` and `Content-Type` with the value `application/json`.
+- The fetched content will be appended to the element with the class `target-element` once the request is successful.
+
+
+
+
+
 ##  `htp-data`
 
 The `htp-data` attribute is used to indicate the location where fetched content will be inserted after a successful AJAX request. Here are examples illustrating different ways to use `htp-data`.
