@@ -14,7 +14,7 @@ $htp.call(element);
 
 ```html
 <div class="content"
-     htp-get="/content.php"
+     htp-get="/content.html"
      htp-query='{"key":1,"id":"20"}'>
   <div htp-data="">
     <!-- Placeholder for AJAX Content -->
@@ -35,7 +35,7 @@ $htp.call(element);
       htp-query='{"key":1,"id":"20"}'>
   <!-- Form inputs and elements -->
 </div>
-
+```
 #### Attributes
 
 - `htp-get` or `htp-post`: Specifies the URL from which data will be fetched (`htp-get`) or posted (`htp-post`) using the AJAX request.
