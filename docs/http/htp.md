@@ -44,7 +44,8 @@ $htp.call(document.querySelector(".element"), { dynamic: "value" });
 
 // Another example with additional static options
 $htp.call(document.querySelector(".element"), { dynamic: "value" }, {
-    "htp-get": "/hello.html"
+    "htp-get": "/hello.html",
+   //  or... options
 });
 ```
 
