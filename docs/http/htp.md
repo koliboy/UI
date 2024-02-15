@@ -671,3 +671,34 @@ In this example, we'll demonstrate how to use progress indicators for download a
 - For download progress, `htp-type="progress"` is used, and for upload progress, `htp-type="progress-up"` is used.
 - The error message is displayed in case the operation fails, indicating that the page couldn't load.
 - The `dynamic` class is used as a placeholder for the dynamic content that will be loaded after the operation is complete.
+
+
+## `htp-type and htp-type-t`
+
+In this example, we'll demonstrate how to use a progress indicator with custom styling for a download operation.
+
+```html
+<div class="target" htp-get="/home.html">
+    <!-- Custom progress indicator with width-based style -->
+    <div class="loading progress" htp-type="progress" htp-type-t="width" style="width: 0%;"></div>
+    
+    <!-- Error message for failed download -->
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+    
+    <!-- Placeholder for dynamic content -->
+    <div class="dynamic" htp-data="">
+        <!-- dynamic content -->
+    </div>   
+</div>
+```
+
+#### Explanation:
+
+- We use a `div` element with classes `loading` and `progress` to create a custom progress indicator.
+- The `htp-type="progress"` attribute indicates that this element will function as a progress indicator.
+- We specify `htp-type-t="width"` to control the progress indicator's style based on the width.
+- Initially, the width is set to 0% (`style="width: 0%;"`), indicating that no progress has been made.
+- In case of a failed download, the error message is displayed in the `page-error` section.
+- The `dynamic` class serves as a placeholder for the dynamic content that will be loaded once the operation is complete.
