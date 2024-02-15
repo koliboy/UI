@@ -479,3 +479,81 @@ In this example, we'll demonstrate how to use the `htp-sync` attribute to contro
 - When the button is clicked, an event listener calls a JavaScript function. This function retrieves the value of the `data` attribute from the last `<p>` element and triggers the `$htp` call with the updated id value, effectively loading more data.
   
 This example demonstrates how to use the `htp-sync` attribute to ensure that AJAX requests triggered by `$htp` are synchronized, preventing concurrent execution and ensuring that requests are processed in the expected order.
+
+
+##  `Loading Dynamically`
+
+In this example, we'll demonstrate how to dynamically load content from an external URL using `$htp`. We'll also handle loading indicators and error messages.
+
+#### CSS Styling:
+
+```css
+<style>
+    /* Display loading indicator when htp-on attribute is present */
+    .target[htp-on] {
+        /* Style for when loading */
+    }
+
+    /* Hide dynamic content and error message by default */
+    .target[htp-on] .dynamic,
+    .target[htp-fail] .dynamic {
+        display: none;
+    }
+
+    .page-error {
+        display: none;
+    }
+
+    /* Display error message if loading fails */
+    .target[htp-fail] .page-error {
+        display: block;
+    }
+
+    /* Hide loading indicator when loading is done or fails */
+    .target[htp-done] .loading, 
+    .target[htp-fail] .loading {
+        display: none;
+    }
+</style>
+```
+
+#### HTML Markup:
+
+```html
+<!-- Using htp-get directly -->
+<div class="target" htp-get="/home.html">
+    <div class="loading" loader="icon"></div>
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+    <div class="dynamic" htp-data="">
+        <!-- Placeholder for dynamic content -->
+    </div>
+</div>
+
+<!-- Using htp-t to specify target -->
+<div htp-get="/home.html" htp-t=".target"></div>
+
+<div class="target">
+    <div class="loading" loader="icon"></div>
+    <div class="page-error" style="color: var(--error-color)">
+        Page Can't Load. Please Try Again!!!
+    </div>
+    <div class="dynamic" htp-data="">
+        <!-- Placeholder for dynamic content -->
+    </div>
+</div>
+```
+
+#### Explanation:
+
+- In the CSS styling, we define styles for loading indicators, error messages, and dynamic content display based on the presence of `htp-on`, `htp-fail`, and `htp-done` attributes.
+- The `<div>` elements with the class `target` represent the containers for dynamically loaded content. 
+- Inside each container, we have:
+  - A loading indicator (`<div class="loading">`) displayed while content is being fetched.
+  - A page error message (`<div class="page-error">`) shown if the content fails to load.
+  - A dynamic content placeholder (`<div class="dynamic" htp-data="">`) where the fetched content will be inserted.
+- We use the `htp-get` attribute to specify the URL from which to fetch content.
+- For the second `<div>` element, we use the `htp-t` attribute to specify the target container where the fetched content will be inserted.
+
+This example demonstrates how to use `$htp` to load content dynamically from an external URL while providing feedback to users through loading indicators and error messages.
