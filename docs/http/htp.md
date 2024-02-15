@@ -328,6 +328,23 @@ The `htp-swap` attribute in the `$htp` library specifies the property to be upda
 <div htp-get="/api/fetch-data" htp-swap="before"></div>
 ```
 
+1. **prepend**:
+   - Inserts the fetched data at the beginning of the existing content inside the target element.
+
+2. **textContent**:
+   - Sets the text content of the target element to the fetched data. This option is useful when you want to replace only the text content without affecting the HTML structure.
+
+#### Example Usage:
+
+```html
+<!-- Inserts the fetched data at the beginning of the existing content -->
+<div htp-get="/api/fetch-data" htp-swap="prepend"></div>
+
+<!-- Sets the text content of the target element to the fetched data -->
+<div htp-get="/api/fetch-data" htp-swap="textContent"></div>
+```
+
+
 #### Usage Notes:
 
 - Choose the appropriate `htp-swap` option based on how you want the fetched data to integrate with the existing content.
