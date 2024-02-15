@@ -92,3 +92,45 @@ The `htp-options` attribute provides a comprehensive set of options for configur
 - Test different combinations of options to verify proper functionality in various scenarios.
 - Handle errors gracefully by providing appropriate error messages or fallback content.
 
+
+### `htp-get` and `htp-post`
+
+The `htp-get` and `htp-post` attributes are used in HTML elements to specify the URL for AJAX requests and the HTTP method to be used (GET or POST). These attributes are commonly used in conjunction with JavaScript functions such as `$htp.call()` to initiate AJAX requests and retrieve data from or send data to a server.
+
+#### `htp-get` Attribute
+
+The `htp-get` attribute is used to specify the URL for making HTTP GET requests. When an element with `htp-get` is activated (e.g., clicked), the JavaScript function associated with it (e.g., `$htp.call()`) will initiate a GET request to the specified URL.
+
+##### Example Usage:
+
+```html
+<div htp-get="/api/data">Click me to fetch data</div>
+```
+```js
+document.querySelector("div").addEventListener("click",function(){
+ $htp.call(this);
+});
+```
+
+#### `htp-post` Attribute
+
+The `htp-post` attribute is used to specify the URL for making HTTP POST requests. Similarly to `htp-get`, when an element with `htp-post` is activated, it triggers a JavaScript function to initiate a POST request to the specified URL.
+
+##### Example Usage:
+
+```html
+<div  htp-post="/api/data"
+htp-query='{"key":1,"id":"20"}'
+>Click me to fetch data</div>
+```
+```js
+document.querySelector("div").addEventListener("click",function(){
+ $htp.call(this);
+});
+```
+
+#### Usage Notes:
+
+- Use `htp-get` for requests where you want to retrieve data from the server.
+- Use `htp-post` for requests where you want to send data to the server, typically used with form submissions.
+- These attributes are often used in combination with JavaScript functions to handle the AJAX requests and responses, such as `$htp.call()`.
