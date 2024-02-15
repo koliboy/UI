@@ -27,9 +27,18 @@ $htp.call(element);
 </script>
 ```
 
+#### Example Usage (POST Request)
+
+```html
+<div class="post"
+      htp-post="/submit.php"
+      htp-query='{"key":1,"id":"20"}'>
+  <!-- Form inputs and elements -->
+</div>
+
 #### Attributes
 
-- `htp-get`: Specifies the URL from which data will be fetched using the AJAX request.
+- `htp-get` or `htp-post`: Specifies the URL from which data will be fetched (`htp-get`) or posted (`htp-post`) using the AJAX request.
 - `htp-query`: Specifies additional query parameters to be sent with the AJAX request in JSON format.
 - `htp-data`: Placeholder element within the specified element where the fetched content will be inserted.
 
