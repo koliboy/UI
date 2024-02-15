@@ -702,3 +702,36 @@ In this example, we'll demonstrate how to use a progress indicator with custom s
 - Initially, the width is set to 0% (`style="width: 0%;"`), indicating that no progress has been made.
 - In case of a failed download, the error message is displayed in the `page-error` section.
 - The `dynamic` class serves as a placeholder for the dynamic content that will be loaded once the operation is complete.
+
+### Cross-Origin Note
+
+When using AJAX requests, it's essential to be aware of cross-origin restrictions imposed by web browsers. These restrictions are in place to enhance security and prevent malicious attacks.
+
+#### Same-Origin Policy:
+
+- By default, web browsers enforce the Same-Origin Policy, which prohibits scripts running under one origin from accessing resources from another origin.
+- An origin consists of the combination of protocol (e.g., HTTP, HTTPS), domain (e.g., example.com), and port (if specified).
+- For example, a script loaded from `https://example.com` cannot make AJAX requests to `http://api.example.com` due to different origins.
+
+#### Cross-Origin Resource Sharing (CORS):
+
+- To allow cross-origin requests, the server hosting the resource needs to include specific HTTP headers in its response.
+- These headers, known as CORS headers, inform the browser that it's safe to allow the request from a different origin.
+- Common CORS headers include `Access-Control-Allow-Origin`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`, etc.
+
+#### Handling Cross-Origin Issues:
+
+- If you encounter cross-origin issues while making AJAX requests, ensure that the server hosting the resource supports CORS.
+- If you're in control of the server, configure it to include the necessary CORS headers to allow requests from your client's origin.
+- If you're unable to modify the server's CORS configuration, you may need to use alternative methods like JSONP or server-side proxies to fetch the resource.
+- Additionally, some APIs may require authentication or API keys, which need to be handled securely to avoid exposing sensitive information.
+
+#### JSONP (JSON with Padding):
+
+- JSONP is a technique used to bypass the Same-Origin Policy by dynamically adding a `<script>` tag to the document.
+- It allows loading JSON data from a different origin by wrapping the JSON response in a JavaScript function call.
+- JSONP requests are limited to `GET` requests and are not as secure as CORS, so use them cautiously and only with trusted sources.
+
+#### Conclusion:
+
+Understanding and addressing cross-origin issues is crucial for building robust and secure web applications. By ensuring proper CORS configuration and handling, you can facilitate seamless communication between your client-side JavaScript code and server-side resources while maintaining a high level of security.
