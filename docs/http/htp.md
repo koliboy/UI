@@ -257,8 +257,28 @@ The `htp-data` attribute is used to indicate the location where fetched content 
 ```html
 <div htp-get="/api/fetch-data" htp-t="p"></div>
 
+<p>
+    <!-- dynamic content -->
+</p>
+```
+`or`
+```html
+<div htp-get="/api/fetch-data" htp-t="p"></div>
+
 <p htp-data="">
     <!-- dynamic content -->
+</p>
+```
+
+`or`
+```html
+<div htp-get="/api/fetch-data" htp-t="p"></div>
+
+<p>
+<div htp-data="">
+ <!-- dynamic content -->
+</div>
+   
 </p>
 ```
 
