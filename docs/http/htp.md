@@ -36,20 +36,63 @@ $htp.call(element);
   <!-- Form inputs and elements -->
 </div>
 ```
-#### Attributes
 
-- `htp-get` or `htp-post`: Specifies the URL from which data will be fetched (`htp-get`) or posted (`htp-post`) using the AJAX request.
-- `htp-query`: Specifies additional query parameters to be sent with the AJAX request in JSON format.
-- `htp-data`: Placeholder element within the specified element where the fetched content will be inserted.
+## `htp-options`
 
-#### Functionality
+The `htp-options` attribute provides a comprehensive set of options for configuring AJAX requests made using the `$htp` function in JavaScript. These options allow developers to customize various aspects of the HTTP request, including request method, headers, success callback, error handling, and more.
 
-1. **AJAX Request**: The function initiates an AJAX request to the URL specified in the `htp-get` attribute.
-2. **Query Parameters**: Additional query parameters specified in the `htp-query` attribute are included in the request.
-3. **Data Insertion**: Upon receiving a successful response from the server, the content is inserted into the placeholder element specified by the `htp-data` attribute.
-4. **Dynamic Loading**: The function allows for dynamic loading of content without needing to reload the entire webpage.
+#### List of `htp-options`
 
-### Note
+1. **htp-method**: Specifies the HTTP method for the request (`GET`, `POST`, etc.).
+2. **htp-t**: Specifies the target element where fetched content will be inserted.
+3. **htp-query**: Specifies query parameters for the request.
+4. **htp-headers**: Specifies custom headers for the request.
+5. **htp-s**: Specifies the success callback function to handle the HTTP request's successful response.
+6. **htp-swap**: Specifies the property to update with the fetched content (e.g., `innerHTML`, `append`).
+7. **htp-swap-s**: Specifies the method for inserting fetched content (`after`, `before`, etc.).
+8. **htp-status**: Defines the expected status code for successful responses.
+9. **htp-sync**: Controls the synchronization behavior of HTTP requests triggered by `htp-call`.
+10. **htp-ldr**: Specifies a loading indicator or error message while the request is in progress or in case of failure.
 
-- Ensure proper error handling and security measures are implemented to mitigate potential security risks, such as Cross-Site Scripting (XSS) attacks, when using dynamic content loading.
-- The `$htp` function operates on individual elements, so it should be called separately for each element requiring dynamic content loading.
+#### Example Usage
+
+```html
+<div 
+  htp-get="/api/data"
+  htp-method="GET"
+  htp-t=".target"
+  htp-query='{"category": "books", "page": 1}'
+  htp-headers='{"Authorization": "Bearer YOUR_TOKEN"}'
+  htp-s="handleSuccess"
+  htp-swap="append"
+  htp-swap-s="after"
+  htp-status="200"
+  htp-sync="true"
+  htp-ldr=".loading-indicator"
+></div>
+```
+
+#### Explanation
+
+- The `htp-get` attribute specifies the URL for the AJAX request.
+- The `htp-method` attribute sets the HTTP method to `GET`.
+- The `htp-t` attribute designates the target element for inserting fetched content.
+- The `htp-query` attribute defines query parameters for the request.
+- The `htp-headers` attribute includes custom headers in the request.
+- The `htp-s` attribute assigns a success callback function to handle successful responses.
+- The `htp-swap` attribute determines how the fetched content is updated (`append` in this case).
+- The `htp-swap-s` attribute specifies the method for inserting the fetched content (`after`).
+- The `htp-status` attribute sets the expected status code for successful responses.
+- The `htp-sync` attribute controls the synchronization behavior of subsequent requests (`true` for synchronous behavior).
+- The `htp-ldr` attribute specifies a loading indicator or error message.
+
+#### Best Practices
+
+- Use meaningful values for each option to ensure clarity and maintainability of code.
+- Test different combinations of options to verify proper functionality in various scenarios.
+- Handle errors gracefully by providing appropriate error messages or fallback content.
+
+#### Additional Resources
+- [MDN Web Docs: XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+- [MDN Web Docs: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [MDN Web Docs: Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
