@@ -92,7 +92,3 @@ The `htp-options` attribute provides a comprehensive set of options for configur
 - Test different combinations of options to verify proper functionality in various scenarios.
 - Handle errors gracefully by providing appropriate error messages or fallback content.
 
-#### Additional Resources
-- [MDN Web Docs: XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
-- [MDN Web Docs: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [MDN Web Docs: Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
