@@ -168,3 +168,56 @@ In HTML, dynamic values can be injected into attributes using placeholders. Thes
 - Before making the AJAX request, the placeholders in `htp-query` are replaced with their corresponding values.
 
 This approach allows for flexible and dynamic generation of AJAX requests with varying parameters based on the context or user input.
+
+
+##  `htp-t` target-element
+
+The `htp-t` attribute is employed to specify the target element where fetched content will be inserted after a successful AJAX request. Below are examples illustrating different usage scenarios of `htp-t`.
+
+#### Example 1: Using Class Selector
+
+```html
+<div htp-get="/list.html" htp-t=".target"></div>
+<div class="target">
+  <!-- Placeholder for AJAX Content -->
+</div>
+```
+
+- In this example, an AJAX request is made to fetch data from the URL specified in `htp-get`.
+- After a successful response, the fetched content will replace the content inside the element with the class `target`.
+
+#### Example 2: Using ID Selector
+
+```html
+<div htp-get="/list.html" htp-t="#data"></div>
+<div id="data">
+    <h>hello world</h>
+    <div htp-data="">
+        <!-- Placeholder for AJAX Content -->
+    </div>
+</div>
+```
+
+- Here, an AJAX request is initiated to retrieve data from the URL specified in `htp-get`.
+- Upon receiving a successful response, the fetched content will replace the content inside the element with the ID `data`.
+
+#### Example 3: Using Tag Name and ID Selector
+
+```html
+<div htp-get="/list.html" htp-t="#data2"></div>
+<p id="data2" htp-data="">
+    <!-- Placeholder for AJAX Content -->
+</p>
+```
+
+- This example demonstrates using both tag name and ID selector in `htp-t`.
+- After a successful AJAX response, the fetched content will replace the content inside the `<p>` element with the ID `data2`.
+
+#### Usage Notes:
+
+- `htp-t` accepts CSS selectors, IDs, or tag names to specify the target element.
+- Ensure that the target element exists in the document for the content insertion to occur correctly.
+- It's essential to have proper placeholder content within the target elements to ensure a seamless transition when the AJAX content is loaded.
+- Test the behavior of content insertion with different target elements to confirm the expected functionality.
+
+These examples showcase how `htp-t` can be utilized to define the location where fetched content should be inserted in the HTML document following an AJAX request.
