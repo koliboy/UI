@@ -221,3 +221,55 @@ The `htp-t` attribute is employed to specify the target element where fetched co
 - Test the behavior of content insertion with different target elements to confirm the expected functionality.
 
 These examples showcase how `htp-t` can be utilized to define the location where fetched content should be inserted in the HTML document following an AJAX request.
+
+
+##  `htp-data`
+
+The `htp-data` attribute is used to indicate the location where fetched content will be inserted after a successful AJAX request. Here are examples illustrating different ways to use `htp-data`.
+
+#### Example 1: Inserting Content Inside a `<div>` Element
+
+```html
+<div htp-get="/api/fetch-data">
+    <!-- dynamic content -->
+</div>
+```
+
+- In this example, an AJAX request is made to fetch data from the URL specified in `htp-get`.
+- Upon a successful response, the fetched content will replace the existing content inside the `<div>` element.
+
+#### Example 2: Inserting Content Inside a `<div>` Element with Other Elements
+
+```html
+<div htp-get="/api/fetch-data">
+    <div>other Elements</div>
+    <div htp-data="">
+        <!-- dynamic content -->
+    </div>
+</div>
+```
+
+- Here, an AJAX request is initiated to retrieve data from the URL specified in `htp-get`.
+- After a successful response, the fetched content will replace the content inside the `<div>` element with the `htp-data` attribute.
+
+#### Example 3: Inserting Content Inside a `<p>` Element
+
+```html
+<div htp-get="/api/fetch-data" htp-t="p"></div>
+
+<p htp-data="">
+    <!-- dynamic content -->
+</p>
+```
+
+- This example demonstrates inserting content inside a `<p>` element.
+- Upon receiving a successful AJAX response, the fetched content will replace the existing content inside the `<p>` element.
+
+#### Usage Notes:
+
+- `htp-data` can be placed inside various HTML elements such as `<div>`, `<p>`, `<span>`, etc., to specify the location where fetched content should be inserted.
+- Ensure that the target element with `htp-data` exists in the document for the content insertion to occur as intended.
+- The fetched content will replace the existing content inside the element with the `htp-data` attribute.
+- Test the behavior of content insertion with different target elements to confirm the expected functionality.
+
+These examples demonstrate how `htp-data` can be used to specify the location where fetched content should be inserted in the HTML document after an AJAX request.
