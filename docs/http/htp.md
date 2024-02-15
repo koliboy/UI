@@ -352,3 +352,44 @@ The `htp-swap` attribute in the `$htp` library specifies the property to be upda
 - Test the behavior of content integration with different `htp-swap` options to confirm the expected functionality.
 
 This explanation outlines the usage of `htp-swap` in the `$htp` library, allowing you to control how fetched data is integrated into the target element after an AJAX request.
+
+## `htp-swap-s`
+
+In this example, let's say you have an external HTML file called `example.html` containing some HTML content and scripts. You want to fetch this content and insert it into your current HTML document before a specific target element, while also adjusting the scripts behavior.
+
+#### External HTML File (`example.html`):
+
+```html
+<h1>Heading....</h1>
+<script>
+    // JavaScript code
+</script>
+<script src="/some.js"></script>
+```
+
+#### Integration into Current HTML Document:
+
+```html
+<div htp-get="/example.html" htp-swap-s="before"> 
+    <!-- This will fetch the content of 'example.html' and insert it before the current element -->
+    <script>
+        // JavaScript code
+    </script>
+    <script src="/some.js"></script>
+    <!-- data before fetch scripts -->
+    <div htp-data>
+        <!-- Placeholder for dynamic content -->
+        <!-- <h1>Heading....</h1> -->
+    </div>
+</div>
+```
+
+#### Explanation:
+
+- The `htp-get` attribute fetches the content of `example.html`.
+- The `htp-swap-s="before"` attribute specifies that the fetched content should be inserted immediately before the current `<div>` element.
+- Inside the fetched content, any `<script>` tags or external script references will be executed or loaded respectively.
+- The `<div htp-data>` tag indicates where the fetched HTML content will be placed.
+- Any dynamic content from the fetched HTML, such as the `<h1>Heading....</h1>`, will be inserted into the document within the `<div htp-data>` tag.
+
+This example demonstrates how to fetch content from an external HTML file and adjust script behavior during insertion using the `htp-swap-s` attribute, providing flexibility in managing dynamic content integration in your web application.
