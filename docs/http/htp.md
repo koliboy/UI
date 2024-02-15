@@ -262,7 +262,58 @@ The `htp-t` attribute is employed to specify the target element where fetched co
 
 These examples showcase how `htp-t` can be utilized to define the location where fetched content should be inserted in the HTML document following an AJAX request.
 
+##  `htp-status`
 
+The `htp-status` attribute in an AJAX request specifies the expected HTTP status code for a successful response. It allows you to define the specific status code that indicates a successful response from the server. If the response status code matches the one specified in `htp-status`, the success handler (specified using `htp-s`) will be executed.
+
+#### Syntax:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-status="200"
+    htp-s="handleSuccess"
+>
+    <!-- AJAX Content -->
+</div>
+```
+
+#### Attributes:
+
+- **htp-get** or **htp-post**: Specifies the URL to which the AJAX request will be sent.
+- **htp-status**: Specifies the expected HTTP status code for a successful response.
+- **htp-s** (optional): Specifies the function to be called upon a successful response.
+
+#### Example:
+
+```html
+<div
+    htp-get="/api/data"
+    htp-status="200"
+    htp-s="handleSuccess"
+>
+    <!-- AJAX Content -->
+</div>
+<script>
+    function handleSuccess(response,status) {
+        console.log("Request successful!");
+        console.log("Response:", response);
+    }
+</script>
+```
+
+#### Explanation:
+
+- In this example, a `<div>` element is configured to make a GET request to `/api/data`.
+- The `htp-status` attribute is set to `200`, indicating that a successful response should have an HTTP status code of `200`.
+- If the response from the server has a status code of `200`, the `handleSuccess` function will be called, processing the response data.
+
+#### Notes:
+
+- Use `htp-status` to define the specific HTTP status code that indicates a successful response from the server.
+- Ensure that the specified status code aligns with the server's response behavior.
+- You can handle different status codes separately by specifying multiple `<div>` elements with different `htp-status` values and corresponding success handlers (`htp-s`).
+- 
 ##  `htp-headers`
 
 The `htp-headers` attribute in an AJAX request specifies additional HTTP headers to be included in the request sent to the server. These headers can provide various types of information, such as authentication tokens, content types, or custom headers required by the server to process the request properly.
