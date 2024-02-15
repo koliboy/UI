@@ -36,6 +36,28 @@ $htp.call(element,options);
 </div>
 ```
 
+## `$htp.call()`
+
+```javascript
+// Call the $htp function with dynamic options
+$htp.call(document.querySelector(".element"), { dynamic: "value" });
+
+// Another example with additional static options
+$htp.call(document.querySelector(".element"), { dynamic: "value" }, {
+    "htp-get": "/hello.html"
+});
+```
+
+#### Explanation:
+
+- The `$htp.call()` function is used to initiate an AJAX request.
+- In the first example, only dynamic options are provided. The dynamic options object `{ dynamic: "value" }` contains data that can be interpolated into the AJAX request. This data could be used for various purposes, such as constructing the request URL or providing query parameters.
+- In the second example, both dynamic and static options are provided. The dynamic options `{ dynamic: "value" }` remain the same, while static options are provided as a separate object. Static options include properties like `"htp-get"`, which specifies the URL for the AJAX request.
+- By providing both dynamic and static options, you can customize the AJAX request based on both fixed and variable parameters.
+- The `document.querySelector(".element")` selects the HTML element on which the AJAX request will be triggered. This element must have appropriate `htp-get` or `htp-post` attributes defined to specify the type and details of the request.
+- When the `$htp.call()` function is executed, it triggers an AJAX request based on the provided options.
+
+- 
 ## `htp-options`
 
 The `htp-options` attribute provides a comprehensive set of options for configuring AJAX requests made using the `$htp` function in JavaScript. These options allow developers to customize various aspects of the HTTP request, including request method, headers, success callback, error handling, and more.
