@@ -33,7 +33,6 @@ $htp.call(element,options);
 <div class="post"
       htp-post="/submit.php"
       htp-query='{"key":1,"id":"20"}'>
-  <!-- Form inputs and elements -->
 </div>
 ```
 
