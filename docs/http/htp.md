@@ -18,7 +18,8 @@ $htp.call(element,dynamic_options,options);
      htp-query='{"key":1,"id":"20"}'>
      Click me to fetch data
 </div>
-
+```
+```js
 <script>
  document.querySelector("div").addEventListener("click",function(){
  $htp.call(this);
