@@ -225,12 +225,20 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 
 };
 
-function $htp(scopp__$) {
+function $htp(scopp__$, optons_$) {
+
+  if (typeof optons_$ == "object") {
+    for (k__$ of Object.keys(optons_$)) {
+      this.setAttribute(k__$, optons_$[k__$]);
+    }
+  }
+
   var self__$ = this;
+
   var synk__$ = this.getAttribute("htp-sync") == "true" || undefined
   var target__$ = $qs(this.getAttribute("htp-t")) || this;
   var lder__$ = $qs(this.getAttribute("htp-ldr")) || target__$;
-  var htp_data__$ = target__$.getAttribute("htp-data") || target__$.querySelector(`[htp-data]`);
+  var htp_data__$ = target__$.getAttribute("htp-data") || target__$.querySelector(`[htp-data]`) || target__$;
   var status_r__$ = this.getAttribute("htp-status") || 200;
   var swap__$ = this.getAttribute("htp-swap") || "innerHTML"
   var swap_s__$ = this.getAttribute("htp-swap-s") || "after"
@@ -240,12 +248,17 @@ function $htp(scopp__$) {
   var download_op__$ = download__$ != null ? download__$.getAttribute("htp-type-t") || "value" : undefined;
   var upload_op__$ = upload__$ != null ? upload__$.getAttribute("htp-type-t") || "value" : undefined;
 
+
   /* upload progrss must use post reqeust*/
 
   target__$.setAttribute("htp-on", "t");
   lder__$.removeAttribute("htp-done");
   lder__$.removeAttribute("htp-fail");
+  if (lder__$ != target__$) {
+    target__$.removeAttribute("htp-done");
+    target__$.removeAttribute("htp-fail");
 
+  }
   function download_f__$(pro) {
     if (download__$ && download_op__$) {
 
@@ -289,9 +302,13 @@ function $htp(scopp__$) {
     }
   }
   function success_load__$(status, cnt) {
-    target__$.removeAttribute("htp-on")
+    target__$.removeAttribute("htp-on");
+
     if (status_r__$ == status) {
       lder__$.setAttribute("htp-done", "t");
+      if (lder__$ != target__$) {
+        target__$.setAttribute("htp-done", "t");
+      }
       if (htp_data__$) {
         $parserHTML(cnt, htp_data__$, swap__$, swap_s__$)
       }
@@ -304,14 +321,24 @@ function $htp(scopp__$) {
       }
 
     } else {
+
       lder__$.setAttribute("htp-fail", "t");
+      if (lder__$ != target__$) {
+        target__$.setAttribute("htp-fail", "t");
+      }
     }
 
     if (agent_call__$) {
       call_agent__$.call(this, status);
     }
   }
-
+  if (scopp__$) {
+    try {
+      scopp__$['self'] = self__$;
+    } catch (er__$) {
+      null
+    }
+  }
   $cntload(this, success_load__$, scopp__$, function (pr) {
     download_f__$(pr)
   }, function (pr) {
@@ -320,7 +347,7 @@ function $htp(scopp__$) {
 
 
 
-};
+};    
 
 
 !function () {
