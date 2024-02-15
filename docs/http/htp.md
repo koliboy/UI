@@ -393,3 +393,44 @@ In this example, let's say you have an external HTML file called `example.html` 
 - Any dynamic content from the fetched HTML, such as the `<h1>Heading....</h1>`, will be inserted into the document within the `<div htp-data>` tag.
 
 This example demonstrates how to fetch content from an external HTML file and adjust script behavior during insertion using the `htp-swap-s` attribute, providing flexibility in managing dynamic content integration in your web application.
+
+##  `htp-s`
+
+In this example, we'll demonstrate how to use the `htp-s` attribute to specify a callback function to handle the success of an AJAX request.
+
+#### HTML Markup:
+
+```html
+<div htp-get="/api/fetch-data" htp-s="calling">
+    <div htp-data>
+        <!-- Placeholder for fetched data -->
+    </div>
+</div>
+```
+
+#### JavaScript Callback Function:
+
+```javascript
+<script>
+    // Define the callback function to handle the success of the AJAX request
+    function calling(element, status) {
+        // `element` parameter represents the element that triggered the AJAX request
+        // `status` parameter represents the status of the AJAX request
+
+        // Your logic here to handle the success status
+        console.log("AJAX request successful!");
+        console.log("Element: ", element);
+        console.log("Status: ", status);
+    }
+</script>
+```
+
+#### Explanation:
+
+- The `<div>` element contains the `htp-get` attribute, specifying the URL `/api/fetch-data` from which data will be fetched via an AJAX request.
+- The `htp-s="calling"` attribute specifies the name of the JavaScript function `calling` to be executed upon successful completion of the AJAX request.
+- Inside the `<div>` element, there's a `<div htp-data>` element which serves as a placeholder for the fetched data.
+- The JavaScript function `calling` takes two parameters: `element` (representing the triggering element) and `status` (representing the status of the AJAX request).
+- Within the `calling` function, you can define logic to handle the successful completion of the AJAX request, such as updating the UI with the fetched data or performing additional operations based on the status.
+
+This example demonstrates how to use the `htp-s` attribute to define a callback function that executes upon successful completion of an AJAX request triggered by the `$htp` library.
