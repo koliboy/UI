@@ -434,3 +434,48 @@ In this example, we'll demonstrate how to use the `htp-s` attribute to specify a
 - Within the `calling` function, you can define logic to handle the successful completion of the AJAX request, such as updating the UI with the fetched data or performing additional operations based on the status.
 
 This example demonstrates how to use the `htp-s` attribute to define a callback function that executes upon successful completion of an AJAX request triggered by the `$htp` library.
+
+
+##  `htp-sync`
+
+In this example, we'll demonstrate how to use the `htp-sync` attribute to control the synchronization behavior of HTTP requests triggered by `$htp`.
+
+#### HTML Markup:
+
+```html
+<div class="load-more-cnt" htp-get="/load-more.php" htp-query='{"key":1,"id":"$id"}' htp-sync="true" htp-swap="append">
+    <div class="cnt" htp-data="">
+        <p data="1">first paragraph</p>
+        <p data="2">second paragraph</p>
+    </div>
+    <button>load more</button>
+</div>
+```
+
+#### JavaScript:
+
+```javascript
+<script>
+    // Event listener for the "load more" button
+    var button = document.querySelector("button");
+    button.addEventListener("click", function() {
+        // Get the last paragraph's data attribute value
+        var id = Array.from(document.querySelectorAll('p')).slice(-1)[0].getAttribute("data");
+
+        // Trigger the AJAX request with the updated id value
+        $htp.call(document.querySelector(".load-more-cnt"), {id: id});
+    });
+</script>
+```
+
+#### Explanation:
+
+- The `<div>` element with the class `load-more-cnt` contains the attributes `htp-get`, `htp-query`, `htp-sync`, and `htp-swap`. 
+- The `htp-get` attribute specifies the URL `/load-more.php` from which data will be fetched via an AJAX request.
+- The `htp-query` attribute provides the query parameters for the AJAX request, including a dynamic parameter `$id`.
+- The `htp-sync="true"` attribute indicates that subsequent HTTP requests triggered by `$htp` should wait for the current request to complete before executing. This ensures that requests are processed in order.
+- The `htp-swap="append"` attribute specifies that the fetched data will be appended to the existing content within the `.cnt` element.
+- Inside the `<div>` element, there's a `<button>` element labeled "load more", which users can click to trigger the AJAX request for more data.
+- When the button is clicked, an event listener calls a JavaScript function. This function retrieves the value of the `data` attribute from the last `<p>` element and triggers the `$htp` call with the updated id value, effectively loading more data.
+  
+This example demonstrates how to use the `htp-sync` attribute to ensure that AJAX requests triggered by `$htp` are synchronized, preventing concurrent execution and ensuring that requests are processed in the expected order.
