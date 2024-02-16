@@ -58,7 +58,44 @@ $htp.call(document.querySelector(".element"), { dynamic: "value" }, {
 - The `document.querySelector(".element")` selects the HTML element on which the AJAX request will be triggered. This element must have appropriate `htp-get` or `htp-post` attributes defined to specify the type and details of the request.
 - When the `$htp.call()` function is executed, it triggers an AJAX request based on the provided options.
 
-- 
+## `$htp Events` 
+
+$htp triggers events during various stages of the HTTP request lifecycle. These events can be useful for tracking the progress of AJAX requests and performing actions based on the state of the request. Below are the events along with their descriptions:
+
+---
+
+#### 1. `htp-load`
+
+- **Description:** This event is triggered when an AJAX request initiated by $htp starts loading data from the server.
+- **Usage:** Use this event to display a loading indicator or perform other actions indicating that data is being fetched.
+- **Example:**
+  ```javascript
+  document.querySelector(".element").addEventListener("htp-load", function() {
+      console.log("Loading...");
+  });
+  ```
+
+#### 2. `htp-loaded`
+
+- **Description:** This event is triggered when the AJAX request initiated by $htp successfully retrieves data from the server and the content is ready to be processed.
+- **Usage:** Use this event to hide the loading indicator and display the fetched content.
+- **Example:**
+  ```javascript
+  document.querySelector(".element").addEventListener("htp-loaded", function() {
+      console.log("Content loaded...");
+  });
+  ```
+
+#### 3. `htp-fail`
+
+- **Description:** This event is triggered when the AJAX request initiated by $htp fails to retrieve data from the server.
+- **Usage:** Use this event to handle errors gracefully, such as displaying an error message to the user.
+- **Example:**
+  ```javascript
+  document.querySelector(".element").addEventListener("htp-fail", function() {
+      console.error("Failed to load content.");
+  });
+  
 ## `htp-options`
 
 The `htp-options` attribute provides a comprehensive set of options for configuring AJAX requests made using the `$htp` function in JavaScript. These options allow developers to customize various aspects of the HTTP request, including request method, headers, success callback, error handling, and more.
