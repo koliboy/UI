@@ -325,7 +325,7 @@ function $htp(scopp__$, optons_$) {
   }
   function success_load__$(status, cnt) {
     target__$.removeAttribute("htp-on");
-    event_loaded__$.call(this)
+    
     if (status_r__$ == status) {
       lder__$.setAttribute("htp-done", "t");
       if (lder__$ != target__$) {
@@ -349,11 +349,13 @@ function $htp(scopp__$, optons_$) {
         target__$.setAttribute("htp-fail", "t");
       }
     }
+    
+    event_loaded__$.call(this)
 
     if (agent_call__$) {
       call_agent__$.call(this, status);
     }
-  }
+  } 
   if (scopp__$) {
     try {
       scopp__$['self'] = self__$;
