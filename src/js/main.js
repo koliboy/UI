@@ -226,7 +226,29 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 };
 
 function $htp(scopp__$, optons_$) {
-
+     var onhtp__$ = new CustomEvent('htp-load');
+     var endhtp__$ = new CustomEvent('htp-loaded');
+     var htpfiald__$ = new CustomEvent('htp-fail');
+     try {
+        this.dispatchEvent(onhtp__$)
+      } catch (er) { 
+            null
+        }
+     function event_loaded__$(){
+         try {
+        this.dispatchEvent(endhtp__$)
+      } catch (er) { 
+            null
+        }
+     }
+     function event_fail__$(){
+         try {
+        this.dispatchEvent(htpfiald__$)
+      } catch (er) { 
+            null
+        }
+     }
+  
   if (typeof optons_$ == "object") {
     for (k__$ of Object.keys(optons_$)) {
       this.setAttribute(k__$, optons_$[k__$]);
@@ -303,7 +325,7 @@ function $htp(scopp__$, optons_$) {
   }
   function success_load__$(status, cnt) {
     target__$.removeAttribute("htp-on");
-
+    event_loaded__$.call(this)
     if (status_r__$ == status) {
       lder__$.setAttribute("htp-done", "t");
       if (lder__$ != target__$) {
@@ -321,7 +343,7 @@ function $htp(scopp__$, optons_$) {
       }
 
     } else {
-
+      event_fail__$.call(this)
       lder__$.setAttribute("htp-fail", "t");
       if (lder__$ != target__$) {
         target__$.setAttribute("htp-fail", "t");
@@ -347,8 +369,7 @@ function $htp(scopp__$, optons_$) {
 
 
 
-};    
-
+}; 
 
 !function () {
     document.addEventListener("DOMContentLoaded", (event) => {
