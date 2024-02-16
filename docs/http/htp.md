@@ -95,7 +95,52 @@ $htp triggers events during various stages of the HTTP request lifecycle. These 
   document.querySelector(".element").addEventListener("htp-fail", function() {
       console.error("Failed to load content.");
   });
-  
+
+
+## `dynamically Events`
+
+The provided CSS code dynamically adjusts the appearance of elements based on the presence of certain attributes (htp-on, htp-fail, htp-done) to reflect the state of an AJAX request managed by $htp. Here's a breakdown of what each part does:
+
+1. **Display Loading Indicator during Loading**:
+   ```css
+   .target[htp-on] {
+       /* Style for when loading */
+   }
+   ```
+   - This rule applies styles to elements with the class `.target` when the `htp-on` attribute is present, indicating that an AJAX request is in progress.
+
+2. **Hide Dynamic Content and Error Message by Default**:
+   ```css
+   .target[htp-on] .dynamic,
+   .target[htp-fail] .dynamic {
+       display: none;
+   }
+   .page-error {
+       display: none;
+   }
+   ```
+   - This rule hides elements with the class `.dynamic` when either the `htp-on` or `htp-fail` attributes are present, as well as hiding the `.page-error` element by default.
+
+3. **Display Error Message if Loading Fails**:
+   ```css
+   .target[htp-fail] .page-error {
+       display: block;
+   }
+   ```
+   - This rule displays the error message element (`.page-error`) when the `htp-fail` attribute is present, indicating that the AJAX request has failed.
+
+4. **Hide Loading Indicator when Loading is Done or Fails**:
+   ```css
+   .target[htp-done] .loading, 
+   .target[htp-fail] .loading {
+       display: none;
+   }
+   ```
+   - This rule hides the loading indicator element (`.loading`) when either the `htp-done` or `htp-fail` attributes are present, indicating that the AJAX request has either successfully completed or failed.
+
+Overall, these CSS rules provide a way to dynamically adjust the appearance of elements based on the state of an AJAX request, ensuring a better user experience by showing loading indicators and error messages appropriately.
+
+
 ## `htp-options`
 
 The `htp-options` attribute provides a comprehensive set of options for configuring AJAX requests made using the `$htp` function in JavaScript. These options allow developers to customize various aspects of the HTTP request, including request method, headers, success callback, error handling, and more.
