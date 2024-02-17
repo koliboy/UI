@@ -20,9 +20,30 @@ The bindEvent variable facilitates the selection of elements within the document
 
 Here's a comprehensive documentation for all the custom scroll events (`endscroll`, `endscroll-x`, `topscroll`, `scrolltop`, `topscroll-x`, `scroll-x-top`) with examples:
 
-## Custom Scroll Events Documentation
+## b-hold 
 
-Custom scroll events provide a way to trigger actions based on scrolling behavior within HTML elements. This documentation outlines six custom scroll events along with their usage and examples.
+The `b-hold` attribute is a custom attribute used to specify a threshold value for triggering scroll events on HTML elements. It provides control over when a particular scroll event should be activated based on the remaining scrollable distance within the element.
+
+### Usage
+
+The `b-hold` attribute is typically used alongside custom scroll events (`b-event`) to determine the threshold for triggering those events.
+
+```html
+<div class="example" b-event="endscroll" style="height: 300px; overflow: auto;" b-hold="50">
+    <h1>End scroll Event</h1>
+</div>
+```
+
+In this example, the `b-hold` attribute is set to `50`, indicating that the "endscroll" event will be triggered when the remaining scrollable distance within the element is 50 pixels or less.
+
+### Example
+
+```html
+<div class="example" b-event="endscroll" style="height: 300px; overflow: auto;" b-hold="0">
+    <h1>End scroll Event</h1>
+</div>
+```
+
 
 ### `endscroll`
 
@@ -155,5 +176,3 @@ Similar to `scrolltop`, but for horizontal scrolling. Dispatched when the scroll
     });
 </script>
 ```
-
-These examples demonstrate how to use each custom scroll event in HTML elements and how to handle them in JavaScript.
