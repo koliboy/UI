@@ -253,3 +253,62 @@ In this code:
 - You can add additional logic inside the event listener to perform actions based on the scroll position or other properties of the bounding rectangle.
 
 Please note that this code assumes the presence of a function `event.getRect()` that correctly returns the bounding rectangle information. If such a function is not available, you'll need to implement it or use an alternative method to obtain the bounding rectangle information.
+
+
+##  `scrolling-react`
+
+The `b-event-rect` attribute is a custom attribute used to specify the type of scroll event that should be triggered on a child element when its parent element scrolls. This attribute facilitates the creation of scroll-based interactions for child elements based on the scrolling activity of their parent elements.
+
+#### Purpose
+
+The primary purpose of the `b-event-rect` attribute is to define how a child element should react to the scroll behavior of its parent element. By specifying the type of scroll event, developers can trigger animations, effects, or other actions on the child element in response to the parent's scroll position.
+
+#### Usage
+
+The `b-event-rect` attribute is applied to child elements within a parent element that has the `rect-parent` attribute. It indicates the type of scroll event that should be triggered on the child element when the parent element scrolls.
+
+```html
+<div class="parent-element" b-event="rect-parent" style="height: 300px; overflow: auto;">
+    <div class="child-element" b-event-rect="scroll">
+        <!-- Child content here -->
+    </div>
+</div>
+```
+
+In this example, the `.child-element` has the `b-event-rect="scroll"` attribute, indicating that a scroll event should be triggered on this element when its parent element (`.parent-element`) scrolls.
+
+#### Example
+
+```html
+<div class="parent-element" b-event="rect-parent" style="height: 300px; overflow: auto;">
+    <div class="child-element" b-event-rect="scroll">
+        <!-- Child content here -->
+    </div>
+</div>
+```
+
+In this example, when the `.parent-element` is scrolled, a scroll event will be triggered on the `.child-element` due to the presence of the `b-event-rect="scroll"` attribute.
+
+#### JavaScript Usage
+
+To handle the scroll event triggered by the `b-event-rect` attribute in JavaScript, you can use `addEventListener` as follows:
+
+```javascript
+document.querySelector(".child-element").addEventListener("scroll-rect", function(event) {
+    // Your event handling logic here
+    console.log("Scroll event triggered on child-element:", event);
+});
+```
+
+This code snippet attaches an event listener to the `.child-element` to handle the `scroll-rect` event, which is triggered when the parent element scrolls.
+
+#### Notes
+
+- The `b-event-rect` attribute provides flexibility in defining scroll-based interactions for child elements.
+- It allows developers to create dynamic and responsive effects based on the scroll behavior of the parent element.
+
+#### Compatibility
+
+The `b-event-rect` attribute is custom and may not be recognized by all browsers. Its functionality is typically implemented using JavaScript event listeners and calculations.
+
+---
