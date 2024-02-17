@@ -176,3 +176,80 @@ Similar to `scrolltop`, but for horizontal scrolling. Dispatched when the scroll
     });
 </script>
 ```
+
+### `rect-parent`
+
+The `rect-parent` attribute is a custom attribute used to specify that a parent element is responsible for triggering scroll events on its child elements. This attribute facilitates the creation of scroll-based interactions where child elements react to the scroll behavior of their parent.
+
+#### Purpose
+
+The main purpose of the `rect-parent` attribute is to establish a relationship between a parent element and its child elements for scroll event handling. When applied to a parent element, it allows developers to define how child elements should behave or change based on the parent's scroll position.
+
+#### Usage
+
+The `rect-parent` attribute is applied to the parent element to indicate that it will be responsible for triggering scroll events on its child elements.
+
+```html
+<div class="parent-element" b-event="rect-parent" style="height: 300px; overflow: auto;">
+    <div class="child-element" b-event-rect="scroll">
+        <!-- Child content here -->
+    </div>
+</div>
+```
+### Example
+
+
+```html
+<div class="parent-element" b-event="rect-parent" style="height: 300px; overflow: auto;">
+    <div class="child">
+        Child
+    </div>
+    <div class="child my-react" b-event-rect="scroll">
+        <!-- Scroll react -->
+        This reacts when scrolling parent-element
+    </div>
+    <div class="child">
+        Child
+    </div>
+    <div class="child">
+        Child
+    </div>
+    <div class="child">
+        Child
+    </div>
+    <div class="child">
+        Child
+    </div>
+    <div class="child">
+        Child
+    </div>
+</div>
+
+<script>
+    document.querySelector(".my-react").addEventListener("scroll-rect", function(event) {
+        // Access the bounding rectangle information using event.getRect()
+        var getRect = event.getRect();
+        
+        // Example: Set the width of the element based on the percentage of its top position
+        this.style.width = getRect.percenTop + "%";
+
+        /*or
+        if(getRect.percenTop > 50){
+            // Do something
+        }
+        */
+
+        // Log the bounding rectangle information to the console
+        console.log(getRect);
+    });
+</script>
+```
+
+In this code:
+
+- The `scroll-rect` event listener is attached to the `.my-react` element.
+- Inside the event listener, `event.getRect()` is used to obtain the bounding rectangle information of the element.
+- The `width` of the `.my-react` element is adjusted based on the percentage of its top position.
+- You can add additional logic inside the event listener to perform actions based on the scroll position or other properties of the bounding rectangle.
+
+Please note that this code assumes the presence of a function `event.getRect()` that correctly returns the bounding rectangle information. If such a function is not available, you'll need to implement it or use an alternative method to obtain the bounding rectangle information.
