@@ -1,5 +1,5 @@
 # bindEvent
-The bindEvent variable facilitates the selection of elements within the document that possess specific scroll-related attributes. It is responsible for establishing event listeners tailored to the behavior of these elements, enabling the binding of custom scroll events.
+The bindEvent variable facilitates the selection of elements within the document that possess specific scroll-related attributes. It is responsible for establishing event listeners tailored to the behavior of these elements, enabling the binding of custom  events.
 
 ### Usage
 
