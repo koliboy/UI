@@ -16,7 +16,7 @@ The bindEvent variable facilitates the selection of elements within the document
 - **topscroll-x**: Triggered when the scrolling behavior of an element reaches a specific threshold towards the left (horizontal scrolling).
 - **scroll-x-top**: Triggered when the scrolling behavior of an element reaches a specific threshold towards the right (horizontal scrolling).
 - **rect-parent**: Triggered when the parent element of a specified child element scrolls.
-- **b-event-rect**: The b-event-rect attribute is applied to child elements within a scrollable parent element to define the type of scroll event that should be triggered on the child element when its parent scrolls.
+
 
 Here's a comprehensive documentation for all the custom scroll events (`endscroll`, `endscroll-x`, `topscroll`, `scrolltop`, `topscroll-x`, `scroll-x-top`) with examples:
 
