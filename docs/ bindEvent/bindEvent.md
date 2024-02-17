@@ -229,7 +229,7 @@ The `rect-parent` attribute is applied to the parent element to indicate that it
     document.querySelector(".my-react").addEventListener("scroll-rect", function(event) {
         // Access the bounding rectangle information using event.getRect()
         var getRect = event.getRect();
-        
+        //// getRect, top bottom,left,right,percenTop ,percenBottom,percenLeft,percenRight
         // Example: Set the width of the element based on the percentage of its top position
         this.style.width = getRect.percenTop + "%";
 
