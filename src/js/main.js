@@ -411,3 +411,60 @@ function $d_pinchZoom() { /*mobile only*/
         }, { passive: false });
     }
 };
+
+function $reactFrom(from, to) {
+
+    var parent = from.getBoundingClientRect();
+    var child = to.getBoundingClientRect();
+
+    var createReact = {
+        top: (child.top - parent.top),
+        bottom: (parent.bottom - child.bottom),
+        left: (child.left - parent.left),
+        right: (parent.right - child.right),
+        x: (child.left - parent.left),
+        y: (child.top - parent.top)
+    }
+
+    var top_p = ((child.top - parent.top) / parent.height) * 100;
+    var bottom_p = ((parent.bottom - child.bottom) / parent.height) * 100;
+    var left_p = ((child.left - parent.left) / parent.width) * 100;
+    var right_p = ((parent.right - child.right) / parent.width) * 100;
+    function pr_min_max() {
+        return Math.min(100, Math.max(0, this));
+    }
+    createReact.percenTop = pr_min_max.call(top_p);
+    createReact.percenBottom = pr_min_max.call(bottom_p)
+    createReact.percenLeft = pr_min_max.call(left_p)
+    createReact.percenRight = pr_min_max.call(right_p)
+
+    return createReact
+}
+function $isVisible(to, from = window) {
+    var rect = to.getBoundingClientRect();
+    var windowHeight = (from.innerHeight || from.clientHeight);
+    var windowWidth = (from.innerWidth || from.clientWidth);
+
+    if (from != window) {
+        var rect2 = $reactFrom(from, to);
+        return rect2.top > 0 && rect2.bottom > 0 && rect2.left > 0 && rect2.right > 0
+    } else {
+        return rect.top < windowHeight && rect.bottom > 0 && rect.left < windowWidth && rect.right > 0
+    }
+
+
+
+
+
+}
+function $Visibility(from, to) {
+    document.addEventListener("DOMContentLoaded", function () {
+        var rect = $reactFrom(from, to);
+        var Visible_now = new CustomEvent('visible-now');
+        if (!$isVisible(to, from)) {
+            from.scroll({ top: rect.top, left: rect.left, behavior: "smooth", });
+            to.dispatchEvent(Visible_now)
+        }
+    });
+
+}     
