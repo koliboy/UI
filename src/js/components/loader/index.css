@@ -34,7 +34,7 @@
     width: calc(var(--font-size) + calc(var(--font-size) * 0.40));
     height: calc(var(--font-size) + calc(var(--font-size) * 0.40));
     animation: spinner 2s linear infinite;
-    fill: var(--color-primary);
+    fill: var(--color-primary-container);
 }
 
 [loader="spinner"] [inline] {
@@ -43,7 +43,7 @@
     min-height: calc(var(--font-size) * 0.70);
     background: none;
     border-radius: 50%;
-    border: calc(var(--font-size) * 0.20) solid var(--color-primary);
+    border: calc(var(--font-size) * 0.20) solid var(--color-primary-container);
     /* Circle border color */
     border-top: calc(var(--font-size) * 0.20) solid transparent;
     /* Make the top transparent to create a loading effect */
@@ -64,7 +64,7 @@
 [loader="inline"] [inline] {
     width: 100%;
     height: 100%;
-    background: var(--color-primary);
+    background: var(--color-primary-container);
     border-radius: 35px;
     overflow: hidden;
     display: block;
