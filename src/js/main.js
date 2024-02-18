@@ -327,14 +327,14 @@ function $htp(scopp__$, optons_$) {
     target__$.removeAttribute("htp-on");
     
     if (status_r__$ == status) {
-      lder__$.setAttribute("htp-done", "t");
+      
       if (lder__$ != target__$) {
         target__$.setAttribute("htp-done", "t");
       }
       if (htp_data__$) {
         $parserHTML(cnt, htp_data__$, swap__$, swap_s__$)
       }
-
+      lder__$.setAttribute("htp-done", "t");
 
 
       if (!synk__$) {
