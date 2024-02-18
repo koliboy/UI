@@ -133,16 +133,6 @@ The `htp-load` attribute is an extension of the $htp library that allows you to 
     </div>
 </div>
 
-<!-- JavaScript for handling htp-load events -->
-<script>
-    document.querySelector(".content").addEventListener("htp-load", function() {
-        console.log("Loading content...");
-    });
-
-    document.querySelector(".content").addEventListener("htp-loaded", function() {
-        console.log("Content loaded.");
-    });
-</script>
 </body>
 </html>
 
