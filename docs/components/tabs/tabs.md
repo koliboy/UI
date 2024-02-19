@@ -76,9 +76,9 @@ Tabs can be customized and configured using various options to suit different de
 ```html
 <!-- HTML -->
 <div class="flex gap-l-f padding-cnt tabs" tabs-url="hash">
-    <a href="#home" tab-t=".photos" tab-d class="button tab">Photos</a>
-    <a href="#music" tab-t=".music" class="button tab">Music</a>
-    <a href="#setting" tab-t=".video" class="button tab">Videos</a>
+    <a href="#photos" tab-t=".photos"     tab-d class="button tab">Photos</a>
+    <a href="#musics" tab-t=".music"     class="button tab">Musics</a>
+    <a href="#videos" tab-t=".video"  class="button tab">Videos</a>
 </div>
 
 <div class="photos gallery h1 gap-l">
