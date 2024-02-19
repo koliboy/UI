@@ -51,29 +51,22 @@ Tabs can be customized and configured using various options to suit different de
 - **Description**: Indicates the default or initially opened tab.
 - **Usage**: Add `tab-d` attribute to the tab element to set it as the default tab.
 
-### 3. `tabs-ui` (Tabs User Interface)
-- **Description**: Allows customization of the tabs' appearance and behavior.
-- **Values**:
-  - `unset`: Removes the default UI styles for tabs, enabling custom styling.
-  - `default`: Retains the default UI styles for tabs.
-- **Usage**: Add `tabs-ui` attribute to the tabs container and set its value accordingly.
-
-### 4. `tabs-url` (Tabs URL Pattern)
+### 3. `tabs-url` (Tabs URL Pattern)
 - **Description**: Enables linking tabs to specific URLs using hash fragments.
 - **Values**:
   - `hash`: Activates URL pattern matching using hash fragments.
   - `unset`: Disables URL pattern matching.
 - **Usage**: Add `tabs-url` attribute to the tabs container and set its value accordingly.
 
-### 5. `tab-f-t` (Tab Focus Target)
+### 4. `tab-f-t` (Tab Focus Target)
 - **Description**: Specifies the target element within a scrollable container to focus when the tab is clicked.
 - **Usage**: Add `tab-f-t` attribute to the tab element and specify the CSS selector of the focus target element.
 
-### 6. `tab-label` (Tab Label)
+### 5. `tab-label` (Tab Label)
 - **Description**: Provides a custom label for the tab, useful for identifying tabs programmatically.
 - **Usage**: Add `tab-label` attribute to the tab element and specify the desired label as its value.
 
-### 7. `tab-change` (Tab Change Event)
+### 6. `tab-change` (Tab Change Event)
 - **Description**: Triggers an event when the tab is changed or clicked.
 - **Usage**: Attach an event listener to the tabs container for the `change` event.
 
@@ -128,24 +121,25 @@ Tabs can be customized and configured using various options to suit different de
 </div>
 ```
 
-### 4. `Unset UI or Customize`
+### 4. `Customize`
 ```html
 <!-- HTML -->
-<div class="tabs" tabs-ui="unset">
-    <div tab-t=".target-el" tab-d class="tab my-tabs">Home</div>
-    <div tab-t=".target-el" class="tab my-tabs">About</div>
+<div class="tabs customize">
+  <div tab-t=".target-el" tab-d class=" tab my-tabs"> Home</div>
+  <div tab-t=".target-el" class="tab my-tabs">About</div>
 </div>
 ```
 ```css
 /* CSS */
 <style>
-    .my-tabs {
-        background: gray;
-    }
+   .customize .my-tabs {
+    background: gray;
 
-    .my-tabs[tab-active] {
-        background: green;
-    }
+  }
+
+  .customize .my-tabs[tab-active] {
+    background: green;
+  }
 </style>
 ```
 
