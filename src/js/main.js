@@ -461,10 +461,11 @@ function $Visibility(from, to) {
     document.addEventListener("DOMContentLoaded", function () {
         var rect = $reactFrom(from, to);
         var Visible_now = new CustomEvent('visible-now');
-        if (!$isVisible(to, from)) {
-            from.scroll({ top: rect.top, left: rect.left, behavior: "smooth", });
-            to.dispatchEvent(Visible_now)
-        }
+         var top = rect.top+from.scrollTop 
+        var left = rect.left+from.scrollLeft;
+        from.scroll({ top: top, left:left, behavior: "smooth", });
+        to.dispatchEvent(Visible_now)
+      
     });
 
 }     
