@@ -57,10 +57,9 @@
                 });
 
                 if (e.getAttribute("tabs-url") == "hash") {
-                    window.addEventListener('hashchange', function () {
-                        var match = e.querySelector(`[href="${window.location.hash}"]`);
+                       var match = e.querySelector(`[href="${window.location.hash}"]`);
                         match != null ? active.call(e, match) : null;
-                    });
+                   
                 }
             }
         });
