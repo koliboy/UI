@@ -38,6 +38,47 @@ Tabs are a common UI pattern used to organize and present content in a structure
 </style>
 ```
 
+
+## `Tabs Options`
+
+Tabs can be customized and configured using various options to suit different design requirements and functionalities. Here are the available options:
+
+### 1. `tab-t` (Tab Target)
+- **Description**: Specifies the target element or content associated with the tab.
+- **Usage**: Add `tab-t` attribute to the tab element and specify the CSS selector of the target element as its value.
+
+### 2. `tab-d` (Default Tab)
+- **Description**: Indicates the default or initially opened tab.
+- **Usage**: Add `tab-d` attribute to the tab element to set it as the default tab.
+
+### 3. `tabs-ui` (Tabs User Interface)
+- **Description**: Allows customization of the tabs' appearance and behavior.
+- **Values**:
+  - `unset`: Removes the default UI styles for tabs, enabling custom styling.
+  - `default`: Retains the default UI styles for tabs.
+- **Usage**: Add `tabs-ui` attribute to the tabs container and set its value accordingly.
+
+### 4. `tabs-url` (Tabs URL Pattern)
+- **Description**: Enables linking tabs to specific URLs using hash fragments.
+- **Values**:
+  - `hash`: Activates URL pattern matching using hash fragments.
+  - `unset`: Disables URL pattern matching.
+- **Usage**: Add `tabs-url` attribute to the tabs container and set its value accordingly.
+
+### 5. `tab-f-t` (Tab Focus Target)
+- **Description**: Specifies the target element within a scrollable container to focus when the tab is clicked.
+- **Usage**: Add `tab-f-t` attribute to the tab element and specify the CSS selector of the focus target element.
+
+### 6. `tab-label` (Tab Label)
+- **Description**: Provides a custom label for the tab, useful for identifying tabs programmatically.
+- **Usage**: Add `tab-label` attribute to the tab element and specify the desired label as its value.
+
+### 7. `tab-change` (Tab Change Event)
+- **Description**: Triggers an event when the tab is changed or clicked.
+- **Usage**: Attach an event listener to the tabs container for the `change` event.
+
+
+
 ### 2. `URL Pattern Example`
 ```html
 <!-- HTML -->
