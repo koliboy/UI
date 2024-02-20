@@ -78,6 +78,10 @@ Tabs can be customized and configured using various options to suit different de
 - **Description**: Automatically updates the active tab button when scrolling to a specific section within a scrollable container.
 - **Usage**: Add the `scrollspy` attribute to the tabs container and specify the CSS selector of the scrollable container.
 
+### 9. `self-spy` (Self Scroll Spy)
+- **Description**: Specifies the element itself as the target for scroll spy functionality.
+- **Usage**: Add the `self-spy` attribute to the tabs container, indicating that the scroll spy functionality should be applied to the container itself.
+
 
 ### 2. `URL Pattern Example`
 ```html
