@@ -72,8 +72,12 @@ Tabs can be customized and configured using various options to suit different de
 
 ### 7. `tab-spy` (Tab Scroll Spy)
 - **Description**: Automatically highlights the active tab based on the scroll position within a container.
-- **Usage**: Add `tab-spy` attribute to the tabs container and specify the CSS selector of the scrollable container.
-- 
+- **Usage**: Add the `tab-spy` attribute to the tabs container and specify the CSS selector of the scrollable container.
+
+### 8. `scrollspy` (Scrollspy)
+- **Description**: Automatically updates the active tab button when scrolling to a specific section within a scrollable container.
+- **Usage**: Add the `scrollspy` attribute to the tabs container and specify the CSS selector of the scrollable container.
+
 
 ### 2. `URL Pattern Example`
 ```html
