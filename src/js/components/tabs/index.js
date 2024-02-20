@@ -9,6 +9,18 @@
     function active(btn, foused = true) {
         btn.setAttribute("tab-active", "t");
         var t = $qs(btn.getAttribute("tab-t")) || undefined
+        var isspy = $qs(this.getAttribute("tab-spy")) || undefined
+        if (isspy) {
+            t = isspy
+        }
+        if (!foused) {
+            var self_spy = this.getAttribute("self-spy");
+            var self_f = self_spy == "self" ? this : $qs(self_spy);
+            if (self_f) {
+                foucs(self_f, btn);
+            }
+
+        }
         if (t) {
             t.setAttribute("tab-active", "t");
             var focus = btn.getAttribute("tab-f-t");
