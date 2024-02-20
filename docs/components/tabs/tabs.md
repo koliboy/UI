@@ -130,7 +130,7 @@ Tabs can be customized and configured using various options to suit different de
 ```
 ### 4. `Scrollspy`
 ```html
-<div class="flex gap-l-f padding-cnt tabs" tab-spy=".focus" scrollspy=".foucs">       
+<div class="flex gap-l-f padding-cnt tabs" tab-spy=".focus" scrollspy=".focus">       
     <button tab-f-t=".a" tab-d class="button tab">A</button>
     <button tab-f-t=".b" class="button tab">B</button>
     <button tab-f-t=".c" class="button tab">C</button>
