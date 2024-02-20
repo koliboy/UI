@@ -107,17 +107,22 @@ Tabs can be customized and configured using various options to suit different de
 
 ### 3. `Tab by Scroll to Element Focus`
 ```html
-<!-- HTML -->
-<div class="flex gap-l-f padding-cnt tabs">
-    <button tab-t=".focus" tab-f-t=".a" tab-d class="button tab">A</button>
-    <button tab-t=".focus" tab-f-t=".b" class="button tab">B</button>
-    <button tab-t=".focus" tab-f-t=".c" class="button tab">C</button>
+<div class="flex gap-l-f padding-cnt tabs" tab-spy=".focus">       
+    <button tab-f-t=".a" tab-d class="button tab">A</button>
+    <button tab-f-t=".b" class="button tab">B</button>
+    <button tab-f-t=".c" class="button tab">C</button>
 </div>
 
-<div class="focus border g g-gap" style="height: 300px; overflow: auto;">
-    <div class="a" style="height: 400px">AAAAAA</div>
-    <div class="b" style="height: 400px;">BBBBB</div>
-    <div class="c" style="height: 400px;">CCCCC</div>
+<div class="focus border g g-gap " style="height:300px;overflow:auto;">
+    <div class="a" style="height:400px">
+        AAAAAA
+    </div>
+    <div class="b" style="height:400px;">
+        BBBBB
+    </div>
+    <div class="c" style="height:400px;">
+        CCCCC
+    </div>
 </div>
 ```
 
