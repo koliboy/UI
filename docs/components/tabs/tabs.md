@@ -152,6 +152,22 @@ Tabs can be customized and configured using various options to suit different de
     </div>
 </div>
 ```
+### `self-spy`
+```html
+<div class="g g-gap gap-l-f padding-cnt tabs" self-spy="self" tab-spy=".focus" scrollspy=".focus" style="height:100px;overflow:auto;">       
+    <button tab-f-t=".a" tab-d class="button tab">A</button>
+    <button tab-f-t=".b" class="button tab">B</button>
+    <button tab-f-t=".c" class="button tab">C</button>
+</div>
+```
+```html
+<div class="g g-gap gap-l-f padding-cnt tabs" self-spy=".parent-target" tab-spy=".focus" scrollspy=".focus" style="height:100px;overflow:auto;">       
+    <button tab-f-t=".a" tab-d class="button tab">A</button>
+    <button tab-f-t=".b" class="button tab">B</button>
+    <button tab-f-t=".c" class="button tab">C</button>
+</div>
+```
+
 ### 5. `Customize`
 ```html
 <!-- HTML -->
