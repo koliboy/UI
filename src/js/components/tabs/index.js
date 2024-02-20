@@ -6,13 +6,13 @@
         from.scroll({ top: top, left: left, behavior: "smooth", });
 
     }
-    function active(btn) {
+    function active(btn, foused = true) {
         btn.setAttribute("tab-active", "t");
         var t = $qs(btn.getAttribute("tab-t")) || undefined
         if (t) {
             t.setAttribute("tab-active", "t");
             var focus = btn.getAttribute("tab-f-t");
-            if (focus) {
+            if (focus && foused) {
                 foucs(t, t.querySelector(focus));
             }
         }
@@ -57,10 +57,38 @@
                 });
 
                 if (e.getAttribute("tabs-url") == "hash") {
-                       var match = e.querySelector(`[href="${window.location.hash}"]`);
-                        match != null ? active.call(e, match) : null;
-                   
+                    //window.addEventListener('hashchange',function(){
+                    var match = e.querySelector(`[href="${window.location.hash}"]`);
+                    match != null ? active.call(e, match) : null;
+                    //});
                 }
+                var scrollspy = $qs(e.getAttribute("scrollspy"));
+                if (scrollspy) {
+                    scrollspy.addEventListener("scroll", function () {
+                        var tf = e.querySelectorAll(".tab[tab-f-t]");
+                        var t_f = Array.from(tf).map((g) => g.getAttribute("tab-f-t"));
+
+
+                        for (sp of t_f) {
+                            var s = scrollspy.querySelector(sp);
+                            var saw = scrollspy.getBoundingClientRect().height
+                            if (s) {
+                                if ($reactFrom(scrollspy, s).bottom < saw) {
+                                    var btn2 = e.querySelector(`[tab-f-t="${sp}"]`);
+                                    if (btn2) {
+                                        active.call(e, btn2, false);
+                                        break;
+                                    }
+
+                                }
+                            }
+
+                        }
+
+
+                    })
+                }
+
             }
         });
     });
