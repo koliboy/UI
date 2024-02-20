@@ -128,8 +128,27 @@ Tabs can be customized and configured using various options to suit different de
     </div>
 </div>
 ```
+### 4. `Scrollspy`
+```html
+<div class="flex gap-l-f padding-cnt tabs" tab-spy=".focus" scrollspy=".foucs">       
+    <button tab-f-t=".a" tab-d class="button tab">A</button>
+    <button tab-f-t=".b" class="button tab">B</button>
+    <button tab-f-t=".c" class="button tab">C</button>
+</div>
 
-### 4. `Customize`
+<div class="focus border g g-gap " style="height:300px;overflow:auto;">
+    <div class="a" style="height:400px">
+        AAAAAA
+    </div>
+    <div class="b" style="height:400px;">
+        BBBBB
+    </div>
+    <div class="c" style="height:400px;">
+        CCCCC
+    </div>
+</div>
+```
+### 5. `Customize`
 ```html
 <!-- HTML -->
 <div class="tabs customize">
@@ -151,7 +170,7 @@ Tabs can be customized and configured using various options to suit different de
 </style>
 ```
 
-### 5. `Event Handling`
+### 6. `Event Handling`
 ```html
 <!-- HTML -->
 <div class="event-test flex gap-l-f padding-cnt tabs">
