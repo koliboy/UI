@@ -70,7 +70,10 @@ Tabs can be customized and configured using various options to suit different de
 - **Description**: Triggers an event when the tab is changed or clicked.
 - **Usage**: Attach an event listener to the tabs container for the `change` event.
 
-
+### 7. `tab-spy` (Tab Scroll Spy)
+- **Description**: Automatically highlights the active tab based on the scroll position within a container.
+- **Usage**: Add `tab-spy` attribute to the tabs container and specify the CSS selector of the scrollable container.
+- 
 
 ### 2. `URL Pattern Example`
 ```html
