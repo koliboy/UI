@@ -20,6 +20,7 @@ To use the collapsible component, follow these steps:
    - `collapse="toggle"`: Defines the collapsible behavior.
    - `.collapse-h`: Class for the header of the collapsible section.
    - `.collapse-d`: Class for the content of the collapsible section.
+   - `cl-expand`: default expand.
 
 3. **Optional Features**:
    - **"Show More" Button**: You can include a "show more" button to expand the content section.
@@ -50,6 +51,25 @@ The component can be customized using CSS to match your website's design. Here's
     </div>
 </div>
 ```
+## default expand
+```html
+
+<div collapse="expand" cl-expand c-expand-label="Show more" c-less-label="Less">
+    <div class="collapse-d less">
+        <!-- Content -->
+    </div>
+</div>
+```
+```html
+ <div class="gap-t-l  w-100" cl-expand  collapse="toggle"> 
+         <div  class="collapse-h">What are the top products in the  [category] market right now?</div>
+              <div class="collapse-d">
+             The Ai market is filled with a wide range of products, but a few stand out as the top choices among consumers
+              </div>
+         </div>
+```
+
+
 ## Events
 ```js
 // Get the collapsible component element
