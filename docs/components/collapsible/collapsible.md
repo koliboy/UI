@@ -61,10 +61,10 @@ The component can be customized using CSS to match your website's design. Here's
 </div>
 ```
 ```html
- <div class="gap-t-l  w-100" cl-expand  collapse="toggle"> 
+ <div  cl-expand  collapse="toggle"> 
          <div  class="collapse-h">What are the top products in the  [category] market right now?</div>
               <div class="collapse-d">
-             The Ai market is filled with a wide range of products, but a few stand out as the top choices among consumers
+             The [category] market is filled with a wide range of products, but a few stand out as the top choices among consumers
               </div>
          </div>
 ```
