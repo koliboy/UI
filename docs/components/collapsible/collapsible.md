@@ -53,7 +53,7 @@ The component can be customized using CSS to match your website's design. Here's
 ## Events
 ```js
 // Get the collapsible component element
-var collapsible = document.querySelector('[collapse="expand"]');
+var collapsible = document.querySelector('[collapse]');
 
 // Add event listener for the "expand" event
 collapsible.addEventListener("expand", function() {
