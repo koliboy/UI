@@ -49,7 +49,8 @@
 </svg>
                   </div>`
                     head.addEventListener("click", function () {
-                        if (e.getAttribute("cl-expand")) {
+                        if (e.getAttribute("cl-expand") != null) {
+
                             less.call(e)
                         } else {
                             expand.call(e)
@@ -69,7 +70,7 @@
 
 
                     expandbtn.addEventListener("click", function () {
-                        if (e.getAttribute("cl-expand")) {
+                        if (e.getAttribute("cl-expand") != null) {
                             this.textContent = labe_ex
                             less.call(e, true);
                         } else {
