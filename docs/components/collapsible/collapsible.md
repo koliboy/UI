@@ -50,6 +50,24 @@ The component can be customized using CSS to match your website's design. Here's
     </div>
 </div>
 ```
+## Events
+```js
+// Get the collapsible component element
+var collapsible = document.querySelector('[collapse="expand"]');
+
+// Add event listener for the "expand" event
+collapsible.addEventListener("expand", function() {
+    // Your expand event handler logic here
+    console.log("Content expanded");
+});
+
+// Add event listener for the "less" event
+collapsible.addEventListener("less", function() {
+    // Your less event handler logic here
+    console.log("Content collapsed");
+});
+
+```
 
 ## Customization
 
