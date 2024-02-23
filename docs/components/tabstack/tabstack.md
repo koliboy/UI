@@ -1,10 +1,10 @@
-## Setting Layout Component
+## Tabstack
 
-The Setting Layout component provides a structured interface for managing various settings within an application. It organizes settings into tabs, allowing users to navigate between different sections such as account details, billing information, and authentication settings. This documentation outlines the structure, options, and examples for implementing the Setting Layout component.
+The Tabstack component provides a structured interface for managing various settings within an application. It organizes settings into tabs, allowing users to navigate between different sections such as account details, billing information, and authentication settings. This documentation outlines the structure, options, and examples for implementing the Tabstack component.
 
 ### Structure
 
-The Setting Layout component consists of two main sections: the navigation tabs and the content sections.
+The Tabstack component consists of two main sections: the navigation tabs and the content sections.
 
 #### Navigation Tabs
 
@@ -23,7 +23,7 @@ The content sections contain the actual settings and information related to each
 
 ### Options
 
-The Setting Layout component supports various options for customization and functionality. These options can be applied to both the navigation tabs and the content sections.
+The Tabstack component supports various options for customization and functionality. These options can be applied to both the navigation tabs and the content sections.
 
 #### Navigation Tab Options
 
@@ -41,9 +41,9 @@ The Setting Layout component supports various options for customization and func
 #### Basic Setting Layout
 
 ```html
-<div class="settings">
+<div class="tabstack">
     <!-- Navigation Tabs -->
-    <div class="tabs setting" nav-tb="sidebar">
+    <div class="tabs tabstack-gp" nav-tb="sidebar">
         <div class="h5 padding-cnt bold">Accounts Center</div>
         <button tab-t=".account" tab-d class="button tab">
             <div>Your Account</div>
@@ -84,10 +84,10 @@ This example demonstrates a basic Setting Layout component with three tabs: "You
 ## Grouping Child Settings
 
 ```html
-<div class="settings">
+<div class="tabstack">
 
     <!-- Tabs for navigation -->
-    <div class="tabs setting" nav-tb="sidebar">
+    <div class="tabs tabstack-gp" nav-tb="sidebar">
         <div class="h5 padding-cnt bold">Accounts Center</div>
         <button tab-t=".account" tab-d class="button tab">
             <div>Your Account</div>
@@ -105,7 +105,7 @@ This example demonstrates a basic Setting Layout component with three tabs: "You
                 <p>See information about your account, download an archive of your data, or learn about your account deactivation options.</p>
                 
                 <!-- Sub-tabs for account settings -->
-                <div class="tabs setting">
+                <div class="tabs tabstack-gp">
                     <button tab-t=".personal-info" class="button tab">Personal Information</button>
                     <button tab-t=".security" class="button tab">Security</button>
                     <button tab-t=".notifications" class="button tab">Notifications</button>
