@@ -81,6 +81,70 @@ The Setting Layout component supports various options for customization and func
 
 This example demonstrates a basic Setting Layout component with three tabs: "Your Account," "Billing," and "Authentication." Each tab is associated with a corresponding content section.
 
+## Grouping Child Settings
+
+```html
+<div class="settings">
+
+    <!-- Tabs for navigation -->
+    <div class="tabs setting" nav-tb="sidebar">
+        <div class="h5 padding-cnt bold">Accounts Center</div>
+        <button tab-t=".account" tab-d class="button tab">
+            <div>Your Account</div>
+        </button>
+        <!-- Add more buttons for other sections if needed -->
+    </div>
+
+    <!-- Content sections -->
+    <div nav-tb="data">
+        
+        <!-- Account section -->
+        <div class="account" nav-tb-t=".account">
+            <div class="h2 bold" nav-tb="head">Your Account</div>
+            <div nav-tb="cnt">
+                <p>See information about your account, download an archive of your data, or learn about your account deactivation options.</p>
+                
+                <!-- Sub-tabs for account settings -->
+                <div class="tabs setting">
+                    <button tab-t=".personal-info" class="button tab">Personal Information</button>
+                    <button tab-t=".security" class="button tab">Security</button>
+                    <button tab-t=".notifications" class="button tab">Notifications</button>
+                </div>
+                
+                <!-- Personal Information group -->
+                <div class="personal-info" nav-tb-t=".personal-info">
+                    <div class="h2 bold" nav-tb="head">Personal Information</div>
+                    <div nav-tb="cnt">
+                        <!-- Personal info settings here -->
+                    </div>
+                </div>
+                
+                <!-- Security group -->
+                <div class="security" nav-tb-t=".security">
+                    <div class="h2 bold" nav-tb="head">Security</div>
+                    <div nav-tb="cnt">
+                        <!-- Security settings here -->
+                    </div>
+                </div>
+                
+                <!-- Notifications group -->
+                <div class="notifications" nav-tb-t=".notifications">
+                    <div class="h2 bold" nav-tb="head">Notifications</div>
+                    <div nav-tb="cnt">
+                        <!-- Notification settings here -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Add more sections as needed -->
+
+    </div>
+</div>
+
+```
+
 ### Conclusion
 
 The Setting Layout component provides a convenient and organized way to manage various settings within an application. By following the provided structure and options, developers can easily implement a customizable settings interface tailored to their application's requirements.
