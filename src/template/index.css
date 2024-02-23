@@ -34,6 +34,7 @@ header.d-m-down {
     flex: auto;
     overflow: hidden;
     overflow-y: auto;
+    position: relative;
 }
 
 .sidebar {
