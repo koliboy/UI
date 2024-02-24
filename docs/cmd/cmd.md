@@ -24,6 +24,10 @@ The HTML structure includes elements with custom attributes (`cmd-k`, `cmd-if`, 
        </div>   
   
   <input class="upload" type="file" cmd-k="o" cmd-if="ctrlKey"   cdm-p="true" cmd-event="click">
+
+<div  class="button cmd2" cmd-k="n" cmd-if="ctrlKey,altkey"  cmd-event="click">
+           Command Handal 
+       </div> 
 ```
 
 In this example:
