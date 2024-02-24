@@ -469,3 +469,37 @@ function $Visibility(from, to) {
     });
 
 }     
+
+function $cmd(key,conditions=false,prevent=false,call_back){
+     //$cmd("S","shiftKey,ctrlKey",false,function(){})
+     //$cmd("d","ctrlKey",false,function(){})
+    window.addEventListener('keydown', function(event) {
+       
+        if(conditions){   
+            var conditionMet = conditions.split(",").every(function(condition) {
+                return event[condition.trim()];
+            });     
+            
+           if(conditionMet && event.key == key){
+               if(typeof call_back == "function"){
+                   call_back.call(event,event);
+               }
+               if(prevent == true){
+                event.preventDefault();
+              }
+           }
+           
+        }else{
+           if(event.key == key){
+             if(typeof call_back == "function"){
+                   call_back.call(event,event);
+               }
+             if(prevent == true){
+                event.preventDefault();
+              }
+         } 
+        } 
+         
+    })
+    
+}
