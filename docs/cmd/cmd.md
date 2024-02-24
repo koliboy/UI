@@ -19,9 +19,9 @@ The HTML structure includes elements with custom attributes (`cmd-k`, `cmd-if`, 
     Command Handler
 </div>
 
-<div  class="button cmd2" cmd-k="k" cmd-if="ctrlKey,shiftKey"  cmd-event="click">
+ <div  class="button cmd2" cmd-k="K" cmd-if="ctrlKey,shiftKey"  cmd-event="click">
            Command Handal 
-       </div>  
+       </div>   
   
   <input class="upload" type="file" cmd-k="o" cmd-if="ctrlKey"   cdm-p="true" cmd-event="click">
 ```
