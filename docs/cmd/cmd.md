@@ -1,52 +1,43 @@
-# $cmd
-The $cmd function is a custom command handler designed to simplify the process of defining and executing commands based on keyboard events in JavaScript. It allows developers to specify key combinations and conditions under which a command should be executed.
+# HTML Structure with `cmd` 
 
-## `$cmd(key, conditions, prevent, callback)`
+The HTML structure includes elements with custom attributes (`cmd-k`, `cmd-if`, `cmd-p`, `cmd-event`) used to define custom commands and their behavior.
 
-The `$cmd` function is a custom command handler designed to listen for keyboard events and execute a callback function under specific conditions.
+### Attributes:
 
-### Parameters:
-
-- `key`: A string representing the key that triggers the callback function.
-- `conditions`: A string specifying one or more conditions that must be met for the callback to execute. Conditions are separated by commas and can include any combination of the following:
+- `cmd-k`: Specifies the key that triggers the command.
+- `cmd-if`: Specifies the conditions under which the command is triggered. Multiple conditions can be specified using commas (`,`). Available conditions:
   - `ctrlKey`: The Ctrl key must be pressed.
   - `shiftKey`: The Shift key must be pressed.
   - `altKey`: The Alt key must be pressed.
-- `prevent`: A boolean indicating whether to prevent the default behavior of the keyboard event when the conditions are met (`true` to prevent, `false` to allow the default behavior).
-- `callback`: A function to be executed when the specified key and conditions are met. The callback function receives the event object as its argument.
-
-### Usage:
-
-```javascript
-$cmd(key, conditions, prevent, callback)
-```
+- `cmd-p`: Specifies whether to prevent the default behavior of the event when the command is triggered (`true` to prevent, `false` to allow).
+- `cmd-event`: Specifies the event that triggers the command. Default is `click`.
 
 ### Example:
 
-```javascript
-// Example usage of $cmd
-$cmd("s", "ctrlKey", true, function(event) {
-    // Execute this function when Ctrl + S is pressed
-    console.log("Ctrl + S pressed");
-});
+```html
+<div class="button cmd" cmd-k="k" cmd-if="ctrlKey" cmd-p="true" cmd-event="click">
+    Command Handler
+</div>
 
-// or 
-$cmd("s", "ctrlKey,shiftKey", false, function(event) {
-    // Execute this function when Ctrl,shift + S is pressed
-    console.log("Ctrl + S pressed");
-});
+<div  class="button cmd2" cmd-k="k" cmd-if="ctrlKey,shiftKey"  cmd-event="click">
+           Command Handal 
+       </div>  
+  
+  <input class="upload" type="file" cmd-k="o" cmd-if="ctrlKey"   cdm-p="true" cmd-event="click">
 ```
 
 In this example:
-- The callback function logs a message to the console when the user presses Ctrl + S.
-- The `prevent` parameter is set to `true`, preventing the default behavior of the keyboard event.
+- The `<div>` element has the class `button` and `cmd`.
+- Pressing the `Ctrl + K` key combination triggers the command.
+- The condition `ctrlKey` ensures that the Ctrl key must be pressed for the command to be triggered.
+- `cmd-p` is set to `true`, indicating that the default behavior of the event should be prevented.
+- The command is triggered on the `click` event by default.
 
 ### Notes:
 
-- If `conditions` are not specified, the callback function will be executed when the specified key is pressed, regardless of any modifier keys.
-- Conditions are case-sensitive (`ctrlKey`, not `CtrlKey`).
-- The `prevent` parameter is optional and defaults to `false` if not explicitly provided.
+- Ensure that the custom attributes are properly set and correspond to the functionality defined in the associated JavaScript code.
+- Customize the attributes according to specific key combinations and event requirements.
 
----
 
-This documentation should help users understand how to use the `$cmd` function effectively in their JavaScript code. If you have any further questions or need additional clarification, feel free to ask!
+
+This documentation provides guidance on how to use the HTML structure with `cmd` attributes to define custom commands and their behavior. If you have any further questions or need additional clarification, feel free to ask!
