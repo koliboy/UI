@@ -158,3 +158,55 @@ Here's an example of a carousel with background images for each slide:
 </div>
 ```
 
+
+Here are some examples demonstrating different placements of carousel control buttons (`c-slider-btn`):
+
+### Example 1: Bottom Placement
+
+```html
+<div class="carousel" c-slider-type="loop" c-slider-btn="bottom">
+  <div class="carousel-ctn">  
+    <!-- Slide content goes here -->
+  </div>
+</div>
+```
+
+In this example, the control buttons (previous and next) are placed at the bottom of the carousel.
+
+### Example 2: Top Placement
+
+```html
+<div class="carousel" c-slider-type="loop" c-slider-btn="top">
+  <div class="carousel-ctn">  
+    <!-- Slide content goes here -->
+  </div>
+</div>
+```
+
+In this example, the control buttons (previous and next) are placed at the top of the carousel.
+
+### Example 3: Inner Placement
+
+```html
+<div class="carousel" c-slider-type="loop" c-slider-btn="inner">
+  <div class="carousel-ctn">  
+    <!-- Slide content goes here -->
+  </div>
+</div>
+```
+
+In this example, the control buttons (previous and next) are placed inside the carousel container.
+
+### Example 4: Outer Placement
+
+```html
+<div class="carousel" c-slider-type="loop" c-slider-btn="outer">
+  <div class="carousel-ctn">  
+    <!-- Slide content goes here -->
+  </div>
+</div>
+```
+
+In this example, the control buttons (previous and next) are placed outside the carousel container.
+
+You can choose the placement that best fits your design and layout requirements by setting the `c-slider-btn` attribute accordingly.
