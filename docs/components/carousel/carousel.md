@@ -210,3 +210,59 @@ In this example, the control buttons (previous and next) are placed inside the c
 In this example, the control buttons (previous and next) are placed outside the carousel container.
 
 You can choose the placement that best fits your design and layout requirements by setting the `c-slider-btn` attribute accordingly.
+
+Certainly! Here's an example of customizing the play animation for the carousel:
+
+```html
+<div class="carousel" c-slider-type="play" c-slider-tabs="t">
+  <div class="carousel-ctn">  
+    <!-- Slide content goes here -->
+  </div>
+</div>
+```
+
+```css
+/* Define custom animations */
+@keyframes custom-slider-play {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply custom animation for the play type carousel */
+.carousel[c-slider-type="play"] .carousel-ctn .x-item[is-current] {
+    animation-name: custom-slider-play;
+    animation-duration: 1s; /* Adjust the duration as needed */
+    animation-fill-mode: forwards;
+}
+```
+
+In this example:
+
+- We have a carousel with `c-slider-type="play"`, indicating that it automatically plays through the slides.
+- The `custom-slider-play` keyframes define the custom animation for transitioning between slides.
+- The animation moves the slides vertically (`transform: translateY()`) and fades them in (`opacity`) to provide a smooth transition effect.
+- Adjust the animation properties such as duration (`animation-duration`) and easing (`animation-timing-function`) according to your design preferences and requirements.
+
+It seems like you're trying to select elements based on multiple conditions within a CSS selector. Unfortunately, CSS does not support selecting elements based on multiple conditions like you've attempted. Instead, you would need to separate these conditions into individual selectors or use a more specific approach.
+
+If you want to style elements with both `is-current` and `play-delay` attributes under a carousel with `c-slider-type="play"`, you would need to apply separate styles for each condition. Here's how you can do it:
+
+```css
+/* Style for elements with is-current attribute */
+.carousel[c-slider-type="play"] .carousel-ctn .x-item[is-current] {
+    /* Your styles here */
+}
+
+/* Style for elements with play-delay attribute */
+.carousel[c-slider-type="play"] .carousel-ctn .x-item[play-delay] {
+    /* Your styles here */
+}
+```
+
+If you're looking to style elements that have both attributes simultaneously, CSS cannot directly handle that. You may need to use JavaScript to apply styles based on multiple conditions or consider restructuring your HTML/CSS to accommodate your styling needs differently.
