@@ -115,3 +115,22 @@ The carousel component allows you to create a slideshow of content with various 
 ```
 
 This documentation provides a comprehensive overview of the carousel component, its options, and usage examples to help you integrate it effectively into your projects.
+
+Here's an example of a carousel with background images for each slide:
+
+```html
+<div class="carousel" c-slider-type="loop" c-slider-tabs="t">
+  <div class="carousel-ctn">  
+    <div class="x-item" style="background-image: url('image1.jpg');">
+      <!-- Content for Slide 1 -->
+    </div>
+    <div class="x-item" style="background-image: url('image2.jpg');">
+      <!-- Content for Slide 2 -->
+    </div> 
+    <div class="x-item" style="background-image: url('image3.jpg');">
+      <!-- Content for Slide 3 -->
+    </div> 
+  </div>
+</div>
+```
+
