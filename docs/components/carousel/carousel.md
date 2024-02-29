@@ -26,6 +26,30 @@ The carousel component allows you to create a slideshow of content with various 
 
 5. **c-slider-delay**: (Default: None) Specifies the delay time for auto-play in "play" mode.
 
+### Adjus
+Here's the adjusted CSS code with the provided comments:
+
+```css
+/* Adjust */
+.carousel {
+    max-width: 800px; /* Set the maximum width of the carousel */
+    height: auto; /* Allow the height to adjust automatically */
+}
+
+/* Default .x-item 100%; height: auto */
+
+/* Customize */
+.carousel-ctn .x-item {
+    min-width: 70%; 
+}
+```
+
+In this adjusted CSS:
+
+- The `.carousel` class has a `max-width` property set to `800px` to limit the maximum width of the carousel container.
+- The `.carousel` class also has a `height` property set to `auto` to allow the height of the carousel to adjust automatically based on its content.
+
+- 
 ### Examples:
 
 #### Default:
