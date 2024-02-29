@@ -8,7 +8,7 @@ The carousel component allows you to create a slideshow of content with various 
 1. **c-slider-type**: (Default: "autom") Specifies the type of carousel behavior.
    - "play": Auto-plays the carousel.
    - "loop": Allows looping through slides continuously.
-   - "contain": Contains the slides without sliding them automatically.
+   - "contain": Contains the slides  sliding .
 
 2. **c-slider-btn**: (Default: "bottom") Specifies the placement of navigation buttons.
    - "top": Places navigation buttons at the top of the carousel.
