@@ -22,6 +22,11 @@ The table component allows you to display tabular data in a structured format on
       <td>Data 2</td>
       <td>Data 3</td>
     </tr>
+    <tr>
+      <td>Data 3</td>
+      <td>Data 4</td>
+      <td>Data 5</td>
+    </tr>
   </table>
 </div>
 ```
