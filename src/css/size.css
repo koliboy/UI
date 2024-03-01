@@ -1,0 +1,31 @@
+.size-f-60 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.60));
+ }
+
+ .size-f-50 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.50));
+ }
+ 
+ .size-f-40 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.40));
+ }
+ 
+ .size-f-30 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.30));
+ }
+ 
+.size-f-20 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.20));
+ }
+ 
+.size-f-10 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.10));
+ }
+ 
+.size-f-7 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.07));
+ }
+ 
+.size-f-5 {
+     font-size: calc(var(--font-size) + calc(var(--font-size) * 0.05));
+ }
