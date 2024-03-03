@@ -1,37 +1,32 @@
 # koliui
-"evn": {
-    "g": {
-        "e": "bindEvent",
-        "c": "cmd",
-        "t": "template",
-        "hl": "http-load"
-    },
-    "c": {
-        "a": "alert",
-        "at": "avatar",
-        "bc": "breadcrumbs",
-        "b": "button",
-        "cb": "clipboard",
-        "c": "collapsible",
-        "dl": "dialog",
-        "d": "dropdown",
-        "i": "image",
-        "l": "loader",
-        "ms": "share-mdl",
-        "p": "pagination",
-        "pt": "pop-title",
-        "t": "table",
-        "tb": "tabs",
-        "tk": "tabstack"
-    },
-    "f": {
-        "c": "checkbox",
-        "i": "input",
-        "p": "progress",
-        "r": "radio",
-        "rg": "range",
-        "s": "select",
-        "t": "textarea"
-    }
-}
+| Category | Abbreviation | Description       |
+|----------|--------------|-------------------|
+| g        | bindEvent    | Command           |
+| g        | cmd          | Template          |
+| g        | template     | HTTP Load         |
+| g        | http-load    |                   |
+| c        | alert        | Alert             |
+| c        | avatar       | Avatar            |
+| c        | breadcrumbs  | Breadcrumbs       |
+| c        | button       | Button            |
+| c        | clipboard    | Clipboard         |
+| c        | collapsible  | Collapsible       |
+| c        | dialog       | Dialog            |
+| c        | dropdown     | Dropdown          |
+| c        | image        | Image             |
+| c        | loader       | Loader            |
+| c        | share-mdl    | Share Modal       |
+| c        | pagination   | Pagination        |
+| c        | pop-title    | Pop Title         |
+| c        | table        | Table             |
+| c        | tabs         | Tabs              |
+| c        | tabstack     | Tab Stack         |
+| f        | checkbox     | Checkbox          |
+| f        | input        | Input             |
+| f        | progress     | Progress          |
+| f        | radio        | Radio             |
+| f        | range        | Range             |
+| f        | select       | Select            |
+| f        | textarea     | Textarea          |
+
 
