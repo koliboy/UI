@@ -1,6 +1,5 @@
 Apologies for the confusion. Here's the corrected Markdown table:
 
-```markdown
 | Category | Abbreviation | Description   |
 |----------|--------------|---------------|
 | g        | e            | bindEvent     |
@@ -30,6 +29,6 @@ Apologies for the confusion. Here's the corrected Markdown table:
 | f        | rg           | range         |
 | f        | s            | select        |
 | f        | t            | textarea      |
-```
+
 
 Now, each row correctly represents the category, abbreviation, and description according to the provided JSON. Let me know if you need further assistance!
