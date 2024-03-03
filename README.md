@@ -1,5 +1,8 @@
 Apologies for the confusion. Here's the corrected Markdown table:
-
+```html
+<link href="/v1/import.css?c=b&f=i" rel="stylesheet" type="text/css">
+  <script src="/v1/import.js?c=b&f=i"></script>    
+```
 | Category | Abbreviation | Description   |
 |----------|--------------|---------------|
 | g        | e            | bindEvent     |
