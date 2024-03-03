@@ -1,32 +1,35 @@
-# koliui
-| Category | Abbreviation | Description       |
-|----------|--------------|-------------------|
-| g        | bindEvent    | Command           |
-| g        | cmd          | Template          |
-| g        | template     | HTTP Load         |
-| g        | http-load    |                   |
-| c        | alert        | Alert             |
-| c        | avatar       | Avatar            |
-| c        | breadcrumbs  | Breadcrumbs       |
-| c        | button       | Button            |
-| c        | clipboard    | Clipboard         |
-| c        | collapsible  | Collapsible       |
-| c        | dialog       | Dialog            |
-| c        | dropdown     | Dropdown          |
-| c        | image        | Image             |
-| c        | loader       | Loader            |
-| c        | share-mdl    | Share Modal       |
-| c        | pagination   | Pagination        |
-| c        | pop-title    | Pop Title         |
-| c        | table        | Table             |
-| c        | tabs         | Tabs              |
-| c        | tabstack     | Tab Stack         |
-| f        | checkbox     | Checkbox          |
-| f        | input        | Input             |
-| f        | progress     | Progress          |
-| f        | radio        | Radio             |
-| f        | range        | Range             |
-| f        | select       | Select            |
-| f        | textarea     | Textarea          |
+Apologies for the confusion. Here's the corrected Markdown table:
 
+```markdown
+| Category | Abbreviation | Description   |
+|----------|--------------|---------------|
+| g        | e            | bindEvent     |
+| g        | c            | cmd           |
+| g        | t            | template      |
+| g        | hl           | http-load     |
+| c        | a            | alert         |
+| c        | at           | avatar        |
+| c        | bc           | breadcrumbs   |
+| c        | b            | button        |
+| c        | cb           | clipboard     |
+| c        | c            | collapsible   |
+| c        | dl           | dialog        |
+| c        | d            | dropdown      |
+| c        | i            | image         |
+| c        | l            | loader        |
+| c        | ms           | share-mdl     |
+| c        | p            | pagination    |
+| c        | pt           | pop-title     |
+| c        | t            | table         |
+| c        | tb           | tabs          |
+| c        | tk           | tabstack      |
+| f        | c            | checkbox      |
+| f        | i            | input         |
+| f        | p            | progress      |
+| f        | r            | radio         |
+| f        | rg           | range         |
+| f        | s            | select        |
+| f        | t            | textarea      |
+```
 
+Now, each row correctly represents the category, abbreviation, and description according to the provided JSON. Let me know if you need further assistance!
