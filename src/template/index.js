@@ -200,4 +200,32 @@
 
     });
 
+    /*alway auto sidebar*/
+function auto_mode() {
+    if ($getDeviceType() == "Desktop" && $sizeMobile()) {
+        this.setAttribute("open", "");
+    } else {
+        this.setAttribute("open", "always");
+    }
+}
+
+function autoreszie(self) {
+    window.addEventListener("resize", function () {
+        auto_mode.call(self)
+    });
+}
+
+setInterval(function () {
+    var resp_d_m = $qsall(".sidebar[open='always']");
+    resp_d_m.forEach(function (s) {
+        if (s.getAttribute("set-auto_alays_co") == null) {
+            s.setAttribute("set-auto_alays_co", "t")
+            auto_mode.call(s);
+            autoreszie(s)
+        }
+
+    });
+});
+    
 }(); 
+
