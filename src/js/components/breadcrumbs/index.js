@@ -32,7 +32,7 @@
               bread += `
       <div class="flex breadcrumbs-p center-tb center">
       <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <path d="M6.5234375 3.1484375L5.4765625 4.8515625L17.09375 12L5.4765625 19.148438L6.5234375 20.851562L20.908203 12L6.5234375 3.1484375 z"/>
+  <path d="M10 5.9296875L8.5 7.4296875L13.070312 12L8.5 16.570312L10 18.070312L16.070312 12L10 5.9296875 z"/>
 </svg></div>
       <a  href="${hostname}/${isb}">${decodeURI(p)}</a>
       </div>
